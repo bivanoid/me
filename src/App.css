@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Bokor&family=Suez+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css');
+:root {
+  --primary: rgb(10, 10, 10);
+  --grey: rgb(59, 59, 59);
+  --button: rgb(248, 248, 248);
+  --secondfont: "Germania One", system-ui;
+  --primaryfont: "Space Grotesk", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  scroll-behavior: smooth;
+    user-select: none;
+      /* Mencegah seleksi teks */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  width: 100%;
+  background-color: var(--primary);
+  min-height: 100dvh;
 }
 
-.App-link {
-  color: #61dafb;
+.body {
+
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.number {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.658);
+  top: 0px;
+  left: 30px;
+  font-size: 18px;
+}
+
+.number {
+  top: 30px;
+}
+
+@media (max-width:700px) {
+  .number {
+      top: 0px;
+    }
 }
