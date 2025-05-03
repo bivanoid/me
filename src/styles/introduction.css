@@ -51,6 +51,14 @@ p {
     color: var(--button);
     font-size: 20px;
     animation: arrow-to-sc2 14s linear infinite;
+    scale: 1;
+    transition: 0.7s;
+}
+
+.arrow-to-sc2:hover {
+    border-color: var(--button);
+    scale: 0.9;
+    opacity: 0.9;
 }
 
 @keyframes arrow-to-sc2 {

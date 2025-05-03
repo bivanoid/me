@@ -11,6 +11,7 @@
     color: white;
     height: 87px;
     top: 0;
+    position: relative;
     z-index: 100;
     padding-inline: 30px;
     font-family: var(--primaryfont);
@@ -69,6 +70,18 @@
 .close, .logo-menu {
     display: none;
 }
+
+
+ /* #thecontent::before {
+    content: '';
+    width: 100%;
+    position: fixed;
+    height: 87px;
+    background-color: transparent;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.473) 20%, rgba(255, 0, 0, 0) 100%);
+    top: 0;
+    z-index: 99;
+ } */
 
 @media (max-width:700px) {
     .navigation {

@@ -1,0 +1,149 @@
+.con-swiper {
+    width: 100%;
+    height: max-content;
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+
+
+.swiper {
+    width: 100%;
+    
+
+}
+
+.title-swiper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.title-swiper h1 {
+    color: white;
+    font-weight: 400;
+    font-size: clamp(1em, 4em, 5em);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.title-swiper p {
+    font-size: 15px;
+    font-weight: 200;
+    opacity: 0.7;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+
+.swiper-slide {
+    height: 20em;
+    text-align: left;
+    font-size: 18px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%);
+}
+
+.gambar {
+    transition: 0.15s;
+}
+
+.gambar h1 {
+    background-color: var(--primary);
+    border: 2px solid rgba(255, 255, 255, 0.055);
+    color: rgb(255, 255, 255);
+    padding: 6px;
+    font-size: 13px;
+    margin: 0;
+}
+
+.mySwiper:hover .gambar {
+    filter: brightness(40%) grayscale(100%);
+}
+
+.mySwiper .gambar:hover {
+    filter: none;
+}
+
+.gambar1 {
+    background: url(../assets/iklanbicture.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-slide img {
+    display: block;
+    object-fit: cover;
+}
+
+.con-all-project {
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    color: white;
+    justify-content: flex-end;
+}
+
+.con-all-project p {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 30px;
+}
+
+.circle-arrow-all-project {
+    padding: 20px;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 70px;
+    border: 2px dashed var(--grey);
+    border-width: 2px;
+
+    display: grid;
+    place-items: center;
+    color: var(--button);
+    font-size: 20px;
+    animation: arrow-to-sc2 14s linear infinite;
+    scale: 1;
+    transition: 0.7s;
+}
+
+.circle-arrow-all-project i {
+    animation: i 14s linear infinite;
+    transform: translateY(2px);
+
+}
+
+.circle-arrow-all-project:hover {
+    border-color: var(--button);
+    scale: 0.9;
+    opacity: 0.9;
+}
+
+@media (max-width:700px) {
+    .title-swiper h1 {
+        font-size: clamp(1em, 2em, 5em);
+    }
+
+    .con-all-project {
+       display: flex;
+       margin-top: 30px;
+       align-items: center;
+       color: white;
+       justify-content: flex-start;
+    }
+
+    .con-all-project p {
+        font-size: 16px;
+    }
+
+    .circle-arrow-all-project {
+        width: 30px;
+        aspect-ratio: 1/1;
+        border-radius: 200px;
+    }
+}

@@ -1,14 +1,29 @@
 
 import '../styles/aboutme.css';
 
+
+
 function Biodata() {
+    var ya = document.getElementById('inp');
+
+        // Fungsi untuk memantau posisi scroll
+        // window.onscroll = function() {
+        //     if (ya.scrollTop > 400 || document.documentElement.scrollTop > 650) {
+        //         ya.style.filter = "grayscale(100%) brightness(20%)"; 
+                
+        //     } else {
+        //         ya.style.filter = "grayscale(0%)"; 
+        //     }
+        // };
     return (
             <div className='con-sticky'>
                 <div className='sticky'>
                     
-                        <div className='image-profile'></div>
-                        <h3>Firdhan Abivandya.</h3>
-                        <div className='bio'>
+                        
+                        <div className='image-profile' id='inp'></div>
+                        <h3 id='namamu'>Firdhan Abivandya.</h3>
+                        
+                        <div className='bio' id='bio'>
                             <h1>Information</h1>
                             <ul className='list-bio'>
                                 <li>
