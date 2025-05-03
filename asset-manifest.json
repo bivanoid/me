@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/website1react/static/css/main.c5fac32a.css",
+    "main.js": "/website1react/static/js/main.e957a6a8.js",
+    "static/media/iklanbicture.jpg": "/website1react/static/media/iklanbicture.3bfaaecc26655ee587cf.jpg",
+    "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/website1react/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
+    "static/media/download.jpeg": "/website1react/static/media/download.e24f2be8f4507a47d499.jpeg",
+    "index.html": "/website1react/index.html",
+    "main.c5fac32a.css.map": "/website1react/static/css/main.c5fac32a.css.map",
+    "main.e957a6a8.js.map": "/website1react/static/js/main.e957a6a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5fac32a.css",
+    "static/js/main.e957a6a8.js"
+  ]
+}
