@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: calc(100dvh - 87px);
+    height: calc(100vh - 87px);
     position: relative;
     padding-inline: 30px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.055);
