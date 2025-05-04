@@ -6,8 +6,8 @@ import HorizontalSlider from './horizontalslider'; // sesuaikan dengan path kamu
 function AboutMe() {
 
     return (
-        <div className='section2' id='sc2'>
-            <p className='number number2'>02</p>
+        <div className='section2' >
+            <p className='number number2' id='sc2'>02</p>
             <Biodata/>
         
             <div className='contents'>
