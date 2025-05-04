@@ -50,6 +50,7 @@
 
 .gambar {
     transition: 0.15s;
+    
 }
 
 .gambar h1 {
@@ -69,10 +70,34 @@
     filter: none;
 }
 
+.gambar {
+    background-position: center;
+        background-size: cover;
+}
+
 .gambar1 {
     background: url(../assets/iklanbicture.jpg);
     background-position: center;
-    background-size: cover;
+        background-size: cover;
+   
+}
+.gambar2 {
+    background: url(../assets/kapal\ \(1\).jpg);
+    background-position: center;
+        background-size: cover;
+   
+}
+.gambar3 {
+    background: url(../assets/langit.jpg);
+    background-position: center;
+        background-size: cover;
+   
+}
+.gambar4 {
+    background: url(../assets/salju.jpg);
+    background-position: center;
+        background-size: cover;
+   
 }
 
 .swiper-slide img {

@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: calc(100vh - 87px);
+    height: calc(100dvh - 87px);
     position: relative;
     padding-inline: 30px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.055);
@@ -41,6 +41,7 @@ p {
 .arrow-to-sc2 {
     padding: 20px;
     width: 50px;
+    height: 50px;
     aspect-ratio: 1/1;
     border-radius: 70px;
     border: 2px dashed var(--grey);
@@ -91,6 +92,7 @@ p {
     .section {
         flex-direction: column-reverse;
         margin-top: 87px;
+        padding-bottom: 50px;
     }
 
     .text {
@@ -120,9 +122,7 @@ p {
         clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 99%, 0 20%);
     }
 
-    .arrow-to-sc2 {
-        margin-bottom: 50px;
-    }
+
 }
 
 @media (max-width:1000px) {
