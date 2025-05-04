@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/website1react/static/css/main.e1604887.css",
+    "main.css": "/website1react/static/css/main.479ffbfd.css",
     "main.js": "/website1react/static/js/main.1b78ad36.js",
+    "static/media/langit.jpg": "/website1react/static/media/langit.d9c4dc75bfd4132adb35.jpg",
+    "static/media/salju.jpg": "/website1react/static/media/salju.475ecec13513ff7f11c0.jpg",
     "static/media/iklanbicture.jpg": "/website1react/static/media/iklanbicture.3bfaaecc26655ee587cf.jpg",
+    "static/media/kapal (1).jpg": "/website1react/static/media/kapal (1).d149d686c6162798df86.jpg",
     "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/website1react/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
     "static/media/download.jpeg": "/website1react/static/media/download.e24f2be8f4507a47d499.jpeg",
     "index.html": "/website1react/index.html",
-    "main.e1604887.css.map": "/website1react/static/css/main.e1604887.css.map",
+    "main.479ffbfd.css.map": "/website1react/static/css/main.479ffbfd.css.map",
     "main.1b78ad36.js.map": "/website1react/static/js/main.1b78ad36.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1604887.css",
+    "static/css/main.479ffbfd.css",
     "static/js/main.1b78ad36.js"
   ]
 }
