@@ -1,8 +1,9 @@
 .con-swiper {
     width: 100%;
-    height: max-content;
+    height: calc(fit-content - 30px);
     padding-top: 30px;
     overflow: hidden;
+    position: relative;
 }
 
 
@@ -149,6 +150,26 @@
     opacity: 0.9;
 }
 
+.fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+}
+
+.fullscreen-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
 @media (max-width:700px) {
     .title-swiper h1 {
         font-size: clamp(1em, 2em, 5em);
@@ -171,24 +192,21 @@
         aspect-ratio: 1/1;
         border-radius: 200px;
     }
-}
 
-.fullscreen-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    
-}
+    .fullscreen-overlay {
+        width: calc(100% - 60px);
+        display: grid;
+        place-items: center;
+        top: 90vh;
+        overflow: hidden;
+        position: fixed;
+        z-index: 1000;
 
-.fullscreen-overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
+    }
+
+    .fullscreen-overlay img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
 }

@@ -17,36 +17,37 @@ import { Pagination } from 'swiper/modules';
 export default function HorizontalSlider() {
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
-  const handleImageClick = (e) => {
-  const slide = e.currentTarget;
-  const bgImage = window.getComputedStyle(slide).backgroundImage;
-  const urlMatch = bgImage.match(/url\("(.*)"\)/);
-  if (urlMatch) {
+
+const handleImageClick = (e) => {
+const slide = e.currentTarget;
+const bgImage = window.getComputedStyle(slide).backgroundImage;
+const urlMatch = bgImage.match(/url\("(.*)"\)/);
+if (urlMatch) {
     setFullscreenImage(urlMatch[1]);
-  }
-};
+}};
 
-
-  const closeFullscreen = () => {
+const closeFullscreen = () => {
     setFullscreenImage(null);
-  };
+};
+ 
   return (
     <div className='con-swiper'>
+ 
       <div className='title-swiper'><h1>What recent i do</h1> <p>slide</p></div>
       <Swiper
-  slidesPerView={2}
-  spaceBetween={30}
-  breakpoints={{
-    0: {
-      slidesPerView: 1,
-    },
-    701: {
-      slidesPerView: 2,
-    }
-  }}
-  modules={[Pagination]}
-  className="mySwiper"
->
+        slidesPerView={2}
+        spaceBetween={30}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          701: {
+            slidesPerView: 2,
+          }
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
         <SwiperSlide onClick={handleImageClick} className='gambar gambar1'>
           <h1>Bicture Apps (Gallery Photo Online)</h1>
         </SwiperSlide>
@@ -61,14 +62,16 @@ export default function HorizontalSlider() {
         </SwiperSlide>
 
       </Swiper>
+      {fullscreenImage && (
+        <div className="fullscreen-overlay" onClick={closeFullscreen}>
+            <img src={fullscreenImage} alt="Fullscreen" />
+        </div>
+        )}
+      
       <div className='con-all-project'>
         <div className='circle-arrow-all-project'><i class="fi fi-rs-arrow-right"></i></div><p>See All</p>
       </div>
-      {fullscreenImage && (
-        <div className="fullscreen-overlay" onClick={closeFullscreen}>
-          <img src={fullscreenImage} alt="Fullscreen" />
-        </div>
-      )}
+     
     </div>
   );
 

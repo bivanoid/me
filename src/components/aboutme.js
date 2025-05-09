@@ -1,7 +1,7 @@
 import '../styles/aboutme.css'
 import Biodata from './biodata';
 import HorizontalSlider from './horizontalslider'; // sesuaikan dengan path kamu
-
+import Feedback from './feedback';
 
 function AboutMe() {
 
@@ -35,6 +35,7 @@ Driven by a strong passion for learning and self-improvement, I am fully prepare
                 </div>
 
                 <HorizontalSlider/>
+                <Feedback/>
             </div>
             
         </div>

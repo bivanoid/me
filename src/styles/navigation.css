@@ -95,7 +95,7 @@
             color: white;
             height: 87px;
             position: fixed;
-            top: 0;
+            top: 0px;
             z-index: 100;
             padding-inline: 30px;
             font-family: var(--primaryfont);
