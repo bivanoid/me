@@ -82,19 +82,19 @@
    
 }
 .gambar2 {
-    background: url(../assets/kapal\ \(1\).jpg);
+    background: url(../assets/riyadh.png);
     background-position: center;
         background-size: cover;
    
 }
 .gambar3 {
-    background: url(../assets/langit.jpg);
+    background: url(../assets/kasir.png);
     background-position: center;
         background-size: cover;
    
 }
 .gambar4 {
-    background: url(../assets/salju.jpg);
+    background: url(../assets/todolist.png);
     background-position: center;
         background-size: cover;
    
@@ -171,4 +171,24 @@
         aspect-ratio: 1/1;
         border-radius: 200px;
     }
+}
+
+.fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    
+}
+
+.fullscreen-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
