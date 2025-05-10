@@ -33,15 +33,19 @@ export default function HorizontalSlider({ onImageClick }) {
         className="mySwiper"
       >
         <SwiperSlide onClick={handleImageClick} className='gambar gambar1'>
+          <div className='null'></div>
           <h1>Bicture Apps (Gallery Photo Online)</h1>
         </SwiperSlide>
         <SwiperSlide onClick={handleImageClick} className='gambar gambar2'>
+          <div className='null'></div>
           <h1>Al-Quran Website</h1>
         </SwiperSlide>
         <SwiperSlide onClick={handleImageClick} className='gambar gambar3'>
+          <div className='null'></div>
           <h1>Administration</h1>
         </SwiperSlide>
         <SwiperSlide onClick={handleImageClick} className='gambar gambar4'>
+          <div className='null'></div>
           <h1>To do List</h1>
         </SwiperSlide>
       </Swiper>

@@ -155,6 +155,7 @@
     height: calc(fit-content);
     position: relative;
     padding-inline: 30px;
+    padding-bottom: 30px;
 }
 
 .abouts {

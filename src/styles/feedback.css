@@ -14,7 +14,7 @@
 .con-user-feedback {
     padding: 0;
     list-style: none;
-    height: 100%;
+    height: fit-content;
     
 }
 
@@ -28,6 +28,62 @@
     padding: 40px;
     height: calc(fit-content + 20px);
     transition: 0.8s;
+}
+
+.link-to-addfeedback {
+        width: 260px;
+        overflow: hidden;
+        position: relative;
+        height: 60px;
+        border-radius: 0px;
+        border: 2px dashed var(--grey);
+        border-width: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--button);
+        font-size: 15px;
+        width: max-content;
+        margin-left: auto;
+        scale: 1;
+        transition: 0.2s;
+}
+
+.link-to-addfeedback i {
+        transform: translateY(2px);
+    opacity: 0.5;
+    margin-right: 10px;
+}
+
+.link-to-addfeedback-title1 {
+    width: 100%;
+    height: 100%;
+    padding-inline: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.link-to-addfeedback-title2 {
+    width: 100%;
+    height: 100%;
+    padding-inline: 20px;
+    transform: translateX(-100%);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.link-to-addfeedback:hover .link-to-addfeedback-title1{
+    transform: translateX(100%);
+}
+
+.link-to-addfeedback:hover .link-to-addfeedback-title2 {
+    transform: translateX(0%);
 }
 
 @media (min-width:700px) {
@@ -62,6 +118,8 @@
     text-align: center;
     line-height: 13px;
     padding-block: 10px;
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
     width: calc(40%);
 }
 
@@ -80,6 +138,7 @@
         justify-content: space-around;
         border-bottom: 2px solid var(--border);
         padding: 20px;
+        padding-left: 0px;
         margin-block: auto;
         height: calc(fit-content + 90px);
         transition: 0.8s;   
@@ -90,6 +149,7 @@
         color: white;
         width: 30px;
         font-size: 12px;
+        margin-right: 10px;
         text-transform: lowercase;   
         opacity: 0.6;
     }
@@ -103,7 +163,7 @@
     }
 
     .user-feedback .usertext {
-        margin-left: 30px;
+        margin-left: 35px;
         width: calc(100% - 80px);
 
         text-align: left;
@@ -111,6 +171,6 @@
 
     .user-feedback .userdate {
         font-size: clamp(9px, 13px, 20px);
-        margin-left: 30px;
+        margin-left: 35px;
     }
 }

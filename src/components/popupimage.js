@@ -8,6 +8,7 @@ export default function PopupImage({ imageUrl, onClose }) {
   return (
     <div className="fullscreen-overlay" onClick={onClose}>
       <img src={imageUrl} alt="Fullscreen" />
+      
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import '../styles/feedback.css';
+import { Link } from 'react-router-dom';
 const supabaseUrl = 'https://gyzebdhodmnzpdufivol.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5emViZGhvZG1uenBkdWZpdm9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5OTE4ODcsImV4cCI6MjA2MTU2Nzg4N30.1XYTKLxTMHocFRM5QfCTPiRQYyE8hhZMAtFrKib8dqc';
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -33,6 +34,7 @@ function Feedback() {
   return (
     <div className='feedback'>
       <h2 >Latest Feedback</h2>
+      
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
       {!loading && users.length === 0 && <p>No feedback yet.</p>}
@@ -48,6 +50,10 @@ function Feedback() {
           );
         })}
       </ul>
+      <Link className='link-to-addfeedback' to="/add-feedback">
+        <div className='link-to-addfeedback-title1'><i class="fi fi-rs-plus"></i>Add Comment</div>
+        <div className='link-to-addfeedback-title2'><i class="fi fi-rs-arrow-right"></i></div>
+      </Link>
     </div>
   );
 }

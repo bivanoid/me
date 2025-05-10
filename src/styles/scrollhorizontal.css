@@ -42,6 +42,7 @@
     height: 20em;
     text-align: left;
     font-size: 18px;
+    height: 300px;
     background: #fff;
     overflow: hidden;
     display: flex;
@@ -51,7 +52,8 @@
 
 .gambar {
     transition: 0.15s;
-    
+    height: 300px;
+    width: 300px;
 }
 
 .gambar h1 {
@@ -74,6 +76,11 @@
 .gambar {
     background-position: center;
         background-size: cover;
+}
+
+.null {
+    height: fit-content;
+    aspect-ratio: 1/1;
 }
 
 .gambar1 {
@@ -141,7 +148,6 @@
 .circle-arrow-all-project i {
     animation: i 14s linear infinite;
     transform: translateY(2px);
-
 }
 
 .circle-arrow-all-project:hover {
