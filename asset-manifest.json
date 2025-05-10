@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/website1react/static/css/main.adde1f94.css",
-    "main.js": "/website1react/static/js/main.93a6be55.js",
+    "main.css": "/website1react/static/css/main.66406ea5.css",
+    "main.js": "/website1react/static/js/main.8ab0943b.js",
     "static/js/952.62984ca5.chunk.js": "/website1react/static/js/952.62984ca5.chunk.js",
     "static/media/iklanbicture.jpg": "/website1react/static/media/iklanbicture.3bfaaecc26655ee587cf.jpg",
     "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/website1react/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
@@ -10,12 +10,12 @@
     "static/media/kasir.png": "/website1react/static/media/kasir.be2951937eb04ad52bdf.png",
     "static/media/todolist.png": "/website1react/static/media/todolist.ffb9e468dab960c94371.png",
     "index.html": "/website1react/index.html",
-    "main.adde1f94.css.map": "/website1react/static/css/main.adde1f94.css.map",
-    "main.93a6be55.js.map": "/website1react/static/js/main.93a6be55.js.map",
+    "main.66406ea5.css.map": "/website1react/static/css/main.66406ea5.css.map",
+    "main.8ab0943b.js.map": "/website1react/static/js/main.8ab0943b.js.map",
     "952.62984ca5.chunk.js.map": "/website1react/static/js/952.62984ca5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.adde1f94.css",
-    "static/js/main.93a6be55.js"
+    "static/css/main.66406ea5.css",
+    "static/js/main.8ab0943b.js"
   ]
 }
