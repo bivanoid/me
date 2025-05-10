@@ -3,7 +3,8 @@ import Biodata from './biodata';
 import HorizontalSlider from './horizontalslider'; // sesuaikan dengan path kamu
 import Feedback from './feedback';
 
-function AboutMe() {
+function AboutMe({ onImageClick }) {
+
 
     return (
         <div className='section2' >
@@ -34,7 +35,7 @@ Driven by a strong passion for learning and self-improvement, I am fully prepare
                     
                 </div>
 
-                <HorizontalSlider/>
+                <HorizontalSlider onImageClick={onImageClick}/>
                 <Feedback/>
             </div>
             

@@ -3,12 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css');
 :root {
-  --primary: rgb(10, 10, 10);
+  --primary: #0a0a0a;
   --grey: rgb(59, 59, 59);
-  --button: rgb(248, 248, 248);
+  --button: #f8f8f8;
   --border: rgba(255, 255, 255, 0.055);
   --secondfont: "Germania One", system-ui;
   --primaryfont: "Space Grotesk", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 a {
@@ -28,12 +37,7 @@ a {
 body {
   width: 100%;
   background-color: var(--primary);
-  min-height: 100dvh;
-}
-
-.body {
-
-  
+  min-height: 100vh;
 }
 
 .number {
@@ -41,24 +45,18 @@ body {
   color: rgba(255, 255, 255, 0.658);
   top: 0px;
   left: 30px;
+  margin: 0;
+  margin-top: 20px;
   font-size: 18px;
-}
-
-
-
-
-
-.number {
-  top: 30px;
 }
 
 @media (max-width:700px) {
   .number {
-    top: 0px;
+    top: -20px;
   }
 
   .number2 {
-    padding-top: 117px;
-    top: -97px;
+    padding-top: 87px;
+    top: -92px;
   }
 }

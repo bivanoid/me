@@ -24,17 +24,19 @@
     position: sticky;
     padding: 20px;
     display: flex;
+    justify-content: space-between;
     height: calc(100vh - 40px);
     flex-direction: column;
     top: 0;
 }
 
-.sticky h3 {
+.sticky h1 {
     font-size: 30px;
     color: var(--button);
     font-weight: 400;
     opacity: 0.5;
-    line-height: 0.2;
+    margin-block: 0.5em;
+    line-height: 0.8;
 }
 
 .image-profile {
@@ -47,21 +49,23 @@
 
 .bio {
     width: calc(100% - 40px);
-    background: linear-gradient(250deg, rgba(255, 255, 255, 0.055)100%, rgba(255, 255, 255, 0.062)0%);
-    border: 2px solid rgba(255, 255, 255, 0.055);
-    border-radius: 7px;
+    background-color: var(--primary);
+        border: 2px dashed rgba(255, 255, 255, 0.055);
+    border-radius: 2px;
     color: white;
+    height: 100%;
     padding: 20px;
 }
 
 .contactme {
     width: 100%;
-    padding-block: 20px;
+    padding-block: 0px;
     background-color: var(--button);
     display: grid;
     place-items: center;
     margin-top: 12px;
     font-weight: 800;
+    min-height: 60px;
 }
 
 .bio h1 {
@@ -100,6 +104,13 @@
         .bio .list-bio li {
             flex-direction: row;
         }
+        .image-profile {
+            background: url(../assets/e3b4ba54-3742-495d-aa8e-1e0c75f69437\ \(1\).jpg);
+            width: 100%;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            background-position: center;
+            background-size: cover;       }
     }
 }
 
@@ -156,7 +167,7 @@
     border-bottom: 2px solid rgba(255, 255, 255, 0.055);
 }
 
-.abouts::after {
+/* .abouts::after {
     content: '';
     width: 10px;
     height: 10px;
@@ -170,7 +181,7 @@
     outline-offset: 2px;
     left: 0;
     clip-path: polygon(0 0, 0% 100%, 100% 50%);
-}
+} */
 
 .text-abouts {
     width: 50%;
@@ -248,12 +259,12 @@
 
 }
 
-.text-abouts:nth-child(1) {
+/* .text-abouts:nth-child(1) {
     padding-right: 20px;
 }
 .text-abouts:nth-child(2) {
     
-}
+} */
 
 .highlight {
     text-decoration: underline;
@@ -315,6 +326,7 @@
         display: flex;
         width: calc(100% - 40px);
         flex-direction: column;
+        padding-top: 0px;
         width: 100%;
         height: min-content;
     }

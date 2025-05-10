@@ -21,7 +21,7 @@ function Biodata() {
                     
                         
                         <div className='image-profile' id='inp'></div>
-                        <h3 id='namamu'>Firdhan Abivandya.</h3>
+                        <h1 id='namamu'>Firdhan Abivandya.</h1>
                         
                         <div className='bio' id='bio'>
                             <h1>Information</h1>
