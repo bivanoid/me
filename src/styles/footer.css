@@ -1,5 +1,7 @@
+@import url(../App.css);
+
 .footer {
-    background-color: var(--button);
+    border-top: 2px solid var(--border);
     height: 100vh;
     width: 100%;
 }

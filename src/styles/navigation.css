@@ -32,6 +32,7 @@
 .navigasi-menu {
     list-style: none;
     padding: 0px;
+    transition: 0.5s;
 }
 
 .arrow {
@@ -44,8 +45,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 124px;
+    min-width: 104px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.384);
+    transition: 0.2s;
+}
+
+.navigasi-menu:hover li {
+    opacity: 0.5;
+    
+}
+
+.navigasi-menu:hover li:hover {
+    opacity: 1;
+    background-color: var(--border);
+}
+
+.navigasi-menu li a {
+    display: flex;
+    justify-content: space-between;
+    color: var(--button);
+    align-items: center;
+    min-width: 104px;
 }
 
 .contact {

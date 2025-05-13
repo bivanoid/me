@@ -8,7 +8,8 @@ function AboutMe({ onImageClick }) {
 
     return (
         <div className='section2' >
-            <p className='number number2' id='sc2'>02</p>
+            
+            <p className='number number2' id='sc2'></p>
             <Biodata/>
         
             <div className='contents'>
@@ -34,7 +35,12 @@ Driven by a strong passion for learning and self-improvement, I am fully prepare
                      </div>
                     
                 </div>
-
+                <svg className='con-star con-star5' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                    <path class="star star5" d="M107.729 40.5811C112.721 66.7848 133.215 87.2792 159.419 92.2705L200 100L159.419 107.729C133.215 112.721 112.721 133.215 107.729 159.419L100 200L92.2705 159.419C87.2792 133.215 66.7848 112.721 40.5811 107.729L0 100L40.5811 92.2705C66.7848 87.2792 87.2792 66.7848 92.2705 40.5811L100 0L107.729 40.5811Z" fill="#D9D9D9"></path>
+                </svg>
+                <svg className='con-star con-star6' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                    <path class="star star6" d="M107.729 40.5811C112.721 66.7848 133.215 87.2792 159.419 92.2705L200 100L159.419 107.729C133.215 112.721 112.721 133.215 107.729 159.419L100 200L92.2705 159.419C87.2792 133.215 66.7848 112.721 40.5811 107.729L0 100L40.5811 92.2705C66.7848 87.2792 87.2792 66.7848 92.2705 40.5811L100 0L107.729 40.5811Z" fill="#D9D9D9"></path>
+                </svg>
                 <HorizontalSlider onImageClick={onImageClick}/>
                 <Feedback/>
             </div>

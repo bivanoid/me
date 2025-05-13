@@ -24,10 +24,9 @@
     justify-content: space-between;
     border: 2px solid var(--border);
     border-color: transparent transparent var(--border) transparent;
-
     padding: 40px;
     height: calc(fit-content + 20px);
-    transition: 0.8s;
+    transition: 0.8s, background 0.4s;
 }
 
 .link-to-addfeedback {
@@ -89,6 +88,7 @@
 @media (min-width:700px) {
     .user-feedback:hover {
             border: 2px solid var(--grey);
+            background: #0f0f0f;
         }
 }
 .user-feedback p {

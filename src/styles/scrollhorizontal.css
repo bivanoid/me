@@ -4,13 +4,14 @@
     padding-top: 30px;
     overflow: hidden;
     position: relative;
+    background-color: var();
 }
 
 
 
 .swiper {
-    width: 100%;
-    
+    width: calc(100% - 20px);
+    padding-inline: 10px;
 
 }
 
@@ -22,10 +23,11 @@
 }
 
 .title-swiper h1 {
-    color: white;
+    color: var(--button);
     font-weight: 400;
     font-size: clamp(1em, 4em, 5em);
-    text-transform: uppercase;
+    color: var(--button);
+    font-family: var(--secondfont);
     margin: 0;
 }
 
@@ -117,8 +119,11 @@
     display: flex;
     margin-top: 30px;
     align-items: center;
+    width: fit-content;
+    flex-direction: row-reverse;
     color: white;
     justify-content: flex-end;
+    margin-left: auto;
 }
 
 .con-all-project p {
@@ -126,6 +131,7 @@
     font-size: 26px;
     font-weight: 400;
     padding: 30px;
+    color: var(--button);
 }
 
 .circle-arrow-all-project {
@@ -152,7 +158,7 @@
 
 .circle-arrow-all-project:hover {
     border-color: var(--button);
-    scale: 0.9;
+    scale: 0.5;
     opacity: 0.9;
 }
 
