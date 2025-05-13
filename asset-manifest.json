@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/website1react/static/css/main.d4a0c5b9.css",
-    "main.js": "/website1react/static/js/main.fd17bdee.js",
+    "main.css": "/website1react/static/css/main.c48d1976.css",
+    "main.js": "/website1react/static/js/main.c1949b34.js",
     "static/js/952.62984ca5.chunk.js": "/website1react/static/js/952.62984ca5.chunk.js",
     "static/media/iklanbicture.jpg": "/website1react/static/media/iklanbicture.3bfaaecc26655ee587cf.jpg",
     "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/website1react/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
     "static/media/riyadh.png": "/website1react/static/media/riyadh.4792a8ffdaf94f8a1607.png",
-    "static/media/download.jpeg": "/website1react/static/media/download.e24f2be8f4507a47d499.jpeg",
     "static/media/kasir.png": "/website1react/static/media/kasir.be2951937eb04ad52bdf.png",
     "static/media/todolist.png": "/website1react/static/media/todolist.ffb9e468dab960c94371.png",
     "index.html": "/website1react/index.html",
-    "main.d4a0c5b9.css.map": "/website1react/static/css/main.d4a0c5b9.css.map",
-    "main.fd17bdee.js.map": "/website1react/static/js/main.fd17bdee.js.map",
+    "static/media/star.svg": "/website1react/static/media/star.8d16f5ab44f3f2b11f69813f46fde209.svg",
+    "main.c48d1976.css.map": "/website1react/static/css/main.c48d1976.css.map",
+    "main.c1949b34.js.map": "/website1react/static/js/main.c1949b34.js.map",
     "952.62984ca5.chunk.js.map": "/website1react/static/js/952.62984ca5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4a0c5b9.css",
-    "static/js/main.fd17bdee.js"
+    "static/css/main.c48d1976.css",
+    "static/js/main.c1949b34.js"
   ]
 }
