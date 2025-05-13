@@ -10,8 +10,8 @@
 
 
 .swiper {
-    width: calc(100% - 20px);
-    padding-inline: 10px;
+    width: 100%;
+
 
 }
 
@@ -41,24 +41,25 @@
 
 
 .swiper-slide {
-    height: 20em;
     text-align: left;
     font-size: 18px;
-    height: 300px;
-    background: #fff;
+    outline-offset: -2px;
+    outline: 1px dashed var(--border);
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%);
 }
 
 .gambar {
-    transition: 0.15s;
-    height: 300px;
-    width: 300px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center;
+    object-position: center;
+    transition: 0.2s;
 }
 
-.gambar h1 {
+.gambar-h1 {
     background-color: var(--primary);
     border: 2px solid rgba(255, 255, 255, 0.055);
     color: rgb(255, 255, 255);
@@ -69,50 +70,24 @@
 
 .mySwiper:hover .gambar {
     filter: brightness(40%) grayscale(100%);
+    scale: 0.7;
 }
 
 .mySwiper .gambar:hover {
     filter: none;
+    scale: 1;
 }
 
-.gambar {
-    background-position: center;
-        background-size: cover;
-}
 
 .null {
     height: fit-content;
     aspect-ratio: 1/1;
 }
 
-.gambar1 {
-    background: url(../assets/iklanbicture.jpg);
-    background-position: center;
-        background-size: cover;
-   
-}
-.gambar2 {
-    background: url(../assets/riyadh.png);
-    background-position: center;
-        background-size: cover;
-   
-}
-.gambar3 {
-    background: url(../assets/kasir.png);
-    background-position: center;
-        background-size: cover;
-   
-}
-.gambar4 {
-    background: url(../assets/todolist.png);
-    background-position: center;
-        background-size: cover;
-   
-}
 
 .swiper-slide img {
     display: block;
-    object-fit: cover;
+    
 }
 
 .con-all-project {
@@ -204,6 +179,16 @@
         aspect-ratio: 1/1;
         border-radius: 200px;
     }
+
+    .mySwiper:hover .gambar {
+        filter: none;
+        scale: 1;
+    }
+
+    .mySwiper .gambar:hover {
+        filter: none;
+        scale: 1;   }
+        
 
         .fullscreen-overlay {
             top: 0;

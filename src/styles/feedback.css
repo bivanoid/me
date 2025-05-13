@@ -7,7 +7,7 @@
     color: white;
         font-weight: 400;
         font-size: clamp(1em, 4em, 5em);
-        text-transform: uppercase;
+        font-family: var(--secondfont);
         margin: 0;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .user-feedback .fromuser {
-    font-size: 13px;
+    font-size: 10px;
     color: white;
     margin-right: 5px;
     text-transform: lowercase;
@@ -124,7 +124,7 @@
 }
 
 .user-feedback .userdate {
-    font-size: clamp(19px, 23px, 24px);
+    font-size: clamp(0.5em, 5vh, 1.2em);
     padding: 10px;
     background-color: var(--button);
     color: var(--primary);
@@ -144,26 +144,27 @@
         transition: 0.8s;   
     }
 
-    .user-feedback .fromuser {
-        font-size: 13px;
-        color: white;
-        width: 30px;
-        font-size: 12px;
-        margin-right: 10px;
-        text-transform: lowercase;   
-        opacity: 0.6;
-    }
 
     .feedback h2 {
         font-size: clamp(1em, 2em, 5em);
     }
 
     .user-feedback .username {
-        font-size: clamp(19px, 23px, 30px);
+        font-size: clamp(0.3em, 5vh, 1.4em);
+        width: 100%;
+    }
+
+    .user-feedback .fromuser {
+        font-size: 7px;
+        color: white;
+        width: 18px;
+        margin-right: 10px;
+        text-transform: lowercase;
+        opacity: 0.6;
     }
 
     .user-feedback .usertext {
-        margin-left: 35px;
+        margin-left: 25px;
         width: calc(100% - 80px);
 
         text-align: left;
@@ -171,6 +172,6 @@
 
     .user-feedback .userdate {
         font-size: clamp(9px, 13px, 20px);
-        margin-left: 35px;
+        margin-left: 25px;
     }
 }

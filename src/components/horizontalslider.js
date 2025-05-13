@@ -5,21 +5,23 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import '../styles/scrollhorizontal.css';
 import { Pagination } from 'swiper/modules';
+import riyadh from '../assets/riyadh.png';
+import bicture from '../assets/iklanbicture.jpg';
+import kasir from '../assets/kasir.png';
+import tdl from '../assets/todolist.png';
 
 export default function HorizontalSlider({ onImageClick }) {
   const handleImageClick = (e) => {
-    const slide = e.currentTarget;
-    const bgImage = window.getComputedStyle(slide).backgroundImage;
-    const urlMatch = bgImage.match(/url\("(.*)"\)/);
-    if (urlMatch) {
-      onImageClick(urlMatch[1]);
+    if (e.currentTarget.tagName === 'IMG') {
+      const imgSrc = e.currentTarget.src;
+      onImageClick(imgSrc);
     }
   };
-
+  
   return (
     <div className='con-swiper'>
       <div className='title-swiper'>
-        <h1>What recent i do</h1> <p>slide</p>
+        <h1>What recent i do —</h1> <p>slide </p>
       </div>
 
       <Swiper
@@ -32,21 +34,21 @@ export default function HorizontalSlider({ onImageClick }) {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide onClick={handleImageClick} className='gambar gambar1'>
-          <div className='null'></div>
-          <h1>Bicture Apps (Gallery Photo Online)</h1>
+        <SwiperSlide>
+          <img onClick={handleImageClick} className='gambar' src={riyadh} alt="Alquran Website"></img>
+          <h1 className='gambar-h1'>Alquran Website</h1>
         </SwiperSlide>
-        <SwiperSlide onClick={handleImageClick} className='gambar gambar2'>
-          <div className='null'></div>
-          <h1>Al-Quran Website</h1>
+        <SwiperSlide>
+          <img onClick={handleImageClick} className='gambar' src={bicture} alt="Bicture Apps (Gallery Photo Online)"></img>
+          <h1 className='gambar-h1'>Bicture Apps (Gallery Photo Online)</h1>
         </SwiperSlide>
-        <SwiperSlide onClick={handleImageClick} className='gambar gambar3'>
-          <div className='null'></div>
-          <h1>Administration</h1>
+        <SwiperSlide>
+          <img onClick={handleImageClick} className='gambar' src={kasir} alt="Cashier"></img>
+          <h1 className='gambar-h1'>Cashier</h1>
         </SwiperSlide>
-        <SwiperSlide onClick={handleImageClick} className='gambar gambar4'>
-          <div className='null'></div>
-          <h1>To do List</h1>
+        <SwiperSlide>
+          <img onClick={handleImageClick} className='gambar' src={tdl} alt='To Do List'></img>
+          <h1 className='gambar-h1'>To Do List</h1>
         </SwiperSlide>
       </Swiper>
 
