@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/website1react/static/css/main.c48d1976.css",
-    "main.js": "/website1react/static/js/main.c1949b34.js",
+    "main.js": "/website1react/static/js/main.5ccef10b.js",
     "static/js/952.62984ca5.chunk.js": "/website1react/static/js/952.62984ca5.chunk.js",
     "static/media/iklanbicture.jpg": "/website1react/static/media/iklanbicture.3bfaaecc26655ee587cf.jpg",
     "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/website1react/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
@@ -11,11 +11,11 @@
     "index.html": "/website1react/index.html",
     "static/media/star.svg": "/website1react/static/media/star.8d16f5ab44f3f2b11f69813f46fde209.svg",
     "main.c48d1976.css.map": "/website1react/static/css/main.c48d1976.css.map",
-    "main.c1949b34.js.map": "/website1react/static/js/main.c1949b34.js.map",
+    "main.5ccef10b.js.map": "/website1react/static/js/main.5ccef10b.js.map",
     "952.62984ca5.chunk.js.map": "/website1react/static/js/952.62984ca5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c48d1976.css",
-    "static/js/main.c1949b34.js"
+    "static/js/main.5ccef10b.js"
   ]
 }
