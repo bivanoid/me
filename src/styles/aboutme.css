@@ -247,6 +247,7 @@
     margin-top: 12px;
     font-weight: 800;
     min-height: 60px;
+    color: var(--primary);
 }
 
 .mail-me {

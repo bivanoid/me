@@ -33,7 +33,7 @@ function Feedback() {
 
   return (
     <div className='feedback'>
-      <h2 >— Latest Feedback</h2>
+      <h2 >— What They Say</h2>
       
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
