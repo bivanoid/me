@@ -133,7 +133,7 @@
 
 .circle-arrow-all-project:hover {
     border-color: var(--button);
-    scale: 0.5;
+    scale: 0.9;
     opacity: 0.9;
 }
 

@@ -73,7 +73,10 @@ function Biodata() {
                             </div>
                         </div>
 
-                        <div className='contactme'>Contact Me</div>
+                        <div className='con-hire-me'>
+                            <div className='contactme'>Contact Me</div>
+                            <a href='https://www.instagram.com/bivanoid/' className='mail-me'><i class="fi fi-brands-instagram"></i></a>
+                        </div>
                 
                 </div>
             </div>

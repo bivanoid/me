@@ -21,8 +21,17 @@
     /* background: url(../assets/logobicture3.png);
     background-position: center;
     background-size: cover; */
-    width: 30px;
+    width: 50px;
     aspect-ratio: 1/1;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: center;
+    display: grid;
+    place-items: center;
+}
+
+.logo-web img {
+    width: 30px;
 }
 
 .menu-button {

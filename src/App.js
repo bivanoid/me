@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Introduction from './components/introduction';
-import Navigation from './components/navigation';
 import PopupImage from './components/popupimage';
 
 // Halaman
@@ -14,7 +13,6 @@ function App() {
   return (
     <Router>
       <div className='body'>
-        <Navigation />
         <div>
           <Routes>
             <Route path="/" element={<Home/>} />

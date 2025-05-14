@@ -14,6 +14,30 @@
     
 }
 
+@keyframes plus-particle {
+    0% {
+        transform: rotate(0deg) ;
+    } 50% {
+        transform: rotate(360deg);
+    } 100% {
+        transform: rotate(720deg);
+    }
+}
+.plus-particle {
+    position: absolute;
+    top: 1%;
+    right: 8%;
+    width: 30px;
+    aspect-ratio: 1/1;
+    font-size: 40px;
+    font-weight: 100;
+    animation: plus-particle 6s linear infinite;
+}
+
+.plus-particle path {
+    fill: var(--border);
+}
+
 @keyframes star {
     0% {
         opacity: 100%;
@@ -57,9 +81,6 @@
     animation-duration: 3s;
 }
 
-.star2 {
-    fill: rgb(47, 255, 158);
-}
 
 .con-star3 {
     top: 5%;
