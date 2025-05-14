@@ -119,16 +119,20 @@
             display: flex;
             justify-content: space-between;
             background-color: rgba(10, 10, 10, 0);
-            backdrop-filter: blur(10px);
+            /* backdrop-filter: blur(10px); */
             align-items: center;
             color: white;
             height: 87px;
-            position: fixed;
+            /* position: fixed; */
             top: 0px;
             z-index: 100;
             padding-inline: 30px;
             font-family: var(--primaryfont);
         }
+
+    .section {
+        margin-top: 0px;
+    }
 
     .menu-button {
         display: block;

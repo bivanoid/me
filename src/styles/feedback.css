@@ -35,7 +35,8 @@
         position: relative;
         height: 60px;
         border-radius: 0px;
-        border: 2px dashed var(--grey);
+        border: 1px dashed var(--border);
+        
         border-width: 2px;
         display: flex;
         align-items: center;
@@ -75,6 +76,10 @@
     align-items: center;
     justify-content: center;
     transition: 0.4s;
+}
+
+.link-to-addfeedback:hover {
+    background-color: var(--border);
 }
 
 .link-to-addfeedback:hover .link-to-addfeedback-title1{
@@ -136,7 +141,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-around;
-        border-bottom: 2px solid var(--border);
+        border-bottom: 1px solid var(--border);
         padding: 20px;
         padding-left: 0px;
         margin-block: auto;

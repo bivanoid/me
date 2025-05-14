@@ -16,7 +16,7 @@ function Biodata() {
         //     }
         // };
     return (
-            <div className='con-sticky'>
+            <asside className='con-sticky'>
             
                 <div className='sticky'>
                 <svg className='con-star con-star4' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -79,7 +79,7 @@ function Biodata() {
                         </div>
                 
                 </div>
-            </div>
+            </asside>
     )
     
 }
