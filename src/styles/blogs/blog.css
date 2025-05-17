@@ -335,7 +335,7 @@ main {
         top: 0;
         left: -100%;
         width: calc(100vw - 50px);
-        height: 80vh;
+        height: 100vh;
         padding-top: 87px;
         transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
