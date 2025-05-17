@@ -134,7 +134,7 @@ export default function Blog() {
             <div className='con-blog'>
                 <main>
                     <div className='navigation-blog'>
-                        <Link to='/' className='back-to-home-from-blog'><p>Back</p></Link>
+                        <Link to='/' className='back-to-home-from-blog'><i class="fi fi-rs-undo"></i></Link>
                         <div className='menu-button-blog' onClick={openBlog}><i className="fi fi-rs-expand-arrows"></i></div>
                     </div>
 

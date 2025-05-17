@@ -137,8 +137,15 @@
     }
 
     .menu-button {
-        display: block;
-        
+        display: grid;
+        place-items: center;
+        width: 50px;
+        aspect-ratio: 1/1;
+    }
+
+    .menu-button i {
+        font-size: 1em;
+        transform: translateY(3px);
     }
 
     .contact {

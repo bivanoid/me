@@ -39,10 +39,11 @@
 }
 
 .back-to-home-from-blog {
-    top: 30px;
-    left: 30px;
+    display: grid;
+        place-items: center;
+        width: 50px;
+        aspect-ratio: 1/1;
     color: var(--button);
-    display: flex;
 }
 
 .back-to-home-from-blog p {
@@ -292,6 +293,10 @@ main {
 
     .menu-button-blog {
         color: var(--button);
+        display: grid;
+        place-items: center;
+        width: 50px;
+        aspect-ratio: 1/1;
     }
 
     .con-article {
