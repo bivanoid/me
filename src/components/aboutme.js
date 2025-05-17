@@ -17,7 +17,7 @@ function AboutMe({ onImageClick }) {
                 <div className='abouts'>
                      <div className='text-abouts'><p className='title-about'>About</p><br></br>
                      <p className='content-about'>
-                        Hello! My name is <span className='highlight'>Firdhan Abivandya</span>. I was born on <span className='highlight'>June 21, 2007, in Surakarta, Central Java.</span> I am currently a student at <span className='highlight'>SMKN 5 Surakarta</span>, majoring in Software Engineering (RPL). From an early age, I’ve been passionate about technology, especially in the field of software and mobile app development. <span className='highlight'>I enjoy learning new things, exploring creative solutions, and building applications that provide real value to users</span>.
+                        Hello! My name is Firdhan Abivandya June 21, 2007, in Surakarta, Central Java. I am currently a student at SMKN 5 Surakarta, majoring in Software Engineering (RPL). From an early age, I’ve been passionate about technology, especially in the field of software and mobile app development. I enjoy learning new things, exploring creative solutions, and building applications that provide real value to users.
                 <br></br>
                 <br></br>
       
@@ -25,13 +25,13 @@ function AboutMe({ onImageClick }) {
                      </p>
                      </div>
                       <div className='text-abouts  '><p className='title-about title-about2'>Carrier</p><br></br>
-                     <ul className='content-carrier'>
+                     <p className='content-carrier'>
                       Throughout my time in the Software Engineering (RPL) program, I have built a solid foundation in technology, particularly in application development and data management. I actively participated in both individual and group projects, including the creation of Bicture, a feature-rich Android photo gallery app that includes uploading, commenting, bookmarking, and a unique appreciation system.<br></br><br></br>
 
 During my internship program, I gained real-world experience by working in a professional environment where I was responsible for managing marketing data with high accuracy. This experience taught me the value of discipline, consistency, and responsibility in the workplace. It also sharpened my programming logic, teamwork skills, and perseverance in completing projects.<br></br><br></br>
 
 Driven by a strong passion for learning and self-improvement, I am fully prepared to advance to the next stage of my journey in the field of information technology.<br></br>
-                     </ul>
+                     </p>
                      </div>
                     
                 </div>

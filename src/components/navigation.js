@@ -15,7 +15,7 @@ function Navigation() {
             <ul className='navigasi-menu' id='menu'>
                 <li><Link to="/">PORTOFOLIO <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></a></li>
-                <li><a href='#'>ABOUT ME <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></a></li>
+                <li><Link to='/blog'>MY BLOG <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
             </ul>
             <div className='logo-menu' id='logomenu'></div>
             <div className='logo-web'><img src={logo}></img></div>

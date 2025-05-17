@@ -286,9 +286,8 @@
         justify-content: center;
         align-items: center;
         height: fit-content;
-        min-height: calc(100vh - 137px);
+        min-height: calc(100dvh - 137px);
         border-width: 1px;
-        margin-top: 87px;
         padding-bottom: 50px;
     }
     .text {

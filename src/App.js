@@ -8,6 +8,7 @@ import PopupImage from './components/popupimage';
 // Halaman
 import Home from './pages/home';
 import AddFeedback from './pages/addfeedback';
+import Blog from './pages/blog';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/add-feedback" element={<AddFeedback />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </div>
       </div>

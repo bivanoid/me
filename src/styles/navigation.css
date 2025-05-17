@@ -6,7 +6,6 @@
     display: flex;
     justify-content: space-between;
     background-color: rgba(10, 10, 10, 0);
-    backdrop-filter: blur(10px);
     align-items: center;
     color: white;
     height: 87px;
@@ -117,6 +116,7 @@
             width: calc(100% - 60px);
             height: min-content;
             display: flex;
+            flex-direction: row-reverse;
             justify-content: space-between;
             background-color: rgba(10, 10, 10, 0);
             /* backdrop-filter: blur(10px); */
@@ -130,13 +130,19 @@
             font-family: var(--primaryfont);
         }
 
+
+
     .section {
         margin-top: 0px;
     }
 
     .menu-button {
         display: block;
-        width: 90px;
+        
+    }
+
+    .contact {
+        display: none;
     }
 
     .navigasi-menu {

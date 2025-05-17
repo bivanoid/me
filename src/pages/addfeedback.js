@@ -26,7 +26,7 @@ export default function AddFeedback() {
             if (error) {
                 alert(`❌ Failed to add user: ${error.message}`);
             } else {
-                alert('✅ User added!');
+                alert('✅ Comment added!');
                 setName('');
                 setEmail('');
                 setRating(null);
@@ -50,7 +50,7 @@ export default function AddFeedback() {
                 <path class="star star3" d="M107.729 40.5811C112.721 66.7848 133.215 87.2792 159.419 92.2705L200 100L159.419 107.729C133.215 112.721 112.721 133.215 107.729 159.419L100 200L92.2705 159.419C87.2792 133.215 66.7848 112.721 40.5811 107.729L0 100L40.5811 92.2705C66.7848 87.2792 87.2792 66.7848 92.2705 40.5811L100 0L107.729 40.5811Z" fill="#D9D9D9"></path>
             </svg>
             <div className='con-addfeedback'>
-                <Link to='/' className='back-to-home-from-addfeedback'><i class="fi fi-rs-arrow-turn-down-left"></i> <p>Back</p></Link>
+                <Link to='/' className='back-to-home-from-addfeedback'><p>Back</p></Link>
                 <h2>— How Do I Make You Feel?
                 </h2>
                 <form onSubmit={addUser}>
