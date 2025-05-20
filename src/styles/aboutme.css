@@ -73,7 +73,6 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     margin-bottom: 20px;
-    flex-direction: row;
     align-items: center;
     border-bottom: 1px solid var(--border);
     position: relative;

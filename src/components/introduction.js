@@ -1,5 +1,8 @@
 import '../styles/introduction.css'
 import { ReactComponent as StarIcon } from '../assets/plus-paricle.svg';
+import CircularText from './CircularText';
+import AnimatedContent from './AnimatedContent';
+import FadeContent from './FadeContent';
 
 
 function Introduction() {
@@ -26,14 +29,61 @@ function Introduction() {
             </svg>
             <p className='number'></p>
             <div className='text'>
-                <p>Hi i'm Firdhan Abivandya</p>
-                <p>— Discover the<br></br>ideas and works<br></br>that define me<span className='dot-introduction'></span></p>
+                <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
+                    <p className='revealed'>Hi i'm Firdhan Abivandya</p>
+                </FadeContent>
+                
+                <div className='text-intro'>
+                    <AnimatedContent
+                        distance={150}
+                        direction="vertical"
+                        reverse={false}
+                        config={{ tension: 80, friction: 20 }}
+                        initialOpacity={0.2}
+                        animateOpacity
+                        scale={0.7}
+                        threshold={0.2}
+                    >
+                        <p className='AnimatedContent'>— Discover the</p>
+                    </AnimatedContent>
+
+                    <AnimatedContent
+                        distance={150}
+                        direction="vertical"
+                        reverse={false}
+                        config={{ tension: 80, friction: 25 }}
+                        initialOpacity={0.2}
+                        animateOpacity
+                        scale={0.7}
+                        threshold={0.2}
+                    >
+                        <p className='AnimatedContent'>ideas and works</p>
+                    </AnimatedContent>
+
+                    <AnimatedContent
+                        distance={150}
+                        direction="vertical"
+                        reverse={false}
+                        config={{ tension: 80, friction: 30 }}
+                        initialOpacity={0.2}
+                        animateOpacity
+                        scale={0.7}
+                        threshold={0}
+                    >
+                        <p className='AnimatedContent'>that define me<span className='dot-introduction'></span></p>
+                    </AnimatedContent>
+                </div>
             </div>
             <div className='image'></div>
             <div className='bg-image-introduction'></div>   
-            <div onClick={scrollToSection} className='arrow-to-sc2'>
-                <i class="fi fi-rs-caret-down"></i>
+            <div onClick={scrollToSection} className="arrow-to-sc2" style={{ cursor: 'pointer' }}>
+                <CircularText
+                    text="GO*TO*ABOUT*ME*"
+                    onHover="speedUp"
+                    spinDuration={10}
+                />
             </div>
+
         </div>
     )
 }

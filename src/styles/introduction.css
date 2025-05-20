@@ -93,14 +93,13 @@
     fill: var(--button);
 }
 
-
-
-
 .text {
     margin-top: auto;
     margin-bottom: 50px;
     position: absolute;
     z-index: 4;
+    display: grid;
+    place-items: center;
 }
 
 .text p {
@@ -109,7 +108,17 @@
     font-family: var(--secondfont);
 }
 
-.text p:nth-child(1) {
+.all-letters {
+    font-size: clamp(0.4rem, 5vw, 0.7rem);
+    opacity: 0.7;
+    letter-spacing: 0.2em;
+    transform: translateY(-20px);
+    color: var(--button);
+    font-family: var(--primaryfont);
+    align-items: center;
+}
+
+.text .revealed {
     font-size: clamp(0.4rem, 5vw, 0.7rem);
     opacity: 0.7;
     letter-spacing: 0.2em;
@@ -118,7 +127,7 @@
     font-family: var(--primaryfont);
 }
 
-.text p:nth-child(2) {
+.text .AnimatedContent {
     font-size: clamp(1rem, 5vw, 7rem);
     padding-inline: 30px;
     color: var(--button);
@@ -167,35 +176,6 @@
     transition: border 5s;
 }
 
-@keyframes border-roll {
-    0% {
-        border-left: 2px dashed var(--button);
-        border-top: 2px dashed var(--border);
-        border-right: 2px dashed var(--border);
-        border-bottom: 2px dashed var(--border);
-    } 25% {
-        border-left: 2px dashed var(--border);
-        border-top: 2px dashed var(--button);
-        border-right: 2px dashed var(--border);
-        border-bottom: 2px dashed var(--border);
-    } 50% {
-        border-left: 2px dashed var(--border);
-        border-top: 2px dashed var(--border);
-        border-right: 2px dashed var(--button);
-        border-bottom: 2px dashed var(--border);
-    } 75% {
-        border-left: 2px dashed var(--border);
-        border-top: 2px dashed var(--border);
-        border-right: 2px dashed var(--border);
-        border-bottom: 2px dashed var(--button);
-    } 100% {
-        border-left: 2px dashed var(--button);
-        border-top: 2px dashed var(--border);
-        border-right: 2px dashed var(--border);
-        border-bottom: 2px dashed var(--border);
-    }
-}
-
 .bg-image-introduction {
     width: 20em;
     border-radius: 100% 100% 0% 0%;
@@ -220,64 +200,7 @@
     position: absolute;
     bottom: 30px;
     right: 30px;
-    padding: 20px;
-    width: 50px;
-    height: 50px;
-    aspect-ratio: 1/1;
-    border-radius: 70px;
-    border: 2px dashed var(--grey);
-    border-width: 2px;
-    background-color: transparent;
-    display: grid;
-    place-items: center;
-    color: var(--button);
-    font-size: 20px;
-    animation: arrow-to-sc2 14s linear infinite;
-    scale: 1;
-    transition: 0.7s;
     z-index: 3;
-}
-
-/* .arrow-to-sc2::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: #F8F8F8;
-        background: radial-gradient(circle, rgba(248, 248, 248, 0.65) 0%, rgba(10, 10, 10, 0) 14%);
-    position: absolute;
-    z-index: -9;
-} */
-
-.arrow-to-sc2:hover {
-    border-color: var(--button);
-    scale: 0.9;
-    opacity: 0.9;
-}
-
-@keyframes arrow-to-sc2 {
-    0% {
-        rotate: 0deg;
-    }
-
-    100% {
-        rotate: 360deg;
-    }
-}
-
-.arrow-to-sc2 i {
-    animation: i 14s linear infinite;
-    transform: translateY(2px);
-    
-}
-
-@keyframes i {
-    0% {
-        rotate: 0deg;
-    }
-
-    100% {
-        rotate: -360deg;
-    }
 }
 
 @media (max-width:700px) {
@@ -299,14 +222,9 @@
         margin: 0;
     }
 
-    .text p:nth-child(1) {
-        font-size: clamp(0.4rem, 1vw, 0.8rem);
-        padding-inline: 0px;
-        line-height: 0.8;
-    }
 
-    .text p:nth-child(2) {
-        font-size: clamp(2rem, 9vw, 5rem);
+    .text .AnimatedContent{
+        font-size: clamp(2rem, 9vw, 7rem);
         padding-inline: 0px;
         line-height: 0.8;
     }
@@ -362,27 +280,6 @@
         width: 17em;
     }
 
-    .arrow-to-sc2 {
-        padding: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 70px;
-        border: 2px dashed var(--grey);
-        border-width: 2px;
-        display: grid;
-        place-items: center;
-        color: var(--button);
-        font-size: 20px;
-        animation: arrow-to-sc2 14s linear infinite;
-        scale: 1;
-        transition: 0.7s;
-    }
-
-    .arrow-to-sc2:hover {
-        border-color: var(--button);
-        scale: 0.9;
-        opacity: 0.9;   
-    }
 
 
 }

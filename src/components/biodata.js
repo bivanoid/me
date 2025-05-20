@@ -1,6 +1,6 @@
 
 import '../styles/aboutme.css';
-
+import AnimatedContent from './AnimatedContent';
 
 
 function Biodata() {
@@ -24,15 +24,39 @@ function Biodata() {
                 </svg>
                         
                         <div className='sticky-header'>
+                            <AnimatedContent
+                                distance={20}
+                                direction="horizontal"
+                                reverse={true}
+                                config={{ tension: 80, friction: 20 }}
+                                initialOpacity={0.2}
+                                animateOpacity
+                                scale={0}
+
+                                threshold={0.2}
+                            >
+                                <div className='con-image-bio'>
+                                    <div className='image-profile' id='inp'></div>
+                                    <div className='wave-bio'></div>
+                                    <div className='wave-bio'></div>
+                                    <div className='wave-bio'></div>
+                                    <div className='wave-bio'></div>
+                                </div>
+                            </AnimatedContent>
+                            <AnimatedContent
+                                distance={70}
+                                direction="horizontal"
+                                reverse={false}
+                                config={{ tension: 80, friction: 20 }}
+                                initialOpacity={0.2}
+                                animateOpacity
+                                scale={0.7}
+
+                                threshold={0.2}
+                            >
+                                <h1 id='namamu'>— Firdhan<br></br>Abivandya.</h1>
+                            </AnimatedContent>
                             
-                            <div className='con-image-bio'>
-                                <div className='image-profile' id='inp'></div>
-                                <div className='wave-bio'></div>
-                                <div className='wave-bio'></div>
-                                <div className='wave-bio'></div>
-                                <div className='wave-bio'></div>
-                            </div>
-                            <h1 id='namamu'>— Firdhan<br></br>Abivandya.</h1>
                         </div>
                         
                         <div className='bio' id='bio'>

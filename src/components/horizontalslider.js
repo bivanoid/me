@@ -9,6 +9,7 @@ import riyadh from '../assets/riyadh.png';
 import bicture from '../assets/iklanbicture.jpg';
 import kasir from '../assets/kasir.png';
 import tdl from '../assets/todolist.png';
+import FadeContent from './FadeContent';
 
 export default function HorizontalSlider({ onImageClick }) {
   const handleImageClick = (e) => {
@@ -19,11 +20,14 @@ export default function HorizontalSlider({ onImageClick }) {
   };
   
   return (
+    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
     <div className='con-swiper'>
-      <div className='title-swiper'>
-        <h1>Latest Project —</h1> <p>slide </p>
-      </div>
-
+      
+        <div className='title-swiper'>
+          <h1>Latest Project —</h1> <p>slide </p>
+        </div>
+      
+      
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -51,13 +55,7 @@ export default function HorizontalSlider({ onImageClick }) {
           <h1 className='gambar-h1'>To Do List</h1>
         </SwiperSlide>
       </Swiper>
-
-      <div className='con-all-project'>
-        <div className='circle-arrow-all-project'>
-          <i className="fi fi-rs-arrow-right"></i>
-        </div>
-        <p>See All</p>
-      </div>
     </div>
+    </FadeContent>
   );
 }
