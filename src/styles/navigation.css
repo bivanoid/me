@@ -85,14 +85,14 @@
     display: grid;
     place-items: center;
     transition: 0.3s;
-    outline: 0px solid rgba(228, 228, 228, 0.418);
+    outline: 0px solid var(--button);
     cursor: pointer;
 }
 
 .contact:hover {
-    scale: 0.95;
-    border-radius: 3px;
-    outline: 5px solid rgba(160, 159, 159, 0.418);
+    scale: 0.9;
+    outline-offset: 0.5em;
+    outline: 1px solid var(--button);
 }
 
 .close, .logo-menu {

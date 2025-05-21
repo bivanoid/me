@@ -96,10 +96,10 @@
 
 .con-social-media {
     display: grid;
-        grid-template-columns: 2fr repeat(2, 1fr);
-        grid-template-rows: 2fr 1fr;
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: 2fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     width: calc(100% - 60px);
     padding-inline: 30px;
     flex: 0.8;

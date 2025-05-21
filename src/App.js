@@ -13,7 +13,6 @@ import Blog from './pages/blog';
 function App() {
   return (
     <Router>
-      <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
         <div className='body'>
           <div>
             <Routes>
@@ -23,7 +22,6 @@ function App() {
             </Routes>
           </div>
         </div>
-      </FadeContent>
     </Router>
   );
 }

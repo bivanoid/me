@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import FadeContent from './FadeContent';
 import '../styles/feedback.css';
+import AnimatedContent from './AnimatedContent';
 import { Link } from 'react-router-dom';
 const supabaseUrl = 'https://gyzebdhodmnzpdufivol.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5emViZGhvZG1uenBkdWZpdm9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5OTE4ODcsImV4cCI6MjA2MTU2Nzg4N30.1XYTKLxTMHocFRM5QfCTPiRQYyE8hhZMAtFrKib8dqc';
@@ -33,9 +34,17 @@ function Feedback() {
     }, []);
 
   return (
-    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
       <div className='feedback'>
-        <h2 >— What They Say</h2>
+        <AnimatedContent
+          distance={30}
+          direction="vertical"
+          reverse={false}
+          config={{ tension: 80, friction: 20 }}
+          initialOpacity={0.2}
+          threshold={1}
+        >
+          <h2 >— What They Say</h2>
+        </AnimatedContent>
 
         {loading && <p>Loading...</p>}
         {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
@@ -57,8 +66,6 @@ function Feedback() {
           <div className='link-to-addfeedback-title2'><i class="fi fi-rs-arrow-right"></i></div>
         </Link>
       </div>
-    </FadeContent>
-    
   );
 }
 

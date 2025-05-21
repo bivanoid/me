@@ -11,8 +11,6 @@
 
 .swiper {
     width: 100%;
-
-
 }
 
 .title-swiper {
@@ -50,21 +48,44 @@
     align-items: flex-end;
 }
 
+.language-programs {
+    padding: 6px;
+    font-size: 1.4vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    margin: 0;
+    filter: grayscale(60%);
+}
+
+.php-language {
+    background-color: rgb(142, 56, 240);
+    color: var(--button);
+    width: fit-content;
+}
+
+.java-language {
+    background-color: rgb(182, 5, 5);
+    color: var(--button);
+    width: fit-content;
+}
+
 .gambar {
     width: 100%;
     aspect-ratio: 1/1;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
     object-position: center;
     transition: 0.2s;
+    scale: 0.7;
 }
 
 .gambar-h1 {
     background-color: var(--primary);
-    border: 2px solid rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.055);
     color: rgb(255, 255, 255);
     padding: 6px;
-    font-size: 13px;
+    font-size: 1.4vw;
     margin: 0;
 }
 
