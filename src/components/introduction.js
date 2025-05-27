@@ -29,7 +29,7 @@ function Introduction() {
             </svg>
             <p className='number'></p>
             <div className='text'>
-                <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
+                <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
                     <p className='revealed'>Hi i'm Firdhan Abivandya</p>
                 </FadeContent>
                 

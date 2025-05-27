@@ -15,6 +15,7 @@
     "motion": "^12.12.1",
     "motion-primitives": "^0.1.0",
     "ogl": "^1.0.11",
+    "openai": "^4.103.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-horizontal-scrolling-menu": "^8.2.0",

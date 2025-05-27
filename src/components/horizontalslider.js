@@ -37,38 +37,40 @@ export default function HorizontalSlider({ onImageClick }) {
           </AnimatedContent>
         </div>
       
+      <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            701: { slidesPerView: 3 },
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <h1 className='language-programs php-language'>PHP</h1>
+            <img onClick={handleImageClick} className='gambar' src={riyadh} alt="Alquran Website"></img>
+            <h1 className='gambar-h1'>Alquran Website</h1>
+          </SwiperSlide>
+          <SwiperSlide>
+            <h1 className='language-programs java-language'>JAVA</h1>
+            <img onClick={handleImageClick} className='gambar' src={bicture} alt="Bicture Apps (Gallery Photo Online)"></img>
+            <h1 className='gambar-h1'>Gallery Photo Online Apps</h1>
+          </SwiperSlide>
+          <SwiperSlide>
+            <h1 className='language-programs php-language'>PHP</h1>
+            <img onClick={handleImageClick} className='gambar' src={kasir} alt="Cashier"></img>
+            <h1 className='gambar-h1'>Cashier</h1>
+          </SwiperSlide>
+          <SwiperSlide>
+            <h1 className='language-programs php-language'>PHP</h1>
+            <img onClick={handleImageClick} className='gambar' src={tdl} alt='To Do List'></img>
+            <h1 className='gambar-h1'>To Do List</h1>
+          </SwiperSlide>
+        </Swiper>
+      </FadeContent>
       
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          701: { slidesPerView: 3 },
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <h1 className='language-programs php-language'>PHP</h1>
-          <img onClick={handleImageClick} className='gambar' src={riyadh} alt="Alquran Website"></img>
-          <h1 className='gambar-h1'>Alquran Website</h1>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1 className='language-programs java-language'>JAVA</h1>
-          <img onClick={handleImageClick} className='gambar' src={bicture} alt="Bicture Apps (Gallery Photo Online)"></img>
-          <h1 className='gambar-h1'>Gallery Photo Online Apps</h1>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1 className='language-programs php-language'>PHP</h1>
-          <img onClick={handleImageClick} className='gambar' src={kasir} alt="Cashier"></img>
-          <h1 className='gambar-h1'>Cashier</h1>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1 className='language-programs php-language'>PHP</h1>
-          <img onClick={handleImageClick} className='gambar' src={tdl} alt='To Do List'></img>
-          <h1 className='gambar-h1'>To Do List</h1>
-        </SwiperSlide>
-      </Swiper>
     </div>
 
   );

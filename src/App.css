@@ -9,7 +9,7 @@
   --grey: rgb(59, 59, 59);
   --button: #f8f8f8;
   --border: #ffffff0e;
-  --secondfont: "Elsie",
+  --secondfont: " ",
     serif;
   --primaryfont: "Space Grotesk", sans-serif;
 }
@@ -80,7 +80,7 @@ body {
   }
 
   .number2 {
-    padding-top: 87px;
-    top: -92px;
+    padding-top: 0px;
+    top: 0px;
   }
 }

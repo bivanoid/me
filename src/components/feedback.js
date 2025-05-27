@@ -49,6 +49,7 @@ function Feedback() {
         {loading && <p>Loading...</p>}
         {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
         {!loading && users.length === 0 && <p>No feedback yet.</p>}
+        <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
         <ul className='con-user-feedback'>
           {users.map((user) => {
             const date = user.created_at
@@ -61,6 +62,8 @@ function Feedback() {
             );
           })}
         </ul>
+        </FadeContent>
+        
         <Link className='link-to-addfeedback' to="/add-feedback">
           <div className='link-to-addfeedback-title1'><i class="fi fi-rs-plus"></i>Add Feedback</div>
           <div className='link-to-addfeedback-title2'><i class="fi fi-rs-arrow-right"></i></div>
