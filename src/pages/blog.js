@@ -73,12 +73,7 @@ export default function Blog() {
                 query = query.order('created_at', { ascending: false });
             } else if (filterType === 'oldest') {
                 query = query.order('created_at', { ascending: true });
-            } else if (filterType === 'feel') {
-                // Gunakan ini jika memang ada kolom category. Jika tidak, hapus kondisi ini
-                query = query.order('created_at', { ascending: false });
-                // Jika memang ada kolom category, gunakan:
-                // query = query.eq('category', 'feel').order('created_at', { ascending: false });
-            }
+            } 
 
             // Execute query
             const { data, error } = await query;
@@ -239,12 +234,7 @@ export default function Blog() {
                                 >
                                     Oldest
                                 </li>
-                                <li
-                                    className={filter === 'feel' ? 'active' : ''}
-                                    onClick={() => handleFilterChange('feel')}
-                                >
-                                    Feel
-                                </li>
+               
                             </ul>
                         </div>
                     </div>
