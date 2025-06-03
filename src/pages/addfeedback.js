@@ -17,7 +17,7 @@ export default function AddFeedback() {
     const addUser = async (e) => {
         e.preventDefault();
         if (!name.trim() || !email.trim() || !rating) {
-            alert('Name, email, and rating are required.');
+            alert('Name, description, and rating are required.');
             return;
         }
 
@@ -51,7 +51,7 @@ export default function AddFeedback() {
             </svg>
             <div className='con-addfeedback'>
                 <Link to='/' className='back-to-home-from-addfeedback'><i class="fi fi-rs-undo"></i></Link>
-                <h2>— How Do I Make You Feel?
+                <h2>— How’s the Mood Today?
                 </h2>
                 <form onSubmit={addUser}>
                     <div className="rating-container">
@@ -83,9 +83,10 @@ export default function AddFeedback() {
                         onChange={(e) => setName(e.target.value)}
                         required
                     />
-                    <textarea className='textarea-addfeedback' placeholder="Type Out Something"
+                    <textarea className='textarea-addfeedback' placeholder="Type Out Something (Max 100 Character)"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        maxLength={100}
                         required>
 
 

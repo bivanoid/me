@@ -3,6 +3,7 @@ import { ReactComponent as StarIcon } from '../assets/plus-paricle.svg';
 import CircularText from './CircularText';
 import AnimatedContent from './AnimatedContent';
 import FadeContent from './FadeContent';
+import Magnet from './Magnet';
 
 
 function Introduction() {
@@ -33,46 +34,45 @@ function Introduction() {
                     <p className='revealed'>Hi i'm Firdhan Abivandya</p>
                 </FadeContent>
                 
-                <div className='text-intro'>
-                    <AnimatedContent
-                        distance={150}
-                        direction="vertical"
-                        reverse={false}
-                        config={{ tension: 80, friction: 20 }}
-                        initialOpacity={0.2}
-                        animateOpacity
-                        scale={0.7}
-                        threshold={0.2}
-                    >
-                        <p className='AnimatedContent'>— Discover the</p>
-                    </AnimatedContent>
+                <AnimatedContent
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    config={{ tension: 80, friction: 20 }}
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={0.7}
+                    threshold={0.2}
+                >
+                    <p className='AnimatedContent'>— Discover the</p>
+                </AnimatedContent>
+                <AnimatedContent
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    config={{ tension: 80, friction: 25 }}
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={0.7}
+                    threshold={0.2}
+                >
+                    <p className='AnimatedContent'>ideas and works</p>
+                </AnimatedContent>
+                <AnimatedContent
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    config={{ tension: 80, friction: 30 }}
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={0.7}
+                    threshold={0}
+                >
+                    <p className='AnimatedContent'>that define me<span className='dot-introduction'></span></p>
+                </AnimatedContent>
+                
+                
 
-                    <AnimatedContent
-                        distance={150}
-                        direction="vertical"
-                        reverse={false}
-                        config={{ tension: 80, friction: 25 }}
-                        initialOpacity={0.2}
-                        animateOpacity
-                        scale={0.7}
-                        threshold={0.2}
-                    >
-                        <p className='AnimatedContent'>ideas and works</p>
-                    </AnimatedContent>
-
-                    <AnimatedContent
-                        distance={150}
-                        direction="vertical"
-                        reverse={false}
-                        config={{ tension: 80, friction: 30 }}
-                        initialOpacity={0.2}
-                        animateOpacity
-                        scale={0.7}
-                        threshold={0}
-                    >
-                        <p className='AnimatedContent'>that define me<span className='dot-introduction'></span></p>
-                    </AnimatedContent>
-                </div>
             </div>
             <div className='image'></div>
             <div className='bg-image-introduction'></div>   

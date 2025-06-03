@@ -2,6 +2,9 @@
     display: grid;
     place-items: center;
     height: 100vh;
+    background: url(../../assets/e3b4ba54-3742-495d-aa8e-1e0c75f69437\ \(1\).jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .back-to-home-from-addfeedback {
@@ -12,7 +15,7 @@
     place-items: center;
     width: 50px;
     aspect-ratio: 1/1;
-    color: var(--button);
+    color: var(--primary);
 }
 
 .back-to-home-from-addfeedback i {
@@ -67,6 +70,7 @@ form {
     transition: 0.3s;
     font-size: 2.1vw;
     outline: none;
+    backdrop-filter: blur(3px);
 }
 
 .rating-box:hover {
@@ -107,6 +111,7 @@ form {
     background-color: var(--border);
     border: 1px solid var(--border);
     color: var(--button);
+    backdrop-filter: blur(3px);
 }
 
 .textarea-addfeedback {
@@ -119,6 +124,7 @@ form {
     background-color: var(--border);
     border: 1px solid var(--border);
     color: var(--button);
+    backdrop-filter: blur(3px);
     resize: none;
 }
 

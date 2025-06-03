@@ -42,17 +42,16 @@
     text-align: left;
     font-size: 18px;
     outline-offset: -2px;
-    outline: 1px dashed var(--border);
-    overflow: hidden;
     display: flex;
+    position: relative;
     align-items: flex-end;
 }
 
 .language-programs {
     padding: 6px;
-    font-size: 1.4vw;
+    font-size: 1vw;
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
     z-index: 2;
     margin: 0;
@@ -72,31 +71,61 @@
 }
 
 .gambar {
-    width: 100%;
+    width: calc(100% - 21px);
     aspect-ratio: 1/1;
     object-fit: cover;
+    padding: 10px;
     object-position: center;
     transition: 0.2s;
-    scale: 0.7;
+    position: relative;
+    scale: 1;
+    position: relative;
+    /* background-color: var(--border); */
+    border: 1px solid var(--border);
+    display: grid;
+    place-items: center;
 }
 
 .gambar-h1 {
-    background-color: var(--primary);
-    border: 1px solid rgba(255, 255, 255, 0.055);
+    border: 1px dashed var(--border);
     color: rgb(255, 255, 255);
     padding: 6px;
-    font-size: 1.4vw;
-    margin: 0;
+    font-size: 1vw;
+    margin-top: 20px;
+    position: relative;
+    top: 0;
+}
+
+.gambar-h1::before {
+    content: '';
+    right: 0;
+    top: 0;
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--border);
+}
+
+.gambar-h1::after {
+    content: '';
+    right: 0;
+    top: 0;
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: var(--border);
 }
 
 .mySwiper:hover .gambar {
     filter: brightness(40%) grayscale(100%);
-    scale: 0.7;
+    background-color: transparent;
+    opacity: 0.5;
 }
 
 .mySwiper .gambar:hover {
     filter: none;
-    scale: 1;
+    background-color: var(--border);
+    opacity: 1;
 }
 
 
@@ -130,21 +159,14 @@
     color: var(--button);
 }
 
-.circle-arrow-all-project {
-    padding: 20px;
-    width: 50px;
-    aspect-ratio: 1/1;
-    border-radius: 70px;
-    border: 2px dashed var(--grey);
-    border-width: 2px;
-
+.see-all {
+    padding: 10px;
+    border: 2px dashed var(--border);
     display: grid;
     place-items: center;
     color: var(--button);
-    font-size: 20px;
-    animation: arrow-to-sc2 14s linear infinite;
-    scale: 1;
-    transition: 0.7s;
+    font-size: 16px;
+    scale: 1;;
 }
 
 .circle-arrow-all-project i {

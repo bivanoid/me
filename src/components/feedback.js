@@ -57,7 +57,12 @@ function Feedback() {
               : 'Unknown date';
             return (
               <li className='user-feedback' key={user.id}>
-                <p className='username'><p className='fromuser'>from</p>{user.name}</p><p className='usertext'> "{user.email}"</p><p className='userdate'>{date}</p>
+                <div className='feedback-quote'><i class="fi fi-rs-quote-right"></i></div>
+                <p className='username'><p className='fromuser'>from</p>{user.name}</p>
+                <div className='con-usertext'>
+                  <p className='usertext'> "{user.email}"</p>
+                </div>
+                <p className='userdate'>{date}</p>
               </li>
             );
           })}
@@ -65,8 +70,8 @@ function Feedback() {
         </FadeContent>
         
         <Link className='link-to-addfeedback' to="/add-feedback">
-          <div className='link-to-addfeedback-title1'><i class="fi fi-rs-plus"></i>Add Feedback</div>
-          <div className='link-to-addfeedback-title2'><i class="fi fi-rs-arrow-right"></i></div>
+          <div className='link-to-addfeedback-title1'>Add Feedback</div>
+        <div className='link-to-addfeedback-title2'><i class="fi fi-rs-plus"></i></div>
         </Link>
       </div>
   );

@@ -11,6 +11,8 @@ import kasir from '../assets/kasir.png';
 import tdl from '../assets/todolist.png';
 import FadeContent from './FadeContent';
 import AnimatedContent from './AnimatedContent';
+import Magnet from './Magnet';
+
 
 export default function HorizontalSlider({ onImageClick }) {
   const handleImageClick = (e) => {
@@ -39,10 +41,10 @@ export default function HorizontalSlider({ onImageClick }) {
       
       <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
         <Swiper
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={30}
           breakpoints={{
-            0: { slidesPerView: 1 },
+            0: { slidesPerView: 2 },
             701: { slidesPerView: 3 },
           }}
           modules={[Pagination]}
@@ -50,27 +52,29 @@ export default function HorizontalSlider({ onImageClick }) {
         >
           <SwiperSlide>
             <h1 className='language-programs php-language'>PHP</h1>
-            <img onClick={handleImageClick} className='gambar' src={riyadh} alt="Alquran Website"></img>
             <h1 className='gambar-h1'>Alquran Website</h1>
+            <img onClick={handleImageClick} className='gambar' src={riyadh} alt="Alquran Website"></img>
           </SwiperSlide>
           <SwiperSlide>
             <h1 className='language-programs java-language'>JAVA</h1>
+            <h1 className='gambar-h1'>Gallery Photo</h1>
             <img onClick={handleImageClick} className='gambar' src={bicture} alt="Bicture Apps (Gallery Photo Online)"></img>
-            <h1 className='gambar-h1'>Gallery Photo Online Apps</h1>
           </SwiperSlide>
           <SwiperSlide>
             <h1 className='language-programs php-language'>PHP</h1>
-            <img onClick={handleImageClick} className='gambar' src={kasir} alt="Cashier"></img>
             <h1 className='gambar-h1'>Cashier</h1>
+            <img onClick={handleImageClick} className='gambar' src={kasir} alt="Cashier"></img>
           </SwiperSlide>
           <SwiperSlide>
             <h1 className='language-programs php-language'>PHP</h1>
-            <img onClick={handleImageClick} className='gambar' src={tdl} alt='To Do List'></img>
             <h1 className='gambar-h1'>To Do List</h1>
+            <img onClick={handleImageClick} className='gambar' src={tdl} alt='To Do List'></img>
           </SwiperSlide>
         </Swiper>
       </FadeContent>
-      
+      <div className='con-all-project'>
+        <a className='see-all'>See All</a>
+      </div>
     </div>
 
   );

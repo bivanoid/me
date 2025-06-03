@@ -279,7 +279,7 @@
 }
 
 .bio h1 {
-    font-size: 14px;
+    font-size: 1.2vw;
     opacity: 0.5;
     font-weight: 400;
     margin-bottom: 15px;
@@ -331,7 +331,7 @@
 }
 
 .bio .list-bio li p {
-    font-size: 9px;
+    font-size: clamp(.5em, .75em, 1.8em);
     padding: 0;
     margin: 0;
 }

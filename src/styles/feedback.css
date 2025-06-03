@@ -15,35 +15,37 @@
     padding: 0;
     list-style: none;
     height: fit-content;
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .user-feedback {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
     justify-content: space-between;
     border: 1px solid var(--border);
     border-color: transparent transparent var(--border) transparent;
     padding: 40px;
     height: calc(fit-content + 20px);
     transition: 0.8s, background 0.4s;
+    overflow: hidden;
+    position: relative;
 }
 
 .link-to-addfeedback {
-    width: 260px;
     overflow: hidden;
     position: relative;
-    height: 60px;
-    border-radius: 0px;
-    border: 1px dashed var(--border);
-    border-width: 2px;
+    border: 2px dashed var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--button);
-    font-size: 15px;
-    width: max-content;
+    font-size: 16px;
+    width: fit-content;
     margin-left: auto;
+    padding: 10px;
     scale: 1;
     transition: 0.2s;
 }
@@ -57,7 +59,6 @@
 .link-to-addfeedback-title1 {
     width: 100%;
     height: 100%;
-    padding-inline: 20px;
     position: relative;
     display: flex;
     align-items: center;
@@ -82,18 +83,25 @@
 }
 
 .link-to-addfeedback:hover .link-to-addfeedback-title1{
-    transform: translateX(100%);
+    transform: translateX(calc(100% + 20px));
 }
 
 .link-to-addfeedback:hover .link-to-addfeedback-title2 {
     transform: translateX(0%);
 }
 
+
+
 @media (min-width:700px) {
-    .user-feedback:hover {
-            border: 1px solid var(--grey);
-            background: #0f0f0f;
-        }
+:is(.user-feedback:nth-child(3), .user-feedback:nth-child(4)) {
+    border-bottom: 1px solid transparent;   
+}
+
+.user-feedback:hover {
+        border: 1px solid var(--grey);
+        background: #0f0f0f;
+}
+
 }
 .user-feedback p {
     margin: 0;
@@ -117,24 +125,54 @@
     width: 150px;
 }
 
-.user-feedback .usertext {
-    font-size: 12px;
-    text-align: center;
-    line-height: 13px;
+.con-usertext {
+    width: 100%;
+    height: max-content;
     padding-block: 10px;
+}
+
+.user-feedback .usertext {
+    font-size: 18px;
+    text-align: left;
+    padding-left: 25px;
+    width: calc(100% - 25px);
     color: rgb(255, 255, 255);
     opacity: 0.5;
-    width: calc(40%);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .user-feedback .userdate {
-    font-size: 1.6vw;
+    font-size: 1vw;
     padding: 10px;
+    align-self: flex-end;
     background-color: var(--button);
     color: var(--primary);
 }
+.feedback-quote {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--grey);   
+}
+
+.user-feedback:nth-child(odd) {
+    border-right: 1px solid var(--border);
+}
+
+
+
 
 @media (max-width:700px) {
+    .con-user-feedback{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
     .user-feedback {
         display: flex;
         flex-direction: column;
@@ -146,8 +184,16 @@
         margin-block: auto;
         height: calc(fit-content + 90px);
         transition: 0.8s;   
+        
     }
 
+    .user-feedback:nth-child(odd) { 
+        border-inline: 1px solid transparent;
+    }
+
+    .user-feedback:nth-child(3), .user-feedback:nth-child(4) {
+        border-bottom: 1px solid var(--border);
+    }
 
     .feedback h2 {
         font-size: clamp(1em, 2em, 5em);
@@ -178,4 +224,6 @@
         font-size: clamp(9px, 13px, 20px);
         margin-left: 25px;
     }
+
+
 }
