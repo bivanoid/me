@@ -14,9 +14,6 @@
 }
 
 .title-swiper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
     margin-bottom: 30px;
 }
 
@@ -30,11 +27,12 @@
 }
 
 .title-swiper p {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 200;
     opacity: 0.7;
+    line-height: 1;
+    color: var(--button);
     margin: 0;
-    padding-bottom: 15px;
 }
 
 
@@ -45,29 +43,7 @@
     display: flex;
     position: relative;
     align-items: flex-end;
-}
-
-.language-programs {
-    padding: 6px;
-    font-size: 1vw;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    margin: 0;
-    filter: grayscale(60%);
-}
-
-.php-language {
-    background-color: rgb(142, 56, 240);
-    color: var(--button);
-    width: fit-content;
-}
-
-.java-language {
-    background-color: rgb(182, 5, 5);
-    color: var(--button);
-    width: fit-content;
+    border: 1px solid var(--border);
 }
 
 .gambar {
@@ -80,40 +56,54 @@
     position: relative;
     scale: 1;
     position: relative;
-    /* background-color: var(--border); */
-    border: 1px solid var(--border);
     display: grid;
     place-items: center;
 }
 
-.gambar-h1 {
-    border: 1px dashed var(--border);
+.gambar-h2 {
     color: rgb(255, 255, 255);
-    padding: 6px;
-    font-size: 1vw;
-    margin-top: 20px;
+    font-size: 0.8vw;
+    margin-top: 0;
+    position: relative;
+    top: 0;
+    text-transform: capitalize;
+    opacity: 0.5;
+    font-weight: 400;
+    padding: 0;
+    padding-inline: 10px;
+    margin: 0;
+}
+
+.gambar-h1 {
+    color: rgb(255, 255, 255);
+    padding-inline: 10px;
+    font-size: 1.6vw;
+    font-family: var(--secondfont);
+    font-weight: 400;
+    margin: 0;
+    padding-top: 5px;
     position: relative;
     top: 0;
 }
 
-.gambar-h1::before {
-    content: '';
-    right: 0;
-    top: 0;
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background-color: var(--border);
+.tag-language {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding-top: 5px;
+    padding-inline: 10px;
+    padding-bottom: 10px;
+    width: calc(100% - 20px);
+    overflow: hidden;
 }
 
-.gambar-h1::after {
-    content: '';
-    right: 0;
-    top: 0;
-    position: absolute;
-    width: 2px;
-    height: 20px;
+.taglang {
+    padding-block: 4px;
+    padding-inline: 8px;
+    font-size: 0.7vw;
     background-color: var(--border);
+    color: var(--button);
+    border-radius: 20%;
 }
 
 .mySwiper:hover .gambar {
@@ -125,6 +115,7 @@
 .mySwiper .gambar:hover {
     filter: none;
     background-color: var(--border);
+    border-radius: 20px;
     opacity: 1;
 }
 
@@ -252,11 +243,44 @@
         object-fit: contain;   
     }
 
+    .mySwiper:hover .gambar {
+        filter: none;
+        background-color: transparent;
+        opacity: 1;
+    }
+
+    .mySwiper .gambar:hover {
+        filter: none;
+        background-color: transparent;
+        opacity: 1;
+    }
+
     .language-programs {
         font-size: 3.5vw;
     }
 
+    .gambar-h2 {
+        font-size: 4vw;
+    }
+
     .gambar-h1 {
-        font-size: 3.4vw;
+        font-size: 6.4vw;
+    }
+
+    .tag-language {
+        display: flex;
+        gap: 4px;
+        padding-top: 5px;
+        padding-inline: 10px;
+        padding-bottom: 10px;
+    }
+
+    .taglang {
+        padding-block: 4.5px;
+        padding-inline: 8px;
+        font-size: 3vw;
+        background-color: var(--border);
+        color: var(--button);
+        border-radius: 8px;
     }
 }

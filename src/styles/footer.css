@@ -96,8 +96,8 @@
 
 .con-social-media {
     display: grid;
-    grid-template-columns: 2fr repeat(2, 1fr);
-    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     width: calc(100% - 60px);
@@ -106,7 +106,7 @@
     margin-bottom: 30px;
 }
 
-.con-social-media :is(.ig, .lnkdn, .twt, .wa, .gth) {
+.con-social-media :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
     color: var(--button);
     text-decoration: none;
     border: 1px solid var(--border);
@@ -118,19 +118,11 @@
     outline: none;
 }
 
-.con-social-media :is(.ig,.lnkdn,.twt,.wa,.gth):hover {
+.con-social-media :is(.ig,.lnkdn,.twt,.wa,.tele,.gth):hover {
     scale: 0.9;
     outline: 1px solid var(--button);
     outline-offset: 0.5em;
     color: var(--primary);
-}
-
-.ig {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.wa {
-    grid-area: 2 / 2 / 3 / 4;
 }
 
 .ig:hover {
@@ -153,6 +145,12 @@
     color: white !important;
 }
 
+.tele:hover {
+    background: radial-gradient(circle at center, #0088cc, #006699);
+    /* Telegram blue gradient */
+    color: white !important;
+}
+
 .gth:hover {
     background-color: #24292e;
     color: white !important;
@@ -160,7 +158,7 @@
 
 .footer3 {
     height: 100%;
-    background: url(../assets/e3b4ba54-3742-495d-aa8e-1e0c75f69437\ \(1\).jpg);
+    background: url(../assets/duo.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -216,27 +214,19 @@
 
     .con-social-media {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr ;
     }
 
-    .con-social-media :is(.ig, .lnkdn, .twt, .wa, .gth) {
+    .con-social-media :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
         font-size: 3vw;
-    }
-
-    .ig {
-        grid-area: 1 / 1 / 1 / 1;
-    }
-
-    .wa {
-        grid-area: 2 / 2 / 1 / 2;   
     }
 
     .footer2 h1 {
         margin-top: 0;
     }
 
-    .con-social-media :is(.ig, .lnkdn, .twt, .wa, .gth) {
+    .con-social-media :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
         aspect-ratio: 1/1;
     }
 

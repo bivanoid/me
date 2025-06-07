@@ -16,7 +16,15 @@ function Biodata() {
         //     }
         // };
     return (
-            <asside className='con-sticky'>
+        
+        <AnimatedContent 
+        className='con-sticky'
+            distance={50}
+            direction="horizontal"
+            reverse={true}
+            config={{ tension: 80, friction: 20 }}
+            delay={0.6}
+            initialOpacity={0}>
             
                 <div className='sticky'>
                 <svg className='con-star con-star4' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -32,7 +40,6 @@ function Biodata() {
                                 initialOpacity={0.2}
                                 animateOpacity
                                 scale={0}
-
                                 threshold={0.2}
                             >
                                 <div className='con-image-bio'>
@@ -63,7 +70,11 @@ function Biodata() {
                             <h1>Information</h1>
                             <ul className='list-bio'>
                                 <li>
-                                    <div className='text-bio title-bio' ><p>Birthday :</p></div>
+                                    <div className='text-bio title-bio' ><p>Name :</p></div>
+                                    <div className='text-bio'><p>Firdhan Abivandya</p></div>
+                                </li>
+                                <li>
+                                    <div className='text-bio title-bio' ><p>Born :</p></div>
                                     <div className='text-bio'><p>21 June 2007</p></div>
                                 </li>
                                 <li>
@@ -99,11 +110,11 @@ function Biodata() {
 
                         <div className='con-hire-me'>
                             <a href='https://wa.me/087739770494' className='contactme'>Contact Me</a>
-                            <a href='https://www.instagram.com/bivanoid/' className='mail-me'><i class="fi fi-brands-instagram"></i></a>
+                            
                         </div>
                 
                 </div>
-            </asside>
+        </AnimatedContent>
     )
     
 }
