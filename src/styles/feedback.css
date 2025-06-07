@@ -28,7 +28,7 @@
     height: fit-content;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .con-feedback-btm {
@@ -57,65 +57,39 @@
 }
 
 .link-to-addfeedback {
-    overflow: hidden;
-    position: relative;
-    border: 2px dashed var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--button);
-    font-size: 16px;
-    width: fit-content;
-    margin-left: auto;
-    padding: 10px;
-    scale: 1;
-    transition: 0.2s;
+    padding-block: 0px;
+        border-top: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        margin-top: 12px;
+        font-weight: 800;
+        min-height: 60px;
+        color: var(--button);
+        opacity: 1px solid var(--button);
+        font-family: var(--secondfont);
+        transition: 0.3s;
+        font-weight: 400;
 }
 
 .link-to-addfeedback i {
         transform: translateY(2px);
-    opacity: 0.5;
-    margin-right: 10px;
+        margin-right: 10px;
+        opacity: 0.3;
+        font-size: 0.8em;
 }
 
 .link-to-addfeedback-title1 {
-    width: 100%;
-    height: 100%;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: 0.4s;
-}
-
-.link-to-addfeedback-title2 {
-    width: 100%;
-    height: 100%;
     padding-inline: 20px;
-    transform: translateX(-100%);
-    position: absolute;
-    display: flex;
-    align-items: center;
     justify-content: center;
     transition: 0.4s;
 }
-
-.link-to-addfeedback:hover {
-    background-color: var(--border);
-}
-
-.link-to-addfeedback:hover .link-to-addfeedback-title1{
-    transform: translateX(calc(100% + 20px));
-}
-
-.link-to-addfeedback:hover .link-to-addfeedback-title2 {
-    transform: translateX(0%);
-}
-
 
 
 @media (min-width:700px) {
-:is(.user-feedback:nth-child(3), .user-feedback:nth-child(4)) {
+:is(.user-feedback:nth-child(5), .user-feedback:nth-child(6)) {
     border-bottom: 1px solid transparent;   
 }
 

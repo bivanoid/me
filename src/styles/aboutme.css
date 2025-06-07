@@ -148,9 +148,14 @@
     border-radius: 1000px;
     position: relative;
     background-position: top;
-    background-size: cover;
+    background-size: contain;
+    object-position: center;
+    overflow: hidden;
     z-index: 2;
+    object-fit: cover;
+
 }
+
 
 .bio {
     width: calc(100% - 40px);
@@ -381,7 +386,7 @@
     height: calc(fit-content);
     position: relative;
     padding-inline: 30px 20px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .abouts {

@@ -60,6 +60,23 @@
     place-items: center;
 }
 
+.gambar img {
+    width: calc(100% - 21px);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.gambar a {
+    display: none;
+    position: absolute;
+    transition: .6s;
+}
+
+.gambar .fi {
+    font-size: 0.8vw;
+    padding-left: 3px;
+}
+
 .gambar-h2 {
     color: rgb(255, 255, 255);
     font-size: 0.8vw;
@@ -119,6 +136,20 @@
     opacity: 1;
 }
 
+.mySwiper .gambar:hover a{
+    display: block;
+    transition: 0.6s;
+    color: var(--button);
+    background-color: var(--border);
+    bottom: 25px;
+    font-size: 1.2vw;
+    right: 25px;
+    padding-block: 6px;
+    padding-inline: 17px;
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+}
+
 
 .null {
     height: fit-content;
@@ -131,23 +162,34 @@
     
 }
 
-.con-all-project {
+.con-swipe {
     display: flex;
+    width: 100%;
     margin-top: 30px;
     align-items: center;
-    width: fit-content;
     flex-direction: row-reverse;
     color: white;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-left: auto;
 }
 
-.con-all-project p {
+.con-swipe p {
     margin: 0;
-    font-size: 26px;
+    font-size: 12px;
     font-weight: 400;
-    padding: 30px;
     color: var(--button);
+}
+
+.swipe {
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+    font-family: var(--secondfont);
+}
+
+.swipe .fi {
+    transform: translateY(2.5px);
+    
 }
 
 .see-all {

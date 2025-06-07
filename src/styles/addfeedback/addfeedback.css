@@ -8,14 +8,16 @@
 }
 
 .back-to-home-from-addfeedback {
-    position: fixed;
     top: 30px;
     left: 30px;
-    display: grid;
-    place-items: center;
-    width: 50px;
-    aspect-ratio: 1/1;
-    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--secondfont);
+    width: 100%;
+    padding-block: 10px;
+    color: var(--button);
+    font-style: normal;
 }
 
 .back-to-home-from-addfeedback i {

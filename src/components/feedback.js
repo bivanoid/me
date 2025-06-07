@@ -34,11 +34,13 @@ function Feedback() {
 
   useEffect(() => {
     async function loadLatestUsers() {
+      
+      const smallscreen = window.innerWidth < 700;
       const { data, error } = await supabase
         .from('users')
         .select('*') // Pastikan kolom 'rating' ada di tabel
         .order('created_at', { ascending: false })
-        .limit(4);
+        .limit(smallscreen ? 4 : 6);
 
       if (error) {
         console.error('Error loading users:', error);
@@ -112,8 +114,7 @@ function Feedback() {
       </FadeContent>
 
       <Link className='link-to-addfeedback' to="/add-feedback">
-        <div className='link-to-addfeedback-title1'>Add Feedback</div>
-        <div className='link-to-addfeedback-title2'><i className="fi fi-rs-plus"></i></div>
+        <div className='link-to-addfeedback-title1'><i className="fi fi-rs-plus"></i> Add Feedback</div>
       </Link>
     </div>
   );

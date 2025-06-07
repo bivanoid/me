@@ -1,6 +1,7 @@
 
 import '../styles/aboutme.css';
 import AnimatedContent from './AnimatedContent';
+import sya from '../assets/eek.jpg';
 
 
 function Biodata() {
