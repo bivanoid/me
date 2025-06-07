@@ -1,21 +1,19 @@
 {
   "files": {
-    "main.css": "/MyPortofolio/static/css/main.84eb0190.css",
-    "main.js": "/MyPortofolio/static/js/main.3e5d2fb6.js",
+    "main.css": "/MyPortofolio/static/css/main.d2279c1c.css",
+    "main.js": "/MyPortofolio/static/js/main.f9bbcdb5.js",
     "static/js/198.e4502a77.chunk.js": "/MyPortofolio/static/js/198.e4502a77.chunk.js",
-    "static/media/iklanbicture.jpg": "/MyPortofolio/static/media/iklanbicture.3bfaaecc26655ee587cf.jpg",
+    "static/media/duo.jpg": "/MyPortofolio/static/media/duo.055ca0135d472e001f38.jpg",
+    "static/media/woman.jpg": "/MyPortofolio/static/media/woman.6bf7c6270399f060a0bf.jpg",
     "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/MyPortofolio/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
-    "static/media/riyadh.png": "/MyPortofolio/static/media/riyadh.4792a8ffdaf94f8a1607.png",
-    "static/media/kasir.png": "/MyPortofolio/static/media/kasir.be2951937eb04ad52bdf.png",
-    "static/media/todolist.png": "/MyPortofolio/static/media/todolist.ffb9e468dab960c94371.png",
     "index.html": "/MyPortofolio/index.html",
     "static/media/plus-paricle.svg": "/MyPortofolio/static/media/plus-paricle.4d67155093c23f14a7007b3aa04600d3.svg",
-    "main.84eb0190.css.map": "/MyPortofolio/static/css/main.84eb0190.css.map",
-    "main.3e5d2fb6.js.map": "/MyPortofolio/static/js/main.3e5d2fb6.js.map",
+    "main.d2279c1c.css.map": "/MyPortofolio/static/css/main.d2279c1c.css.map",
+    "main.f9bbcdb5.js.map": "/MyPortofolio/static/js/main.f9bbcdb5.js.map",
     "198.e4502a77.chunk.js.map": "/MyPortofolio/static/js/198.e4502a77.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.84eb0190.css",
-    "static/js/main.3e5d2fb6.js"
+    "static/css/main.d2279c1c.css",
+    "static/js/main.f9bbcdb5.js"
   ]
 }
