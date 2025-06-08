@@ -159,7 +159,7 @@
 
 .bio {
     width: calc(100% - 40px);
-    border: 2px dashed rgba(255, 255, 255, 0.055);
+    border: 2px dashed var(--border);
     border-radius: 2px;
     display: flex;
     flex-direction: column;
@@ -201,18 +201,18 @@
 }
 .box-skill:nth-child(3){
     background-color: rgb(229, 233, 0);
-    color: var(--primary);
+    color: black;
 }
 .box-skill:nth-child(4){
     background-color: rgb(142, 56, 240);
 }
 .box-skill:nth-child(5){
-    color: var(--primary);
+    color: black;
     background-color: rgb(41, 227, 252);
 }
 .box-skill:nth-child(6){
     background-color: rgb(108, 187, 240);
-    color: var(--primary);
+    color: black;
 }
 .box-skill:nth-child(7){
     background-color: rgb(182, 5, 5);
@@ -225,7 +225,7 @@
     background-color: rgb(24, 123, 209);
 }
 .box-skill:nth-child(10){
-
+    background: rgb(49, 49, 49);
 }
 .box-skill:nth-child(11){
     background-color: rgb(255, 131, 30);
@@ -234,7 +234,7 @@
 
 .box-skill:nth-child(12) {
     background-color: rgb(30, 255, 180);
-    color: var(--primary);
+    color: black;
 }
 
 .con-hire-me {
@@ -293,6 +293,7 @@
     font-weight: 400;
     margin-bottom: 15px;
     margin-top: 0px;
+    color: var(--button);
     font-family: var(--secondfont);
 }
 
@@ -314,6 +315,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 5px;
+    color: var(--button);
 }
 
 @media (max-width:1083px) {
@@ -426,6 +428,7 @@
     font-size: 1.3vw;
     opacity: 1;
     font-family: var(--secondfont);
+    color: var(--button);
 }
 
 .text-abouts .content-about {

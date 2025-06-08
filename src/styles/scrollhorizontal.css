@@ -96,6 +96,7 @@
     padding-inline: 10px;
     font-size: 1.6vw;
     font-family: var(--secondfont);
+    color: var(--button);
     font-weight: 400;
     margin: 0;
     padding-top: 5px;
@@ -303,6 +304,7 @@
 
     .gambar-h2 {
         font-size: 4vw;
+        color: var(--button);
     }
 
     .gambar-h1 {

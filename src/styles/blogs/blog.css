@@ -1,6 +1,6 @@
 .body-blog {
     background: #0d0d0d;
-    background: radial-gradient(circle, rgba(13, 13, 13, 1) 33%, rgba(10, 10, 10, 1) 100%);
+    background: radial-gradient(circle, var(--primary) 33%, var(--primary2) 100%);
 }
 
 .navigation-blog {
@@ -278,6 +278,10 @@ main {
     border-top: 1px solid var(--border);
     margin-top: 20px;
     height: 1px;
+}
+
+.menu-button-blog {
+    display: none;
 }
 
 @media (max-width:700px) {

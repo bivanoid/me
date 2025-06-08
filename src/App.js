@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useState } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Introduction from './components/introduction';
 import PopupImage from './components/popupimage';
@@ -10,18 +10,56 @@ import Home from './pages/home';
 import AddFeedback from './pages/addfeedback';
 import Blog from './pages/blog';
 
+// Komponen wrapper untuk Routes dengan efek transisi
+function AppRoutes() {
+  const location = useLocation();
+
+  return (
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={
+        <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
+          <Home />
+        </FadeContent>
+      } />
+      <Route path="/add-feedback" element={
+        <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
+          <AddFeedback />
+        </FadeContent>
+      } />
+      <Route path="/blog" element={
+        <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
+          <Blog />
+        </FadeContent>
+      } />
+    </Routes>
+  );
+}
+
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // 3 detik
+
+    return () => clearTimeout(timer); // Bersihkan timer jika komponen unmount
+  }, []);
+
   return (
     <Router>
-        <div className='body'>
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/add-feedback" element={<AddFeedback />} />
-              <Route path="/blog" element={<Blog />} />
-            </Routes>
+      <div className='body'>
+        {loading ? (
+          <div className="loading-screen">
+            {/* Gimmick loading (bisa kamu ganti sesuai desain) */}
+            <h1>Loading...</h1>
           </div>
-        </div>
+        ) : (
+          <div>
+            <AppRoutes />
+          </div>
+        )}
+      </div>
     </Router>
   );
 }

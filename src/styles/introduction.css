@@ -10,7 +10,7 @@
     position: relative;
     overflow: hidden;
     padding-inline: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    border-bottom: 1px solid var(--border);
     
 }
 
@@ -68,10 +68,10 @@
     bottom: 30px;
 }
 
-.star1 {
+.star1, .star2, .star3 {
     animation-delay: 2s;
     animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-    
+    fill: var(--button);
 }
 
 .con-star2 {
@@ -79,6 +79,7 @@
     right: 20%;
     width: 20px;
     animation-duration: 3s;
+    fill: var(--button);
 }
 
 
@@ -262,6 +263,7 @@
         right: 20%;
         width: 20px;
         animation-duration: 3s;
+        fill: var(--button);
     }
 
     .con-star3 {

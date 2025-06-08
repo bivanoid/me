@@ -15,6 +15,7 @@ function Introduction() {
     };
       
     return (
+        
         <div className='section'>
             {/* <StarIcon className='star star1' width={100} height={100} background='red'/>
             <StarIcon className='star star2' width={100} height={100} /> */}
