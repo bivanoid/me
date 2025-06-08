@@ -23,6 +23,7 @@
     font-size: clamp(1em, 4em, 5em);
     color: var(--button);
     font-family: var(--secondfont);
+    font-style: italic;
     margin: 0;
 }
 

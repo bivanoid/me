@@ -22,7 +22,7 @@
   --primary3: #bebebe4f;
   --grey: rgb(59, 59, 59);
   --button: #0a0a0a;
-  --border: rgba(0, 0, 0, 0.089);
+  --border: #0000002f;
   --secondfont: "Elsie",
     serif;
   --primaryfont: "Space Grotesk", sans-serif;
@@ -67,21 +67,54 @@ a {
   align-items: center;
   height: 100vh;
   background: transparent;
-  color: white;
+  color: var(--button);
+  overflow: hidden;
+  font-family: var(--secondfont);
+
+  
+}
+
+.loading-screen h1 {
+  font-weight: 400;
   font-size: 2rem;
-  font-weight: bold;
-  animation: fadeIn 3.5s ease-in-out;
+  animation: fadeIn 3.8s ease-in-out;
 }
 
 @keyframes fadeIn {
   0% {
-    transform: translateY(0%);
+
+    letter-spacing: 0em;
+    opacity: 0;
+    scale: 1;
   }
 
-  70% {
-    transform: translateY(0%);
-  } 100% {
-    transform: translateY(100%);
+    25% {
+      transform: translateY(0);
+      letter-spacing: 0em;
+      opacity: 1;
+      scale: 1;
+    }
+
+  50% {
+    transform: translateY(0);
+    letter-spacing: 0em;
+    opacity: 1;
+    scale: 1;
+  }
+  80% {
+    letter-spacing: 1px;
+    scale: 3;
+    opacity: 0;
+  } 
+  99% {
+    letter-spacing: 1px;
+      scale: 3;
+      opacity: 0;
+  }
+  100% {
+    letter-spacing: 1px;
+    opacity: 0;
+    scale: 6;
   }
 }
 
@@ -103,29 +136,7 @@ body {
   
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  border-left: 1px solid var(--border);
-  padding: 5px;
 
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--border);
-  border: 2px solid var(--primary);
-  border-block-width: 40px;
-  position: relative;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--button);
-
-}
-
-::-webkit-scrollbar-button {
-   display: none;
-   margin: 20px;
-}
 
 .con-star path {
   fill: var(--button);
@@ -141,6 +152,30 @@ body {
   font-size: 18px;
 }
 
+@media (min-width:1000px) {
+  ::-webkit-scrollbar {
+      width: 10px;
+      border-left: 1px solid var(--border);
+      padding: 5px;
+  
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--border);
+      position: relative;
+    }
+  
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--button);
+  
+    }
+  
+    ::-webkit-scrollbar-button {
+      display: none;
+      margin: 20px;
+    }
+}
+
 @media (max-width:700px) {
   .number {
     top: -20px;
@@ -150,4 +185,10 @@ body {
     padding-top: 0px;
     top: 0px;
   }
+
+    .loading-screen h1 {
+      font-weight: 400;
+      font-size: 1rem;
+      animation: fadeIn 3.8s ease-in-out; }
+  
 }

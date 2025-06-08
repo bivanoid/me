@@ -25,7 +25,10 @@ export default function Footer() {
                     <div className='footer1'>
 
                         <div className='footer1-main'>
-                            <img src={logo}></img>
+                            <div className='logo-web'>
+                                <div className='textlogo'>FRD<br />AVN</div>
+                                <h1>N</h1>
+                            </div>
                         </div>
 
                         <div className='footer1-main'>

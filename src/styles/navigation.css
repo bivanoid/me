@@ -20,14 +20,36 @@
     /* background: url(../assets/logobicture3.png);
     background-position: center;
     background-size: cover; */
-    width: 50px;
-    aspect-ratio: 1/1;
+    width: 59px;
+    gap: 4px;
     object-fit: cover;
     overflow: hidden;
     object-position: center;
-    display: grid;
+    display: flex;
     color: var(--button);
+    max-height: fit-content;
+    font-family: var(--secondfont);
+}
+
+.textlogo {
+    line-height: 0.8;
+    display: inline-block;
+    
+}
+
+.logo-web h1 {
+    font-weight: 100;
+    margin-left: 2px;
+    font-size: 100%;
+    background-color: var(--button);
+    display: grid;
     place-items: center;
+    flex: 1;
+    flex-shrink: 1;
+    color: var(--primary);
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin: 0;
 }
 
 .logo-web img {
@@ -78,6 +100,7 @@
     min-width: 104px;
 }
 
+
 .theme {
     background-color: var(--border);
     color: var(--primary);
@@ -86,7 +109,7 @@
     width: 80px;
     height: 40px;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 0px;
     display: grid;
     place-items: center;
     border: none;
@@ -98,23 +121,28 @@
     overflow: hidden;
 }
 
+.theme2 {
+    display: none;
+    visibility: hidden;
+}
+
 .theme i {
     transform: translateY(1px);
 }
 
-#swchbtn {
+#swchbtn1, #swchbtn2 {
     background-color: var(--button);
     height: calc(100% - 10px);
     aspect-ratio: 1/1;
     position: absolute;
     transition: 0.3s;
     left: calc(0% + 5px);
-    border-radius: 4px;
+    border-radius: 0px;
     display: grid;
     place-items: center;
 }
 
-#swchbtn.switchTheme {
+#swchbtn1.switchTheme, #swchbtn2.switchTheme {
     left: calc(50% + 5px);
 }
 
@@ -165,6 +193,17 @@
         z-index: -1;
     }
 
+    .theme1 {
+        display: none;
+            visibility: hidden;
+    }
+
+    .theme2 {
+         
+        display: grid;
+            visibility: visible;
+    }
+
     .theme i {
         transform: translateY(1px);
     }
@@ -183,8 +222,9 @@
     }
 
     .menu-button {
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         width: 50px;
         aspect-ratio: 1/1;
         color: var(--button);

@@ -10,7 +10,6 @@ import Home from './pages/home';
 import AddFeedback from './pages/addfeedback';
 import Blog from './pages/blog';
 
-// Komponen wrapper untuk Routes dengan efek transisi
 function AppRoutes() {
   const location = useLocation();
 
@@ -18,7 +17,7 @@ function AppRoutes() {
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={
         <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
-          <Home />
+          <Home/>
         </FadeContent>
       } />
       <Route path="/add-feedback" element={

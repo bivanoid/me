@@ -15,8 +15,7 @@ function Navigation() {
 
     function toggleTheme() {
         const root = document.documentElement;
-        var swchbtn = document.getElementById('swchbtn');
-        swchbtn.classList.toggle('switchTheme')
+        ['swchbtn1', 'swchbtn2'].forEach(id => document.getElementById(id)?.classList.toggle('switchTheme'))
 
         if (darkMode) {
             // Light mode
@@ -24,7 +23,7 @@ function Navigation() {
             root.style.setProperty('--primary2', '#d1d1d1');
             root.style.setProperty('--primary3', '#bebebe4f');
             root.style.setProperty('--button', '#0a0a0a');
-            root.style.setProperty('--border', 'rgba(0, 0, 0, 0.089)');
+            root.style.setProperty('--border', '#0000002f');
         } else {
             // Dark mode
             root.style.setProperty('--primary', '#0a0a0a');
@@ -45,7 +44,11 @@ function Navigation() {
                 <li><Link to="/">PORTOFOLIO <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></a></li>
                 <li><Link to='/blog'>MY BLOG <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
+                <button className='theme theme2' onClick={toggleTheme}>
+                    <div id='swchbtn2' className='button-swch'>{darkMode ? (<i class="fi fi-rs-moon-stars"></i>) : (<i class="fi fi-rs-brightness"></i>)}</div>
+                </button>
             </ul>
+       
             <div className='logo-menu' id='logomenu'>
                 <h1>
                     <span>
@@ -63,10 +66,12 @@ function Navigation() {
                     <span>N</span>
                 </h1>
             </div>
-            <div className='logo-web'>fr.</div>
-            <button className='theme' onClick={toggleTheme}>
-                
-                <div id='swchbtn' className='button-swch'>{darkMode ? (<i class="fi fi-rs-moon-stars"></i>): (<i class="fi fi-rs-brightness"></i>)}</div>
+            <div className='logo-web'>
+                <div className='textlogo'>FRD<br/>AVN</div>
+                <h1>N</h1>
+            </div>
+            <button className='theme theme1' onClick={toggleTheme}>
+                <div id='swchbtn1' className='button-swch'>{darkMode ? (<i class="fi fi-rs-moon-stars"></i>): (<i class="fi fi-rs-brightness"></i>)}</div>
             </button>
 
         </div>

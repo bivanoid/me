@@ -93,7 +93,6 @@ export default function HorizontalSlider({ onImageClick }) {
             <h1 className='gambar-h1'>Cashier</h1>
             <div className='tag-language'>
               <div className='taglang'>PHP</div>
-              <div className='taglang'>CSS</div>
               <div className='taglang'>BOOTSRAP</div>
               <div className='taglang'>MYSQL</div>
             </div>

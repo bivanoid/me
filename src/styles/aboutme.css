@@ -158,8 +158,9 @@
 
 
 .bio {
-    width: calc(100% - 40px);
+    width: calc(100%);
     border: 2px dashed var(--border);
+    box-sizing: border-box;
     border-radius: 2px;
     display: flex;
     flex-direction: column;

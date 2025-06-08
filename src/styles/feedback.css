@@ -6,6 +6,7 @@
 .title-feedback {
     color: var(--button);
     font-weight: 400;
+    font-style: italic;
     font-size: clamp(1em, 4em, 5em);
     font-family: var(--secondfont);
     margin: 0;
@@ -85,6 +86,24 @@
     padding-inline: 20px;
     justify-content: center;
     transition: 0.4s;
+}
+
+.error-title {
+    font-size: 16px;
+        display: flex;
+        text-transform: uppercase;
+        color: var(--button);
+        font-family: var(--secondfont);
+        width: 100%;
+        color: rgb(255, 66, 66);
+}
+
+.error-fetch {
+    background-color: var(--button);
+    color: var(--primary);
+    padding: 10px;
+    width: fit-content;
+    font-family: var(--secondfont);
 }
 
 

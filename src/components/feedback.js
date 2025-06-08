@@ -79,8 +79,8 @@ function Feedback() {
       </AnimatedContent>
 
       {loading && <p>Loading...</p>}
-      {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
-      {!loading && users.length === 0 && <p>No feedback yet.</p>}
+      {error && <p className='error-title'>Error! <br/>{error.message}</p>}
+      {!loading && users.length === 0 && <p className='error-fetch'>No feedback yet.</p>}
 
       <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
         <ul className='con-user-feedback'>
