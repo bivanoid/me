@@ -51,7 +51,7 @@ function App() {
         {loading ? (
           <div className="loading-screen">
             {/* Gimmick loading (bisa kamu ganti sesuai desain) */}
-            <h1>Loading...</h1>
+            <h1>Loading.</h1>
           </div>
         ) : (
           <div>

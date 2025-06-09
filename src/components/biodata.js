@@ -24,7 +24,7 @@ function Biodata() {
             direction="horizontal"
             reverse={true}
             config={{ tension: 80, friction: 20 }}
-            delay={0.6}
+            delay={200}
             initialOpacity={0}>
             
                 <div className='sticky'>
@@ -34,11 +34,11 @@ function Biodata() {
                         
                         <div className='sticky-header'>
                             <AnimatedContent
-                                distance={20}
+                                distance={0}
                                 direction="horizontal"
                                 reverse={true}
                                 config={{ tension: 80, friction: 20 }}
-                                initialOpacity={0.2}
+                                initialOpacity={0}
                                 animateOpacity
                                 scale={0}
                                 threshold={0.2}

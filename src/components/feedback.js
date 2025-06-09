@@ -68,12 +68,13 @@ function Feedback() {
       </AnimatedContent>
 
       <AnimatedContent
-        distance={10}
+        distance={30}
         direction="vertical"
+        delay={200}
         reverse={false}
         config={{ tension: 80, friction: 20 }}
-        initialOpacity={1}
-        threshold={1}
+        initialOpacity={0}
+        threshold={0.5}
       >
         <p className='subtitle-feedback'>their opinion of me. </p>
       </AnimatedContent>

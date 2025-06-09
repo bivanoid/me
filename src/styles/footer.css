@@ -160,7 +160,7 @@
 
 .footer3 {
     height: 100%;
-    background: url(../assets/duo.jpg);
+    background: url(../assets/shr.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -184,15 +184,25 @@
     }
 
     .footer1-main:nth-child(1) {
-        display: block;
+        display: flex;
+        padding-left: 30px;
         border-bottom: 1px solid var(--border);
+        padding-block: 30px;
+        height: fit-content;
         
     }
 
-    .footer1 .footer1-main img{
-        width: 30px;
-        aspect-ratio: 1/1;
-        margin-left: 30px;
+    .footer1-main:nth-child(2) {
+        font-size: 4vw;
+        padding-top: 50px;
+    }
+
+    .footer1 {
+        padding-top: 0;
+    }
+
+    .footer1 .footer1-main .logo-web{
+        z-index: 3;
     }
 
     .con-social-media {

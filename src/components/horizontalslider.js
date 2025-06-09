@@ -39,11 +39,12 @@ export default function HorizontalSlider({ onImageClick }) {
             <h1>Latest Project —</h1>
           </AnimatedContent>
           <AnimatedContent
-            distance={10}
+            distance={30}
             direction="vertical"
+            delay={200}
             reverse={false}
             config={{ tension: 80, friction: 20 }}
-            initialOpacity={1}
+            initialOpacity={0}
             threshold={1}
           >
           <p>individual or collective projects. </p>
@@ -88,16 +89,6 @@ export default function HorizontalSlider({ onImageClick }) {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img onClick={handleImageClick} className='gambar' src={kasir} alt="Cashier"></img>
-            <h2 className='gambar-h2'>individual</h2>
-            <h1 className='gambar-h1'>Cashier</h1>
-            <div className='tag-language'>
-              <div className='taglang'>PHP</div>
-              <div className='taglang'>BOOTSRAP</div>
-              <div className='taglang'>MYSQL</div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
             <div className='gambar'>
               <img onClick={handleImageClick} className='' src={calc} alt="Calculator"></img>
               <a href='https://vandyaaa.github.io/calculablew/'>link <i className="fi fi-rs-arrow-up-right"></i></a>
@@ -122,6 +113,21 @@ export default function HorizontalSlider({ onImageClick }) {
               <div className='taglang'>FIREBASE</div>
             </div>
           </SwiperSlide>
+          <SwiperSlide>
+            <div className='gambar'>
+              <img onClick={handleImageClick} className='' src={kasir} alt="Cashier"></img>
+
+            </div>
+            <h2 className='gambar-h2'>individual</h2>
+            <h1 className='gambar-h1'>Cashier</h1>
+            <div className='tag-language'>
+              <div className='taglang'>PHP</div>
+              <div className='taglang'>BOOTSRAP</div>
+              <div className='taglang'>MYSQL</div>
+            </div>
+          </SwiperSlide>
+
+
         </Swiper>
       </FadeContent>
       <div className='con-swipe '>

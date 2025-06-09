@@ -102,17 +102,17 @@ a {
     scale: 1;
   }
   80% {
-    letter-spacing: 1px;
+    letter-spacing: 10px;
     scale: 3;
     opacity: 0;
   } 
   99% {
-    letter-spacing: 1px;
+    letter-spacing: 10px;
       scale: 3;
       opacity: 0;
   }
   100% {
-    letter-spacing: 1px;
+    letter-spacing: 20px;
     opacity: 0;
     scale: 6;
   }

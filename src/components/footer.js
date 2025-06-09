@@ -38,13 +38,13 @@ export default function Footer() {
                             <p>Feedback</p>
                         </div>
 
-
                     </div>
                     <div className='footer2'>
                         <h1>— Social Media</h1>
                         <div className='con-social-media'>
                             <a href='https://www.instagram.com/bivanoid/' className='ig'><i class="fi fi-brands-instagram"></i></a>
-                            <a href='https://www.linkedin.com/in/firdhan-abivandya-b193072a1/' className='lnkdn'><i class="fi fi-brands-linkedin"></i></a>
+                            <a href='' className='lnkdn'><i class="fi fi-brands-linkedin"></i></a>
+                            {/* https://www.linkedin.com/in/firdhan-abivandya-b193072a1/ */}
                             <a href='https://x.com/riyadhlearning' className='twt'><i class="fi fi-brands-twitter-alt-circle"></i></a>
                             <a href='https://wa.me/087739770494' className='wa'><i class="fi fi-brands-whatsapp"></i></a>
                             <a href='https://t.me/Teufelie' className='tele'><i class="fi fi-brands-telegram"></i></a>

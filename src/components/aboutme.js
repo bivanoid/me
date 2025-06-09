@@ -16,11 +16,11 @@ function AboutMe({ onImageClick }) {
             <div className='contents'>
                 <div className='abouts'>
                     <AnimatedContent
-                        distance={150}
+                        distance={30}
                         direction="horizontal"
                         reverse={true}
                         config={{ tension: 80, friction: 20 }}
-                        initialOpacity={0.2}
+                        initialOpacity={0}
                     >
                         <div className='text-abouts'><p className='title-about'>About</p><br></br>
                             <p className='content-about'>
@@ -32,11 +32,11 @@ function AboutMe({ onImageClick }) {
                         </div>
                     </AnimatedContent>
                     <AnimatedContent
-                        distance={150}
+                        distance={30}
                         direction="horizontal"
                         reverse={!isLargeScreen}
                         config={{ tension: 80, friction: 20 }}
-                        initialOpacity={0.2}
+                        initialOpacity={0}
                     >
                         <div className='text-abouts  '><p className='title-about title-about2'>Carrier</p><br></br>
                             <p className='content-carrier'>
