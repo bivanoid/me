@@ -359,7 +359,10 @@ export default function Blog() {
                                     </div>
 
                                     <div className="article-modal-body">
-                                        <p>{selectedArticle.text_blog || "Konten tidak tersedia"}</p>
+                                        <p
+                                            className="rendered-html"
+                                            dangerouslySetInnerHTML={{ __html: selectedArticle.text_blog || "Konten tidak tersedia" }}
+                                        ></p>
 
                                        
                                     </div>
