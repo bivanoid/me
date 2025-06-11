@@ -233,6 +233,8 @@ export default function Blog() {
                                     return (
                                         <div
                                             className="article"
+                                            onClick={() => openArticle(blog)}
+                                            style={{ cursor: "pointer" }}
                                             key={blog.id || index}
                                             
                                         >
@@ -264,8 +266,7 @@ export default function Blog() {
                                                     </div>
                                                 </div>
                                                 <div className="text-article"
-                                                    onClick={() => openArticle(blog)}
-                                                    style={{ cursor: "pointer" }}>
+                                                    >
                                                     
                                                     <h1 className="title-article">{blog.title_blog || "Judul tidak tersedia"}</h1>
                                                     <p className="content-article" dangerouslySetInnerHTML={{ __html: blog.text_blog ? truncateText(blog.text_blog) : "Konten tidak tersedia" }}>
@@ -291,7 +292,7 @@ export default function Blog() {
                 </main>
 
                 <div className="close-blog" id="closeBlog" onClick={openBlog}>
-                    <i class="fi fi-rs-angle-square-left"></i>
+                    <i class="fi fi-rs-down-left-and-up-right-to-center"></i>
                 </div>
 
                 <div className="con-blog-sticky" id="menuShow">

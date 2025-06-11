@@ -360,7 +360,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background: radial-gradient(circle, var(--primary) 33%, var(--primary2) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -371,7 +371,6 @@ main {
 
 
 .article-modal {
-    background-color: var(--primary);
     border: 1px solid var(--border);
     max-width: 100vw;
     width: 100%;
@@ -623,8 +622,6 @@ main {
 
     .main-sticky-blog h1 {
         font-size: 10vw;
-        display: flex;
-        justify-content: space-between;
     }
 
     .filter-by h2 {
