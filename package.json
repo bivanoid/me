@@ -12,7 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^12.12.1",
     "gh-pages": "^6.3.0",
-    "motion": "^12.12.1",
+    "motion": "^12.16.0",
     "motion-primitives": "^0.1.0",
     "ogl": "^1.0.11",
     "openai": "^4.103.0",

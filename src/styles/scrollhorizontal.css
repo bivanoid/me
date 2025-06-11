@@ -79,7 +79,7 @@
 }
 
 .gambar-h2 {
-    color: rgb(255, 255, 255);
+    color: var(--button);
     font-size: 0.8vw;
     margin-top: 0;
     position: relative;

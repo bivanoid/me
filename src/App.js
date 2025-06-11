@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // 3 detik
+    }, 7000); // 3 detik
 
     return () => clearTimeout(timer); // Bersihkan timer jika komponen unmount
   }, []);
@@ -51,7 +51,13 @@ function App() {
         {loading ? (
           <div className="loading-screen">
             {/* Gimmick loading (bisa kamu ganti sesuai desain) */}
-            <h1>Loading.</h1>
+            <div className='loading-ic'>
+              <span>— L</span>
+              <span>o</span>
+              <span>a</span>
+              <span>d</span>
+              <span>ing</span>
+            </div>
           </div>
         ) : (
           <div>
