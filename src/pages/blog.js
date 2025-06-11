@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
 import Alert from "../assets/Alert.png"
+import Logo from "../components/logo"
 
 // Scroll Progress Component
 function ScrollProgress() {
@@ -148,6 +149,7 @@ export default function Blog() {
         })
     }
 
+
     function openArticle(article) {
         setSelectedArticle(article)
         setIsArticleModalOpen(true)
@@ -176,9 +178,9 @@ export default function Blog() {
         return new Date(dateString).toLocaleDateString("id-ID", options)
     }
 
-    function truncateText(text, maxLength = 150) {
+    function truncateText(text, maxLength = 200) {
         if (text.length <= maxLength) return text
-        return text.substring(0, maxLength) + "..."
+        return text.substring(0, maxLength) + ("<span style='color: white; opacity: 1;'>see more</span>")
     }
 
     return (
@@ -187,8 +189,9 @@ export default function Blog() {
                 <main>
                     <div className="navigation-blog">
                         <Link to="/" className="back-to-home-from-blog">
-                            <i className="fi fi-rs-undo"></i>
+                            <i class="fi fi-rs-turn-left"></i>
                         </Link>
+                        <Logo/>
                         <div className="menu-button-blog" onClick={openBlog}>
                             <i className="fi fi-rs-expand-arrows"></i>
                         </div>
@@ -231,8 +234,7 @@ export default function Blog() {
                                         <div
                                             className="article"
                                             key={blog.id || index}
-                                            onClick={() => openArticle(blog)}
-                                            style={{ cursor: "pointer" }}
+                                            
                                         >
                                             <div className="con-image-article">
                                                 {blog.image_url ? (
@@ -261,10 +263,13 @@ export default function Blog() {
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div className="text-article">
+                                                <div className="text-article"
+                                                    onClick={() => openArticle(blog)}
+                                                    style={{ cursor: "pointer" }}>
+                                                    
                                                     <h1 className="title-article">{blog.title_blog || "Judul tidak tersedia"}</h1>
-                                                    <p className="content-article">
-                                                        {blog.text_blog ? truncateText(blog.text_blog) : "Konten tidak tersedia"}
+                                                    <p className="content-article" dangerouslySetInnerHTML={{ __html: blog.text_blog ? truncateText(blog.text_blog) : "Konten tidak tersedia" }}>
+                                                        
                                                     </p>
                                                 </div>
                                                 {blog.category && (
@@ -274,6 +279,10 @@ export default function Blog() {
                                                 )}
                                             </div>
                                         </div>
+                                    //     <p
+                                    //     className="rendered-html"
+                                    //     dangerouslySetInnerHTML={{ __html: selectedArticle.text_blog || "Konten tidak tersedia" }}
+                                    // ></p>
                                     )
                                 })}
                             </>
@@ -282,7 +291,7 @@ export default function Blog() {
                 </main>
 
                 <div className="close-blog" id="closeBlog" onClick={openBlog}>
-                    <i className="fi fi-rs-down-left-and-up-right-to-center"></i>
+                    <i class="fi fi-rs-angle-square-left"></i>
                 </div>
 
                 <div className="con-blog-sticky" id="menuShow">
@@ -309,18 +318,16 @@ export default function Blog() {
             {isArticleModalOpen && selectedArticle && (
                 <div className="article-modal-overlay" onClick={closeArticle}>
                     <div className="article-modal" onClick={(e) => e.stopPropagation()}>
-                        <div className="article-modal-header">
-                            <button className="close-article-btn" onClick={closeArticle}>
-                                <i className="fi fi-rs-down-left-and-up-right-to-center"></i>
-                            </button>
-                        </div>
 
                         <div className="article-modal-content">
                             {/* Tambahkan ScrollProgress di sini */}
                             
-
                             <aside className="asside-article">
+                                
                                 <div className="asside-main">
+                                    <button className="close-article-btn" onClick={closeArticle}>
+                                        <i class="fi fi-rs-cross"></i>
+                                    </button>
                                     <h1 className="article-modal-title">{selectedArticle.title_blog || "Judul tidak tersedia"}</h1>
                                     <div className="author-photo"></div>
                                     <div className="article-modal-author">

@@ -3,7 +3,7 @@ import '../styles/navigation.css';
 import Biodata from './biodata';
 import logo from '../assets/logo.png'
 import React, { useState } from 'react';
-
+import Logo from './logo';
 
 function open() {
     ['menu', 'close', 'logomenu', 'thecontent'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
@@ -19,17 +19,17 @@ function Navigation() {
 
         if (darkMode) {
             // Light mode
-            root.style.setProperty('--primary', '#e0e0e0');
-            root.style.setProperty('--primary2', '#d1d1d1');
-            root.style.setProperty('--primary3', '#bebebe4f');
-            root.style.setProperty('--button', '#0a0a0a');
-            root.style.setProperty('--border', '#0000002f');
+            root.style.setProperty('--primary', '#fafaff');
+            root.style.setProperty('--primary2', '#eef0f2');
+            root.style.setProperty('--primary3', '#ecebe4');
+            root.style.setProperty('--button', '#1c1c1c');
+            root.style.setProperty('--border', '#00000014');
         } else {
             // Dark mode
-            root.style.setProperty('--primary', '#0a0a0a');
-            root.style.setProperty('--primary2', '#111111');
-            root.style.setProperty('--primary3', '#1616163d');
-            root.style.setProperty('--button', '#f8f8f8');
+            root.style.setProperty('--primary', '#131316');
+            root.style.setProperty('--primary2', '#1c1c21');
+            root.style.setProperty('--primary3', '#26262c');
+            root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
         }
 
@@ -66,10 +66,7 @@ function Navigation() {
                     <span>N</span>
                 </h1>
             </div>
-            <div className='logo-web'>
-                <div className='textlogo'>FRD<br/>AVN</div>
-                <h1>N</h1>
-            </div>
+            <Logo/>
             <button className='theme theme1' onClick={toggleTheme}>
                 <div id='swchbtn1' className='button-swch'>{darkMode ? (<i class="fi fi-rs-moon-stars"></i>): (<i class="fi fi-rs-brightness"></i>)}</div>
             </button>

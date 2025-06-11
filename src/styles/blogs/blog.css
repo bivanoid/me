@@ -283,11 +283,14 @@ main {
     opacity: 0.5;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    line-clamp: 5;
     -webkit-box-orient: vertical;
     font-family: var(--primaryfont);
 }
 
+.seemore {
+    color: aqua !important; 
+}
 
 .tags {
     width: 100%;
@@ -301,7 +304,7 @@ main {
 }
 
 .con-progress {
-    width: 5%;
+    width: 87px;
     height: calc(100vh - 87px);
     /* border-left: 1px solid var(--border); */
     overflow: hidden;
@@ -352,7 +355,6 @@ main {
 /* Article Modal Styles */
 .article-modal-overlay {
     position: fixed;
-    padding-top: 87px;
     box-sizing: border-box;
     top: 0;
     left: 0;
@@ -366,6 +368,8 @@ main {
     box-sizing: border-box;
 }
 
+
+
 .article-modal {
     background-color: var(--primary);
     border: 1px solid var(--border);
@@ -375,6 +379,8 @@ main {
     overflow-y: auto;
     position: relative;
 }
+
+
 
 .scroll-top-article-btn {
     width: 50px;
@@ -402,29 +408,22 @@ main {
     top: 0;
 }
 
-.article-modal-header {
-    position: fixed;
-    top: 0;
-    width: calc(100% - 40px);
-    height: 87px;
-    background-color: var(--primary);
-    border-bottom: 1px solid var(--border);
-    padding-inline: 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+.close-article-btn {
+    width: 47px;
+    height: 47px;
+    margin-bottom: 30px;
+    border: none;
+    background-color: var(--border);
+    font-size: 50px;
+    display: grid;
+    place-items: center;
     z-index: 10;
 }
 
-.close-article-btn {
-    background: none;
-    border: none;
-    color: var(--button);
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px;
-    font-size: 18px;
-    transition: opacity 0.3s ease;
+.close-article-btn i {
+    font-size: 12px;
+    color: whitesmoke;
+    transform: translateY(2px);
 }
 
 .close-article-btn:hover {
@@ -452,12 +451,13 @@ main {
 }
 
 .article-modal-image {
-    width: 50%;
+    width: 60%;
     max-height: 400px;
 }
 
 .article-modal-image img {
     width: 100%;
+    max-height: 400px;
     object-fit: contain;
     object-position: center;
 }
@@ -788,6 +788,17 @@ main {
     .article-modal-category {
         font-size: 10px;
         padding: 3px 10px;
+    }
+
+    .close-article-btn {
+        height: 30px;
+        aspect-ratio: 0;
+        top: 30px;
+        width: 30px;
+    }
+
+    .con-progress {
+        width: 30px;
     }
 
     .scroll-progress-container-vertical {
