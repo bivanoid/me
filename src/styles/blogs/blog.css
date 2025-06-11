@@ -453,12 +453,13 @@ main {
 
 .article-modal-image {
     width: 50%;
+    max-height: 400px;
 }
 
 .article-modal-image img {
     width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
 }
 
 .article-modal-meta {

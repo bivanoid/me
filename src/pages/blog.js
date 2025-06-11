@@ -361,28 +361,7 @@ export default function Blog() {
                                     <div className="article-modal-body">
                                         <p>{selectedArticle.text_blog || "Konten tidak tersedia"}</p>
 
-                                        {/* Additional content for better scroll demonstration */}
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum
-                                            mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis
-                                            dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue
-                                            enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non
-                                            tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        </p>
-
-                                        <p>
-                                            Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque
-                                            auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt
-                                            feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec et nulla nunc. Duis
-                                            vulputate elementum dui quis accumsan. Aliquam vestibulum hendrerit orci ac cursus. Sed a libero
-                                            lorem, nec mollis est. Sed consectetur eleifend magna, sit amet consequat lorem tempor quis.
-                                        </p>
-
-                                        <p>
-                                            Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac,
-                                            vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
-                                            varius blandit sit amet non magna.
-                                        </p>
+                                       
                                     </div>
                                 </div>
                             </main>
