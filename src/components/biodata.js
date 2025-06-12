@@ -2,7 +2,7 @@
 import '../styles/aboutme.css';
 import AnimatedContent from './AnimatedContent';
 import sya from '../assets/eek.jpg';
-
+import FadeContent from './FadeContent';
 
 function Biodata() {
     var ya = document.getElementById('inp');
@@ -18,14 +18,8 @@ function Biodata() {
         // };
     return (
         
-        <AnimatedContent 
-        className='con-sticky'
-            distance={50}
-            direction="horizontal"
-            reverse={true}
-            config={{ tension: 80, friction: 20 }}
-            delay={200}
-            initialOpacity={0}>
+
+            <FadeContent className='con-sticky' blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
             
                 <div className='sticky'>
                 <svg className='con-star con-star4' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -115,7 +109,7 @@ function Biodata() {
                         </div>
                 
                 </div>
-        </AnimatedContent>
+            </FadeContent >
     )
     
 }

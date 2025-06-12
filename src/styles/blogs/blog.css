@@ -1,6 +1,4 @@
 .body-blog {
-    background: #0d0d0d;
-    background: radial-gradient(circle, var(--primary) 33%, var(--primary2) 100%);
     box-sizing: border-box;
 }
 
@@ -84,6 +82,11 @@ main {
     align-items: center;
     color: var(--button);
     padding-inline: 30px;
+    padding-top: 30px;
+}
+
+.info-blog p {
+    margin: 0;
 }
 
 .status-conection-blog p {
@@ -239,6 +242,10 @@ main {
     justify-content: center;
 }
 
+.name-and-date p:nth-child(1) {
+    font-size: 3vw;
+}
+
 .name-and-date p {
     margin: 0;
     color: var(--button);
@@ -270,7 +277,7 @@ main {
 .title-article {
     color: var(--button);
     font-family: var(--secondfont);
-    font-weight: 400;
+    font-weight: 100;
     font-size: 2vw;
     width: 100%;
     margin: 0;
@@ -546,17 +553,6 @@ main {
     color: var(--button);
 }
 
-.article-modal-body p:first-child::first-letter {
-    float: left;
-    font-size: 7.9vw;
-    line-height: 0.5;
-    opacity: 1;
-    color: var(--button);
-    padding-right: 7px;
-    padding-top: 1.8vw;
-    font-family: var(--secondfont);
-}
-
 /* Ubah media query untuk mobile */
 @media (max-width: 700px) {
     main {
@@ -570,10 +566,16 @@ main {
 
     .menu-button-blog {
         color: var(--button);
-        display: grid;
-        place-items: center;
+        height: 30px;
         width: 50px;
-        aspect-ratio: 1 / 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+    }
+
+    .menu-button-blog i {
+        transform: translateY(1px);
     }
 
     .con-article {
@@ -584,15 +586,14 @@ main {
     .close-blog {
         display: grid;
         place-items: center;
+        color: var(--button);
         top: -100%;
         left: 0;
         width: 100%;
         position: fixed;
-        height: 87px;
-        z-index: 1000;
-        color: var(--button);
+        z-index: 101;
+        height: 86px;
         transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-        background-color: var(--primary);
         border-bottom: 1px solid var(--border);
     }
 
@@ -601,23 +602,35 @@ main {
     }
 
     .con-article.open-menu-blog {
-        filter: grayscale(100%);
-        opacity: 0.3;
+        filter: grayscale(100%) brightness(10%);
+        opacity: 0.1;
     }
 
     .con-blog-sticky {
-        position: fixed;
-        background-color: var(--primary);
-        top: 0;
-        left: -100%;
-        width: calc(100vw - 50px);
-        height: 100vh;
-        padding-top: 87px;
-        transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+        list-style: none;
+            padding: 0px;
+            position: fixed;
+            padding-left: 30px;
+            padding-right: 30px;
+            width: calc(100% - 60px);
+            height: 100%;
+            padding-top: 87px;
+            top: 0;
+            left: -100%;
+            z-index: 100;
+            transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
     .con-blog-sticky.open-menu-blog {
         left: 0%;
+    }
+
+    :is(#menuBlogIcon, #logoBlogIcon, #backMenuIcon) {
+        transition: 0.3s;
+    }
+
+    :is(#menuBlogIcon, #logoBlogIcon, #backMenuIcon).open-menu-blog {
+        transform: translateY(-500%);
     }
 
     .main-sticky-blog h1 {
@@ -647,7 +660,10 @@ main {
     .article .con-image-article img {
         width: 100%;
         aspect-ratio: 1 / 1;
-        object-fit: cover;   }
+        object-fit: cover;   
+    }
+
+
 
     .con-profile-blog {
         padding: 0;
@@ -682,7 +698,7 @@ main {
     }
 
     .title-article {
-        font-size: 6vw;
+        font-size: 5vw;
         
     }
 
@@ -709,13 +725,6 @@ main {
         max-width: 80%;
         text-align: center;
     }
-
-        .article-modal-body p:first-child::first-letter {
-            font-size: 12vw;
-            line-height: 0.5;
-            padding-right: 7px;
-            padding-top: 2vh;
-        }
 
     .article-modal-content {
         padding: 0 30px 15px 30px;

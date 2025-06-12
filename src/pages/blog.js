@@ -141,7 +141,7 @@ export default function Blog() {
     }
 
     function openBlog() {
-        ;["menuShow", "closeBlog", "conArticle"].forEach((id) => {
+        ;["menuShow", "closeBlog", "conArticle", "backMenuIcon", "menuBlogIcon", "logoBlogIcon"].forEach((id) => {
             const element = document.getElementById(id)
             if (element) {
                 element.classList.toggle("open-menu-blog")
@@ -188,11 +188,14 @@ export default function Blog() {
             <div className="con-blog">
                 <main>
                     <div className="navigation-blog">
-                        <Link to="/" className="back-to-home-from-blog">
+                        <Link to="/" className="back-to-home-from-blog" id="backMenuIcon">
                             <i class="fi fi-rs-turn-left"></i>
                         </Link>
-                        <Logo/>
-                        <div className="menu-button-blog" onClick={openBlog}>
+                        <div id="logoBlogIcon">
+                            <Logo />
+                        </div>
+                        
+                        <div className="menu-button-blog" id="menuBlogIcon" onClick={openBlog}>
                             <i className="fi fi-rs-expand-arrows"></i>
                         </div>
                     </div>

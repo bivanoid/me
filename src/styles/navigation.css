@@ -5,7 +5,7 @@
     height: min-content;
     display: flex;
     justify-content: space-between;
-    background-color: rgba(10, 10, 10, 0);
+    
     align-items: center;
     color: white;
     height: 87px;
@@ -63,7 +63,7 @@
     list-style: none;
     padding: 0px;
     transition: 0.5s;
-    
+    margin-top: 0px;
 }
 
 .arrow {
@@ -77,6 +77,7 @@
     justify-content: space-between;
     align-items: center;
     min-width: 104px;
+    width: 100%;
     border-bottom: 1px solid var(--border);
     transition: 0.2s;
 }
@@ -97,6 +98,7 @@
     color: var(--button);
     align-items: center;
     min-width: 104px;
+    width: 100%;
 }
 
 
@@ -163,6 +165,14 @@
     z-index: 99;
  } */
 
+ .close {
+    display: none;
+ }
+
+ .navigasi-menu h1 {
+    display: none;
+ }
+
 @media (max-width:700px) {
     .navigation {
         box-sizing: border-box;
@@ -182,6 +192,12 @@
             padding-inline: 30px;
             font-family: var(--primaryfont);
         }
+    
+        .navigasi-menu h1 {
+            display: block;       
+            padding-top: 30px;
+        }
+
     .theme {
         width: 65px;
         height: 35px;
@@ -244,8 +260,6 @@
         width: calc(100% - 60px);
         height: 100%;
         padding-top: 87px;
-        border-right: 1px solid var(--border);
-        background-color: var(--primary);
         top: 0;
         left: -100%;
         z-index: 100;
@@ -258,11 +272,11 @@
 
     .navigasi-menu li {
         font-size: 17px;
-        margin-block: 30px;
+        margin-bottom: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        min-width: 124px;
+        width: 100%;
         border-bottom: 1px solid var(--border);
     }
 
@@ -271,9 +285,9 @@
             color: var(--button);
             font-weight: 400;
             font-size: 10vw;
+            display: block;
             margin: 0;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
+            padding-block: 20px;
     }
 
     .close {
@@ -287,7 +301,6 @@
         z-index: 101;
         height: 86px;
         transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-        background-color: var(--primary);
         border-bottom: 1px solid var(--border);
     }
 
@@ -300,12 +313,21 @@
         transition: 0.3s;
         opacity: 1;
     }
-    
+
     #thecontent.open {
-        filter: grayscale(100%);
-        opacity: 0.3;
-        
+        filter: grayscale(100%) brightness(0%);
+        opacity: 0.1;
     }
 
+    :is(#logoMenuIcon, #expandMenuIcon) {
+        transition: 0.5s;
+        height: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    :is(#logoMenuIcon, #expandMenuIcon).open {
+        transform: translateY(-500%);
+    }
 
 }

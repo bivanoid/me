@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import Logo from './logo';
 
 function open() {
-    ['menu', 'close', 'thecontent'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
+    ['menu', 'close', 'thecontent', 'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
 }
   
 
@@ -38,7 +38,7 @@ function Navigation() {
 
     return (
         <div className='navigation'>
-            <div className='menu-button' onClick={open}><i class="fi fi-rs-expand-arrows"></i></div>
+            <div className='menu-button' id='expandMenuIcon' onClick={open}><i class="fi fi-rs-expand-arrows"></i></div>
             <div className='close' id='close' onClick={open}><i class="fi fi-rs-down-left-and-up-right-to-center"></i></div>
             <ul className='navigasi-menu' id='menu'>
                 <h1>— Menus<span class="dot-introduction"></span></h1>
@@ -50,7 +50,9 @@ function Navigation() {
                 </button>
             </ul>
        
-            <Logo/>
+            <div id='logoMenuIcon'>
+                <Logo />
+            </div>
             <button className='theme theme1' onClick={toggleTheme}>
                 <div id='swchbtn1' className='button-swch'>{darkMode ? (<i class="fi fi-rs-moon-stars"></i>): (<i class="fi fi-rs-brightness"></i>)}</div>
             </button>

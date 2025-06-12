@@ -20,7 +20,7 @@ export default function Home() {
   };
   return (  
     <div className='body'>
-      <Navigation />
+      <Navigation  />
       <PopupImage imageUrl={fullscreenImage} onClose={closeFullscreen} />
       <div id='thecontent'>
         <Introduction/>
