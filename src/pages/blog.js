@@ -178,7 +178,7 @@ export default function Blog() {
 
     function truncateText(text, maxLength = 250) {
         if (text.length <= maxLength) return text
-        return text.substring(0, maxLength) + "<span style='color: white; opacity: 1;'>see more</span>"
+        return text.substring(0, maxLength) + "<span style='color: white; opacity: 1;'> see more</span>"
     }
 
     return (

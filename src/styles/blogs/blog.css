@@ -619,17 +619,25 @@ main {
     overflow-x: auto;
 }
 
+.editor-list {
+    display: flex;
+    flex-direction: column;
+}
+
 .editor-list li {
     display: flex;
+    flex-direction: column;
     margin-bottom: 7px;
 }
 
 .editor-list li::before {
-    content: 'ᯓ★';
+    content: '•';
+    font-family: var(--primaryfont);
     font-size: 3vw;
     line-height: 0.4;
     margin-right: 7px;
-    color: var(--border);
+    float: left;
+    color: var(--primary3);
 }
 
 hr {
