@@ -203,6 +203,21 @@ main {
     transition: all 0.3s ease;
 }
 
+@media (min-width:1000px) {
+    :is(.back-to-home-from-blog):hover {
+        opacity: 0.7;
+    }
+}
+
+.empty-state, .loading-state {
+    width: 100%;
+    height: 100vh;
+    font-family: var(--primaryfont);
+    display: grid;
+    place-items: center;
+    color: var(--button);
+}
+
 .article .con-image-article {
     width: 100%;
     max-width: 250px;
@@ -255,7 +270,27 @@ main {
 
 .name-and-date p:nth-child(1) {
     font-family: var(--secondfont);
+    font-size: 1vw;
 }
+
+
+.content-article :is(a,p,.MsoNormal, .editor-bold, .editor-italic, .editor-underline, .editor-strikethrough, .editor-heading, .editor-quote, .editor-code, .editor-text-color, .editor-bg-color, .editor-align-left, .editor-align-center, .editor-align-right, .editor-align-justify, .editor-list, .editor-table, .editor-link, .editor-hr, .editor-fontsize-1, .editor-fontsize-2, .editor-fontsize-3, .editor-fontsize-4, .editor-fontsize-5, .editor-fontsize-6, .editor-fontsize-7, .editor-formatted) {
+    color: var(--button);
+    font-style: normal;
+    font-weight: 100;
+    font-size: 1vw;
+    text-align: left;
+    align-items: left;
+    margin: 0;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.editor-heading {
+    font-family: var(--secondfont);
+    font-weight: 100;
+}
+
 
 .name-and-date p:nth-child(2) {
     font-size: 0.8vw;
@@ -428,7 +463,7 @@ main {
 
 .close-article-btn i {
     font-size: 12px;
-    color: whitesmoke;
+    color: var(--button);
     transform: translateY(2px);
 }
 
@@ -439,10 +474,21 @@ main {
 .main-article {
     padding-left: 30px;
     padding-top: 30px;
+    padding-bottom: 60px;
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    pointer-events: painted;
+        user-select: auto;
+        /* Mencegah seleksi teks */
+        -webkit-user-select: auto;
+        -moz-user-select: all;
+        -ms-user-select: text;
+}
+
+.editor-link {
+    color: #8097ff;
 }
 
 /* Tambahkan position: relative pada article-modal-content */
@@ -547,11 +593,56 @@ main {
 }
 
 .article-modal-body p {
-    margin: 0 0 20px 0;
+    margin: 0;
     white-space: pre-wrap;
     line-height: 1.6;
     color: var(--button);
 }
+
+.editor-heading {
+    margin: 0;
+}
+
+.editor-list {
+    padding-left: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-code {
+    background-color: var(--border);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: #80ffea;
+    overflow-x: auto;
+}
+
+.editor-list li {
+    display: flex;
+    margin-bottom: 7px;
+}
+
+.editor-list li::before {
+    content: '•';
+    font-size: 3vw;
+    line-height: 0.4;
+    margin-right: 7px;
+    color: var(--border);
+}
+
+hr {
+    border: 1px solid var(--border);
+}
+
+.editor-hr {
+    border: 1px solid var(--border);
+}
+
+.editor-formatted {
+        box-sizing: border-box;
+    }
 
 /* Ubah media query untuk mobile */
 @media (max-width: 700px) {

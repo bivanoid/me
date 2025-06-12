@@ -56,7 +56,6 @@ export default function Blog() {
     const [selectedArticle, setSelectedArticle] = useState(null)
     const [isArticleModalOpen, setIsArticleModalOpen] = useState(false)
 
-
     window.addEventListener("scroll", () => {
         const element = document.getElementById("info-blog")
         if (!element) return
@@ -149,7 +148,6 @@ export default function Blog() {
         })
     }
 
-
     function openArticle(article) {
         setSelectedArticle(article)
         setIsArticleModalOpen(true)
@@ -178,9 +176,9 @@ export default function Blog() {
         return new Date(dateString).toLocaleDateString("id-ID", options)
     }
 
-    function truncateText(text, maxLength = 200) {
+    function truncateText(text, maxLength = 250) {
         if (text.length <= maxLength) return text
-        return text.substring(0, maxLength) + ("<span style='color: white; opacity: 1;'>see more</span>")
+        return text.substring(0, maxLength) + "<span style='color: white; opacity: 1;'>see more</span>"
     }
 
     return (
@@ -194,7 +192,7 @@ export default function Blog() {
                         <div id="logoBlogIcon">
                             <Logo />
                         </div>
-                        
+
                         <div className="menu-button-blog" id="menuBlogIcon" onClick={openBlog}>
                             <i className="fi fi-rs-expand-arrows"></i>
                         </div>
@@ -203,7 +201,7 @@ export default function Blog() {
                     <div className="con-article" id="conArticle">
                         {isLoading ? (
                             <div className="loading-state">
-                                <p>Memuat artikel...</p>
+                                <p>Loading</p>
                             </div>
                         ) : error ? (
                             <div className="error-state">
@@ -215,7 +213,7 @@ export default function Blog() {
                             </div>
                         ) : blogs.length === 0 ? (
                             <div className="empty-state">
-                                <p>Belum ada artikel yang tersedia</p>
+                                <p>No Article Here :(</p>
                             </div>
                         ) : (
                             <>
@@ -239,7 +237,6 @@ export default function Blog() {
                                             onClick={() => openArticle(blog)}
                                             style={{ cursor: "pointer" }}
                                             key={blog.id || index}
-                                            
                                         >
                                             <div className="con-image-article">
                                                 {blog.image_url ? (
@@ -256,7 +253,6 @@ export default function Blog() {
                                                     <div className="placeholder-image">No Image Available</div>
                                                 )}
                                             </div>
-                                            
 
                                             <div className="column-article">
                                                 <div className="con-profile-blog">
@@ -268,13 +264,14 @@ export default function Blog() {
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div className="text-article"
-                                                    >
-                                                    
+                                                <div className="text-article">
                                                     <h1 className="title-article">{blog.title_blog || "Judul tidak tersedia"}</h1>
-                                                    <p className="content-article" dangerouslySetInnerHTML={{ __html: blog.text_blog ? truncateText(blog.text_blog) : "Konten tidak tersedia" }}>
-                                                        
-                                                    </p>
+                                                    <p
+                                                        className="content-article rendered-html"
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: blog.text_blog ? truncateText(blog.text_blog, 250) : "Konten tidak tersedia",
+                                                        }}
+                                                    ></p>
                                                 </div>
                                                 {blog.category && (
                                                     <div className="blog-category">
@@ -283,10 +280,10 @@ export default function Blog() {
                                                 )}
                                             </div>
                                         </div>
-                                    //     <p
-                                    //     className="rendered-html"
-                                    //     dangerouslySetInnerHTML={{ __html: selectedArticle.text_blog || "Konten tidak tersedia" }}
-                                    // ></p>
+                                        //     <p
+                                        //     className="rendered-html"
+                                        //     dangerouslySetInnerHTML={{ __html: selectedArticle.text_blog || "Konten tidak tersedia" }}
+                                        // ></p>
                                     )
                                 })}
                             </>
@@ -322,12 +319,10 @@ export default function Blog() {
             {isArticleModalOpen && selectedArticle && (
                 <div className="article-modal-overlay" onClick={closeArticle}>
                     <div className="article-modal" onClick={(e) => e.stopPropagation()}>
-
                         <div className="article-modal-content">
                             {/* Tambahkan ScrollProgress di sini */}
-                            
+
                             <aside className="asside-article">
-                                
                                 <div className="asside-main">
                                     <button className="close-article-btn" onClick={closeArticle}>
                                         <i class="fi fi-rs-cross"></i>
@@ -374,8 +369,6 @@ export default function Blog() {
                                             className="rendered-html"
                                             dangerouslySetInnerHTML={{ __html: selectedArticle.text_blog || "Konten tidak tersedia" }}
                                         ></p>
-
-                                       
                                     </div>
                                 </div>
                             </main>

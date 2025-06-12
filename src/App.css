@@ -55,6 +55,11 @@ body {
   overflow-x: hidden;
   position: relative;
     background: radial-gradient(circle, var(--primary) 33%, var(--primary2) 100%);
+    user-select: none;
+      /* Mencegah seleksi teks */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
 }
 
 a {
@@ -134,11 +139,7 @@ a {
 
 * {
   scroll-behavior: smooth;
-    user-select: none;
-      /* Mencegah seleksi teks */
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
+
 
 
 }
