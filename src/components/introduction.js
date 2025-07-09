@@ -16,7 +16,7 @@ function Introduction() {
       
     return (
         
-        <div className='section'>
+        <div className='section' id='sc1'>
             {/* <StarIcon className='star star1' width={100} height={100} background='red'/>
             <StarIcon className='star star2' width={100} height={100} /> */}
             <svg width="100" height="100" viewBox="0 0 120 121" fill="none" xmlns="http://www.w3.org/2000/svg" class="plus-particle" background="red"><path d="M64.5 55H120V64H64.5V120.5H55.5V64H0V55H55.5V0.5H64.5V55Z" fill="#D9D9D9"></path></svg>
@@ -84,7 +84,6 @@ function Introduction() {
                     spinDuration={10}
                 />
             </div>
-
         </div>
     )
 }

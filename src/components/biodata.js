@@ -3,7 +3,7 @@ import '../styles/aboutme.css';
 import AnimatedContent from './AnimatedContent';
 import sya from '../assets/eek.jpg';
 import FadeContent from './FadeContent';
-
+import CircularText from './CircularText';
 function Biodata() {
     var ya = document.getElementById('inp');
 
@@ -25,6 +25,8 @@ function Biodata() {
                 <svg className='con-star con-star4' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
                     <path class="star star4" d="M107.729 40.5811C112.721 66.7848 133.215 87.2792 159.419 92.2705L200 100L159.419 107.729C133.215 112.721 112.721 133.215 107.729 159.419L100 200L92.2705 159.419C87.2792 133.215 66.7848 112.721 40.5811 107.729L0 100L40.5811 92.2705C66.7848 87.2792 87.2792 66.7848 92.2705 40.5811L100 0L107.729 40.5811Z" fill="#D9D9D9"></path>
                 </svg>
+
+                
                         
                         <div className='sticky-header'>
                             <AnimatedContent
@@ -65,25 +67,18 @@ function Biodata() {
                             <h1>Information</h1>
                             <ul className='list-bio'>
                                 <li>
-                                    <div className='text-bio title-bio' ><p>Name :</p></div>
-                                    <div className='text-bio'><p>Firdhan Abivandya</p></div>
+                                    <div className='text-bio'><i class="fi fi-rs-cake-birthday"></i><p>21 June 2007</p></div>
                                 </li>
                                 <li>
-                                    <div className='text-bio title-bio' ><p>Born :</p></div>
-                                    <div className='text-bio'><p>21 June 2007</p></div>
+                                    <div className='text-bio'><i class="fi fi-rs-thumbtack"></i><p>Surakarta, Centar Java</p></div>
                                 </li>
                                 <li>
-                                    <div className='text-bio title-bio' ><p>Address :</p></div>
-                                    <div className='text-bio'><p>Surakarta, Central Java</p></div>
+                                    <div className='text-bio'><i class="fi fi-rs-envelope"></i><p>abivandyafirdhan@gmail.com</p></div>
                                 </li>
                                 <li>
-                                    <div className='text-bio title-bio'><p>Email :</p></div>
-                                    <div className='text-bio'><p>abivandyafirdhan@gmail.com</p></div>
+                                    <div className='text-bio'><i class="fi fi-rs-phone-rotary"></i><p>+62 877-3977-0494</p></div>
                                 </li>
-                                <li>
-                                    <div className='text-bio title-bio'><p>Phone :</p></div>
-                                    <div className='text-bio'><p>+62 877-3977-0494</p></div>
-                                </li>
+
                             </ul>
                             <h1>Skills</h1>
                             <div className='skills'>
@@ -104,7 +99,7 @@ function Biodata() {
                         </div>
 
                         <div className='con-hire-me'>
-                            <a href='https://wa.me/087739770494' className='contactme'>Contact Me</a>
+                            <a href='https://wa.me/087739770494' className='contactme'>Contact Me <span><i class="fi fi-rs-arrow-small-right"></i></span></a>
                             
                         </div>
                 

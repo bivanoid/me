@@ -55,7 +55,7 @@ function Feedback() {
   }, []);
 
   return (
-    <div className='feedback'>
+    <div className='feedback' id='sc4'>
       <AnimatedContent
         distance={30}
         direction="vertical"
@@ -79,7 +79,7 @@ function Feedback() {
         <p className='subtitle-feedback'>their opinion of me. </p>
       </AnimatedContent>
 
-      {loading && <p>Loading...</p>}
+      {loading && <p className='loading-feedback'>Loading...</p>}
       {error && <p className='error-title'>Error! <br/>{error.message}</p>}
       {!loading && users.length === 0 && <p className='error-fetch'>No feedback yet.</p>}
 

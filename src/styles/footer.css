@@ -6,6 +6,7 @@
     width: 100%;
     font-family: var(--primaryfont);
     position: relative;
+    box-sizing: border-box;
 }
 
 .footer-header {
@@ -42,85 +43,55 @@
 .footer-main {
     width: 100%;
     height: calc(100% - 62px);
-    display: grid;
-    grid-template-columns: 0.3fr 1fr 1fr;
+    display: flex;
 }
+
+
 
 .footer1 {
     border-right: 1px solid var(--border);
-    display: grid;
-    grid-template-rows: 0.3fr 1fr;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.logo-footer {
     padding-top: 30px;
 }
 
 .footer1-main {
-    object-fit: cover;
-    object-position: center;
-    overflow: hidden;
-    position: relative;
-    color: var(--button);
-}
-
-.footer1-main:nth-child(1) {
-    display: grid;
-    border-bottom: 1px solid var(--border);
-    place-items: center;
-}
-
-.footer1-main:nth-child(2) {
-    padding-left: 30px;
-}
-
-
-
-
-.footer1 .footer1-main img{
-    width: 70px;
-    aspect-ratio: 1/1;
-    
-}
-
-.footer2 {
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-}
-
-.footer2 h1{
-    color: var(--button);
-    font-family: var(--secondfont);
-    font-weight: 400;
-    padding-inline: 30px;;
-    padding-top: 30px;
-}
-
-.con-social-media {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: calc(100% - 60px);
     height: 100%;
-    white-space: nowrap;
-    padding-inline: 30px;
-    margin-bottom: 30px;
+    background: url(../assets/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
-.con-social-media :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
+.social-media-footer {
+    display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    width: 70%;
+    gap: 10px;
+    margin-top: 15px
+}
+
+.social-media-footer :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
     color: var(--button);
     text-decoration: none;
-    height: 100%;
-    border: 1px solid var(--border);
     display: grid;
-    place-items: center;
+    width: 3vw;
+    aspect-ratio: 1/1;
     border-radius: 0px;
     transition: 0.3s;
-    font-size: 1.5vw;
+    font-size: 1.1vw;
+    border: 1px solid var(--border);
+    place-items: center;
     outline: none;
 }
 
-.con-social-media :is(.ig,.lnkdn,.twt,.wa,.tele,.gth):hover {
+.social-media-footer :is(.ig, .lnkdn, .twt, .wa, .tele, .gth):hover {
     scale: 0.9;
     outline: 1px solid var(--button);
     outline-offset: 0.5em;
@@ -129,7 +100,7 @@
 
 .ig:hover {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: var(--button)!important;
+    color: var(--button) !important;
 }
 
 .lnkdn:hover {
@@ -149,7 +120,6 @@
 
 .tele:hover {
     background: radial-gradient(circle at center, #0088cc, #006699);
-    /* Telegram blue gradient */
     color: white !important;
 }
 
@@ -158,16 +128,75 @@
     color: white !important;
 }
 
-.footer3 {
-    height: 100%;
-    background: url(../assets/shr.jpg);
-    background-size: cover;
-    background-position: center;
+.footer1 .footer1-main img{
+    width: 70px;
+    aspect-ratio: 1/1;
 }
+
+.copyright {
+    padding-block: 30px;
+    font-size: 0.8vw;
+    border-top: 1px solid var(--border);
+    color: var(--button)
+}
+ 
+.footer2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-inline: 30px;
+    flex: 0.5;
+} 
+
+.footer2 .top-footer2 p{
+    color: var(--button);
+    font-family: var(--primaryfont);
+    font-weight: 400;
+    padding-top: 30px;
+    font-size: 1vw;
+    margin: 0;
+}
+
+
+.footer3 {
+    height: calc(100% - 60px);
+    padding-block: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:start;
+    box-sizing: border-box;
+    gap: 30px;
+    padding-top: 85px;
+    padding-right: 30px;
+}
+
+
+.footer3 h1 {
+    font-family: var(--secondfont);
+    color: var(--button);
+    font-weight: 400;
+    font-size: 1.3vw;
+    margin: 0;
+}
+
+.footer3 ul {
+    padding: 0;
+}
+
+.footer3 li {
+    color: var(--button);
+    font-size: 1vw;
+    font-family: var(--primaryfont);
+    opacity: 0.5;
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+
 
 .con-starfuter {
     left: 30px;
-    bottom: 30px;
+    bottom: 60px;
     width: 30px;
     aspect-ratio: 1/1;
     position: absolute;
@@ -179,54 +208,47 @@
 
 @media (max-width:700px) {
     .footer-main {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 2fr;
+        flex-direction: column;
     }
 
-    .footer1-main:nth-child(1) {
-        display: flex;
+    .footer2 .top-footer2 p {
+        font-size: 3.7vw;
+    }
+
+    .copyright {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: 3vw;
+    }
+
+    .social-media-footer :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
+        width: 10vw;
+        font-size: 3.7vw;
+    }
+
+    .footer3 {
+        padding-top: 30px;
+        flex-direction: column;
         padding-left: 30px;
-        border-bottom: 1px solid var(--border);
-        padding-block: 30px;
-        height: fit-content;
-        
+        left: 0;
+        padding-left: 30px;
+        gap: 10px;
     }
 
-    .footer1-main:nth-child(2) {
-        font-size: 4vw;
-        padding-top: 50px;
+    .footer3 h1 {
+        font-size: 4.5vw;
+    }
+
+    .footer3 li {
+        font-size: 3.7vw;
     }
 
     .footer1 {
-        padding-top: 0;
+        display: none;
     }
 
-    .footer1 .footer1-main .logo-web{
-        z-index: 3;
-    }
-
-    .con-social-media {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr ;
-        width: calc(100% - 60px);
-    }
-
-    .con-social-media :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
-        font-size: 3vw;
-        width: 100%;
-        height: 50px;
-    }
-
-    .footer2 h1 {
-        margin-top: 0;
-    }
-
-
-    .copyright {
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
-        margin: 0;
-        justify-content: center;
+    .con-starfuter {
+        bottom: 80px;
     }
 }

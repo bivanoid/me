@@ -116,12 +116,55 @@
 }
 
 .taglang {
-    padding-block: 4px;
-    padding-inline: 8px;
-    font-size: 0.7vw;
-    background-color: var(--border);
-    color: var(--button);
-    border-radius: 20%;
+    width: fit-content;
+        height: fit-content;
+        background-color: var(--border);
+        font-size: 0.85vw;
+        border: 1px solid var(--border);
+        padding-inline: 10px;
+        padding-block: 5px;
+        color: var(--button);
+        font-weight: 500;
+        filter: grayscale(60%);
+        font-weight: 100;
+        text-transform: capitalize;
+        border-radius: 0.5em;
+}
+
+.mySwiper {
+    position: relative;
+}
+
+
+
+@media (min-width:1000px) {
+    .mySwiper:hover::before,
+        .mySwiper:hover::after {
+            content: '';
+            color: white;
+            background-color: var(--border);
+            text-orientation: sideways;
+            z-index: 5;
+            font-family: var(--secondfont);
+            position: absolute;
+        }
+    
+        .mySwiper:hover::before {
+            content: 'swipe left';
+            top: calc(50% - 25px);
+            rotate: 90deg;
+            left: 0;
+        }
+    
+        .mySwiper:hover::after {
+            content: 'swipe right';
+            top: calc(50% - 25px);
+            rotate: -90deg;
+            right: 0;   }
+}
+
+.mySwiper .swiper-slide:hover {
+    border-radius: 20px 20px 0px 0px;
 }
 
 .mySwiper:hover .gambar {
@@ -149,13 +192,13 @@
     display: block;
     transition: 0.6s;
     color: whitesmoke;
-    background-color: var(--border);
+    background-color: #173ff0;
+    box-shadow: 0px 3px 20px 0px #173ff0;
     bottom: 25px;
     font-size: 1.2vw;
     right: 25px;
     padding-block: 6px;
     padding-inline: 17px;
-    backdrop-filter: blur(10px);
     border-radius: 6px;
 }
 
@@ -190,10 +233,18 @@
 }
 
 .swipe {
-    display: flex;
-    align-items: center;
-    opacity: 0.7;
-    font-family: var(--secondfont);
+    display: none;
+}
+
+@media (max-width:700px) {
+    .swipe {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0.7;
+        font-family: var(--secondfont);
+    }
 }
 
 .swipe .fi {

@@ -25,7 +25,7 @@ export default function HorizontalSlider({ onImageClick }) {
   
   return (
     
-    <div className='con-swiper'>
+    <div className='con-swiper' id='sc3'>
       
         <div className='title-swiper'>
           <AnimatedContent

@@ -1,5 +1,6 @@
 .body-blog {
     box-sizing: border-box;
+    user-select: none;
 }
 
 .navigation-blog {
@@ -142,6 +143,15 @@ main {
     border-bottom: 1px solid var(--border);
 }
 
+.con-star-blog {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    top: 20px;
+    position: absolute;
+    right: 0;
+}
+
 .filter-by {
     padding: 10px;
     position: relative;
@@ -273,8 +283,11 @@ main {
     font-size: 1vw;
 }
 
-
-.content-article :is(a,p,.MsoNormal, .editor-bold, .editor-italic, .editor-underline, .editor-strikethrough, .editor-heading, .editor-quote, .editor-code, .editor-text-color, .editor-bg-color, .editor-align-left, .editor-align-center, .editor-align-right, .editor-align-justify, .editor-list, .editor-table, .editor-link, .editor-hr, .editor-fontsize-1, .editor-fontsize-2, .editor-fontsize-3, .editor-fontsize-4, .editor-fontsize-5, .editor-fontsize-6, .editor-fontsize-7, .editor-formatted) {
+.content-article :is(a,p,.MsoNormal, .editor-bold, .editor-italic, .editor-underline, .editor-strikethrough,
+ .editor-heading, .editor-quote, .editor-code, .editor-text-color, .editor-bg-color, .editor-align-left,
+  .editor-align-center, .editor-align-right, .editor-align-justify, .editor-list, .editor-table, .editor-link,
+   .editor-hr, .editor-fontsize-1, .editor-fontsize-2, .editor-fontsize-3, .editor-fontsize-4, .editor-fontsize-5,
+    .editor-fontsize-6, .editor-fontsize-7, .editor-formatted) {
     color: var(--button);
     font-style: normal;
     font-weight: 100;
@@ -480,18 +493,13 @@ main {
     align-items: center;
     flex-direction: column;
     pointer-events: painted;
-        user-select: auto;
-        /* Mencegah seleksi teks */
-        -webkit-user-select: auto;
-        -moz-user-select: all;
-        -ms-user-select: text;
+    user-select: all;
 }
 
 .editor-link {
     color: #8097ff;
 }
 
-/* Tambahkan position: relative pada article-modal-content */
 .article-modal-content {
     padding: 0 30px 0px 30px;
     display: flex;
@@ -499,7 +507,6 @@ main {
     padding-right: 5%;
     height: fit-content;
     position: relative;
-    /* Tambahkan ini */
 }
 
 .article-modal-image {
@@ -551,7 +558,6 @@ main {
 .author-name {
     color: var(--button);
     font-family: var(--secondfont);
-
     margin: 0;
 }
 
@@ -652,7 +658,6 @@ hr {
         box-sizing: border-box;
     }
 
-/* Ubah media query untuk mobile */
 @media (max-width: 700px) {
     main {
         min-height: 100vh;
@@ -670,7 +675,6 @@ hr {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-
     }
 
     .menu-button-blog i {
@@ -707,17 +711,17 @@ hr {
 
     .con-blog-sticky {
         list-style: none;
-            padding: 0px;
-            position: fixed;
-            padding-left: 30px;
-            padding-right: 30px;
-            width: calc(100% - 60px);
-            height: 100%;
-            padding-top: 87px;
-            top: 0;
-            left: -100%;
-            z-index: 100;
-            transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+        padding: 0px;
+        position: fixed;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: calc(100% - 60px);
+        height: 100%;
+        padding-top: 87px;
+        top: 0;
+        left: -100%;
+        z-index: 100;
+        transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
     .con-blog-sticky.open-menu-blog {
@@ -762,8 +766,6 @@ hr {
         object-fit: cover;   
     }
 
-
-
     .con-profile-blog {
         padding: 0;
         padding-top: 15px;
@@ -789,7 +791,6 @@ hr {
     .column-article {
         flex-direction: column;
     }
-
 
     .text-article {
         padding: 15px 0% 0px 0px;

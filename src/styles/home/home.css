@@ -1,0 +1,16 @@
+.body-home {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+@media (min-width:1000px) {
+    #thecontent {
+        transition: opacity 0.5s;
+    }
+    
+    #thenav:hover~#thecontent {
+        opacity: 0.5;  
+    }
+}

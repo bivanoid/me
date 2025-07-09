@@ -6,9 +6,8 @@
     justify-content: space-between;
     align-items: flex-start;
     height: fit-content;
-    width:calc(100% - 20px);
+    width:100%;
     position: relative;
-    padding-inline: 10px;
     align-items: stretch;
 }
 
@@ -61,23 +60,40 @@
 
 .sticky {
     position: sticky;
-    padding: 20px;  
+    padding: 30px;  
     display: flex;
     justify-content: space-between;
-    height: calc(100vh - 40px);
+    height: calc(100vh - 60px);
     flex-direction: column;
+    background-color: transparent;
+    overflow: hidden;
     top: 0;
+}
+
+.sticky .circular-con {
+    position: absolute;
+    top: calc(50% - 100px);
+    right: calc(-50% + 100px);
+    z-index: -1;
+    width: 200px;
+    aspect-ratio: 1/1;
+}
+
+.sticky .circular-con .circular-inti {
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
 }
 
 .sticky-header {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     align-items: center;
     border-bottom: 1px solid var(--border);
     position: relative;
     gap: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 .sticky #namamu {
@@ -86,9 +102,9 @@
     color: var(--button);
     display: inline-block;
     font-weight: 400;
-    opacity: 0.5;
     font-size: 2vw;
     margin-block: 0.5em;
+    margin-left: 30px;
     line-height: 1;
 }
 
@@ -159,15 +175,16 @@
 
 .bio {
     width: calc(100%);
-    border: 2px dashed var(--border);
     box-sizing: border-box;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
     color: white;
     height: 100%;
-    padding: 20px;
+    z-index: 2;
 }
+
+
 
 .skills {
     display: flex;
@@ -175,6 +192,7 @@
     gap: 5px;
     align-items: flex-start;
     justify-content: flex-start;
+    max-height: 20vh;
 }
 
 .mySkills {
@@ -186,13 +204,20 @@
     width: fit-content;
     height: fit-content;
     background-color: var(--border);
-    font-size: 1vw;
-    padding-inline: 10px;
+    font-size: 0.85vw;
+    border: 1px solid var(--border);
+    padding-inline: 8px;
     padding-block: 5px;
+    color: var(--button);
     font-weight: 500;
     filter: grayscale(60%);
-}
+    font-weight: 400;
+    text-transform: capitalize;
+    border-radius: 0.5em;
+    opacity: 0.7;
 
+}
+/* 
 .box-skill:nth-child(1){
     background-color: rgb(233, 0, 0);
 }
@@ -244,37 +269,47 @@
 .box-skill:nth-child(12) {
     background-color: rgb(30, 255, 180);
     color: black;
-}
+} */
 
 .con-hire-me {
     width: 100%;
     display: flex;
-    gap: 5px;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.con-hire-me a span {
+    height: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    /* aspect-ratio: 1/1; */
+    background-color: #173ff0;
+    box-shadow: 0px 3px 20px 0px #173ff0;
+    display: grid;
+    place-items: center;
+}
+
+.con-hire-me a span i {
+    transform: translateY(2px);
+    color: white;
 }
 
 .contactme {
     width: 100%;
-    padding-block: 0px;
-    border: 1px solid var(--border);
-    display: grid;
-    place-items: center;
-    margin-top: 12px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
     font-weight: 800;
     min-height: 60px;
     color: var(--button);
     opacity: 1px solid var(--button);
     font-family: var(--secondfont);
     transition: 0.3s;
+    gap: 10px;
     font-weight: 400;
-}
-
-.contactme:hover {
-    outline: 1px solid var(--button);
-    background-color: var(--button);
-    scale: 0.9;
-    color: var(--primary);
-    outline-offset: 0.5em;
-    letter-spacing: 1px;
 }
 
 .mail-me {
@@ -319,6 +354,10 @@
     margin-top: 0px;
 }
 
+.title-bio i {
+    font-size: 11px;
+}
+
 .bio .list-bio li {
     display: flex;
     align-items: center;
@@ -332,7 +371,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: space-between;
     }
 
     
@@ -357,14 +395,58 @@
 }
 
 .bio .list-bio li p {
-    font-size: clamp(.5em, .75em, 1.8em);
+    font-size: clamp(0.5vw, 2vw, 1vw);
+    opacity: 0.7;
+    line-height: 1.1;
     padding: 0;
     margin: 0;
 }
 
+
+
 .bio .list-bio li .text-bio {
     display: flex;
     align-items: center;
+}
+
+.text-bio i {
+    display: grid;
+    place-items: center;
+    width: fit-content;
+    border-radius: 20%;
+    padding: 0.7em;
+    aspect-ratio: 1/1;
+    background-color: var(--border);
+    border: 1px solid var(--border);
+    font-size: 0.9vw;
+    margin-right: 10px;
+}
+
+.list-bio li:nth-child(1) .text-bio i {
+    color: rgb(236, 143, 255);
+}
+
+.list-bio li:nth-child(2) .text-bio i {
+    color: rgb(255, 93, 93);
+}
+
+.list-bio li:nth-child(3) .text-bio i {
+    color: rgb(83, 166, 243);
+}
+
+.list-bio li:nth-child(4) .text-bio i {
+    color: rgb(59, 219, 120);
+}
+
+
+@media (max-width:700px) {
+    .bio .list-bio li p {
+        font-size: clamp(2.9vw, 4vw, 3.8vw);
+    }
+
+    .text-bio i {
+        font-size: 2.9vw;
+    }
 }
 
 
@@ -396,16 +478,18 @@
     width: calc(75% - 60px);
     height: calc(fit-content);
     position: relative;
-    padding-inline: 30px 20px;
+    padding-inline: 30px 30px;
     padding-bottom: 20px;
 }
 
 .abouts {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: calc(100%);
     height: fit-content;
     position: relative;
     padding-top: 30px;
+    gap: 30px;
     overflow: hidden;
     padding-bottom: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.055);
@@ -430,7 +514,6 @@
 .text-abouts {
     width: calc(100% - 30px);
     color: white;
-    padding-right: 20px;
 }
 
 .text-abouts .title-about {
@@ -451,7 +534,7 @@
 
 .text-abouts .content-carrier {
     font-size: 1vw;
-    opacity: 0.7;
+    
     list-style: none;
     height: 100%;
     color: var(--button);
@@ -459,9 +542,83 @@
     position: relative;
     margin: 0;
     padding-right: 20px;
+    display: flex;
+    flex-direction: column;
     padding: 0;
+    position: relative;
+    outline: 2px;
+    outline-color: var(--button);
 }
 
+
+.content-carrier li {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 10PX;
+    position: relative;
+}
+
+.content-carrier li span {
+    display: grid;
+    place-items: center;
+    width: 2vw;
+    aspect-ratio: 1/1;
+    background-color: var(--border);
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    opacity: 1 !important;
+    z-index: 2;
+}
+
+.content-carrier li span .circle-crr {
+    width: 1vw;
+    aspect-ratio: 1/1;
+    background-color: var(--button);
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (min-width:1000px) {
+    .text-abouts .content-carrier li:hover span .circle-crr {
+        width: 1.5vw;
+        background-color: #173ff0 ;
+    }
+
+    .text-abouts .content-carrier li p {
+        transition: 0.5s;
+    }
+
+    .text-abouts .content-carrier li:hover p {
+        transform: translateX(5px) skew(-20deg);
+    }
+        
+}
+.content-carrier li p {
+    opacity: 0.7;
+}
+
+/* .content-carrier :is(li:nth-child(1), li:nth-child(2), li:nth-child(3)) span::after{
+    content: '';
+    width: 3px;
+    height: 20px;
+    z-index: 1;
+    background-color: var(--border);
+    position: absolute;
+    bottom:calc(-100% - 2px);
+} */
+
+.content-carrier hr {
+    height: 20px;
+    border-color: var(--button);
+    opacity: 0.7;
+    width: 0px;
+    border-width: 1px;
+    border-style: dashed;
+    margin: 0;
+    margin-right: auto;
+    margin-left: 1vw;
+}
 
 .con-line-carrier {
     font-size: 16px;
@@ -501,7 +658,7 @@
 .line-carrier {
     width: 60%;
     height: 50px;
-    background-color: blue;
+    background-color: #173ff0;
     position: absolute;
 
 }
@@ -526,10 +683,9 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        
         align-items: center;
         height: fit-content;
-        width: calc(100% - 20px);
+        width: 100%;
         position: relative;
         padding-top: 50px;
 
@@ -559,9 +715,10 @@
     }
 
     .sticky {
-        padding: 20px;
+        padding: 30px;
         display: flex;
         height: min-content;
+        padding-inline: 30px;
         flex-direction: column;
         top: 0;
     }
@@ -615,5 +772,20 @@
 
     .text-abouts .content-carrier {
         font-size: 3.7vw;
+    }
+
+    .content-carrier li span {
+        width: 6vw;
+        aspect-ratio: 1/1;
+        margin: 0;
+    }
+
+    .content-carrier li span .circle-crr {
+        width: 3vw;
+        aspect-ratio: 1/1;
+    }
+
+    .content-carrier hr {
+        margin-left: 3vw;
     }
 }

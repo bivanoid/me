@@ -87,6 +87,8 @@
     
 }
 
+
+
 .navigasi-menu:hover li:hover {
     opacity: 1;
     background-color: var(--border);
@@ -104,18 +106,18 @@
 
 .theme {
     background-color: var(--border);
+
     color: var(--primary);
     font-weight: 800;
     font-size: 13px;
-    width: 80px;
+    width: 76px;
     height: 40px;
     padding: 5px;
-    border-radius: 0px;
+    border-radius: 50px;
     display: grid;
     place-items: center;
-    border: none;
     transition: 0.3s;
-    outline: 0px solid var(--border);
+    border: 1px solid var(--border);
     cursor: pointer;
     transition: 0.5s;
     position: relative;
@@ -128,7 +130,7 @@
 }
 
 .theme i {
-    transform: translateY(1px);
+    transform: translateY(1px) ;
 }
 
 #swchbtn1, #swchbtn2 {
@@ -138,7 +140,7 @@
     position: absolute;
     transition: 0.3s;
     left: calc(0% + 5px);
-    border-radius: 0px;
+    border-radius: 50px;
     display: grid;
     place-items: center;
 }

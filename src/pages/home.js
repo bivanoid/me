@@ -6,7 +6,7 @@ import Form from '../components/form';
 import Footer from '../components/footer';
 import Navigation from '../components/navigation'
 import PopupImage from '../components/popupimage';
-// import popupImage from './popupimage';
+import '../styles/home/home.css';
 
 export default function Home() {
   const [fullscreenImage, setFullscreenImage] = useState(null);
@@ -18,9 +18,12 @@ export default function Home() {
   const closeFullscreen = () => {
     setFullscreenImage(null);
   };
+
   return (  
-    <div className='body'>
+    <div className='body body-home'>
+      <div id='thenav'>
       <Navigation  />
+      </div>
       <PopupImage imageUrl={fullscreenImage} onClose={closeFullscreen} />
       <div id='thecontent'>
         <Introduction/>
@@ -29,7 +32,6 @@ export default function Home() {
         <Footer/>
       </div>
     </div>
-
   )
 }
 

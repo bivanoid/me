@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap');
 :root {
   --primary: #0a0a0a;
+  --primary25: #1a1a1a3a;
   --primary2: #1a1a1a;
   --primary3: #232222;
   --grey: rgb(59, 59, 59);
@@ -54,12 +55,10 @@ body {
   height: 100%;
   overflow-x: hidden;
   position: relative;
-    background: radial-gradient(circle, var(--primary) 33%, var(--primary2) 100%);
-    user-select: none;
-      /* Mencegah seleksi teks */
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
+  background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
+  background-size: 100%;
+  fill: #919191;
+  background-position: left;
 }
 
 a {
@@ -139,9 +138,6 @@ a {
 
 * {
   scroll-behavior: smooth;
-
-
-
 }
 
 body {

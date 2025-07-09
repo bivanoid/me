@@ -26,7 +26,7 @@ function Navigation() {
             root.style.setProperty('--border', '#00000014');
         } else {
             // Dark mode
-            root.style.setProperty('--primary', '#131316');
+            root.style.setProperty('--primary', '#0a0908');
             root.style.setProperty('--primary2', '#1c1c21');
             root.style.setProperty('--primary3', '#26262c');
             root.style.setProperty('--button', '#e9ecef');

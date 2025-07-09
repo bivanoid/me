@@ -4,6 +4,7 @@ import HorizontalSlider from './horizontalslider';
 import Feedback from './feedback';
 import { useMediaQuery } from 'react-responsive';
 import AnimatedContent from './AnimatedContent';
+import FadeContent from './FadeContent';
 
 function AboutMe({ onImageClick }) {
     const isLargeScreen = useMediaQuery({ minWidth: 701 });
@@ -16,36 +17,53 @@ function AboutMe({ onImageClick }) {
             <div className='contents'>
                 <div className='abouts'>
                     <AnimatedContent
-                        distance={30}
+                        distance={60}
                         direction="horizontal"
                         reverse={true}
-                        config={{ tension: 80, friction: 20 }}
+                        // config={{ tension: 80, friction: 20 }}
                         initialOpacity={0}
                     >
                         <div className='text-abouts'><p className='title-about'>About</p><br></br>
-                            <p className='content-about'>
-                                Hello! My name is Firdhan Abivandya June 21, 2007, in Surakarta, Central Java. I am currently a student at SMKN 5 Surakarta, majoring in Software Engineering (RPL). From an early age, I’ve been passionate about technology, especially in the field of software and mobile app development. I enjoy learning new things, exploring creative solutions, and building applications that provide real value to users.
-                                <br></br>
-                                <br></br>
-                                Throughout my journey as a software engineering student, I’ve worked on various projects, ranging from Android apps using Firebase to data management systems. I believe technology is a powerful tool for positive change, and I aspire to be a part of that innovation. Through this portfolio, I hope to share my work, learning experiences, and progress in the world of information technology.
-                            </p>
+                        <p className='content-about'>
+                          Hello! My name is Firdhan Abivandya, born on June 21, 2007, in Surakarta, Central Java. I am currently a student at SMKN 5 Surakarta, majoring in Software Engineering (RPL). Since an early age, I’ve been passionate about technology—especially in software and mobile application development. I enjoy exploring new ideas, solving problems creatively, and building applications that bring real value to users.
+                          <br></br>
+                          <br></br>
+                          Throughout my studies, I’ve worked on various projects, including Android applications using Firebase and several data management systems. These experiences have strengthened my belief that technology can be a powerful tool for positive impact. I am committed to growing as a developer and contributing to meaningful innovations. Through this portfolio, I aim to showcase my projects, skills, and progress in the field of information technology.
+                        </p>
+
                         </div>
                     </AnimatedContent>
                     <AnimatedContent
-                        distance={30}
+                        distance={60}
                         direction="horizontal"
                         reverse={!isLargeScreen}
-                        config={{ tension: 80, friction: 20 }}
+                        // config={{ tension: 80, friction: 20 }}
                         initialOpacity={0}
                     >
                         <div className='text-abouts  '><p className='title-about title-about2'>Carrier</p><br></br>
-                            <p className='content-carrier'>
-                                Throughout my time in the Software Engineering (RPL) program, I have built a solid foundation in technology, particularly in application development and data management. I actively participated in both individual and group projects, including the creation of Bicture, a feature-rich Android photo gallery app that includes uploading, commenting, bookmarking, and a unique appreciation system.<br></br><br></br>
-
-                                During my internship program, I gained real-world experience by working in a professional environment where I was responsible for managing marketing data with high accuracy. This experience taught me the value of discipline, consistency, and responsibility in the workplace. It also sharpened my programming logic, teamwork skills, and perseverance in completing projects.<br></br><br></br>
-
-                                Driven by a strong passion for learning and self-improvement, I am fully prepared to advance to the next stage of my journey in the field of information technology.<br></br>
-                            </p>
+                            <ul className='content-carrier'>
+                            <FadeContent blur={false} duration={1500} delay={0} easing="ease-in" initialOpacity={0}>
+                                <li><span><div className='circle-crr'></div></span> <p>SDN PURWODININGRATAN NO.34</p></li>
+                            </FadeContent>
+                            <FadeContent blur={false} duration={1500} delay={100} easing="ease-in" initialOpacity={0}>
+                                <hr></hr>
+                            </FadeContent>
+                            <FadeContent blur={false} duration={1500} delay={200} easing="ease-in" initialOpacity={0}>
+                                <li><span><div className='circle-crr'></div></span> <p>SMPN 14 SURAKARTA</p></li>
+                            </FadeContent>
+                            <FadeContent blur={false} duration={1500} delay={300} easing="ease-in" initialOpacity={0}>
+                                <hr></hr>
+                            </FadeContent>
+                            <FadeContent blur={false} duration={1500} delay={400} easing="ease-in" initialOpacity={0}>
+                                <li><span><div className='circle-crr'></div></span> <p>SMKN 5 SURAKARTA</p></li>
+                            </FadeContent>
+                            <FadeContent blur={false} duration={1500} delay={500} easing="ease-in" initialOpacity={0}>
+                                <hr></hr>
+                            </FadeContent>
+                            <FadeContent blur={false} duration={1500} delay={600} easing="ease-in" initialOpacity={0}>
+                                <li><span><div className='circle-crr'></div></span> <p>UNIVERSITAS PIGNATELI PUTRA</p></li>
+                            </FadeContent>
+                            </ul>
                         </div>
                     </AnimatedContent>
                      

@@ -87,14 +87,23 @@
     transition: 0.4s;
 }
 
+.loading-feedback {
+    color: var(--button);
+}
+
 .error-title {
     font-size: 16px;
-        display: flex;
-        text-transform: uppercase;
-        color: var(--button);
-        font-family: var(--secondfont);
-        width: 100%;
-        color: rgb(255, 66, 66);
+    display: flex;
+    text-transform: uppercase;
+    color: var(--button);
+    font-family: var(--secondfont);
+    width: fit-content;
+    padding: 20px;
+    background-color: var(--border);
+    border: 1px solid var(--border);
+    color: rgb(255, 66, 66);
+    display: grid;
+    place-items: center;
 }
 
 .error-fetch {
@@ -208,6 +217,7 @@
     padding: 10px;
     background-color: var(--border);
     font-size: 1vw;
+    border-radius: 0.5em;
 }
 
 

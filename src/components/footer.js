@@ -1,8 +1,36 @@
 import '../styles/footer.css';
 import logo from '../assets/logo.png'
 import AnimatedContent from './AnimatedContent';
-
+import Logo from './logo';
 export default function Footer() {
+
+    const toSc1 = () => {
+        const section = document.getElementById('sc1');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const toSc2 = () => {
+        const section = document.getElementById('sc2');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    const toSc3 = () => {
+        const section = document.getElementById('sc3');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const toSc4 = () => {
+        const section = document.getElementById('sc4');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth'})
+        }
+    }
+
     return (
         <AnimatedContent
             distance={30}
@@ -22,37 +50,53 @@ export default function Footer() {
                 </div>
 
                 <div className='footer-main'>
-                    <div className='footer1'>
+                    
+                    <div className='footer2'>
+                        <div className='top-footer2'>
+                        <div className='logo-footer'>
+                        <Logo/>
+                        </div>
+                            <p>Creative developer passionate about building exceptional digital experiences with modern<br/> technologies.</p>
+                            <p>Connect with me.</p>
+                            <div className='social-media-footer'>
+                                <a href='https://www.instagram.com/bivanoid/' className='ig'><i class="fi fi-brands-instagram"></i></a>
+                                <a href='' className='lnkdn'><i class="fi fi-brands-linkedin"></i></a>
 
-                        <div className='footer1-main'>
-                            <div className='logo-web'>
-                                <div className='textlogo'>FRD<br />AVN</div>
-                                <h1>N</h1>
+                                <a href='https://x.com/riyadhlearning' className='twt'><i class="fi fi-brands-twitter-alt-circle"></i></a>
+                                <a href='https://wa.me/087739770494' className='wa'><i class="fi fi-brands-whatsapp"></i></a>
+                                <a href='https://t.me/Teufelie' className='tele'><i class="fi fi-brands-telegram"></i></a>
+                                <a href='https://github.com/Vandyaaa' className='gth'><i class="fi fi-brands-github"></i></a>
                             </div>
                         </div>
 
-                        <div className='footer1-main'>
-                            <p>Dashboard</p>
-                            <p>Aboutme</p>
-                            <p>Recent Project</p>
-                            <p>Feedback</p>
-                        </div>
-
-                    </div>
-                    <div className='footer2'>
-                        <h1>— Social Media</h1>
-                        <div className='con-social-media'>
-                            <a href='https://www.instagram.com/bivanoid/' className='ig'><i class="fi fi-brands-instagram"></i></a>
-                            <a href='' className='lnkdn'><i class="fi fi-brands-linkedin"></i></a>
-                            {/* https://www.linkedin.com/in/firdhan-abivandya-b193072a1/ */}
-                            <a href='https://x.com/riyadhlearning' className='twt'><i class="fi fi-brands-twitter-alt-circle"></i></a>
-                            <a href='https://wa.me/087739770494' className='wa'><i class="fi fi-brands-whatsapp"></i></a>
-                            <a href='https://t.me/Teufelie' className='tele'><i class="fi fi-brands-telegram"></i></a>
-                            <a href='https://github.com/Vandyaaa' className='gth'><i class="fi fi-brands-github"></i></a>
-                        </div>
+                        <p className='copyright
+                        '>© 2025 Firdhan Abivandya. All rights reserved.</p>
+                      
                     </div>
                     <div className='footer3'>
+                        <div className='get-in-touch'>
+                            <h1>Get In Touch</h1>
+                            <ul>
+                                <li><a>abivandyafirdhan@gmail.com</a></li>
+                                <li><a>+62 877-3977-0494</a></li>
+                                <li><a>Indonesia</a></li>
+                            </ul>
+                        </div>
+                        <div className='navigation-link-footer'>
+                        <h1>Navigation</h1>
+                            <ul>
+                                <li onClick={toSc1}>Dashboard</li>
+                                <li onClick={toSc2}>Aboutme</li>
+                                <li onClick={toSc3}>Projects</li>
+                                <li onClick={toSc4}>Feedback</li>
+                                <li>Footer</li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div className='footer1'>
+                        <div className='footer1-main'>
+                        </div>
                     </div>
                     {/* <div className='copyright'><p>&copy; 2025 Firdhan Abivandya. All rights reserved.</p></div> */}
                     <svg className='con-star con-starfuter' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
