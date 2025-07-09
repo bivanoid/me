@@ -57,26 +57,6 @@ export default function Blog() {
     const [selectedArticle, setSelectedArticle] = useState(null)
     const [isArticleModalOpen, setIsArticleModalOpen] = useState(false)
 
-    window.addEventListener("scroll", () => {
-        const element = document.getElementById("info-blog")
-        if (!element) return
-
-        const rect = element.getBoundingClientRect()
-
-        if (rect.top <= 0 && !element.classList.contains("fixed")) {
-            element.style.position = "fixed"
-            element.style.top = "0"
-            element.classList.add("fixed")
-        }
-
-        const originalTop = element.offsetTop
-        if (window.scrollY < originalTop && element.classList.contains("fixed")) {
-            element.style.position = "relative"
-            element.style.top = ""
-            element.classList.remove("fixed")
-        }
-    })
-
     useEffect(() => {
         async function testConnection() {
             try {

@@ -9,6 +9,7 @@
   --primary25: #1a1a1a3a;
   --primary2: #1a1a1a;
   --primary3: #232222;
+  --blue: #173ff0;
   --grey: rgb(59, 59, 59);
   --button: #f8f8f8;
   --border: #ffffff0e;
@@ -28,6 +29,11 @@
     serif;
   --primaryfont: "Space Grotesk", sans-serif;
 } */
+
+::selection {
+  background-color: var(--blue);
+  
+}
 
 
 .habibi-regular {

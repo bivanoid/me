@@ -55,10 +55,9 @@ function Biodata() {
                                 initialOpacity={0.2}
                                 animateOpacity
                                 scale={0.7}
-
                                 threshold={0.2}
                             >
-                                <h1 id='namamu'>— Firdhan<br></br>Abivandya.</h1>
+                                <h1 id='namamu'>— Firdhan Abivandya.</h1>
                             </AnimatedContent>
                             
                         </div>
