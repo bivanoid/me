@@ -60,10 +60,9 @@
 
 .sticky {
     position: sticky;
-    padding: 30px;  
     display: flex;
     justify-content: space-between;
-    height: calc(100vh - 60px);
+    height: calc(100vh);
     flex-direction: column;
     background-color: transparent;
     overflow: hidden;
@@ -90,11 +89,11 @@
     display: flex;
     margin-bottom: 30px;
     align-items: center;
+    padding: 30px;
     border-bottom: 1px solid var(--border);
     position: relative;
     flex-direction: row-reverse;
     gap: 10px;
-    padding-bottom: 20px;
 }
 
 .sticky-header .con-nama {
@@ -163,7 +162,7 @@
 }
 
 .image-profile {
-    background: url(../assets/logopersonalpp.jpg);
+    background: url(../assets/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg);
     filter: grayscale(0%);
     width: 100%;
     height: 100%;
@@ -188,6 +187,7 @@
     color: white;
     height: 100%;
     z-index: 2;
+    padding-inline: 30px;
 }
 
 
@@ -286,9 +286,7 @@
     height: 40px;
     aspect-ratio: 1/1;
     border-radius: 20px;
-    /* aspect-ratio: 1/1; */
-    background-color: var(--blue);
-    box-shadow: 0px 3px 20px 0px var(--blue);
+    background-color: #bc1888;
     display: grid;
     place-items: center;
 }
@@ -299,19 +297,17 @@
 }
 
 .contactme {
-    width: 100%;
-    padding-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    min-height: 60px;
     color: var(--button);
-    opacity: 1px solid var(--button);
     font-family: var(--secondfont);
     transition: 0.3s;
-    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+    border-top: 1px solid var(--border);
     font-weight: 400;
+    position: relative;
+    overflow: hidden;
 }
 
 .mail-me {
@@ -418,7 +414,6 @@
     border-radius: 20%;
     padding: 0.7em;
     aspect-ratio: 1/1;
-    background-color: var(--border);
     border: 1px solid var(--border);
     font-size: 0.9vw;
     margin-right: 10px;
@@ -702,10 +697,10 @@
         top: 0;
         display: flex;
         flex-direction: column;
-        width: calc(100% - 40px);
+        width: calc(100% - 60px);
         height: fit-content;
         position: relative;
-        padding: 20px;
+        padding: 30px;
     }
 
 
@@ -717,15 +712,11 @@
     }
 
     .sticky {
-        padding: 30px;
         display: flex;
         height: min-content;
-        padding-inline: 30px;
         flex-direction: column;
         top: 0;
     }
-
-    
 
     .sticky #namamu {
         font-size: 30px;
@@ -736,6 +727,14 @@
         font-size:6.5vw;
         margin-block: 0.5em;
         line-height: 1;   
+    }
+
+    .sticky-header {
+        justify-content: space-between;
+    }
+
+    .con-image-bio {
+        width: 13vw;
     }
 
     .text-abouts {
@@ -750,6 +749,11 @@
         padding-top: 0px;
         width: 100%;
         height: min-content;
+    }
+
+    .contactme {
+        margin-top: 30px;
+        border-bottom: 1px solid var(--border);
     }
 
     @media (min-width:500px) {

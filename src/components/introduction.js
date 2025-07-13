@@ -57,7 +57,7 @@ function Introduction() {
                     scale={0.7}
                     threshold={0.2}
                 >
-                    <p className='AnimatedContent'>ideas and works</p>
+                    <p className='AnimatedContent AnimatedContentItalic'>ideas and works</p>
                 </AnimatedContent>
                 <AnimatedContent
                     distance={150}
@@ -71,19 +71,17 @@ function Introduction() {
                 >
                     <p className='AnimatedContent'>that define me<span className='dot-introduction'></span></p>
                 </AnimatedContent>
-                
-                
-
             </div>
             <div className='image'></div>
             <div className='bg-image-introduction'></div>   
-            <div onClick={scrollToSection} className="arrow-to-sc2" style={{ cursor: 'pointer' }}>
+            <button onClick={scrollToSection} className="arrow-to-sc2">
                 <CircularText
                     text="GO*TO*ABOUT*ME*"
                     onHover="speedUp"
                     spinDuration={10}
                 />
-            </div>
+                <div className='arrow-intro'><i class="fi fi-rs-arrow-small-right"></i></div>
+            </button>
         </div>
     )
 }

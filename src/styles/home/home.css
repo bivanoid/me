@@ -7,10 +7,12 @@
 
 @media (min-width:1000px) {
     #thecontent {
-        transition: opacity 0.5s;
+        filter: blur(0px);
+        transition: opacity 0.5s, filter 0.5s;
     }
     
     #thenav:hover~#thecontent {
         opacity: 0.5;  
+        filter: blur(3px);
     }
 }

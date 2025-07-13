@@ -9,11 +9,13 @@ import FadeContent from './components/FadeContent';
 import Home from './pages/home';
 import AddFeedback from './pages/addfeedback';
 import Blog from './pages/blog';
+import CustomCursor from './components/CustomCursor';
 
 function AppRoutes() {
   const location = useLocation();
 
   return (
+    
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={
         <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
@@ -40,7 +42,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 0); // 3 detik
+    }, 7000); // 3 detik
 
     return () => clearTimeout(timer); // Bersihkan timer jika komponen unmount
   }, []);
@@ -48,6 +50,7 @@ function App() {
   return (
     <Router>
       <div className='body'>
+      <CustomCursor />
         {loading ? (
           <div className="loading-screen">
             {/* Gimmick loading (bisa kamu ganti sesuai desain) */}

@@ -98,7 +98,7 @@ function Biodata() {
                         </div>
 
                         <div className='con-hire-me'>
-                            <a href='https://wa.me/087739770494' className='contactme'>Contact Me <span><i class="fi fi-rs-arrow-small-right"></i></span></a>
+                            <a href='https://wa.me/087739770494' className='contactme'><p>Contact Me</p></a>
                             
                         </div>
                 

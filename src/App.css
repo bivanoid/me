@@ -71,6 +71,12 @@ a {
   text-decoration: none;
 }
 
+:is(a, button, input, img):hover {
+  cursor: none;
+}
+
+
+
 .loading-screen {
   display: flex;
   justify-content: center;
@@ -144,6 +150,7 @@ a {
 
 * {
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 body {
