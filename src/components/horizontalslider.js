@@ -53,11 +53,11 @@ export default function HorizontalSlider({ onImageClick }) {
       
       <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
         <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
+          slidesPerView={3}
+          spaceBetween={0}
           breakpoints={{
-            0: { slidesPerView: 1 },
-            701: { slidesPerView: 3 },
+            0: { slidesPerView: 1.2 },
+            701: { slidesPerView: 2.5 },
           }}
           modules={[Pagination]}
           className="mySwiper"

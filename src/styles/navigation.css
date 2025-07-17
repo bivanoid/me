@@ -175,7 +175,7 @@
     display: none;
  }
 
-@media (max-width:700px) {
+@media (max-width:767px) {
     .navigation {
         box-sizing: border-box;
             width: calc(100%);

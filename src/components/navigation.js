@@ -27,8 +27,8 @@ function Navigation() {
         } else {
             // Dark mode
             root.style.setProperty('--primary', '#0a0908');
-            root.style.setProperty('--primary2', '#1c1c21');
-            root.style.setProperty('--primary3', '#26262c');
+            root.style.setProperty('--primary2', '#211f1cff');
+            root.style.setProperty('--primary3', '#232222');
             root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
         }

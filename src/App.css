@@ -65,10 +65,11 @@ body {
   padding: 0;
   overflow-x: hidden;
   position: relative;
-  background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
+  background-attachment: fixed;
   background-size: 100%;
+  background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
   fill: #919191;
-  background-position: left;
+  background-position: center;
 }
 
 a {

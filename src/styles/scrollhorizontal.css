@@ -44,7 +44,12 @@
     display: flex;
     position: relative;
     align-items: flex-end;
-    border: 1px solid var(--border);
+    box-sizing: border-box;
+    padding: 0px;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-left: 0px solid var(--border);
 }
 
 .gambar {
@@ -107,7 +112,6 @@
 .tag-language {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
     padding-top: 5px;
     padding-inline: 10px;
     padding-bottom: 10px;
@@ -115,11 +119,19 @@
     overflow: hidden;
 }
 
+.tag-language .taglang:nth-child(1){
+    
+}
+.tag-language .taglang:nth-last-child(1){
+    border-right: 1px solid var(--border);
+}
+
 .taglang {
     width: fit-content;
         height: fit-content;
         font-size: 0.85vw;
-        border: 1px solid var(--border);
+        border-block: 1px solid var(--border);
+        border-left: 1px solid var(--border);
         padding-inline: 10px;
         padding-block: 5px;
         color: var(--button);
@@ -127,7 +139,6 @@
         filter: grayscale(60%);
         font-weight: 100;
         text-transform: capitalize;
-        border-radius: 0.5em;
 }
 
 .mySwiper {
@@ -136,7 +147,7 @@
 
 
 
-@media (min-width:1000px) {
+@media (min-width:1024px) {
     .mySwiper:hover::before,
         .mySwiper:hover::after {
             content: '';
@@ -235,7 +246,7 @@
     display: none;
 }
 
-@media (max-width:700px) {
+@media (max-width:767px) {
     .swipe {
         width: 100%;
         display: flex;
@@ -292,7 +303,7 @@
     object-fit: contain;
 }
 
-@media (max-width:700px) {
+@media (max-width:767px) {
     .title-swiper h1 {
         font-size: clamp(1em, 2em, 5em);
     }

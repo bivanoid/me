@@ -16,7 +16,6 @@ const CustomCursor = () => {
       'button',
       'input',
       'img',
-      'li',
       '.circular-text',
       '.hover-area',
     ];

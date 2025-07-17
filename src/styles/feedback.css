@@ -28,6 +28,8 @@
     list-style: none;
     height: fit-content;
     display: grid;
+    padding-inline: 30px;
+    margin: 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
@@ -35,7 +37,7 @@
 .con-feedback-btm {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     padding-inline: 40px;
     padding-bottom: 40px;
 }
@@ -58,17 +60,18 @@
 }
 
 .link-to-addfeedback {
-    padding-block: 0px;
-        display: grid;
-        place-items: center;
-        margin-top: 12px;
-        font-weight: 800;
-        min-height: 60px;
-        color: var(--button);
-        opacity: 1px solid var(--button);
+    color: var(--button);
         font-family: var(--secondfont);
         transition: 0.3s;
+        width: 100%;
+        height: 62px;
+        display: grid;
+        place-items: center;
+        border-top: 1px solid var(--border);
         font-weight: 400;
+        position: relative;
+        overflow: hidden;
+        gap: 10px;
 }
 
 .link-to-addfeedback i {
@@ -115,7 +118,7 @@
 }
 
 
-@media (min-width:700px) {
+@media (min-width:767px) {
 :is(.user-feedback:nth-child(5), .user-feedback:nth-child(6)) {
     border-bottom: 1px solid transparent;   
 }
@@ -128,17 +131,7 @@
 .user-feedback:hover {
         border: 1px solid var(--grey);
         background-color: var(--primary3);
-        border-radius: 20px;
 }
-
-.user-feedback:nth-child(odd):hover {
-    border-radius: 20px 0px 0px 20px;
-}
-
-.user-feedback:nth-child(even):hover {
-    border-radius: 0px 20px 20px 0px;
-}
-
 .user-feedback:hover .feedback-quote {
     color: var(--button);
 }
@@ -244,7 +237,7 @@
 
 
 
-@media (max-width:700px) {
+@media (max-width:767px) {
     .con-user-feedback{
         display: grid;
         grid-template-columns: 1fr;

@@ -51,8 +51,9 @@
 }
 
 .con-sticky {
-    width: 25%;
+    width: 20vw;
     height: auto;
+    
     flex: 1;
     flex-shrink: 0;
     border-right: 1px solid var(--border);
@@ -87,13 +88,13 @@
 
 .sticky-header {
     display: flex;
+    flex-direction: column;
     margin-bottom: 30px;
     align-items: center;
     padding: 30px;
     border-bottom: 1px solid var(--border);
     position: relative;
     flex-direction: row-reverse;
-    gap: 10px;
 }
 
 .sticky-header .con-nama {
@@ -107,6 +108,7 @@
     display: inline-block;
     flex: 1;
     font-weight: 400;
+    margin: 0;
     font-size: 2vw;
     width: fit-content;
     line-height: 1;
@@ -151,12 +153,12 @@
 
 .con-image-bio {
     width: 5.5vw;
-    max-width: 80px;
+    background: url(../assets/woman.jpg);
     aspect-ratio: 1/1;
-    height: fit-content;
-    border-radius: 1000px;
     display: grid;
-    transform: translateX(-1.5vw);
+    background-position: center;
+    background-size: cover;
+    border-radius: 0;
     place-items: center;
     position: relative;
 }
@@ -187,7 +189,7 @@
     color: white;
     height: 100%;
     z-index: 2;
-    padding-inline: 30px;
+
 }
 
 
@@ -195,10 +197,10 @@
 .skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-start;
     max-height: 20vh;
+    padding-inline: 30px;
 }
 
 .mySkills {
@@ -206,19 +208,19 @@
     flex-grow: 1;
 }
 
+
 .box-skill {
     width: fit-content;
     height: fit-content;
     font-size: 0.85vw;
-    border: 1px solid var(--border);
-    padding-inline: 8px;
-    padding-block: 5px;
+    border: 0.5px solid var(--border);
+    padding-inline: 15px;
+    padding-block: 8px;
     color: var(--button);
     font-weight: 500;
     filter: grayscale(60%);
     font-weight: 400;
     text-transform: capitalize;
-    border-radius: 0.5em;
 
 }
 /* 
@@ -301,7 +303,7 @@
     font-family: var(--secondfont);
     transition: 0.3s;
     width: 100%;
-    padding: 10px;
+    height: 62px;
     display: grid;
     place-items: center;
     border-top: 1px solid var(--border);
@@ -330,13 +332,25 @@
 }
 
 .bio h1 {
-    font-size: 1.2vw;
-    opacity: 0.5;
+    font-size: 1vw;
     font-weight: 400;
     margin-bottom: 15px;
+    padding-inline: 30px;
+    display: flex;
+    align-items: center;
     margin-top: 0px;
     color: var(--button);
     font-family: var(--secondfont);
+}
+
+.bio h1 span {
+    width: 1vw;
+    margin-right: 1vw;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: rgb(241, 208, 119);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
 }
 
 
@@ -345,6 +359,7 @@
     padding: 0;
     height: fit-content;
     display: flex;
+    padding-inline: 30px;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom:10px;
@@ -360,8 +375,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 5px;
+    border-inline: 1px solid var(--border);
+    border-top: 1px solid var(--border);
     color: var(--button);
+}
+
+.bio .list-bio li:nth-last-child(1) {
+    border-bottom: 1px solid var(--border);
 }
 
 @media (max-width:1083px) {
@@ -369,15 +389,28 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        border-inline: 1px solid var(--border);
     }
 
     
-    @media (max-width:700px) {
+    @media (max-width:767px) {
+
+
+        .sticky-header {
+            margin-bottom: 0;
+        }
+
         .bio .list-bio li {
             flex-direction: row;
         }
         .bio h1 {
-            font-size: 5vw;
+            font-size: 3.7vw;
+            margin-top: 30px;
+        }
+
+        .bio h1 span {
+            width: 3.7vw;
+            margin-right: 3.7vw;
         }
         .image-profile {
             width: 100%;
@@ -414,11 +447,12 @@
     border-radius: 20%;
     padding: 0.7em;
     aspect-ratio: 1/1;
-    border: 1px solid var(--border);
     font-size: 0.9vw;
+    color: var(--button);
+    border-right: 1px solid var(--border);
     margin-right: 10px;
 }
-
+/* 
 .list-bio li:nth-child(1) .text-bio i {
     color: rgb(236, 143, 255);
 }
@@ -434,9 +468,9 @@
 .list-bio li:nth-child(4) .text-bio i {
     color: rgb(59, 219, 120);
 }
+ */
 
-
-@media (max-width:700px) {
+@media (max-width:767px) {
     .bio .list-bio li p {
         font-size: clamp(2.9vw, 4vw, 3.8vw);
     }
@@ -472,11 +506,10 @@
 
 .contents {
     top: 0;
-    width: calc(75% - 60px);
+    width: calc(80vw - 60px);
     height: calc(fit-content);
     position: relative;
-    padding-inline: 30px 30px;
-    padding-bottom: 20px;
+    /* padding-inline: 30px 30px; */
 }
 
 .abouts {
@@ -485,11 +518,16 @@
     width: calc(100%);
     height: fit-content;
     position: relative;
+    box-sizing: border-box;
     padding-top: 30px;
     gap: 30px;
     overflow: hidden;
     padding-bottom: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+:is(.abouts, .title-swiper, .subtitle-feedback, .title-feedback) {
+    padding-inline: 30px;
 }
 
 /* .abouts::after {
@@ -524,9 +562,20 @@
     font-size: 1vw;
     opacity: 0.7;
     width: 100%;
-    line-height: 1.1;
+    line-height: 1.2;
     margin: 0;
+    position: relative;
     color: var(--button);
+}
+
+.text-abouts .content-about::first-letter {
+    display: inline-block;
+    opacity: 1;
+    float: inline-start;
+    font-size: 4vw;
+    line-height: 50%;
+    transform: translateY(50px);
+    font-family: var(--secondfont);
 }
 
 .text-abouts .content-carrier {
@@ -576,7 +625,7 @@
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@media (min-width:1000px) {
+@media (min-width:1024px) {
     .text-abouts .content-carrier li:hover span .circle-crr {
         width: 1.5vw;
         background-color: var(--blue) ;
@@ -674,7 +723,7 @@
     text-decoration-thickness: 0.2px;
 }
 
-@media (max-width:700px) {
+@media (max-width:767px) {
     .section2 {
         font-family: var(--primaryfont);
         display: flex;
@@ -684,7 +733,6 @@
         height: fit-content;
         width: 100%;
         position: relative;
-        padding-top: 50px;
 
     }
 
@@ -697,10 +745,10 @@
         top: 0;
         display: flex;
         flex-direction: column;
-        width: calc(100% - 60px);
+        width: calc(100% - 0px);
+        padding-top: 30px;
         height: fit-content;
         position: relative;
-        padding: 30px;
     }
 
 

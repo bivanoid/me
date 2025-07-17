@@ -45,10 +45,6 @@ function AssideArticle() {
                             >
                                 <div className='con-image-bio'>
                                     <div className='image-profile' id='inp'></div>
-                                    <div className='wave-bio'></div>
-                                    <div className='wave-bio'></div>
-                                    <div className='wave-bio'></div>
-                                    <div className='wave-bio'></div>
                                 </div>
                             </AnimatedContent>
                             <AnimatedContent
@@ -96,7 +92,7 @@ function AssideArticle() {
                                 
                                 <div className='box-skill'>HTML</div>
                                 <div className='box-skill'>CSS</div>
-                                <div className='box-skill'>JAVA SCRIPT</div>
+                                <div className='box-skill'>JAVASCRIPT</div>
                                 <div className='box-skill'>PHP</div>
                                 <div className='box-skill'>REACT</div>
                                 <div className='box-skill'>MYSQL</div>
