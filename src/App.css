@@ -54,11 +54,10 @@
   font-style: normal;
 }
 
-html,
 body {
   margin: 0;
-  padding: 0;
   height: 100%;
+  padding: 0;
   overflow-x: hidden;
   position: relative;
   background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
@@ -150,16 +149,8 @@ a {
 
 * {
   scroll-behavior: smooth;
-  cursor: none;
-}
-
-body {
-  width: 100%;
-  background-color: var(--primary);
-  min-height: 100vh;
   
 }
-
 
 
 .con-star path {
@@ -177,28 +168,27 @@ body {
 }
 
 @media (min-width:1000px) {
-  ::-webkit-scrollbar {
-      width: 10px;
-      border-left: 1px solid var(--border);
-      padding: 5px;
-  
-    }
-  
-    ::-webkit-scrollbar-thumb {
-      background-color: var(--border);
-      position: relative;
-    }
-  
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: var(--button);
-  
-    }
-  
-    ::-webkit-scrollbar-button {
-      display: none;
-      margin: 20px;
-    }
-}
+    ::-webkit-scrollbar {
+        width: 10px;
+        padding: 5px;
+    
+      }
+/*     
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--border);
+        position: relative;
+      }
+    
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--button);
+    
+      }
+    
+      ::-webkit-scrollbar-button {
+        display: none;
+        margin: 20px;
+      }*/
+} 
 
 @media (max-width:1000px) {
   ::-webkit-scrollbar {
