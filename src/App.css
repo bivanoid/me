@@ -171,9 +171,10 @@ a {
     ::-webkit-scrollbar {
         width: 10px;
         padding: 5px;
+        background-color: var(--primary2);
     
       }
-/*     
+      
       ::-webkit-scrollbar-thumb {
         background-color: var(--border);
         position: relative;
@@ -187,7 +188,7 @@ a {
       ::-webkit-scrollbar-button {
         display: none;
         margin: 20px;
-      }*/
+      }
 } 
 
 @media (max-width:1000px) {

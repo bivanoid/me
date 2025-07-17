@@ -26,9 +26,9 @@ export default function Home() {
       </div>
       <PopupImage imageUrl={fullscreenImage} onClose={closeFullscreen} />
       <div id='thecontent'>
-        <Introduction/>
-        
-        <Footer/>
+        {/* <Introduction/> */}
+        <AboutMe onImageClick={handleImageClick} />
+        {/* <Footer/> */}
       </div>
     </div>
   )
