@@ -32,14 +32,7 @@ export default function Footer() {
     }
 
     return (
-        <AnimatedContent
-            distance={30}
-            direction="vertical"
-            reverse={false}
-            config={{ tension: 80, friction: 20 }}
-            initialOpacity={0}
-            threshold={0.5}
-        >
+        
             <div className="footer">
                 <div className='footer-header'>
                     <div className='triple-shapes'>
@@ -104,7 +97,7 @@ export default function Footer() {
                     </svg>
                 </div>
             </div>
-        </AnimatedContent>
+        
         
     )
 }

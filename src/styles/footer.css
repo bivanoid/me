@@ -11,7 +11,7 @@
 
 .footer-header {
     height: 62px;
-    width: 100%;
+    width: calc(100% - 60px);
     border-bottom: 1px solid var(--border);
     padding-inline: 30px;
     display: flex;
@@ -135,6 +135,7 @@
 
 .copyright {
     padding-block: 30px;
+    width: 100%;
     font-size: 0.8vw;
     border-top: 1px solid var(--border);
     color: var(--button)
@@ -218,7 +219,15 @@
     .copyright {
         position: absolute;
         bottom: 0;
-        width: 100%;
+        width: fit-content;
+        opacity: 0.5;
+        width: calc(100% - 60px);
+        scale: 0.8;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding-block: 10px;
+        border: none;
         font-size: 3vw;
     }
 
@@ -249,6 +258,7 @@
     }
 
     .con-starfuter {
+        left: calc(100% - 60px);
         bottom: 80px;
     }
 }
