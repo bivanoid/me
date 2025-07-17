@@ -18,6 +18,11 @@
   --primaryfont: "Space Grotesk", sans-serif;
 }
 
+* {
+  scroll-behavior: smooth;
+  cursor: none;
+}
+
 /* :root {
   --primary: #e0e0e0;
   --primary2: #d1d1d1;
@@ -145,11 +150,6 @@ a {
      letter-spacing: 1px;
     filter: grayscale(0%);
   }
-}
-
-* {
-  scroll-behavior: smooth;
-  
 }
 
 

@@ -1,27 +1,48 @@
-// components/CustomCursor.jsx
 import React, { useEffect, useState } from 'react';
 import '../styles/cursor.css';
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState(false);
+  const [isLink, setIsLink] = useState(false); // 👈 Tambahan
 
   useEffect(() => {
     const move = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
+    const hoverableSelectors = [
+      'a',
+      'button',
+      'input',
+      'img',
+      'li',
+      '.circular-text',
+      '.hover-area',
+    ];
+
+    const isHoverable = (element) => {
+      if (!element) return false;
+      return hoverableSelectors.some((selector) => element.closest(selector));
+    };
+
     const handleMouseOver = (e) => {
       const target = e.target;
-      if (target.matches('a, button, input, img')) {
+      if (isHoverable(target)) {
         setActive(true);
+      }
+      if (target.closest('a')) {
+        setIsLink(true); // 👈 Aktifkan warna biru
       }
     };
 
     const handleMouseOut = (e) => {
       const target = e.target;
-      if (target.matches('a, button, input, img')) {
+      if (isHoverable(target)) {
         setActive(false);
+      }
+      if (target.closest('a')) {
+        setIsLink(false); // 👈 Nonaktifkan warna biru
       }
     };
 
@@ -38,7 +59,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`custom-cursor ${active ? 'active' : ''}`}
+      className={`custom-cursor ${active ? 'active' : ''} ${isLink ? 'cursor-blue' : ''}`}
       style={{
         top: position.y,
         left: position.x,
