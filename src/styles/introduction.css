@@ -153,7 +153,7 @@
     width: 20em;
     border-radius: 100% 100% 0% 0%;
     aspect-ratio: 1/1;
-    background: url(../assets/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg);
+    background: url(../assets/woman.jpg);
     filter: grayscale(0%);
     background-position: center;
     position: absolute;
@@ -193,7 +193,7 @@
 }
 
 .dot-introduction {
-    background: #173ff0;
+    background: var(--blue);
     margin-left: 5px;
     width: 0.25em;
     aspect-ratio: 1/1;

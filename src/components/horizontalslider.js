@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '../styles/scrollhorizontal.css';
-import { Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import riyadh from '../assets/riyadhmckp.png';
 import bicture from '../assets/bicturemckp.png';
 import kasir from '../assets/Casier.png';
@@ -53,13 +53,35 @@ export default function HorizontalSlider({ onImageClick }) {
       
       <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
         <Swiper
-          slidesPerView={3}
-          spaceBetween={0}
-          breakpoints={{
-            0: { slidesPerView: 1.2 },
-            701: { slidesPerView: 2.5 },
-          }}
-          modules={[Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={0}
+            slidesPerView={1}
+            navigation={{
+              nextEl: ".next-hz",
+              prevEl: ".prev-hz",
+            }}
+            pagination={{
+              clickable: true,
+              el: ".swiper-pagination-custom",
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              1024: {
+                slidesPerView: 2.5,
+                spaceBetween: 0,
+              },
+            }}
           className="mySwiper"
         >
           <SwiperSlide>
@@ -129,10 +151,12 @@ export default function HorizontalSlider({ onImageClick }) {
 
 
         </Swiper>
+       
       </FadeContent>
-      <div className='con-swipe '>
-        <p className='swipe'> <i className="fi fi-rs-angle-small-left"></i> <p>slide to left / right</p> <i className="fi fi-rs-angle-small-right"></i></p>
-      </div>
+        <div className='con-swiper-button-hz'>
+          <div className='prev-hz'>Swipe Left</div>
+          <div className='next-hz'>Swipe Right</div>
+        </div>
     </div>
 
   );

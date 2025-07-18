@@ -32,7 +32,7 @@ function Introduction() {
             <p className='number'></p>
             <div className='text'>
                 <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
-                    <p className='revealed'>Hi i'm Firdhan Abivandya</p>
+                    <p className='revealed'>Hi i'm ✦ Firdhan Abivandya</p>
                 </FadeContent>
                 
                 <AnimatedContent

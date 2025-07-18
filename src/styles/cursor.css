@@ -5,8 +5,8 @@
             position: fixed;
             display: grid;
             place-items: center;
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             background-color: rgba(var(--button), var(--button), bluevar(--button), 0);
             backdrop-filter: invert(100%) blur(0px);
             border-radius: 50%;
@@ -47,19 +47,19 @@
             cursor: pointer;
             background-color: transparent;
             border: 1px solid var(--border) ;
-            backdrop-filter: contrast(1000%) blur(10px);
+            backdrop-filter: invert(100%) blur(0px);
             clip-path: circle(50% at 50% 50%);
             
         }
 
         .custom-cursor.active::before {
             scale: 1;
-            background-color: var(--button);
+            background-color: var(--primary);
             
         }
         .custom-cursor.active::after {
             scale: 1;
-            background-color: var(--button);
+            background-color: var(--primary);
             
         }
 
