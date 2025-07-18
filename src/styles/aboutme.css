@@ -578,6 +578,12 @@
     font-family: var(--secondfont);
 }
 
+@media (max-width:767px) {
+    .text-abouts .content-about::first-letter {
+        font-size: 15vw;
+    }
+}
+
 .text-abouts .content-carrier {
     font-size: 1vw;
     

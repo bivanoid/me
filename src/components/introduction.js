@@ -1,12 +1,23 @@
 import '../styles/introduction.css'
+import React, { useState, useEffect } from 'react';
 import { ReactComponent as StarIcon } from '../assets/plus-paricle.svg';
 import CircularText from './CircularText';
 import AnimatedContent from './AnimatedContent';
 import FadeContent from './FadeContent';
 import Magnet from './Magnet';
-
+import Lenis from '@studio-freight/lenis';
 
 function Introduction() {
+    useEffect(() => {
+        const lenis = new Lenis()
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
+        return () => lenis.destroy()
+    }, []);
+
     const scrollToSection = () => {
         const section = document.getElementById('sc2');
         if (section) {

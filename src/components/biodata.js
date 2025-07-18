@@ -4,7 +4,16 @@ import AnimatedContent from './AnimatedContent';
 import sya from '../assets/eek.jpg';
 import FadeContent from './FadeContent';
 import CircularText from './CircularText';
+import { useEffect } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 function Biodata() {
+    
+
+
     var ya = document.getElementById('inp');
 
         // Fungsi untuk memantau posisi scroll

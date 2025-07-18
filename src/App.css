@@ -19,8 +19,15 @@
 }
 
 * {
-  scroll-behavior: smooth;
   cursor: none;
+}
+
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+#smooth-content {
+  will-change: transform;
 }
 
 /* :root {
