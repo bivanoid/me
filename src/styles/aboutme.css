@@ -193,7 +193,7 @@
     color: white;
     height: 100%;
     z-index: 2;
-
+    padding-inline: 30px;
 }
 
 
@@ -204,7 +204,6 @@
     align-items: stretch;
     justify-content: flex-start;
     max-height: 20vh;
-    padding-inline: 30px;
 }
 
 .mySkills {
@@ -339,7 +338,6 @@
     font-size: 1vw;
     font-weight: 400;
     margin-bottom: 15px;
-    padding-inline: 30px;
     display: flex;
     align-items: center;
     margin-top: 0px;
@@ -362,7 +360,6 @@
     padding: 0;
     height: fit-content;
     display: flex;
-    padding-inline: 30px;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom:10px;

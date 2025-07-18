@@ -72,11 +72,19 @@
     color: var(--button);
     font-size: 1vw;
 }
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: 30vw;
+}
 /* Pagination Styles */
 .swiper-pagination-custom {
     justify-content: center;
     display: flex;
     align-items: center;
+    width: 30vw;
 }
 
 .swiper-pagination-custom .swiper-pagination-bullet {
@@ -96,6 +104,15 @@
 }
 
 @media (max-width:767px) {
+    .swiper-pagination-custom {
+        width: 30vw;
+    }
+    
+    .swiper-pagination-custom .swiper-pagination-bullet{
+        width: 4px;
+        height: 4px;
+    }
+
     .next-fb, .prev-fb {
         font-size: 3.5vw;
         width: 35vw;
