@@ -105,15 +105,13 @@
 
 
 .theme {
-    background-color: var(--border);
-
+    background-color: transparent;
     color: var(--primary);
     font-weight: 800;
     font-size: 13px;
     width: 76px;
     height: 40px;
     padding: 5px;
-    border-radius: 50px;
     display: grid;
     place-items: center;
     transition: 0.3s;
@@ -140,7 +138,6 @@
     position: absolute;
     transition: 0.3s;
     left: calc(0% + 5px);
-    border-radius: 50px;
     display: grid;
     place-items: center;
 }

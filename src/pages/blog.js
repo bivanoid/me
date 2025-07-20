@@ -8,9 +8,15 @@ import Footer from "../components/footer"
 import Alert from "../assets/Alert.png"
 import Logo from "../components/logo"
 import ParticleStar from "../components/particleStar"
+import Lenis from '@studio-freight/lenis';
+import { useNavigate } from 'react-router-dom';
+
 
 // Scroll Progress Component
 function ScrollProgress() {
+
+    
+
     const [progress, setProgress] = useState(0)
 
     useEffect(() => {
@@ -56,6 +62,30 @@ export default function Blog() {
     const [connectionTest, setConnectionTest] = useState(null)
     const [selectedArticle, setSelectedArticle] = useState(null)
     const [isArticleModalOpen, setIsArticleModalOpen] = useState(false)
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+      navigate(-1); // ini seperti tombol "back"
+    };
+
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true,
+            direction: 'vertical', // atau 'horizontal'
+            gestureDirection: 'vertical',
+            smoothTouch: true,     // true = scroll halus di mobile
+            touchMultiplier: 2,
+        });
+        
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
+        return () => lenis.destroy()
+    }, []);
 
     useEffect(() => {
         async function testConnection() {
@@ -167,9 +197,9 @@ export default function Blog() {
             <div className="con-blog">
                 <main>
                     <div className="navigation-blog">
-                        <Link to="/" className="back-to-home-from-blog" id="backMenuIcon">
-                            <i class="fi fi-rs-turn-left"></i>
-                        </Link>
+                        <div className="clstgr back-to-home-from-blog" id="backMenuIcon" onClick={handleGoBack}>
+                            <i className="fi fi-rs-turn-left"></i>
+                        </div>
                         <div id="logoBlogIcon">
                             <Logo />
                         </div>

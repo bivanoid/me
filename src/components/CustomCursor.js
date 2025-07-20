@@ -18,6 +18,8 @@ const CustomCursor = () => {
       'img',
       '.circular-text',
       '.hover-area',
+      '.prev',
+      '.next'
     ];
 
     const isHoverable = (element) => {
@@ -30,7 +32,7 @@ const CustomCursor = () => {
       if (isHoverable(target)) {
         setActive(true);
       }
-      if (target.closest('a')) {
+      if (target.closest('.prev, .next')) {
         setIsLink(true); // 👈 Aktifkan warna biru
       }
     };
@@ -40,7 +42,7 @@ const CustomCursor = () => {
       if (isHoverable(target)) {
         setActive(false);
       }
-      if (target.closest('a')) {
+      if (target.closest('.prev, .next')) {
         setIsLink(false); // 👈 Nonaktifkan warna biru
       }
     };

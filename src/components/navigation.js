@@ -20,8 +20,8 @@ function Navigation() {
         if (darkMode) {
             // Light mode
             root.style.setProperty('--primary', '#fafaff');
-            root.style.setProperty('--primary2', '#eef0f2');
-            root.style.setProperty('--primary3', '#ecebe4');
+            root.style.setProperty('--primary2', '#fcecccff');
+            root.style.setProperty('--primary3', '#f0cd99ff');
             root.style.setProperty('--button', '#1c1c1c');
             root.style.setProperty('--border', '#00000014');
         } else {

@@ -28,7 +28,7 @@ function Biodata() {
     return (
         
 
-            <FadeContent className='con-sticky' blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
+            <FadeContent className='con-sticky' blur={false} duration={500} easing="ease-out" initialOpacity={0}>
             
                 <div className='sticky'>
                 <svg className='con-star con-star4' width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -42,31 +42,31 @@ function Biodata() {
                                 distance={0}
                                 direction="horizontal"
                                 reverse={true}
-                                config={{ tension: 80, friction: 20 }}
+                                config={{ tension: 80, friction: 10 }}
                                 initialOpacity={0}
                                 animateOpacity
                                 scale={0}
-                                threshold={0.2}
+                                delay={400}
+                                threshold={1}
                             >
                                 <div className='con-image-bio'>
                                 </div>
                             </AnimatedContent>
                             <AnimatedContent
-                                distance={70}
+                                distance={50}
                                 direction="horizontal"
                                 reverse={false}
-                                config={{ tension: 80, friction: 20 }}
-                                initialOpacity={0.2}
+                                config={{ tension: 80, friction: 40 }}
+                                initialOpacity={0}
                                 animateOpacity
-                                scale={0.7}
-                                threshold={0.2}
+                                threshold={0}
                             >
                                 <h1 id='namamu'>— Firdhan <span>Abivandya.</span></h1>
                             </AnimatedContent>
                             
                         </div>
-                        
-                        <div className='bio' id='bio'>
+                        <FadeContent blur={true} breakpoints={{747: {blur: false}}} delay={1000} duration={500} easing="ease-out" initialOpacity={0}>
+                            <div className='bio' id='bio'>
                             <h1><span>✦</span>Information</h1>
                             <ul className='list-bio'>
                                 <li>
@@ -100,6 +100,8 @@ function Biodata() {
                                 <div className='box-skill'>UI / UX DESIGN</div>
                             </div>
                         </div>
+                        </FadeContent>
+                        
 
                         <div className='con-hire-me'>
                             <a href='https://wa.me/087739770494' className='contactme'><p>Contact Me</p></a>

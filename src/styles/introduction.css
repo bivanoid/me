@@ -128,6 +128,12 @@
     font-family: var(--primaryfont);
 }
 
+.text .con-text-it {
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+}
+
 .text .AnimatedContent {
     font-size: clamp(1rem, 5vw, 7rem);
     padding-inline: 30px;
@@ -149,6 +155,13 @@
     line-height: 0.8;
 } */
 
+.con-image {
+    position: absolute;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .image {
     width: 20em;
     border-radius: 100% 100% 0% 0%;
@@ -156,12 +169,10 @@
     background: url(../assets/woman.jpg);
     filter: grayscale(0%);
     background-position: center;
-    position: absolute;
-    bottom: 0;
     z-index: 2;
     background-size: cover;
 }
-
+/* 
 .image::before {
     content: '';
     width: 15em;
@@ -179,6 +190,12 @@
     background-size: cover;
     animation: border-roll 5s linear infinite;
     transition: border 5s;
+} */
+
+.con-image-introduction {
+    position: absolute;
+    bottom: 0px;
+    z-index: -1;
 }
 
 .bg-image-introduction {
@@ -186,10 +203,7 @@
     border-radius: 100% 100% 0% 0%;
     aspect-ratio: 1.2/1;
     background: var(--border);
-    position: absolute;
     transform: translateX(4em);
-    bottom: 0px;
-    z-index: 1;
 }
 
 .dot-introduction {
@@ -202,12 +216,12 @@
 }
 
 .arrow-to-sc2 {
-    position: absolute;
     bottom: 30px;
     right: 30px;
     z-index: 3;
     display: grid;
     background-color: transparent;
+    position: absolute;
     border: none;
     place-items: center;
 }
@@ -269,14 +283,20 @@
         padding-inline: 0px;
         line-height: 0.8;   
     } */
+
+    .con-image {
+        position: absolute;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(100% - 60px);
+        display: grid;
+        place-items: center;
+        
+    }
+
     .image {
-        width: 80%;
-        aspect-ratio: 1/1;
-        max-width: 500px;
-        height: max-content;
-        margin-bottom: 0;
-        background-position: center;
-        background-size: cover;
+        
     }
 
     .con-star1 {
@@ -313,7 +333,5 @@
         bottom: 0px;
         width: 17em;
     }
-
-
 
 }

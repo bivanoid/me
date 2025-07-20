@@ -6,10 +6,19 @@ import AnimatedContent from './AnimatedContent';
 import FadeContent from './FadeContent';
 import Magnet from './Magnet';
 import Lenis from '@studio-freight/lenis';
+import lenisSc from './lenisSc';
 
 function Introduction() {
     useEffect(() => {
-        const lenis = new Lenis()
+        const lenis = new Lenis({
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true,
+            direction: 'vertical', // atau 'horizontal'
+            gestureDirection: 'vertical',
+            smoothTouch: true,     // true = scroll halus di mobile
+            touchMultiplier: 2,
+        });
         function raf(time) {
             lenis.raf(time)
             requestAnimationFrame(raf)
@@ -19,9 +28,9 @@ function Introduction() {
     }, []);
 
     const scrollToSection = () => {
-        const section = document.getElementById('sc2');
+    const section = document.getElementById('sc2');
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+          lenisSc.scrollTo(section);
         }
     };
       
@@ -46,45 +55,83 @@ function Introduction() {
                     <p className='revealed'>Hi i'm ✦ Firdhan Abivandya</p>
                 </FadeContent>
                 
-                <AnimatedContent
-                    distance={150}
+                <div className='con-text-it'>
+                    <AnimatedContent
+                    distance={50}
                     direction="vertical"
                     reverse={false}
-                    config={{ tension: 80, friction: 20 }}
-                    initialOpacity={0.2}
+                    config={{ tension: 100, friction: 30 }}
+                    initialOpacity={0}
                     animateOpacity
-                    scale={0.7}
-                    threshold={0.2}
-                >
-                    <p className='AnimatedContent'>— Discover the</p>
-                </AnimatedContent>
-                <AnimatedContent
-                    distance={150}
-                    direction="vertical"
-                    reverse={false}
-                    config={{ tension: 80, friction: 25 }}
-                    initialOpacity={0.2}
-                    animateOpacity
-                    scale={0.7}
-                    threshold={0.2}
-                >
-                    <p className='AnimatedContent AnimatedContentItalic'>ideas and works</p>
-                </AnimatedContent>
-                <AnimatedContent
-                    distance={150}
-                    direction="vertical"
-                    reverse={false}
-                    config={{ tension: 80, friction: 30 }}
-                    initialOpacity={0.2}
-                    animateOpacity
-                    scale={0.7}
+                    
                     threshold={0}
+                    delay={500}
+                    >
+                        <p className='AnimatedContent'>— Discover the</p>
+                    </AnimatedContent>
+                </div>
+                <div className='con-text-it'>
+                    <AnimatedContent
+                    distance={50}
+                    direction="vertical"
+                    reverse={false}
+                    config={{ tension: 100, friction: 30 }}
+                    initialOpacity={0}
+                    animateOpacity
+                    
+                    threshold={0.2}
+                    delay={600}
+                    >
+                        <p className='AnimatedContent AnimatedContentItalic'>ideas and works</p>
+                    </AnimatedContent>
+                </div>
+                <div className='con-text-it'>
+                    <AnimatedContent
+                    distance={50}
+                    direction="vertical"
+                    reverse={false}
+                    config={{ tension: 100, friction: 30 }}
+                    initialOpacity={0}
+                    animateOpacity
+                    
+                    threshold={0}
+                    delay={700}
                 >
                     <p className='AnimatedContent'>that define me<span className='dot-introduction'></span></p>
                 </AnimatedContent>
+                </div>
             </div>
-            <div className='image'></div>
-            <div className='bg-image-introduction'></div>   
+            <div className='con-image'>
+                 <AnimatedContent
+                    distance={50}
+                    direction="vertical"
+                    reverse={false}
+                    // config={{ tension: 80, friction: 10 }}
+                    initialOpacity={0}
+                    animateOpacity
+                    delay={1000}
+                    scale={1}
+                    threshold={0}
+                >
+                <div className='image'></div>
+            </AnimatedContent>
+            </div>
+            <div className='con-image-introduction'>
+                <AnimatedContent
+                    distance={50}
+                    direction="vertical"
+                    reverse={false}
+                    // config={{ tension: 80, friction: 10 }}
+                    initialOpacity={0}
+                    animateOpacity
+                    delay={1700}
+                    scale={1}
+                    threshold={0}
+                >
+
+                    <div className='bg-image-introduction'></div>   
+                </AnimatedContent>
+            </div>
             <button onClick={scrollToSection} className="arrow-to-sc2">
                 <CircularText
                     text="GO*TO*ABOUT*ME*"

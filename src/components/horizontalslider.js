@@ -12,6 +12,7 @@ import calc from '../assets/calc.png';
 import gallery from '../assets/galpod-app.png';
 import FadeContent from './FadeContent';
 import AnimatedContent from './AnimatedContent';
+
 import Magnet from './Magnet';
 
 
@@ -56,6 +57,7 @@ export default function HorizontalSlider({ onImageClick }) {
           modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
+            loop={true}
             navigation={{
               nextEl: ".next-hz",
               prevEl: ".prev-hz",
@@ -154,8 +156,8 @@ export default function HorizontalSlider({ onImageClick }) {
        
       </FadeContent>
         <div className='con-swiper-button-hz'>
-          <div className='prev-hz'>Swipe Left</div>
-          <div className='next-hz'>Swipe Right</div>
+          <div className='prev prev-hz'>Swipe Left</div>
+          <div className='next next-hz'>Swipe Right</div>
         </div>
     </div>
 

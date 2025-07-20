@@ -106,10 +106,10 @@ function Feedback() {
               nextEl: ".next-fb",
               prevEl: ".prev-fb",
             }}
-            pagination={{
-              clickable: true,
-              el: ".swiper-pagination-custom",
-            }}
+            // pagination={{
+            //   clickable: true,
+            //   el: ".swiper-pagination-custom",
+            // }}
             autoplay={{
               delay: 4000,
               disableOnInteraction: false,
@@ -167,7 +167,7 @@ function Feedback() {
         <div className='con-swiper-button-fb'>
           <div className='prev-fb'>Swipe Left</div>
            {/* Custom Pagination */}
-          <div className="swiper-pagination-custom"></div>
+          {/* <div className="swiper-pagination-custom"></div> */}
           <div className='next-fb'>Swipe Right</div>
         </div>
 
