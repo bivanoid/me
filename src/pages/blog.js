@@ -15,8 +15,6 @@ import { useNavigate } from 'react-router-dom';
 // Scroll Progress Component
 function ScrollProgress() {
 
-    
-
     const [progress, setProgress] = useState(0)
 
     useEffect(() => {
@@ -63,7 +61,7 @@ export default function Blog() {
     const [selectedArticle, setSelectedArticle] = useState(null)
     const [isArticleModalOpen, setIsArticleModalOpen] = useState(false)
     const navigate = useNavigate();
-
+    const [lenisInstance, setLenisInstance] = useState(null)
     const handleGoBack = () => {
       navigate(-1); // ini seperti tombol "back"
     };
@@ -75,7 +73,6 @@ export default function Blog() {
             smooth: true,
             direction: 'vertical', // atau 'horizontal'
             gestureDirection: 'vertical',
-            smoothTouch: true,     // true = scroll halus di mobile
             touchMultiplier: 2,
         });
         
@@ -160,16 +157,18 @@ export default function Blog() {
     }
 
     function openArticle(article) {
-        setSelectedArticle(article)
-        setIsArticleModalOpen(true)
-        // document.body.style.overflow = "hidden"
+      setSelectedArticle(article)
+      setIsArticleModalOpen(true)
+      if (lenisInstance) lenisInstance.stop() // stop Lenis saat modal aktif
+    }
+    
+    
+    function closeArticle() {
+      setSelectedArticle(null)
+      setIsArticleModalOpen(false)
+      if (lenisInstance) lenisInstance.start() // aktifkan lagi
     }
 
-    function closeArticle() {
-        setSelectedArticle(null)
-        setIsArticleModalOpen(false)
-        // document.body.style.overflow = "auto"
-    }
 
     useEffect(() => {
         function handleEscapeKey(event) {

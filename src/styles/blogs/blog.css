@@ -416,6 +416,8 @@ main {
     box-sizing: border-box;
     top: 0;
     left: 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
     width: 100%;
     height: 100%;
     background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);

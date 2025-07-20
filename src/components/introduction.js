@@ -1,38 +1,52 @@
 import '../styles/introduction.css'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ReactComponent as StarIcon } from '../assets/plus-paricle.svg';
 import CircularText from './CircularText';
 import AnimatedContent from './AnimatedContent';
 import FadeContent from './FadeContent';
 import Magnet from './Magnet';
 import Lenis from '@studio-freight/lenis';
-import lenisSc from './lenisSc';
-
+import lenis from './lenisSc';
 function Introduction() {
+    const conImageRef = useRef(null);
+
     useEffect(() => {
-        const lenis = new Lenis({
-            duration: 1.5,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true,
-            direction: 'vertical', // atau 'horizontal'
-            gestureDirection: 'vertical',
-            smoothTouch: true,     // true = scroll halus di mobile
-            touchMultiplier: 2,
-        });
-        function raf(time) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
+    const lenis = new Lenis({
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        gestureDirection: 'vertical',
+        touchMultiplier: 2,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        // Hitung scale antara 1 ke 0 berdasarkan scrollY (ubah angka sesuai kebutuhan)
+        const maxScroll = 4000; // scroll sejauh 500px scale jadi 0
+        let scale = 1 - scrollY / maxScroll;
+        scale = Math.max(0.1, Math.min(1, scale)); // clamp agar di antara 0 dan 1
+        const translateY = (1 - scale) * 100; // ketika scale = 1 → 0%, scale = 0 → 50%
+
+        if (conImageRef.current) {
+              conImageRef.current.style.transform = `scale(${scale}) translateY(${translateY}%)`;
         }
-        requestAnimationFrame(raf)
-        return () => lenis.destroy()
-    }, []);
+
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+    return () => lenis.destroy();
+}, []);
 
     const scrollToSection = () => {
-    const section = document.getElementById('sc2');
-        if (section) {
-          lenisSc.scrollTo(section);
-        }
-    };
+  const section = document.getElementById('sc2');
+  if (section) {
+    lenis.scrollTo(section);
+  }
+};
       
     return (
         
@@ -55,37 +69,34 @@ function Introduction() {
                     <p className='revealed'>Hi i'm ✦ Firdhan Abivandya</p>
                 </FadeContent>
                 
-                <div className='con-text-it'>
+                
                     <AnimatedContent
+                     className='con-text-it'
                     distance={50}
                     direction="vertical"
                     reverse={false}
                     config={{ tension: 100, friction: 30 }}
                     initialOpacity={0}
                     animateOpacity
-                    
                     threshold={0}
                     delay={500}
                     >
                         <p className='AnimatedContent'>— Discover the</p>
                     </AnimatedContent>
-                </div>
-                <div className='con-text-it'>
                     <AnimatedContent
                     distance={50}
                     direction="vertical"
                     reverse={false}
                     config={{ tension: 100, friction: 30 }}
                     initialOpacity={0}
-                    animateOpacity
-                    
+                    animateOpacity 
                     threshold={0.2}
                     delay={600}
                     >
                         <p className='AnimatedContent AnimatedContentItalic'>ideas and works</p>
                     </AnimatedContent>
-                </div>
-                <div className='con-text-it'>
+                
+                
                     <AnimatedContent
                     distance={50}
                     direction="vertical"
@@ -93,15 +104,14 @@ function Introduction() {
                     config={{ tension: 100, friction: 30 }}
                     initialOpacity={0}
                     animateOpacity
-                    
                     threshold={0}
                     delay={700}
                 >
                     <p className='AnimatedContent'>that define me<span className='dot-introduction'></span></p>
                 </AnimatedContent>
-                </div>
+                
             </div>
-            <div className='con-image'>
+            <div className='con-image' ref={conImageRef}>
                  <AnimatedContent
                     distance={50}
                     direction="vertical"

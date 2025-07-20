@@ -309,13 +309,14 @@
 
     #thecontent {
         scale: 1;
-        transition: 0.3s;
+        transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         opacity: 1;
     }
 
     #thecontent.open {
-        filter: grayscale(100%) brightness(0%);
-        opacity: 0.1;
+        transform: translateZ(-100%);
+        opacity: 0;
+        
     }
 
     :is(#logoMenuIcon, #expandMenuIcon) {

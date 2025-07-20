@@ -15,7 +15,6 @@ function AppRoutes() {
   const location = useLocation();
 
   return (
-    
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={
         <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>

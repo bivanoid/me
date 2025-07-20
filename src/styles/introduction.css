@@ -128,10 +128,11 @@
     font-family: var(--primaryfont);
 }
 
-.text .con-text-it {
-    width: fit-content;
-    height: fit-content;
+.con-text-it {
     overflow: hidden;
+    height: fit-content ;
+    padding-block: 10px;
+    background-color: red;
 }
 
 .text .AnimatedContent {
@@ -265,13 +266,14 @@
         margin-bottom: 50px;
     }
 
+
     .text p {
         margin: 0;
     }
 
 
     .text .AnimatedContent{
-        font-size: clamp(2rem, 9vw, 7rem);
+        font-size: 9.7vw;
         padding-inline: 0px;
         line-height: 0.8;
     }
