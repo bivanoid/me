@@ -64,28 +64,34 @@ function Feedback() {
 
   return (
     <div className="feedback" id="sc4">
+    <div className='title-swiper'>
       <AnimatedContent
-        distance={30}
+        distance={50}
         direction="vertical"
         reverse={false}
-        config={{ tension: 80, friction: 20 }}
-        initialOpacity={0.2}
+        config={{ tension: 100, friction: 30 }}
+        initialOpacity={0}
+        animateOpacity
         threshold={1}
+        delay={500}
       >
         <h1 className="title-feedback">— What They Say</h1>
       </AnimatedContent>
 
       <AnimatedContent
-        distance={30}
-        direction="vertical"
-        delay={200}
-        reverse={false}
-        config={{ tension: 80, friction: 20 }}
-        initialOpacity={0}
-        threshold={0.5}
+        distance={50}
+          direction="vertical"
+          reverse={false}
+          config={{ tension: 100, friction: 30 }}
+          initialOpacity={0}
+          animateOpacity
+          threshold={0}
+          delay={1000}
       >
         <p className="subtitle-feedback">their opinion of me. </p>
       </AnimatedContent>
+    </div>
+      
 
       {loading && <p className="loading-feedback">Loading...</p>}
       {error && (
@@ -96,7 +102,7 @@ function Feedback() {
       )}
       {!loading && users.length === 0 && <p className="error-fetch">No feedback yet.</p>}
 
-      <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
+      <FadeContent blur={false} duration={1500} delay={1000} easing="ease-out" initialOpacity={0}>
         <div className="swiper-container">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}

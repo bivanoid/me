@@ -25,25 +25,25 @@ export default function HorizontalSlider({ onImageClick }) {
 
   const gambarRefs = useRef([]);
 
-  useEffect(() => {
-  const handleScroll = () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const maxScroll = 1000;
-    let scale = scrollY / maxScroll;
-    scale = Math.max(0.9, Math.min(1.1, scale)); // batas minimal dan maksimal scale
+//   useEffect(() => {
+//   const handleScroll = () => {
+//     const scrollY = window.scrollY || window.pageYOffset;
+//     const maxScroll = 3000;
+//     let scale = scrollY / maxScroll;
+//     scale = Math.max(0.1, Math.min(1, scale)); // batas minimal dan maksimal scale
 
-    gambarRefs.current.forEach((img) => {
-      if (img) {
-        img.style.transform = `scale(${scale})`;
-      }
-    });
-  };
+//     gambarRefs.current.forEach((img) => {
+//       if (img) {
+//         img.style.transform = `scale(${scale})`;
+//       }
+//     });
+//   };
 
-  window.addEventListener('scroll', handleScroll);
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, []);
+//   window.addEventListener('scroll', handleScroll);
+//   return () => {
+//     window.removeEventListener('scroll', handleScroll);
+//   };
+// }, []);
   
   return (
     
@@ -51,29 +51,33 @@ export default function HorizontalSlider({ onImageClick }) {
       
         <div className='title-swiper'>
           <AnimatedContent
-            distance={30}
+            distance={50}
             direction="vertical"
             reverse={false}
-            config={{ tension: 80, friction: 20 }}
-            initialOpacity={0.2}
+            config={{ tension: 100, friction: 30 }}
+            initialOpacity={0}
+            animateOpacity
             threshold={1}
+            delay={500}
+            
           >
             <h1>Latest Project —</h1>
           </AnimatedContent>
           <AnimatedContent
-            distance={30}
+            distance={50}
             direction="vertical"
-            delay={200}
             reverse={false}
-            config={{ tension: 80, friction: 20 }}
+            config={{ tension: 100, friction: 30 }}
             initialOpacity={0}
-            threshold={1}
+            animateOpacity
+            threshold={0}
+            delay={1000}
           >
           <p>individual or collective projects. </p>
           </AnimatedContent>
         </div>
       
-      <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
+      <FadeContent blur={false} delay={1000} duration={1500} easing="ease-out" initialOpacity={0}>
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={0}

@@ -16,13 +16,7 @@ function AboutMe({ onImageClick }) {
             <Biodata/>
             <div className='contents'>
                 <div className='abouts'>
-                    <AnimatedContent
-                        distance={60}
-                        direction="horizontal"
-                        reverse={true}
-                        // config={{ tension: 80, friction: 20 }}
-                        initialOpacity={0}
-                    >
+                     <FadeContent blur={false} delay={500} duration={300} easing="ease-out" initialOpacity={0}>
                         <div className='text-abouts'><p className='title-about'>About</p><br></br>
                         <p className='content-about'>
                           Hello! My name is Firdhan Abivandya, born on June 21, 2007, in Surakarta, Central Java. I am currently a student at SMKN 5 Surakarta, majoring in Software Engineering (RPL). Since an early age, I’ve been passionate about technology—especially in software and mobile application development. I enjoy exploring new ideas, solving problems creatively, and building applications that bring real value to users.
@@ -32,12 +26,12 @@ function AboutMe({ onImageClick }) {
                         </p>
 
                         </div>
-                    </AnimatedContent>
+                    </FadeContent>
                     <AnimatedContent
-                        distance={60}
+                        distance={50}
                         direction="horizontal"
                         reverse={!isLargeScreen}
-                        // config={{ tension: 80, friction: 20 }}
+                        config={{ tension: 100, friction: 30 }}
                         initialOpacity={0}
                     >
                         <div className='text-abouts  '><p className='title-about title-about2'>Carrier</p><br></br>

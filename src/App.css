@@ -6,10 +6,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap');
 :root {
   --primary: #0a0a0a;
-  --primary25: #1a1a1a3a;
-  --primary2: #1a1a1a;
-  --primary3: #232222;
-  --blue: #173ff0;
+  --primary25: #1111113a;
+  --primary2: #12021b;
+  --primary3: #222223;
+  --blue: #7870fd;
   --grey: rgb(59, 59, 59);
   --button: #f8f8f8;
   --border: #ffffff0e;

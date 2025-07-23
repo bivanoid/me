@@ -19,18 +19,22 @@ function Navigation() {
 
         if (darkMode) {
             // Light mode
-            root.style.setProperty('--primary', '#fafaff');
-            root.style.setProperty('--primary2', '#fcecccff');
-            root.style.setProperty('--primary3', '#f0cd99ff');
+            root.style.setProperty('--primary', '#e3ccfc9e');
+            root.style.setProperty('--primary2', '#4e41ff4b');
+            root.style.setProperty('--primary3', '#99b7f0ff');
+            root.style.setProperty('--blue', '#29007d');
             root.style.setProperty('--button', '#1c1c1c');
-            root.style.setProperty('--border', '#00000014');
+            root.style.setProperty('--border', '#0000001c');
         } else {
             // Dark mode
-            root.style.setProperty('--primary', '#0a0908');
-            root.style.setProperty('--primary2', '#211f1cff');
+            root.style.setProperty('--primary', '#0a0a0a');
+            root.style.setProperty('--primary2', '#12021b');
             root.style.setProperty('--primary3', '#232222');
+            root.style.setProperty('--blue', '#7870fd');
             root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
+
+            
         }
 
         setDarkMode(!darkMode);

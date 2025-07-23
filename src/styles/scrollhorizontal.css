@@ -15,6 +15,12 @@
 
 .title-swiper {
     margin-bottom: 30px;
+    height: fit-content;
+}
+
+.con-title-HZ {
+    overflow: hidden;
+    height: fit-content;
 }
 
 .title-swiper h1 {
