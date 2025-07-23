@@ -144,7 +144,7 @@ function Introduction() {
             </div>
             <button onClick={scrollToSection} className="arrow-to-sc2">
                 <CircularText
-                    text="GO*TO*ABOUT*ME*"
+                    text="Go ✦ To ✦ About ✦ Me ✦ "
                     onHover="speedUp"
                     spinDuration={10}
                 />

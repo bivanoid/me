@@ -2,32 +2,34 @@ import '../styles/footer.css';
 import logo from '../assets/logo.png'
 import AnimatedContent from './AnimatedContent';
 import Logo from './logo';
+import lenis from './lenisSc';
+
 export default function Footer() {
 
     const toSc1 = () => {
         const section = document.getElementById('sc1');
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            lenis.scrollTo(section);
         }
     };
 
     const toSc2 = () => {
         const section = document.getElementById('sc2');
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            lenis.scrollTo(section);
         }
     };
     const toSc3 = () => {
         const section = document.getElementById('sc3');
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            lenis.scrollTo(section);
         }
     };
 
     const toSc4 = () => {
         const section = document.getElementById('sc4');
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth'})
+            lenis.scrollTo(section);
         }
     }
 

@@ -65,7 +65,7 @@ function Biodata() {
                             </AnimatedContent>
                             
                         </div>
-                        <FadeContent blur={true} breakpoints={{747: {blur: false}}} delay={1000} duration={500} easing="ease-out" initialOpacity={0}>
+                        <FadeContent blur={false} breakpoints={{747: {blur: false}}} delay={1000} duration={500} easing="ease-out" initialOpacity={0}>
                             <div className='bio' id='bio'>
                             <h1><span>✦</span>Information</h1>
                             <ul className='list-bio'>

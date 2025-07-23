@@ -159,8 +159,6 @@
 .con-image {
     position: absolute;
     bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .image {
@@ -289,12 +287,9 @@
     .con-image {
         position: absolute;
         bottom: 0;
-        margin-left: auto;
-        margin-right: auto;
-        width: calc(100% - 60px);
+        width: calc(100%);
         display: grid;
         place-items: center;
-        
     }
 
     .image {

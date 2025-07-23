@@ -60,6 +60,16 @@
             background-color: var(--primary);
             
         }
+
+        .custom-cursor.cursor-close {
+            background-color: rgb(221, 75, 49);
+        }
+        .custom-cursor.cursor-close::before {
+            rotate: 45deg;
+        }
+        .custom-cursor.cursor-close::after {
+            rotate: 45deg;
+        }
 /* 
         .custom-cursor.cursor-blue::before {
             display: none;

@@ -66,23 +66,23 @@ export default function Blog() {
       navigate(-1); // ini seperti tombol "back"
     };
 
-    useEffect(() => {
-        const lenis = new Lenis({
-            duration: 1.5,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true,
-            direction: 'vertical', // atau 'horizontal'
-            gestureDirection: 'vertical',
-            touchMultiplier: 2,
-        });
+    // useEffect(() => {
+    //     const lenis = new Lenis({
+    //         duration: 1.5,
+    //         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    //         smooth: true,
+    //         direction: 'vertical', // atau 'horizontal'
+    //         gestureDirection: 'vertical',
+    //         touchMultiplier: 2,
+    //     });
         
-        function raf(time) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-        }
-        requestAnimationFrame(raf)
-        return () => lenis.destroy()
-    }, []);
+    //     function raf(time) {
+    //         lenis.raf(time)
+    //         requestAnimationFrame(raf)
+    //     }
+    //     requestAnimationFrame(raf)
+    //     return () => lenis.destroy()
+    // }, []);
 
     useEffect(() => {
         async function testConnection() {

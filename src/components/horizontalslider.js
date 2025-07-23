@@ -1,5 +1,5 @@
 // src/components/horizontalslider.js
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,7 +12,6 @@ import calc from '../assets/calc.png';
 import gallery from '../assets/galpod-app.png';
 import FadeContent from './FadeContent';
 import AnimatedContent from './AnimatedContent';
-
 import Magnet from './Magnet';
 
 
@@ -23,6 +22,28 @@ export default function HorizontalSlider({ onImageClick }) {
       onImageClick(imgSrc);
     }
   };
+
+  const gambarRefs = useRef([]);
+
+  useEffect(() => {
+  const handleScroll = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const maxScroll = 1000;
+    let scale = scrollY / maxScroll;
+    scale = Math.max(0.9, Math.min(1.1, scale)); // batas minimal dan maksimal scale
+
+    gambarRefs.current.forEach((img) => {
+      if (img) {
+        img.style.transform = `scale(${scale})`;
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
   
   return (
     
@@ -87,7 +108,7 @@ export default function HorizontalSlider({ onImageClick }) {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className='gambar'>
+            <div className='gambar'ref={(el) => (gambarRefs.current[0] = el)}>
               <img onClick={handleImageClick} className='' src={riyadh} alt="Alquran Website"></img>
               <a href='https://github.com/Vandyaaa/Riyadh-Al-quran'>link <i className="fi fi-rs-arrow-up-right"></i></a>
             </div>
@@ -100,7 +121,7 @@ export default function HorizontalSlider({ onImageClick }) {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='gambar'>
+            <div className='gambar'ref={(el) => (gambarRefs.current[1] = el)}>
               <img onClick={handleImageClick} className='' src={bicture} alt="Bicture"></img>
               <a href='https://github.com/Vandyaaa/bicture-app'>link <i className="fi fi-rs-arrow-up-right"></i></a>
             </div>
@@ -113,7 +134,7 @@ export default function HorizontalSlider({ onImageClick }) {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='gambar'>
+            <div className='gambar'ref={(el) => (gambarRefs.current[2] = el)}>
               <img onClick={handleImageClick} className='' src={calc} alt="Calculator"></img>
               <a href='https://vandyaaa.github.io/calculablew/'>link <i className="fi fi-rs-arrow-up-right"></i></a>
             </div>
@@ -125,7 +146,7 @@ export default function HorizontalSlider({ onImageClick }) {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='gambar'>
+            <div className='gambar'ref={(el) => (gambarRefs.current[3] = el)}>
               <img onClick={handleImageClick} className='' src={gallery} alt="gallery"></img>
               
             </div>
@@ -138,7 +159,7 @@ export default function HorizontalSlider({ onImageClick }) {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className='gambar'>
+            <div className='gambar'ref={(el) => (gambarRefs.current[5] = el)}>
               <img onClick={handleImageClick} className='' src={kasir} alt="Cashier"></img>
 
             </div>

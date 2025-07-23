@@ -110,6 +110,7 @@ function Feedback() {
             //   clickable: true,
             //   el: ".swiper-pagination-custom",
             // }}
+            loop={true}
             autoplay={{
               delay: 4000,
               disableOnInteraction: false,

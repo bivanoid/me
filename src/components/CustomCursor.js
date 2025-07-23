@@ -5,6 +5,7 @@ const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState(false);
   const [isLink, setIsLink] = useState(false); // 👈 Tambahan
+  const [isClose, setIsClose] = useState(false); // 👈 Tambahan
 
   useEffect(() => {
     const move = (e) => {
@@ -19,7 +20,8 @@ const CustomCursor = () => {
       '.circular-text',
       '.hover-area',
       '.prev',
-      '.next'
+      '.next',
+      '.clstgr'
     ];
 
     const isHoverable = (element) => {
@@ -33,7 +35,10 @@ const CustomCursor = () => {
         setActive(true);
       }
       if (target.closest('.prev, .next')) {
-        setIsLink(true); // 👈 Aktifkan warna biru
+        setIsLink(true);
+      } 
+      if (target.closest('.clstgr')) {
+        setIsClose(true)
       }
     };
 
@@ -41,10 +46,15 @@ const CustomCursor = () => {
       const target = e.target;
       if (isHoverable(target)) {
         setActive(false);
+        setIsLink(false); 
+        setIsClose(false); 
       }
-      if (target.closest('.prev, .next')) {
-        setIsLink(false); // 👈 Nonaktifkan warna biru
-      }
+      // if (target.closest('.prev, .next')) {
+      //   setIsLink(false); 
+      // }
+      // if (target.closest('.clstgr')) {
+      //   setIsClose(false); 
+      // }
     };
 
     document.addEventListener('mousemove', move);
@@ -60,7 +70,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`custom-cursor ${active ? 'active' : ''} ${isLink ? 'cursor-blue' : ''}`}
+      className={`custom-cursor ${active ? 'active' : ''} ${isLink ? 'cursor-blue' : ''} ${isClose ? 'cursor-close' : ''}`}
       style={{
         top: position.y,
         left: position.x,
