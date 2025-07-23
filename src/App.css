@@ -74,7 +74,6 @@ body {
   position: relative;
   background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
   background-attachment: fixed;
-  background-size: 100%;
   fill: #919191;
   background-position: center;
 }

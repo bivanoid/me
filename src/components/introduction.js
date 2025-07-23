@@ -10,48 +10,48 @@ import lenis from './lenisSc';
 function Introduction() {
     const conImageRef = useRef(null);
 
-//     useEffect(() => {
-//     const lenis = new Lenis({
-//         duration: 1.5,
-//         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-//         smooth: true,
-//         gestureDirection: 'vertical',
-//         touchMultiplier: 2,
-//     });
+    //     useEffect(() => {
+    //     const lenis = new Lenis({
+    //         duration: 1.5,
+    //         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    //         smooth: true,
+    //         gestureDirection: 'vertical',
+    //         touchMultiplier: 2,
+    //     });
 
-//     function raf(time) {
-//         lenis.raf(time);
+    //     function raf(time) {
+    //         lenis.raf(time);
 
-//         const scrollY = window.scrollY || window.pageYOffset;
+    //         const scrollY = window.scrollY || window.pageYOffset;
 
-//         // Hitung scale antara 1 ke 0 berdasarkan scrollY (ubah angka sesuai kebutuhan)
-//         const maxScroll = 4000; // scroll sejauh 500px scale jadi 0
-//         let scale = 1 - scrollY / maxScroll;
-//         scale = Math.max(0.1, Math.min(1, scale)); // clamp agar di antara 0 dan 1
-//         const translateY = (1 - scale) * 50; // ketika scale = 1 → 0%, scale = 0 → 50%
-//         const opacity = (1 + scale) / 100; // ketika scale = 1 → 0%, scale = 0 → 50%
+    //         // Hitung scale antara 1 ke 0 berdasarkan scrollY (ubah angka sesuai kebutuhan)
+    //         const maxScroll = 4000; // scroll sejauh 500px scale jadi 0
+    //         let scale = 1 - scrollY / maxScroll;
+    //         scale = Math.max(0.1, Math.min(1, scale)); // clamp agar di antara 0 dan 1
+    //         const translateY = (1 - scale) * 50; // ketika scale = 1 → 0%, scale = 0 → 50%
+    //         const opacity = (1 + scale) / 100; // ketika scale = 1 → 0%, scale = 0 → 50%
 
-//         if (conImageRef.current) {
-//               conImageRef.current.style.transform = `scale(${scale}) translateY(${translateY}%)`;
-//               conImageRef.current.style.opacity = `${opacity}%`;
-//         }
+    //         if (conImageRef.current) {
+    //               conImageRef.current.style.transform = `scale(${scale}) translateY(${translateY}%)`;
+    //               conImageRef.current.style.opacity = `${opacity}%`;
+    //         }
 
-//         requestAnimationFrame(raf);
-//     }
+    //         requestAnimationFrame(raf);
+    //     }
 
-//     requestAnimationFrame(raf);
-//     return () => lenis.destroy();
-// }, []);
+    //     requestAnimationFrame(raf);
+    //     return () => lenis.destroy();
+    // }, []);
 
     const scrollToSection = () => {
-  const section = document.getElementById('sc2');
-  if (section) {
-    lenis.scrollTo(section);
-  }
-};
-      
+        const section = document.getElementById('sc2');
+        if (section) {
+            lenis.scrollTo(section);
+        }
+    };
+
     return (
-        
+
         <div className='section' id='sc1' ref={conImageRef}>
             {/* <StarIcon className='star star1' width={100} height={100} background='red'/>
             <StarIcon className='star star2' width={100} height={100} /> */}
@@ -70,10 +70,10 @@ function Introduction() {
                 <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
                     <p className='revealed'>Hi i'm ✦ Firdhan Abivandya</p>
                 </FadeContent>
-                
-                
-                    <AnimatedContent
-                     className='con-text-it'
+
+
+                <AnimatedContent
+                    className='con-text-it'
                     distance={50}
                     direction="vertical"
                     reverse={false}
@@ -82,24 +82,24 @@ function Introduction() {
                     animateOpacity
                     threshold={0}
                     delay={500}
-                    >
-                        <p className='AnimatedContent'>— Discover the</p>
-                    </AnimatedContent>
-                    <AnimatedContent
+                >
+                    <p className='AnimatedContent'>— Discover the</p>
+                </AnimatedContent>
+                <AnimatedContent
                     distance={50}
                     direction="vertical"
                     reverse={false}
                     config={{ tension: 100, friction: 30 }}
                     initialOpacity={0}
-                    animateOpacity 
+                    animateOpacity
                     threshold={0.2}
                     delay={600}
-                    >
-                        <p className='AnimatedContent AnimatedContentItalic'>ideas and works</p>
-                    </AnimatedContent>
-                
-                
-                    <AnimatedContent
+                >
+                    <p className='AnimatedContent AnimatedContentItalic'>ideas and works</p>
+                </AnimatedContent>
+
+
+                <AnimatedContent
                     distance={50}
                     direction="vertical"
                     reverse={false}
@@ -111,10 +111,10 @@ function Introduction() {
                 >
                     <p className='AnimatedContent'>that define me<span className='dot-introduction'></span></p>
                 </AnimatedContent>
-                
+
             </div>
             <div className='con-image' >
-                 <AnimatedContent
+                <AnimatedContent
                     distance={50}
                     direction="vertical"
                     reverse={false}
@@ -125,8 +125,8 @@ function Introduction() {
                     scale={1}
                     threshold={0}
                 >
-                <div className='image'></div>
-            </AnimatedContent>
+                    <div className='image'></div>
+                </AnimatedContent>
             </div>
             <div className='con-image-introduction'>
                 <AnimatedContent
@@ -141,7 +141,7 @@ function Introduction() {
                     threshold={0}
                 >
 
-                    <div className='bg-image-introduction'></div>   
+                    <div className='bg-image-introduction'></div>
                 </AnimatedContent>
             </div>
             <button onClick={scrollToSection} className="arrow-to-sc2">

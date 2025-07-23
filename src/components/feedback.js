@@ -64,22 +64,22 @@ function Feedback() {
 
   return (
     <div className="feedback" id="sc4">
-    <div className='title-swiper'>
-      <AnimatedContent
-        distance={50}
-        direction="vertical"
-        reverse={false}
-        config={{ tension: 100, friction: 30 }}
-        initialOpacity={0}
-        animateOpacity
-        threshold={1}
-        delay={500}
-      >
-        <h1 className="title-feedback">— What They Say</h1>
-      </AnimatedContent>
+      <div className='title-swiper'>
+        <AnimatedContent
+          distance={50}
+          direction="vertical"
+          reverse={false}
+          config={{ tension: 100, friction: 30 }}
+          initialOpacity={0}
+          animateOpacity
+          threshold={1}
+          delay={500}
+        >
+          <h1 className="title-feedback">— What They Say</h1>
+        </AnimatedContent>
 
-      <AnimatedContent
-        distance={50}
+        <AnimatedContent
+          distance={50}
           direction="vertical"
           reverse={false}
           config={{ tension: 100, friction: 30 }}
@@ -87,11 +87,11 @@ function Feedback() {
           animateOpacity
           threshold={0}
           delay={1000}
-      >
-        <p className="subtitle-feedback">their opinion of me. </p>
-      </AnimatedContent>
-    </div>
-      
+        >
+          <p className="subtitle-feedback">their opinion of me. </p>
+        </AnimatedContent>
+      </div>
+
 
       {loading && <p className="loading-feedback">Loading...</p>}
       {error && (
@@ -171,14 +171,14 @@ function Feedback() {
           </Swiper>
 
           {/* Custom Navigation Buttons */}
-        <div className='con-swiper-button-fb'>
-          <div className='prev-fb'>Swipe Left</div>
-           {/* Custom Pagination */}
-          {/* <div className="swiper-pagination-custom"></div> */}
-          <div className='next-fb'>Swipe Right</div>
-        </div>
+          <div className='con-swiper-button-fb'>
+            <div className='prev-fb'>Swipe Left</div>
+            {/* Custom Pagination */}
+            {/* <div className="swiper-pagination-custom"></div> */}
+            <div className='next-fb'>Swipe Right</div>
+          </div>
 
-         
+
         </div>
       </FadeContent>
 

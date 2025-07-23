@@ -11,18 +11,23 @@
     overflow: hidden;
     padding-inline: 30px;
     border-bottom: 1px solid var(--border);
-    
+
 }
 
 @keyframes plus-particle {
     0% {
-        transform: rotate(0deg) ;
-    } 50% {
+        transform: rotate(0deg);
+    }
+
+    50% {
         transform: rotate(360deg);
-    } 100% {
+    }
+
+    100% {
         transform: rotate(720deg);
     }
 }
+
 .plus-particle {
     position: absolute;
     top: 1%;
@@ -68,7 +73,9 @@
     bottom: 30px;
 }
 
-.star1, .star2, .star3 {
+.star1,
+.star2,
+.star3 {
     animation-delay: 2s;
     animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     fill: var(--button);
@@ -130,7 +137,7 @@
 
 .con-text-it {
     overflow: hidden;
-    height: fit-content ;
+    height: fit-content;
     padding-block: 10px;
     background-color: red;
 }
@@ -171,6 +178,7 @@
     z-index: 2;
     background-size: cover;
 }
+
 /* 
 .image::before {
     content: '';
@@ -259,6 +267,7 @@
         border-width: 1px;
         padding-bottom: 50px;
     }
+
     .text {
         margin-top: 0;
         margin-bottom: 50px;
@@ -270,11 +279,12 @@
     }
 
 
-    .text .AnimatedContent{
+    .text .AnimatedContent {
         font-size: 9.7vw;
         padding-inline: 0px;
         line-height: 0.8;
     }
+
     /* .text p:nth-child(2) {
         -webkit-text-stroke: 0.35px;
         -webkit-text-stroke-color: var(--button);
@@ -292,9 +302,7 @@
         place-items: center;
     }
 
-    .image {
-        
-    }
+    .image {}
 
     .con-star1 {
         left: 2%;
