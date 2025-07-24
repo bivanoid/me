@@ -72,8 +72,9 @@ body {
   padding: 0;
   overflow-x: hidden;
   position: relative;
-  background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
-  background-attachment: fixed;
+  background-color: var(--primary);
+  /* background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
+  background-attachment: fixed; */
   fill: #919191;
   background-position: center;
 }
