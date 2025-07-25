@@ -112,10 +112,6 @@ function Feedback() {
               nextEl: ".next-fb",
               prevEl: ".prev-fb",
             }}
-            // pagination={{
-            //   clickable: true,
-            //   el: ".swiper-pagination-custom",
-            // }}
             loop={true}
             autoplay={{
               delay: 4000,

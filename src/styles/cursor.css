@@ -5,6 +5,7 @@
             position: fixed;
             display: grid;
             place-items: center;
+            font-size: 10px;
             width: 20px;
             height: 20px;
             background-color: rgba(var(--button), var(--button), bluevar(--button), 0);
@@ -14,10 +15,21 @@
             clip-path: circle(50% at 50% 50%);
             z-index: 99999999;
             transform: translate(-50%, -50%);
-            transition: transform 0s ease, width 0.3s, height 0.6s, background-color 0.2s, scale 0.3s;
+            transition: font-size 0.3s, transform 0s ease, width 0.3s, height 0.6s, background-color 0.2s, scale 0.3s;
             scale: 1;
+            /* color: var(--button); */
         }
-
+        
+        .custom-cursor .iccsr {
+            width: 100%;
+            height: 100%;
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+/* 
         .custom-cursor::before {
             content: '';
             width: 2px;
@@ -36,7 +48,7 @@
             position: absolute;
             background-color: var(--primary);
             transition: 0.2s;
-        }
+        } */
     
         .custom-cursor.active {
             width: 60px;
@@ -47,10 +59,11 @@
             border: 1px solid var(--border) ;
             backdrop-filter: invert(100%) blur(0px);
             clip-path: circle(50% at 50% 50%);
+            font-size: 30px;
             
         }
 
-        .custom-cursor.active::before {
+        /* .custom-cursor.active::before {
             scale: 1;
             background-color: var(--primary);
             
@@ -59,17 +72,17 @@
             scale: 1;
             background-color: var(--primary);
             
-        }
+        } */
 
         .custom-cursor.cursor-close {
             background-color: rgb(221, 75, 49);
         }
-        .custom-cursor.cursor-close::before {
+        /* .custom-cursor.cursor-close::before {
             rotate: 45deg;
         }
         .custom-cursor.cursor-close::after {
             rotate: 45deg;
-        }
+        } */
 /* 
         .custom-cursor.cursor-blue::before {
             display: none;

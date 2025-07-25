@@ -75,7 +75,7 @@
           top: position.y,
           left: position.x,
         }}
-      />
+      ><div className='iccsr'>✦</div></div>
     );
   };
 
