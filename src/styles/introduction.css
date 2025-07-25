@@ -249,6 +249,7 @@
     background-color: var(--blue);
     position: absolute;
     font-size: 2vw;
+    z-index: 4;
     border: none;
     place-items: center;
     /* clip-path: polygon(50% 30%, 0% 100%, 100% 100%); */

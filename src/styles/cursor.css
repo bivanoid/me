@@ -1,4 +1,8 @@
-@media (min-width:900px) {
+.custom-cursor {
+    display: none;
+}
+
+@media (min-width:1000px) {
     /* cursor.css */
         .custom-cursor {
             content: "";
