@@ -7,41 +7,42 @@ import FadeContent from './FadeContent';
 import Magnet from './Magnet';
 import Lenis from '@studio-freight/lenis';
 import lenis from './lenisSc';
+import bgImage from '../assets/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg'
 function Introduction() {
     const conImageRef = useRef(null);
 
-    //     useEffect(() => {
-    //     const lenis = new Lenis({
-    //         duration: 1.5,
-    //         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    //         smooth: true,
-    //         gestureDirection: 'vertical',
-    //         touchMultiplier: 2,
-    //     });
+        useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true,
+            gestureDirection: 'vertical',
+            touchMultiplier: 2,
+        });
 
-    //     function raf(time) {
-    //         lenis.raf(time);
+        function raf(time) {
+            lenis.raf(time);
 
-    //         const scrollY = window.scrollY || window.pageYOffset;
+            const scrollY = window.scrollY || window.pageYOffset;
 
-    //         // Hitung scale antara 1 ke 0 berdasarkan scrollY (ubah angka sesuai kebutuhan)
-    //         const maxScroll = 4000; // scroll sejauh 500px scale jadi 0
-    //         let scale = 1 - scrollY / maxScroll;
-    //         scale = Math.max(0.1, Math.min(1, scale)); // clamp agar di antara 0 dan 1
-    //         const translateY = (1 - scale) * 50; // ketika scale = 1 → 0%, scale = 0 → 50%
-    //         const opacity = (1 + scale) / 100; // ketika scale = 1 → 0%, scale = 0 → 50%
+            // Hitung scale antara 1 ke 0 berdasarkan scrollY (ubah angka sesuai kebutuhan)
+            const maxScroll = 4000; // scroll sejauh 500px scale jadi 0
+            let scale = 1 + scrollY / maxScroll;
+            scale = Math.max(1, Math.min(1.5, scale)); // clamp agar di antara 0 dan 1
+            const translateY = (1 - scale) * -100; // ketika scale = 1 → 0%, scale = 0 → 50%
+            // const opacity = (100 + scale) / 100; // ketika scale = 1 → 0%, scale = 0 → 50%
 
-    //         if (conImageRef.current) {
-    //               conImageRef.current.style.transform = `scale(${scale}) translateY(${translateY}%)`;
-    //               conImageRef.current.style.opacity = `${opacity}%`;
-    //         }
+            if (conImageRef.current) {
+                  conImageRef.current.style.transform = `scale(${scale}) translateY(${translateY}%)`;
+                //   conImageRef.current.style.opacity = `${opacity}%`;
+            }
 
-    //         requestAnimationFrame(raf);
-    //     }
+            requestAnimationFrame(raf);
+        }
 
-    //     requestAnimationFrame(raf);
-    //     return () => lenis.destroy();
-    // }, []);
+        requestAnimationFrame(raf);
+        return () => lenis.destroy();
+    }, []);
 
     const scrollToSection = () => {
         const section = document.getElementById('sc2');
@@ -52,7 +53,8 @@ function Introduction() {
 
     return (
 
-        <div className='section' id='sc1' ref={conImageRef}>
+        <div className='section' id='sc1' >
+        <img className='bgImage-INT' src={bgImage} ref={conImageRef}></img>
             {/* <StarIcon className='star star1' width={100} height={100} background='red'/>
             <StarIcon className='star star2' width={100} height={100} /> */}
             <svg width="100" height="100" viewBox="0 0 120 121" fill="none" xmlns="http://www.w3.org/2000/svg" class="plus-particle" background="red"><path d="M64.5 55H120V64H64.5V120.5H55.5V64H0V55H55.5V0.5H64.5V55Z" fill="#D9D9D9"></path></svg>
@@ -113,7 +115,7 @@ function Introduction() {
                 </AnimatedContent>
 
             </div>
-            <div className='con-image' >
+            {/* <div className='con-image' >
                 <AnimatedContent
                     distance={50}
                     direction="vertical"
@@ -127,8 +129,8 @@ function Introduction() {
                 >
                     <div className='image'></div>
                 </AnimatedContent>
-            </div>
-            <div className='con-image-introduction'>
+            </div> */}
+            {/* <div className='con-image-introduction'>
                 <AnimatedContent
                     distance={50}
                     direction="vertical"
@@ -143,14 +145,9 @@ function Introduction() {
 
                     <div className='bg-image-introduction'></div>
                 </AnimatedContent>
-            </div>
+            </div> */}
             <button onClick={scrollToSection} className="arrow-to-sc2">
-                <CircularText
-                    text="Go ✦ To ✦ About ✦ Me ✦ "
-                    onHover="speedUp"
-                    spinDuration={10}
-                />
-                <div className='arrow-intro'><i class="fi fi-rs-arrow-small-right"></i></div>
+                <i class="fi fi-rs-chevron-double-down"></i>
             </button>
         </div>
     )

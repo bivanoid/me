@@ -16,7 +16,7 @@
         'a',
         'button',
         'input',
-        'img',
+        '.gambar',
         '.circular-text',
         '.hover-area',
         '.prev',

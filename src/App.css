@@ -6,10 +6,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap');
 :root {
   --primary: #0a0a0a;
-  --primary25: #1111113a;
-  --primary2: #12021b;
-  --primary3: #222223;
-  --blue: #7870fd;
+  --primary25: #1414143a;
+  --primary2: #131313;
+  --primary3: #232222;
+  --blue: #173ff0;
   --grey: rgb(59, 59, 59);
   --button: #f8f8f8;
   --border: #ffffff0e;
@@ -73,7 +73,7 @@ body {
   overflow-x: hidden;
   position: relative;
   background-color: var(--primary);
-  /* background: linear-gradient(319deg, var(--primary) 0%, var(--primary2) 50%, var(--primary) 100%);
+  /* background: linear-gradient(319deg, var(--primary2) 0%, var(--primary) 50%, var(--primary2) 100%);
   background-attachment: fixed; */
   fill: #919191;
   background-position: center;

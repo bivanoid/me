@@ -17,25 +17,24 @@ function Navigation() {
         const root = document.documentElement;
         ['swchbtn1', 'swchbtn2'].forEach(id => document.getElementById(id)?.classList.toggle('switchTheme'))
 
-        if (darkMode) {
+           if (darkMode) {
             // Light mode
-            root.style.setProperty('--primary', '#e3ccfc9e');
-            root.style.setProperty('--primary2', '#4e41ff4b');
-            root.style.setProperty('--primary3', '#99b7f0ff');
-            root.style.setProperty('--blue', '#29007d');
+            root.style.setProperty('--primary', '#fafaff');
+            root.style.setProperty('--primary2', '#fcecccff');
+            root.style.setProperty('--primary3', '#f0cd99ff');
+            root.style.setProperty('--blue', '#f0cd99ff');
             root.style.setProperty('--button', '#1c1c1c');
-            root.style.setProperty('--border', '#0000001c');
+            root.style.setProperty('--border', '#00000014');
         } else {
             // Dark mode
             root.style.setProperty('--primary', '#0a0a0a');
-            root.style.setProperty('--primary2', '#12021b');
+            root.style.setProperty('--primary2', '#131313');
             root.style.setProperty('--primary3', '#232222');
-            root.style.setProperty('--blue', '#7870fd');
+            root.style.setProperty('--blue', '#173ff0');
             root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
-
-            
         }
+
 
         setDarkMode(!darkMode);
     }
@@ -44,21 +43,22 @@ function Navigation() {
         <div className='navigation'>
             <div className='menu-button' id='expandMenuIcon' onClick={open}><i class="fi fi-rs-expand-arrows"></i></div>
             <div className='close' id='close' onClick={open}><i class="fi fi-rs-down-left-and-up-right-to-center"></i></div>
+            <div id='logoMenuIcon'>
+                <Logo />
+            </div>
             <ul className='navigasi-menu' id='menu'>
                 <h1>— Menus<span class="dot-introduction"></span></h1>
                 <li><Link to="/">PORTOFOLIO <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></a></li>
                 <li><Link to='/blog'>MY BLOG <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
                 <button className='theme theme2' onClick={toggleTheme}>
-                    <div id='swchbtn2' className='button-swch'>{darkMode ? (<i class="fi fi-rs-moon-stars"></i>) : (<i class="fi fi-rs-brightness"></i>)}</div>
+                    <div id='swchbtn2' className='button-swch'>{darkMode ? (<p>a</p>): (<p>a</p>)}</div>
                 </button>
             </ul>
        
-            <div id='logoMenuIcon'>
-                <Logo />
-            </div>
+            
             <button className='theme theme1' onClick={toggleTheme}>
-                <div id='swchbtn1' className='button-swch'>{darkMode ? (<i class="fi fi-rs-moon-stars"></i>): (<i class="fi fi-rs-brightness"></i>)}</div>
+                <div id='swchbtn1' className='button-swch'>{darkMode ? (<p>a</p>): (<p>a</p>)}</div>
             </button>
 
         </div>

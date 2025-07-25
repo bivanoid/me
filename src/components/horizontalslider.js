@@ -82,7 +82,7 @@ export default function HorizontalSlider({ onImageClick }) {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={0}
           slidesPerView={1}
-          loop={true}
+          loop={false}
           navigation={{
             nextEl: ".next-hz",
             prevEl: ".prev-hz",

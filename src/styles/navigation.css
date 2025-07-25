@@ -5,15 +5,18 @@
     height: min-content;
     display: flex;
     justify-content: space-between;
-    
     align-items: center;
     color: white;
-    height: 87px;
+    height: 57px;
     top: 0;
     position: relative;
     z-index: 100;
     padding-inline: 30px;
     font-family: var(--primaryfont);
+}
+
+#logoMenuIcon {
+    scale: 0.8;
 }
 
 .logo-web {
@@ -62,8 +65,11 @@
 .navigasi-menu {
     list-style: none;
     padding: 0px;
+    display: flex;
+    gap: 30px;
     transition: 0.5s;
     margin-top: 0px;
+    margin: 0;
 }
 
 .arrow {
@@ -84,7 +90,7 @@
 
 .navigasi-menu:hover li {
     opacity: 0.5;
-    
+
 }
 
 
@@ -109,13 +115,13 @@
     color: var(--primary);
     font-weight: 800;
     font-size: 13px;
-    width: 76px;
-    height: 40px;
-    padding: 5px;
+    width: 40px;
+    height: 20px;
     display: grid;
     place-items: center;
     transition: 0.3s;
     border: 1px solid var(--border);
+    background-color: var(--border);
     cursor: pointer;
     transition: 0.5s;
     position: relative;
@@ -128,22 +134,24 @@
 }
 
 .theme i {
-    transform: translateY(1px) ;
+    transform: translateY(1px);
 }
 
-#swchbtn1, #swchbtn2 {
+#swchbtn1,
+#swchbtn2 {
     background-color: var(--button);
-    height: calc(100% - 10px);
+    height: 20px;
     aspect-ratio: 1/1;
     position: absolute;
     transition: 0.3s;
-    left: calc(0% + 5px);
+    left: calc(0%);
     display: grid;
     place-items: center;
 }
 
-#swchbtn1.switchTheme, #swchbtn2.switchTheme {
-    left: calc(50% + 5px);
+#swchbtn1.switchTheme,
+#swchbtn2.switchTheme {
+    left: calc(50%);
 }
 
 .contact:hover {
@@ -153,7 +161,7 @@
 }
 
 
- /* #thecontent::before {
+/* #thecontent::before {
     content: '';
     width: 100%;
     position: fixed;
@@ -164,55 +172,66 @@
     z-index: 99;
  } */
 
- .close {
+.close {
     display: none;
- }
+}
 
- .navigasi-menu h1 {
+.navigasi-menu h1 {
     display: none;
- }
+}
 
 @media (max-width:767px) {
     .navigation {
         box-sizing: border-box;
-            width: calc(100%);
-            height: min-content;
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
-            background-color: rgba(10, 10, 10, 0);
-            /* backdrop-filter: blur(10px); */
-            align-items: center;
-            color: white;
-            height: 87px;
-            /* position: fixed; */
-            top: 0px;
-            z-index: 100;
-            padding-inline: 30px;
-            font-family: var(--primaryfont);
-        }
-    
-        .navigasi-menu h1 {
-            display: block;       
-            padding-top: 30px;
-        }
+        width: calc(100%);
+        height: min-content;
+        display: flex;
+        flex-direction: column;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        background-color: rgba(10, 10, 10, 0);
+        /* backdrop-filter: blur(10px); */
+        align-items: center;
+        color: white;
+        height: 57px;
+        /* position: fixed; */
+        top: 0px;
+        z-index: 100;
+        padding-inline: 30px;
+        font-family: var(--primaryfont);
+    }
+
+    .navigasi-menu h1 {
+        display: block;
+        padding-top: 30px;
+    }
 
     .theme {
-        width: 65px;
-        height: 35px;
-        padding: 5px;
-        z-index: -1;
+        background-color: transparent;
+        color: var(--primary);
+        font-weight: 800;
+        font-size: 13px;
+        width: 40px;
+        height: 20px;
+        display: grid;
+        place-items: center;
+        transition: 0.3s;
+        border: 1px solid var(--border);
+        background-color: var(--border);
+        cursor: pointer;
+        transition: 0.5s;
+        position: relative;
+        overflow: hidden;
     }
 
     .theme1 {
         display: none;
-            visibility: hidden;
     }
 
     .theme2 {
-         
+
         display: grid;
-            visibility: visible;
+        visibility: visible;
     }
 
     .theme i {
@@ -220,12 +239,18 @@
     }
 
     #swchbtn {
-        height: calc(100% - 10px);
+        background-color: var(--button);
+        height: 20px;
         aspect-ratio: 1/1;
+        position: absolute;
+        transition: 0.3s;
+        left: calc(0%);
+        display: grid;
+        place-items: center;
     }
 
     #swchbtn.switchTheme {
-        left: calc(50% + 5px);
+        left: calc(50%);
     }
 
     .section {
@@ -254,6 +279,8 @@
         list-style: none;
         padding: 0px;
         position: fixed;
+        display: flex;
+        flex-direction: column;
         padding-left: 30px;
         padding-right: 30px;
         width: calc(100% - 60px);
@@ -281,12 +308,12 @@
 
     .navigasi-menu h1 {
         font-family: var(--secondfont);
-            color: var(--button);
-            font-weight: 400;
-            font-size: 10vw;
-            display: block;
-            margin: 0;
-            padding-block: 20px;
+        color: var(--button);
+        font-weight: 400;
+        font-size: 10vw;
+        display: block;
+        margin: 0;
+        padding-block: 20px;
     }
 
     .close {
@@ -316,7 +343,7 @@
     #thecontent.open {
         transform: translateZ(-100%);
         opacity: 0;
-        
+
     }
 
     :is(#logoMenuIcon, #expandMenuIcon) {

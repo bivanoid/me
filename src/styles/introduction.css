@@ -6,12 +6,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 87px);
+    height: calc(100vh - 57px);
     position: relative;
     overflow: hidden;
-    padding-inline: 30px;
-    border-bottom: 1px solid var(--border);
+    border-radius: 30px 30px 0px 0px;
+    object-fit: cover;
+    object-position: center;
+}
 
+.bgImage-INT {
+    width: 100%;
+    position: absolute;
 }
 
 @keyframes plus-particle {
@@ -121,7 +126,6 @@
     opacity: 0.7;
     letter-spacing: 0.2em;
     transform: translateY(-20px);
-    color: var(--button);
     font-family: var(--primaryfont);
     align-items: center;
 }
@@ -145,7 +149,7 @@
 .text .AnimatedContent {
     font-size: clamp(1rem, 5vw, 7rem);
     padding-inline: 30px;
-    color: var(--button);
+    color: white;
     /* line-height: 0.8; */
 }
 
@@ -223,14 +227,29 @@
 }
 
 .arrow-to-sc2 {
-    bottom: 30px;
-    right: 30px;
+    bottom: 0px;
+
     z-index: 3;
+    width: 100px;
+    height: 100px;
     display: grid;
-    background-color: transparent;
+    background-color: var(--blue);
     position: absolute;
+    font-size: 2vw;
     border: none;
     place-items: center;
+    /* clip-path: polygon(50% 30%, 0% 100%, 100% 100%); */
+    border-radius: 50% 50% 0% 0%;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--border);
+}
+
+.arrow-to-sc2:hover {
+    transform: translateY(5%);
+}
+
+.arrow-to-sc2 {
+    color: var(--button);
 }
 
 .arrow-intro {
@@ -262,15 +281,24 @@
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        height: fit-content;
-        min-height: calc(100vh - 137px);
+        height: calc(100vh - 57px);
         border-width: 1px;
-        padding-bottom: 50px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .bgImage-INT {
+        height: 100%;
+        width: fit-content;
     }
 
     .text {
         margin-top: 0;
         margin-bottom: 50px;
+    }
+
+    .arrow-to-sc2 {
+        font-size: 3.7vw;
     }
 
 
