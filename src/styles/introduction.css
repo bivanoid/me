@@ -49,62 +49,60 @@
     fill: var(--border);
 }
 
+.conParticle-INT {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: var(--button);
+}
+
+.conParticle-INT span {
+    position: absolute;
+    animation: star 2s linear infinite;
+    opacity: 0.2;
+}
+
+.conParticle-INT span:nth-child(1) {
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+}
+
+.conParticle-INT span:nth-child(2) {
+    bottom: 5%;
+    left: 5%;
+    font-size: 37px;
+    animation-duration: 5s;
+}
+
+.conParticle-INT span:nth-child(3) {
+    bottom: 17%;
+    right: 10%;
+    font-size: 30px;
+}
+
+.conParticle-INT span:nth-child(4) {
+    top: 10%;
+    right: 50%;
+    animation-duration: 3s;
+    font-size: 30px;
+}
+
 @keyframes star {
     0% {
-        opacity: 100%;
+        
         scale: 1;
     }
 
     50% {
-        opacity: 80%;
-        scale: 0.8;
+        
+        scale: 0.5;
     }
 
     100% {
-        opacity: 100%;
+        
         scale: 1;
     }
-}
-
-.con-star {
-    z-index: 30;
-    width: 30px;
-    aspect-ratio: 1/1;
-    position: absolute;
-    animation: star 2s linear infinite;
-}
-
-.con-star1 {
-    left: 30px;
-    bottom: 30px;
-}
-
-.star1,
-.star2,
-.star3 {
-    animation-delay: 2s;
-    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-    fill: var(--button);
-}
-
-.con-star2 {
-    top: 30%;
-    right: 20%;
-    width: 20px;
-    animation-duration: 3s;
-    fill: var(--button);
-}
-
-
-.con-star3 {
-    top: 5%;
-    left: 30%;
-    width: 20px;
-    animation-duration: 2.5s;
-}
-
-.star3 {
-    fill: var(--button);
 }
 
 .text {

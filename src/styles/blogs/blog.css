@@ -41,7 +41,7 @@
 .back-to-home-from-blog {
     display: grid;
     place-items: center;
-    width: 50px;
+    width: fit-content;
     aspect-ratio: 1 / 1;
     color: var(--button);
 }
@@ -72,8 +72,9 @@ main {
 }
 
 .navigation-blog {
-    height: 87px;
+    height: 57px;
     padding-inline: 30px;
+    border: 1px solid var(--border);
 }
 
 .info-blog {
@@ -636,19 +637,29 @@ main {
 }
 
 .editor-list li {
-    display: flex;
+    display: inline;
     flex-direction: column;
     margin-bottom: 7px;
+    position: relative;
 }
 
 .editor-list li::before {
-    content: '•';
+    content: '✦';
     font-family: var(--primaryfont);
-    font-size: 3vw;
+    font-size: 1.2vw;
     line-height: 0.4;
-    margin-right: 7px;
-    float: left;
-    color: var(--primary3);
+    width: 10px;
+    height: 50%;
+    transform: translateX(-200%) translateY(9px);
+    position: absolute;
+    opacity: 0.5;
+    color: var(--button);
+}
+
+@media (max-width:767px) {
+    .editor-list li::before {
+        font-size: 3vw;
+    }
 }
 
 hr {
@@ -665,7 +676,7 @@ hr {
 
 @media (max-width: 767px) {
     main {
-        min-height: 100vh;
+        min-height: 100svh;
         width: 100%;
     }
 
@@ -696,6 +707,7 @@ hr {
         place-items: center;
         color: var(--button);
         top: -100%;
+        background: var(--primary);
         left: 0;
         width: 100%;
         position: fixed;
@@ -735,6 +747,10 @@ hr {
 
     :is(#menuBlogIcon, #logoBlogIcon, #backMenuIcon) {
         transition: 0.3s;
+    }
+
+    #logoBlogIcon {
+        display: none;
     }
 
     :is(#menuBlogIcon, #logoBlogIcon, #backMenuIcon).open-menu-blog {

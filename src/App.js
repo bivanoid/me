@@ -10,6 +10,7 @@ import Home from './pages/home';
 import AddFeedback from './pages/addfeedback';
 import Blog from './pages/blog';
 import CustomCursor from './components/CustomCursor';
+import ArticlePage from './pages/ArticlePages';
 
 function AppRoutes() {
   const location = useLocation();
@@ -29,6 +30,11 @@ function AppRoutes() {
       <Route path="/blog" element={
         <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
           <Blog />
+        </FadeContent>
+      } />
+      <Route path="/article/:id" element={
+        <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
+          <ArticlePage />
         </FadeContent>
       } />
     </Routes>
