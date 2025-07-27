@@ -11,6 +11,7 @@ import AddFeedback from './pages/addfeedback';
 import Blog from './pages/blog';
 import CustomCursor from './components/CustomCursor';
 import ArticlePage from './pages/ArticlePages';
+import AnimatedContent from './components/AnimatedContent';
 
 function AppRoutes() {
   const location = useLocation();
@@ -33,9 +34,18 @@ function AppRoutes() {
         </FadeContent>
       } />
       <Route path="/article/:id" element={
-        <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
+        <AnimatedContent 
+          distance={50}
+          direction="vertical"
+          reverse={false}
+          config={{ tension: 100, friction: 30 }}
+          initialOpacity={0}
+          animateOpacity
+          threshold={0}
+          delay={500}
+        >
           <ArticlePage />
-        </FadeContent>
+        </AnimatedContent>
       } />
     </Routes>
   );

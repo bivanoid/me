@@ -77,7 +77,7 @@ function Introduction() {
                 <span>✦</span>
                 <span>✦</span>
             </div>
-            <img className='bgImage-INT' src={bgImage}></img>
+            {/* <img className='bgImage-INT' src={bgImage}></img> */}
             <p className='number'></p>
             
             <div className='text' ref={conImageRef} style={{opacity: 1}}>
@@ -94,7 +94,7 @@ function Introduction() {
                     initialOpacity={0}
                     animateOpacity
                     threshold={0}
-                    delay={500}
+                    delay={0}
                 >
                     <p className='AnimatedContent'>Discover the</p>
                 </AnimatedContent>

@@ -6,7 +6,8 @@ import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
 
-// Scroll Progress Component for Article Page
+
+
 function ScrollProgress() {
   const [progress, setProgress] = useState(0)
 
@@ -37,6 +38,23 @@ function ScrollProgress() {
     </div>
   )
 }
+
+const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: document.title,
+          text: 'Cek halaman ini!',
+          url: window.location.href
+        });
+        console.log('Berhasil dibagikan');
+      } catch (error) {
+        console.error('Gagal membagikan', error);
+      }
+    } else {
+      alert('Fitur share tidak didukung di browser ini.');
+    }
+  };
 
 export default function ArticlePage() {
   const { id } = useParams()
@@ -146,6 +164,7 @@ export default function ArticlePage() {
                     </p>
                   </div>
                 </div>
+                <button className="sharePage" onClick={handleShare} ><i class="fi fi-rs-share"></i><p> Share</p></button>
               </div>
             </aside>
 
