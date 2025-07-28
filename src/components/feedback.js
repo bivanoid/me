@@ -168,10 +168,10 @@ function Feedback() {
 
           {/* Custom Navigation Buttons */}
           <div className='con-swiper-button-fb'>
-            <div className='prev-fb'>Swipe Left</div>
+            <div className='prev prev-fb'>Swipe Left</div>
             {/* Custom Pagination */}
             {/* <div className="swiper-pagination-custom"></div> */}
-            <div className='next-fb'>Swipe Right</div>
+            <div className='next next-fb'>Swipe Right</div>
           </div>
 
 

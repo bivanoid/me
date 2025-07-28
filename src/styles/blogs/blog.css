@@ -362,53 +362,70 @@ main {
     display: none;
 }
 
+/* CSS untuk mengatasi masalah Lenis dengan fixed positioning */
 .con-progress {
     width: 87px;
     height: calc(100vh - 87px);
-    /* border-left: 1px solid var(--border); */
-    overflow: hidden;
-    position: fixed;
-    flex-shrink: 0;
+    position: fixed !important;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 17px;
-    padding-top: 87px;
     align-items: center;
+    gap: 17px;
+    pointer-events: none;
+    /* Tambahan untuk Lenis */
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Alternatif: Gunakan transform alih-alih fixed positioning */
+.con-progress-lenis-alternative {
+    width: 87px;
+    height: calc(100vh - 87px);
+    position: absolute;
     right: 0;
     top: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    pointer-events: none;
+    /* Gunakan transform untuk "fixed" positioning dengan Lenis */
+    transform: translateY(var(--scroll-progress, 0px)) translateY(-50%);
+    will-change: transform;
 }
 
-.con-progress p {
-    writing-mode: vertical-rl;
-    width: fit-content;
-    height: fit-content;
-    margin: 0;
-    color: var(--button);
-    font-family: var(--secondfont);
-    display: block;
+/* Media query untuk mobile */
+@media (max-width: 767px) {
+    .con-progress {
+        width: 30px !important;
+        right: 10px !important;
+    }
+
+    .con-progress-lenis-alternative {
+        width: 30px;
+        right: 10px;
+    }
 }
 
-/* Ubah Scroll Progress Vertical Styles */
-.scroll-progress-container-vertical {
-    position: relative;
-    top: 0;
-    right: 0;
-    width: 4px;
-    height: 60%;
-    background-color: var(--border);
-    border: 1px solid var(--border);
-    z-index: 1001;
-    width: 10px;
-}
+/* Media query untuk mobile */
+@media (max-width: 767px) {
+    .con-progress {
+        width: 30px;
+        right: 10px;
+        /* Sedikit margin dari tepi pada mobile */
+    }
 
-.scroll-progress-bar-vertical {
-    width: 100%;
-    background: var(--button);
-    transition: height 0.1s cubic-bezier(0.47, 0, 0.745, 0.715);
-    transform-origin: top;
-    position: relative;
-    top: 0;
+    .scroll-progress-container-vertical {
+        width: 3px;
+    }
 }
 
 /* Article Modal Styles */
@@ -426,6 +443,7 @@ main {
     justify-content: center;
     align-items: center;
     z-index: 2000;
+    position: relative;
     box-sizing: border-box;
 }
 

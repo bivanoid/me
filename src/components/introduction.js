@@ -94,11 +94,11 @@ function Introduction() {
                     initialOpacity={0}
                     animateOpacity
                     threshold={0}
-                    delay={0}
+                    delay={200}
                 >
                     <p className='AnimatedContent'>Discover the</p>
                 </AnimatedContent>
-                
+
                 <AnimatedContent
                     distance={50}
                     direction="vertical"
@@ -107,7 +107,7 @@ function Introduction() {
                     initialOpacity={0}
                     animateOpacity
                     threshold={0.2}
-                    delay={600}
+                    delay={400}
                 >
                     <p className='AnimatedContent AnimatedContentItalic'>ideas <span className='andText'>and</span> works</p>
                 </AnimatedContent>
@@ -120,7 +120,7 @@ function Introduction() {
                     initialOpacity={0}
                     animateOpacity
                     threshold={0}
-                    delay={700}
+                    delay={600}
                 >
                     <p className='AnimatedContent AnimatedContent2'>that define me<span className='dot-introduction'></span></p>
                 </AnimatedContent>

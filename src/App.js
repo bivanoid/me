@@ -12,6 +12,7 @@ import Blog from './pages/blog';
 import CustomCursor from './components/CustomCursor';
 import ArticlePage from './pages/ArticlePages';
 import AnimatedContent from './components/AnimatedContent';
+import Loading from './components/loading';
 
 function AppRoutes() {
   const location = useLocation();
@@ -57,7 +58,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 0); // 3 detik
+    }, 3600); // 3 detik
 
     return () => clearTimeout(timer); // Bersihkan timer jika komponen unmount
   }, []);
@@ -67,16 +68,7 @@ function App() {
       <div className='body'>
       <CustomCursor />
         {loading ? (
-          <div className="loading-screen">
-            {/* Gimmick loading (bisa kamu ganti sesuai desain) */}
-            <div className='loading-ic'>
-              <span>— L</span>
-              <span>o</span>
-              <span>a</span>
-              <span>d</span>
-              <span>ing</span>
-            </div>
-          </div>
+          <Loading/>
         ) : (
           <div>
             <AppRoutes />

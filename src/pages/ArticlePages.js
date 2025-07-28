@@ -12,11 +12,21 @@ function ScrollProgress() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
+    // Import lenis dari komponen lain
+    import('../components/lenisSc').then((lenisModule) => {
+      const lenis = lenisModule.default;
+      
+      lenis.on('scroll', ({ scroll, limit }) => {
+        const scrollProgress = (scroll / limit) * 100;
+        setProgress(Math.min(scrollProgress, 100));
+      });
+    });
+
+    // Fallback untuk browser yang tidak support Lenis
     const updateProgress = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
       const scrollProgress = (scrollTop / scrollHeight) * 100
-
       setProgress(Math.min(scrollProgress, 100))
     }
 
@@ -29,7 +39,7 @@ function ScrollProgress() {
   }, [])
 
   return (
-    <div className="con-progress">
+    <div className="con-progress" data-lenis-prevent>
       <p>top</p>
       <div className="scroll-progress-container-vertical">
         <div className="scroll-progress-bar-vertical" style={{ height: `${progress}%` }} />
@@ -144,8 +154,10 @@ export default function ArticlePage() {
   }
 
   return (
+    
     <div className="body-blog">
-      <div className="article-modal-overlay" style={{ position: "static", background: "transparent" }}>
+    
+      <div className="article-modal-overlay" style={{background: "transparent" }}>
         <div className="article-modal" style={{ border: "none" }}>
           <div className="article-modal-content">
             <aside className="asside-article">
@@ -199,12 +211,10 @@ export default function ArticlePage() {
                 </div>
               </div>
             </main>
-
-            <ScrollProgress />
           </div>
         </div>
       </div>
-
+      <ScrollProgress/>
       <Footer />
     </div>
   )

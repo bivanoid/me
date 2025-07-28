@@ -88,60 +88,6 @@ a {
 }
 
 
-
-.loading-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100svh;
-  color: var(--button);
-  overflow: hidden;
-  font-family: var(--secondfont);
-  animation: bgin 8.2s cubic-bezier(0.19, 1, 0.22, 1);
-  opacity: 1;
-}
-
-@keyframes bgin {
-  0% {opacity: 1;}
-  80% {opacity: 1;}
-  100% {opacity: 0;}
-}
-
-.loading-screen .loadingic {
-  width: 100px;
-  height: 10vh;
-  background-color: var(--button);
-}
-
-.loading-ic span{
-  color: var(--button);
-  opacity: 0;
-  letter-spacing: 1px;
-}
-
-
-.loading-ic span:nth-child(1) {
-  animation: colorstxt 1s linear forwards;
-  animation-delay: 0s;
-}
-.loading-ic span:nth-child(2) {
-  animation: colorstxt 1s linear forwards;
-  animation-delay: 0.7s;
-}
-.loading-ic span:nth-child(3) {
-  animation: colorstxt 1s linear forwards;
-  animation-delay: 1.4s;
-}
-.loading-ic span:nth-child(4) {
-  animation: colorstxt 1s linear forwards;
-  animation-delay: 2.1s;
-}
-.loading-ic span:nth-child(5) {
-  animation: colorstxt 1s linear forwards;
-  animation-delay: 2.8s;
-}
-
-
 @keyframes colorstxt {
   0% {
     opacity: 0;
