@@ -16,47 +16,10 @@
 }
 
 #logoMenuIcon {
-    scale: 0.8;
+    width: 1.5vw;
+    aspect-ratio: 1 / 1;
 }
 
-.logo-web {
-    /* background: url(../assets/logobicture3.png);
-    background-position: center;
-    background-size: cover; */
-    width: 59px;
-    gap: 4px;
-    object-fit: cover;
-    overflow: hidden;
-    object-position: center;
-    display: flex;
-    color: var(--button);
-    max-height: fit-content;
-    font-family: var(--secondfont);
-}
-
-.textlogo {
-    line-height: 0.8;
-    display: inline-block;
-}
-
-.logo-web h1 {
-    font-weight: 100;
-    margin-left: 2px;
-    font-size: 100%;
-    background-color: var(--button);
-    display: grid;
-    place-items: center;
-    flex: 1;
-    flex-shrink: 1;
-    color: var(--primary);
-    width: 100%;
-    aspect-ratio: 1/1;
-    margin: 0;
-}
-
-.logo-web img {
-    width: 30px;
-}
 
 .menu-button {
     display: none;
@@ -122,10 +85,11 @@
     transition: 0.3s;
     border: 1px solid var(--border);
     background-color: var(--border);
+    border-radius: 100px;
     cursor: pointer;
     transition: 0.5s;
     position: relative;
-    overflow: hidden;
+    scale: 1.2;
 }
 
 .theme2 {
@@ -140,6 +104,7 @@
 #swchbtn1,
 #swchbtn2 {
     background-color: var(--button);
+    clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0 75%, 0 25%);
     height: 20px;
     aspect-ratio: 1/1;
     position: absolute;
@@ -344,6 +309,11 @@
         transform: translateZ(-100%);
         opacity: 0;
 
+    }
+
+    #logoMenuIcon {
+        width: 6vw;
+        aspect-ratio: 1 / 1;
     }
 
     :is(#logoMenuIcon, #expandMenuIcon) {

@@ -42,7 +42,7 @@
 
 .footer-main {
     width: 100%;
-    height: calc(100% - 62px);
+    height: fit-content;
     display: flex;
 }
 
@@ -59,7 +59,10 @@
 }
 
 .logo-footer {
-    padding-top: 30px;
+    padding-top: 20px;
+    width: calc(100% - 30px);
+    max-width: 300px;
+    aspect-ratio: 1/1;
 }
 
 .footer1-main {
@@ -208,9 +211,29 @@
     fill: var(--button);
 }
 
+.copyright2 {
+    display: none;
+}
+
 @media (max-width:767px) {
     .footer-main {
         flex-direction: column;
+    }
+
+    
+
+    .copyright2 {
+        width: calc(100% - 60px);
+        font-size: 3.7vw;
+        height: 50px;
+        display: inline-block;
+        font-family: var(--secondfont);
+        color: var(--button);
+        padding: 0px 30px 30px 30px;
+    }
+
+    .logo-footer {
+        width: 100%;
     }
 
     .footer2 .top-footer2 p {
@@ -230,6 +253,10 @@
         padding-block: 10px;
         border: none;
         font-size: 3vw;
+    }
+
+    .copyright {
+        display: none;
     }
 
     .social-media-footer :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {

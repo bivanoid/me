@@ -75,7 +75,7 @@ function Feedback() {
           threshold={1}
           delay={500}
         >
-          <h1 className="title-feedback">— What They Say</h1>
+          <h1 className="title-feedback">Their <span>Feedback</span> </h1>
         </AnimatedContent>
 
         <AnimatedContent
@@ -131,7 +131,6 @@ function Feedback() {
                 spaceBetween: 0,
               },
             }}
-            loop={users.length > 3}
             className="feedback-swiper"
           >
             {users.map((user) => {

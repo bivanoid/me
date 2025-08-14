@@ -89,7 +89,6 @@
 .sticky-header {
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
     align-items: center;
     padding: 30px;
     border-bottom: 1px solid var(--border);
@@ -102,61 +101,25 @@
 }
 
 .sticky #namamu {
-    font-size: 30px;
     font-family: var(--secondfont);
+    text-transform: uppercase;
+    font-weight: 600;
     color: var(--button);
     display: inline-block;
     flex: 1;
-    font-weight: 400;
     margin: 0;
-    font-size: 2vw;
+    font-size: 1.8vw;
     width: fit-content;
     line-height: 1;
+    letter-spacing: 1px;
 }
 
 .sticky #namamu span {
-    font-style: italic;
-}
-
-@keyframes wave-bio {
-    0% {
-        opacity: 0.3;
-    } 50% {
-        opacity: 0;
-    } 100% {
-        opacity: 0.3;
-    }
-}
-
-.wave-bio {
-    position: absolute;
-    width: 100%;
-    border-radius: 1000px;
-    aspect-ratio: 1/1;
-    z-index: 1;
-    transform: translateX(6px);
-    animation-delay: 0.25;
-    transition: 0.2s;
-    border:1px solid var(--button);
-    opacity: 0.3;
-    animation: wave-bio 6s linear infinite;
-}
-
-.wave-bio:nth-child(2){
-    transform: translateX(12px);
-    animation-delay: 1s;
-}
-.wave-bio:nth-child(3){
-    transform: translateX(18px);
-    animation-delay: 2s;
-}
-.wave-bio:nth-child(4){
-    transform: translateX(24px);
-    animation-delay: 3s;
+    /* font-style: italic; */
 }
 
 .con-image-bio {
-    width: 5.5vw;
+    width: 3.7vw;
     background: url(../assets/woman.jpg);
     aspect-ratio: 1/1;
     display: grid;
@@ -336,12 +299,14 @@
 
 .bio h1 {
     font-size: 1vw;
-    font-weight: 400;
+    font-weight: 800;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     margin-top: 0px;
+    letter-spacing: 1px;
     color: var(--button);
+    text-transform: uppercase;
     font-family: var(--secondfont);
 }
 
@@ -426,8 +391,6 @@
 
 .bio .list-bio li p {
     font-size: clamp(0.5vw, 2vw, 1vw);
-    opacity: 0.7;
-    line-height: 1.1;
     padding: 0;
     margin: 0;
 }
@@ -554,15 +517,16 @@
     font-size: 1.3vw;
     opacity: 1;
     font-family: var(--secondfont);
+    font-weight: 400;
     color: var(--button);
 }
 
 .text-abouts .content-about {
     font-size: 1vw;
-    opacity: 0.7;
     width: 100%;
-    line-height: 1.2;
+    line-height: 1.4;
     margin: 0;
+    opacity: 0.9;
     position: relative;
     color: var(--button);
 }
@@ -570,7 +534,6 @@
 .text-abouts .content-about::first-letter {
     display: inline-block;
     opacity: 1;
-    font-style: italic;
     float: inline-start;
     font-size: 4vw;
     line-height: 50%;
@@ -586,7 +549,6 @@
 
 .text-abouts .content-carrier {
     font-size: 1vw;
-    
     list-style: none;
     height: 100%;
     color: var(--button);
@@ -638,16 +600,17 @@
     }
 
     .text-abouts .content-carrier li p {
-        transition: 0.5s;
+        transition: 0.2s;
+        
     }
 
     .text-abouts .content-carrier li:hover p {
-        transform: translateX(5px) skew(-20deg);
+        transform: translateX(6px);
     }
         
 }
 .content-carrier li p {
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 /* .content-carrier :is(li:nth-child(1), li:nth-child(2), li:nth-child(3)) span::after{
@@ -777,7 +740,7 @@
         font-family: var(--secondfont);
         color: var(--button);
         display: inline-block;
-        font-weight: 400;
+        font-weight: 600;
         font-size:7vw;
         margin-block: 0.5em;
         line-height: 1;   

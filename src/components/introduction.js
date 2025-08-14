@@ -7,8 +7,8 @@ import FadeContent from './FadeContent';
 import Magnet from './Magnet';
 import Lenis from '@studio-freight/lenis';
 import lenis from './lenisSc';
-import bgImage from '../assets/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg'
-
+import bgImage from '../assets/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg';
+import Logo from './logo';
 function Introduction() {
     const conImageRef = useRef(null);
 
@@ -82,7 +82,7 @@ function Introduction() {
             
             <div className='text' ref={conImageRef} style={{opacity: 1}}>
                 <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
-                    <p className='revealed'>Hi i'm ✦ Firdhan Abivandya</p>
+                    <p className='revealed'><span><Logo/></span>BY bIVANOId</p>
                 </FadeContent>
 
                 <AnimatedContent

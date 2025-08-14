@@ -6,9 +6,9 @@
 .title-feedback {
     color: var(--button);
     font-weight: 400;
-    font-style: italic;
     font-size: clamp(1em, 4em, 5em);
     font-family: var(--secondfont);
+    padding: 0;
     margin: 0;
 }
 
@@ -129,7 +129,6 @@
     border-right: 1px solid var(--border);
     height: calc(fit-content + 20px);
     min-height: 380px;
-    max-height: 380px;
     transition: 0.2s, background 0s;
     overflow: hidden;
     position: relative;
@@ -149,10 +148,16 @@
 }
 
 .con-feedback-btm {
+    padding: 0;
     display: flex;
-    align-items: center;
-    justify-content: start;
-    padding-bottom: 40px;
+    width: fit-content;
+    align-items: stretch;
+    justify-content: stretch;
+    height: fit-content;
+    margin: 0;
+    margin-bottom: 40px;
+    margin-top: 5px;
+    border: 1px solid var(--border);
 }
 
 .user-feedback p {
@@ -174,6 +179,7 @@
     text-transform: capitalize;
     color: var(--button);
     font-family: var(--secondfont);
+    font-weight: 800;
     width: 100%;
 }
 
@@ -208,21 +214,19 @@
 
 .user-feedback .userrating {
     padding: 10px;
-    border: 1px solid var(--border);
-    box-sizing: border-box;
     font-size: 1rem;
 }
 
 .user-feedback .userdate {
     font-size: 1rem;
-    padding: 10px;
     position: relative;
-    border: 1px solid var(--border);
+    display: inline-block;
+    display: grid;
+    place-items: center;
+    padding-inline: 10px;
     width: max-content;
-    align-self: flex-end;
     background-color: var(--border);
     color: var(--button);
-    align-items: flex-end;
 }
 
 .feedback-quote {
@@ -341,11 +345,11 @@
     .con-userfeedback {
         padding: 30px;
         border: none;
-        
+        min-height: 190px;
     }
 
     .con-btm-fd {
-        padding-bottom: 30px;
+        padding-bottom: 0px;
     }
 
     .con-userfeedback .username {
@@ -373,7 +377,10 @@
     .con-feedback-btm {
         padding: 0;
         display: flex;
-        width: calc(100%);
+        width: fit-content;
+        align-items: stretch;
+        justify-content: stretch;
+        height: fit-content;
     }
 
     .user-feedback .userdate {
