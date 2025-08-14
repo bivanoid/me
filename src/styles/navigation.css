@@ -85,11 +85,10 @@
     transition: 0.3s;
     border: 1px solid var(--border);
     background-color: var(--border);
-    border-radius: 100px;
     cursor: pointer;
     transition: 0.5s;
     position: relative;
-    scale: 1.2;
+    
 }
 
 .theme2 {
@@ -104,7 +103,6 @@
 #swchbtn1,
 #swchbtn2 {
     background-color: var(--button);
-    clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0 75%, 0 25%);
     height: 20px;
     aspect-ratio: 1/1;
     position: absolute;

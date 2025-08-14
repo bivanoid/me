@@ -10,6 +10,7 @@ import bicture from '../assets/bicturemckp.png';
 import kasir from '../assets/Casier.png';
 import calc from '../assets/calc.png';
 import gallery from '../assets/galpod-app.png';
+import EaktuAhkir from '../assets/WAKTU AHKIR.jpg'
 import FadeContent from './FadeContent';
 import AnimatedContent from './AnimatedContent';
 import Magnet from './Magnet';
@@ -111,73 +112,78 @@ export default function HorizontalSlider({ onImageClick }) {
           }}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className='gambar' ref={(el) => (gambarRefs.current[0] = el)}>
-              <img onClick={handleImageClick} className='' src={riyadh} alt="Alquran Website"></img>
-              <a href='https://github.com/Vandyaaa/Riyadh-Al-quran'>link <i className="fi fi-rs-arrow-up-right"></i></a>
-            </div>
-            <h2 className='gambar-h2'>collective</h2>
-            <h1 className='gambar-h1'>Alquran Website</h1>
-            <div className='tag-language'>
-              <div className='taglang'>PHP</div>
-              <div className='taglang'>CSS</div>
-              <div className='taglang'>MYSQL</div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='gambar' ref={(el) => (gambarRefs.current[1] = el)}>
-              <img onClick={handleImageClick} className='' src={bicture} alt="Bicture"></img>
-              <a href='https://github.com/Vandyaaa/bicture-app'>link <i className="fi fi-rs-arrow-up-right"></i></a>
-            </div>
-            <h2 className='gambar-h2'>individual</h2>
-            <h1 className='gambar-h1'>Gallery Photo</h1>
-            <div className='tag-language'>
-              <div className='taglang'>JAVA</div>
-              <div className='taglang'>XML</div>
-              <div className='taglang'>FIREBASE</div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='gambar' ref={(el) => (gambarRefs.current[2] = el)}>
-              <img onClick={handleImageClick} className='' src={calc} alt="Calculator"></img>
-              <a href='https://vandyaaa.github.io/calculablew/'>link <i className="fi fi-rs-arrow-up-right"></i></a>
-            </div>
-            <h2 className='gambar-h2'>individual</h2>
-            <h1 className='gambar-h1'>Calculator</h1>
-            <div className='tag-language'>
-              <div className='taglang'>JAVASCRIPT</div>
-              <div className='taglang'>CSS</div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='gambar' ref={(el) => (gambarRefs.current[3] = el)}>
-              <img onClick={handleImageClick} className='' src={gallery} alt="gallery"></img>
-
-            </div>
-            <h2 className='gambar-h2'>individual</h2>
-            <h1 className='gambar-h1'>Mockup CRUD Apps</h1>
-            <div className='tag-language'>
-              <div className='taglang'>JAVA</div>
-              <div className='taglang'>XML</div>
-              <div className='taglang'>FIREBASE</div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='gambar' ref={(el) => (gambarRefs.current[5] = el)}>
-              <img onClick={handleImageClick} className='' src={kasir} alt="Cashier"></img>
-
-            </div>
-            <h2 className='gambar-h2'>individual</h2>
-            <h1 className='gambar-h1'>Cashier</h1>
-            <div className='tag-language'>
-              <div className='taglang'>PHP</div>
-              <div className='taglang'>BOOTSRAP</div>
-              <div className='taglang'>MYSQL</div>
-            </div>
-          </SwiperSlide>
-
-
-        </Swiper>
+        <SwiperSlide>
+          <div className='gambar' ref={(el) => (gambarRefs.current[0] = el)}>
+            <img onClick={handleImageClick} className='' src={riyadh} alt="Alquran Website"></img>
+            <a href='https://github.com/Vandyaaa/Riyadh-Al-quran'><i class="fi fi-rs-arrow-up-right-from-square"></i></a>
+          </div>
+          <h2 className='gambar-h2'>collective</h2>
+          <h1 className='gambar-h1'>Alquran Website</h1>
+          <div className='tag-language'>
+            <div className='taglang'>PHP</div>
+            <div className='taglang'>CSS</div>
+            <div className='taglang'>MYSQL</div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='gambar' ref={(el) => (gambarRefs.current[1] = el)}>
+            <img onClick={handleImageClick} className='' src={bicture} alt="Bicture"></img>
+            <a href='https://github.com/Vandyaaa/bicture-app'><i class="fi fi-rs-arrow-up-right-from-square"></i></a>
+          </div>
+          <h2 className='gambar-h2'>individual</h2>
+          <h1 className='gambar-h1'>Gallery Photo</h1>
+          <div className='tag-language'>
+            <div className='taglang'>JAVA</div>
+            <div className='taglang'>XML</div>
+            <div className='taglang'>FIREBASE</div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='gambar' ref={(el) => (gambarRefs.current[2] = el)}>
+            <img onClick={handleImageClick} className='' src={calc} alt="Calculator"></img>
+            <a href='https://vandyaaa.github.io/calculablew/'><i class="fi fi-rs-arrow-up-right-from-square"></i></a>
+          </div>
+          <h2 className='gambar-h2'>individual</h2>
+          <h1 className='gambar-h1'>Calculator</h1>
+          <div className='tag-language'>
+            <div className='taglang'>JAVASCRIPT</div>
+            <div className='taglang'>CSS</div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='gambar' ref={(el) => (gambarRefs.current[3] = el)}>
+            <img onClick={handleImageClick} className='' src={gallery} alt="gallery"></img>
+          </div>
+          <h2 className='gambar-h2'>individual</h2>
+          <h1 className='gambar-h1'>Mockup CRUD Apps</h1>
+          <div className='tag-language'>
+            <div className='taglang'>FIGMA</div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='gambar' ref={(el) => (gambarRefs.current[5] = el)}>
+            <img onClick={handleImageClick} className='' src={kasir} alt="Cashier"></img>
+          </div>
+          <h2 className='gambar-h2'>individual</h2>
+          <h1 className='gambar-h1'>Cashier</h1>
+          <div className='tag-language'>
+            <div className='taglang'>PHP</div>
+            <div className='taglang'>BOOTSRAP</div>
+            <div className='taglang'>MYSQL</div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='gambar' ref={(el) => (gambarRefs.current[5] = el)}>
+            <img onClick={handleImageClick} className='' src={EaktuAhkir} alt="WaktuAhkir"></img>
+          </div>
+          <h2 className='gambar-h2'>individual</h2>
+          <h1 className='gambar-h1'>Waktu Ahkir</h1>
+          <div className='tag-language'>
+            <div className='taglang'>FIGMA</div>
+            <div className='taglang'>DESIGN</div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
 
       </FadeContent>
       <div className='con-swiper-button-hz'>

@@ -86,7 +86,7 @@ export default function AddFeedback() {
                     <textarea className='textarea-addfeedback' placeholder="Type Out Something (Max 100 Character)"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        maxLength={100}
+                        maxLength={350}
                         required>
 
 

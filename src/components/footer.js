@@ -3,6 +3,7 @@ import logo from '../assets/logo.png'
 import AnimatedContent from './AnimatedContent';
 import Logo from './logo';
 import lenis from './lenisSc';
+import LogoPattern from './LogoPattern';
 
 export default function Footer() {
 
@@ -91,6 +92,7 @@ export default function Footer() {
 
                     <div className='footer1'>
                         <div className='footer1-main'>
+                            <LogoPattern/>
                         </div>
                     </div>
                     <div className='copyright2'><p>&copy; 2025 Firdhan Abivandya. All rights reserved.</p></div>

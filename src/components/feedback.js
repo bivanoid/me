@@ -131,6 +131,7 @@ function Feedback() {
                 spaceBetween: 0,
               },
             }}
+            loop={users.length > 3}
             className="feedback-swiper"
           >
             {users.map((user) => {

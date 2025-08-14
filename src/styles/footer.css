@@ -42,7 +42,7 @@
 
 .footer-main {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     display: flex;
 }
 
@@ -67,7 +67,9 @@
 
 .footer1-main {
     height: 100%;
-    background: url(../assets/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg);
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
     background-position: center;
     background-size: cover;
 }
@@ -233,7 +235,7 @@
     }
 
     .logo-footer {
-        width: 100%;
+        width: 15%;
     }
 
     .footer2 .top-footer2 p {
