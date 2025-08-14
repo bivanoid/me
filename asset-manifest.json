@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/MyPortofolio/static/css/main.838210ec.css",
-    "main.js": "/MyPortofolio/static/js/main.c82f4be2.js",
+    "main.css": "/MyPortofolio/static/css/main.03c3a828.css",
+    "main.js": "/MyPortofolio/static/js/main.f33ef2fb.js",
     "static/js/198.e4502a77.chunk.js": "/MyPortofolio/static/js/198.e4502a77.chunk.js",
+    "static/media/WAKTU AHKIR.jpg": "/MyPortofolio/static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
     "static/media/galpod-app.png": "/MyPortofolio/static/media/galpod-app.64e7b931b97ef620af03.png",
     "static/media/riyadhmckp.png": "/MyPortofolio/static/media/riyadhmckp.c4e186f986912c99b816.png",
     "static/media/Casier.png": "/MyPortofolio/static/media/Casier.ab3270f4095b6fe2ce78.png",
@@ -14,12 +15,12 @@
     "static/media/eek.jpg": "/MyPortofolio/static/media/eek.8f409516bd41f05bf905.jpg",
     "index.html": "/MyPortofolio/index.html",
     "static/media/plus-paricle.svg": "/MyPortofolio/static/media/plus-paricle.4d67155093c23f14a7007b3aa04600d3.svg",
-    "main.838210ec.css.map": "/MyPortofolio/static/css/main.838210ec.css.map",
-    "main.c82f4be2.js.map": "/MyPortofolio/static/js/main.c82f4be2.js.map",
+    "main.03c3a828.css.map": "/MyPortofolio/static/css/main.03c3a828.css.map",
+    "main.f33ef2fb.js.map": "/MyPortofolio/static/js/main.f33ef2fb.js.map",
     "198.e4502a77.chunk.js.map": "/MyPortofolio/static/js/198.e4502a77.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.838210ec.css",
-    "static/js/main.c82f4be2.js"
+    "static/css/main.03c3a828.css",
+    "static/js/main.f33ef2fb.js"
   ]
 }
