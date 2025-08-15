@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/me/static/css/main.974781f6.css",
-    "main.js": "/me/static/js/main.7f140b01.js",
+    "main.css": "/me/static/css/main.ec79f18c.css",
+    "main.js": "/me/static/js/main.95370b0d.js",
     "static/js/198.e4502a77.chunk.js": "/me/static/js/198.e4502a77.chunk.js",
     "static/media/WAKTU AHKIR.jpg": "/me/static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
     "static/media/galpod-app.png": "/me/static/media/galpod-app.64e7b931b97ef620af03.png",
@@ -10,18 +10,18 @@
     "static/media/calc.png": "/me/static/media/calc.1a26671ef3739b01684c.png",
     "static/media/woman.jpg": "/me/static/media/woman.6bf7c6270399f060a0bf.jpg",
     "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/me/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
-    "static/media/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg": "/me/static/media/1ebabc0c-545c-4c94-a16e-779bcf2d6914.9f738f83a91acb1bd543.jpg",
     "static/media/bicturemckp.png": "/me/static/media/bicturemckp.f0db5e2400b5e2e2e3b8.png",
     "static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.jpeg": "/me/static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.25d2ec1202490885de0c.jpeg",
     "static/media/legosleep.jpg": "/me/static/media/legosleep.5f14d4fd5502ed81fab4.jpg",
+    "static/media/sheep.jpeg": "/me/static/media/sheep.540c258dbc2cf8c2f105.jpeg",
     "index.html": "/me/index.html",
     "static/media/plus-paricle.svg": "/me/static/media/plus-paricle.4d67155093c23f14a7007b3aa04600d3.svg",
-    "main.974781f6.css.map": "/me/static/css/main.974781f6.css.map",
-    "main.7f140b01.js.map": "/me/static/js/main.7f140b01.js.map",
+    "main.ec79f18c.css.map": "/me/static/css/main.ec79f18c.css.map",
+    "main.95370b0d.js.map": "/me/static/js/main.95370b0d.js.map",
     "198.e4502a77.chunk.js.map": "/me/static/js/198.e4502a77.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.974781f6.css",
-    "static/js/main.7f140b01.js"
+    "static/css/main.ec79f18c.css",
+    "static/js/main.95370b0d.js"
   ]
 }
