@@ -209,14 +209,15 @@
     display: grid;
     place-items: center;
     transition: 0.6s;
-    color: var(--button);
+    color: white;
     background-color: var(--blue);
     box-shadow: 0px 3px 20px 0px var(--blue);
     bottom: 25px;
+    border-radius: 100px;
     font-size: 2.2vw;
     right: 25px;
     font-family: var(--secondfont);
-    width: 60px;
+    width: 50px;
     aspect-ratio: 1 / 1;
 }
 

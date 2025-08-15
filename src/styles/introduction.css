@@ -168,6 +168,24 @@
     /* line-height: 0.8; */
 }
 
+.text .explore {
+        width: 5.7vw;
+        overflow: hidden;
+        display: inline-block;
+        aspect-ratio: 1 / 1;
+        padding-inline: 3px;
+}
+
+.text .explore svg {
+    width: 100%;
+}
+
+.text .explore svg path {
+    fill: var(--button);
+    /* stroke: var(--button);
+    stroke-width: 5px; */
+}
+
 .text .AnimatedContentItalic {
     font-style: italic;
     padding-left: 90px;
@@ -270,14 +288,11 @@
     /* clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%); */
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--border);
+    color: white;
 }
 
 .arrow-to-sc2:hover {
     transform: translateY(5%);
-}
-
-.arrow-to-sc2 {
-    color: var(--button);
 }
 
 .arrow-intro {
@@ -340,6 +355,10 @@
         line-height: 8.8vh;
         padding-inline: 30px;
         border: none;
+    }
+
+    .text .explore {
+        width: 11.9vw;
     }
 
     .text .andText {

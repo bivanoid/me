@@ -59,19 +59,27 @@
 }
 
 .logo-footer {
-    padding-top: 20px;
+    padding-top: 30px;
     width: calc(100% - 30px);
     max-width: 300px;
     aspect-ratio: 1/1;
 }
 
+.logo-footer2 {
+    display: none;
+}
+
 .footer1-main {
     height: 100%;
     overflow: hidden;
-    object-fit: cover;
-    object-position: center;
+    background: url(../assets/589d784cb7d54f0a7a24163ee74f56c2.jpg);
+    filter: grayscale(20%);
     background-position: center;
     background-size: cover;
+}
+
+.footer1-main svg {
+    height: 20%;
 }
 
 .social-media-footer {
@@ -140,10 +148,9 @@
 }
 
 .copyright {
-    padding-block: 30px;
+    padding-bottom: 30px;
     width: 100%;
     font-size: 0.8vw;
-    border-top: 1px solid var(--border);
     color: var(--button)
 }
  
@@ -173,7 +180,6 @@
     justify-content:start;
     box-sizing: border-box;
     gap: 30px;
-    padding-top: 85px;
     padding-right: 30px;
 }
 
@@ -236,6 +242,14 @@
 
     .logo-footer {
         width: 15%;
+    }
+
+    .logo-footer1 {
+        display: none;
+    }
+
+    .logo-footer2{
+        display: block;
     }
 
     .footer2 .top-footer2 p {

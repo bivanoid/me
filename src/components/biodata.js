@@ -1,7 +1,6 @@
 
 import '../styles/aboutme.css';
 import AnimatedContent from './AnimatedContent';
-import sya from '../assets/eek.jpg';
 import FadeContent from './FadeContent';
 import CircularText from './CircularText';
 import { useEffect } from "react";

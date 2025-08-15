@@ -20,9 +20,9 @@ function Navigation() {
            if (darkMode) {
             // Light mode
             root.style.setProperty('--primary', '#fafaff');
-            root.style.setProperty('--primary2', '#fcecccff');
-            root.style.setProperty('--primary3', '#f0cd99ff');
-            root.style.setProperty('--blue', '#f0cd99ff');
+            root.style.setProperty('--primary2', '#dadaddff');
+            root.style.setProperty('--primary3', '#fafaff');
+            root.style.setProperty('--blue', '#173ff0');
             root.style.setProperty('--button', '#1c1c1c');
             root.style.setProperty('--border', '#00000014');
         } else {

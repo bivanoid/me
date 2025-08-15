@@ -96,7 +96,7 @@ function Introduction() {
                     threshold={0}
                     delay={200}
                 >
-                    <p className='AnimatedContent'>Discover the</p>
+                    <p className='AnimatedContent'>E<span className='explore'><Logo/></span>plore the</p>
                 </AnimatedContent>
 
                 <AnimatedContent

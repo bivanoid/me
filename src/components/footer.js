@@ -49,7 +49,10 @@ export default function Footer() {
                     
                     <div className='footer2'>
                         <div className='top-footer2'>
-                        <div className='logo-footer'>
+                        <div className='logo-footer logo-footer1'>
+                        <LogoPattern/>
+                        </div>
+                        <div className='logo-footer logo-footer2'>
                         <Logo/>
                         </div>
                             <p>Creative developer passionate about building exceptional digital experiences with modern<br/> technologies.</p>
@@ -92,7 +95,7 @@ export default function Footer() {
 
                     <div className='footer1'>
                         <div className='footer1-main'>
-                            <LogoPattern/>
+                            
                         </div>
                     </div>
                     <div className='copyright2'><p>&copy; 2025 Firdhan Abivandya. All rights reserved.</p></div>
