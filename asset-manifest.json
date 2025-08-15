@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MyPortofolio/static/css/main.03c3a828.css",
-    "main.js": "/MyPortofolio/static/js/main.f33ef2fb.js",
+    "main.css": "/MyPortofolio/static/css/main.03a0a6cf.css",
+    "main.js": "/MyPortofolio/static/js/main.49c44afc.js",
     "static/js/198.e4502a77.chunk.js": "/MyPortofolio/static/js/198.e4502a77.chunk.js",
     "static/media/WAKTU AHKIR.jpg": "/MyPortofolio/static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
     "static/media/galpod-app.png": "/MyPortofolio/static/media/galpod-app.64e7b931b97ef620af03.png",
@@ -12,15 +12,16 @@
     "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/MyPortofolio/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
     "static/media/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg": "/MyPortofolio/static/media/1ebabc0c-545c-4c94-a16e-779bcf2d6914.9f738f83a91acb1bd543.jpg",
     "static/media/bicturemckp.png": "/MyPortofolio/static/media/bicturemckp.f0db5e2400b5e2e2e3b8.png",
-    "static/media/eek.jpg": "/MyPortofolio/static/media/eek.8f409516bd41f05bf905.jpg",
+    "static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.jpeg": "/MyPortofolio/static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.25d2ec1202490885de0c.jpeg",
+    "static/media/legosleep.jpg": "/MyPortofolio/static/media/legosleep.5f14d4fd5502ed81fab4.jpg",
     "index.html": "/MyPortofolio/index.html",
     "static/media/plus-paricle.svg": "/MyPortofolio/static/media/plus-paricle.4d67155093c23f14a7007b3aa04600d3.svg",
-    "main.03c3a828.css.map": "/MyPortofolio/static/css/main.03c3a828.css.map",
-    "main.f33ef2fb.js.map": "/MyPortofolio/static/js/main.f33ef2fb.js.map",
+    "main.03a0a6cf.css.map": "/MyPortofolio/static/css/main.03a0a6cf.css.map",
+    "main.49c44afc.js.map": "/MyPortofolio/static/js/main.49c44afc.js.map",
     "198.e4502a77.chunk.js.map": "/MyPortofolio/static/js/198.e4502a77.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03c3a828.css",
-    "static/js/main.f33ef2fb.js"
+    "static/css/main.03a0a6cf.css",
+    "static/js/main.49c44afc.js"
   ]
 }
