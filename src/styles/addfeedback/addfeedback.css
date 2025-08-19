@@ -1,5 +1,5 @@
 .body-addfeedback {
-    height: 100vh;
+    height: 100svh;
     background-position: center;
     background-size: cover;
 }
@@ -190,9 +190,82 @@
     color: var(--button);
 }
 
+.AlertPopUp {
+    position: fixed;
+    top: -100px;
+    /* awal di luar layar */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    background-color: var(--primary);
+    font-family: var(--secondfont);
+    transition: all 2s ease-in-out;
+    z-index: 1000;
+    display: inline-block;
+}
+
+.AlertPopUp p {
+    padding: 0;
+    margin: 0;
+    font-size: 1.6vw;
+}
+
+.red-alert{
+    background: rgb(243, 71, 41);
+    margin-left: 5px;
+    width: 1.3vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 100px;
+    display: inline-block;
+    margin-right: 16px;
+    animation: kedip 1s linear infinite;
+}
+
+@keyframes kedip {
+    0% {
+        opacity: 0;
+    } 50% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+    }
+}
+
+.AlertPopUp.show {
+    top: 30px;
+    opacity: 1;
+}
+
+.AlertPopUp.hide {
+    top: -100px;
+    /* naik keluar */
+    opacity: 1;
+}
+
 @media (max-width:767px) {
     .body-addfeedback h2 {
-        font-size: 10vw;
+        font-size: 17vw;
+    }
+
+    .con-addfeedback form .con-input {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .button-addfeedback {
+        writing-mode: horizontal-tb;
+        text-orientation: sideways;
+        width: 100%;
+        font-size: 22vw;
+    }
+
+    .con-addfeedback form {
+        flex-direction: column;
+    }
+
+    .con-addfeedback h2 .logo-addfb {
+        width: 12vw;
     }
 
     .rating-box {

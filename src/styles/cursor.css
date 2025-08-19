@@ -2,7 +2,7 @@
     display: none;
 }
 
-@media (min-width:1000px) {
+@media (min-width:800px) {
     /* cursor.css */
         .custom-cursor {
             content: "";

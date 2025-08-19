@@ -140,7 +140,8 @@ main {
 .con-blog-sticky h1 {
     font-family: var(--secondfont);
     color: var(--button);
-    font-weight: 400;
+    font-weight: 800;
+    text-transform: uppercase;
     font-size: 3vw;
     margin: 0;
     padding-bottom: 20px;
@@ -256,7 +257,7 @@ main {
 .photoprofile-blog {
     width: 3.3vw;
     aspect-ratio: 1 / 1;
-    background: url(../../assets/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg);
+    background: url(../../assets/legosleep.jpg);
     background-position: top;
     border-radius: 100px;
     background-size: cover;
@@ -329,7 +330,7 @@ main {
 .title-article {
     color: var(--button);
     font-family: var(--secondfont);
-    font-weight: 100;
+    font-weight: 800;
     font-size: 2vw;
     width: 100%;
     margin: 0;
@@ -563,7 +564,7 @@ main {
 .author-photo {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background: url(../../assets/1ebabc0c-545c-4c94-a16e-779bcf2d6914.jpg);
+    background: url(../../assets/legosleep.jpg);
     background-position: top;
     background-size: cover;
 }
@@ -623,7 +624,8 @@ main {
     color: var(--button);
     font-family: var(--secondfont);
     font-size: 2vw;
-    font-weight: 400;
+    font-weight: 800;
+    text-transform: uppercase;
     width: 100%;
     overflow: hidden;
     margin: 0 0 30px 0;
@@ -710,6 +712,16 @@ hr {
         box-sizing: border-box;
     }
 
+ .logoBlog {
+     width: 1.5vw;
+     aspect-ratio: 1/1;
+     display: grid;
+ }
+
+ .logoBlog svg {
+     width: 100%;
+ }
+
 @media (max-width: 767px) {
     main {
         min-height: 100svh;
@@ -780,6 +792,8 @@ hr {
     .con-blog-sticky.open-menu-blog {
         left: 0%;
     }
+
+   
 
     :is(#menuBlogIcon, #logoBlogIcon, #backMenuIcon) {
         transition: 0.3s;

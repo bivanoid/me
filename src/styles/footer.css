@@ -2,7 +2,7 @@
 
 .footer {
     border-top: 1px solid var(--border);
-    height: 100vh;
+    height: 100svh;
     width: 100%;
     font-family: var(--primaryfont);
     position: relative;
@@ -72,7 +72,7 @@
 .footer1-main {
     height: 100%;
     overflow: hidden;
-    background: url(../assets/589d784cb7d54f0a7a24163ee74f56c2.jpg);
+    background: url(../assets/sheep.jpeg);
     filter: grayscale(20%);
     background-position: center;
     background-size: cover;

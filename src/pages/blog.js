@@ -165,9 +165,9 @@ export default function Blog() {
         <main>
           <div className="navigation-blog">
             <div className="clstgr back-to-home-from-blog" id="backMenuIcon" onClick={handleGoBack}>
-              <i className="fi fi-rs-turn-left"></i>
+              <i className="fi fi-rs-arrow-left"></i>
             </div>
-            <div id="logoBlogIcon">
+            <div className="logoBlog" id="logoBlogIcon">
               <Logo />
             </div>
 
@@ -272,7 +272,7 @@ export default function Blog() {
         <div className="con-blog-sticky" id="menuShow">
           <div className="main-sticky-blog">
             <h1>
-              — My Blog<span className="dot-introduction"></span>
+              My Blog<span className="dot-introduction"></span>
             </h1>
             <div className="filter-by">
               <h2>Filter By</h2>

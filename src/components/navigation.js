@@ -47,7 +47,7 @@ function Navigation() {
                 <Logo />
             </div>
             <ul className='navigasi-menu' id='menu'>
-                <h1>— Menus<span class="dot-introduction"></span></h1>
+                <h1>Menus<span class="dot-introduction"></span></h1>
                 <li><Link to="/">PORTOFOLIO <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></a></li>
                 <li><Link to='/blog'>MY BLOG <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
