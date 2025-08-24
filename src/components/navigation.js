@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../styles/navigation.css';
-import Biodata from './biodata';
-import logo from '../assets/logo.png'
 import React, { useState } from 'react';
 import Logo from './logo';
-
+import ShareSvg from '../iconSvg/shareic';
+import Menus from '../iconSvg/menus';
+import Close from '../iconSvg/close';
 function open() {
     ['menu', 'close', 'thecontent', 'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
 }
@@ -41,16 +41,16 @@ function Navigation() {
 
     return (
         <div className='navigation'>
-            <div className='menu-button' id='expandMenuIcon' onClick={open}><i class="fi fi-rs-expand-arrows"></i></div>
-            <div className='close' id='close' onClick={open}><i class="fi fi-rs-down-left-and-up-right-to-center"></i></div>
+            <div className='menu-button' id='expandMenuIcon' onClick={open}><Menus/></div>
+            <div className='close' id='close' onClick={open}><div className='menu-button'><Close/></div></div>
             <div id='logoMenuIcon'>
                 <Logo />
             </div>
             <ul className='navigasi-menu' id='menu'>
                 <h1>Menus<span class="dot-introduction"></span></h1>
-                <li><Link to="/">PORTOFOLIO <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
-                <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></a></li>
-                <li><Link to='/blog'>MY BLOG <div className='arrow'><i class="fi fi-rs-arrow-up-right-from-square"></i></div></Link></li>
+                <li><Link to="/">PORTOFOLIO <div className='arrow'><ShareSvg/></div></Link></li>
+                <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><ShareSvg/></div></a></li>
+                <li><Link to='/blog'>MY BLOG <div className='arrow'><ShareSvg/></div></Link></li>
                 <button className='theme theme2' onClick={toggleTheme}>
                     <div id='swchbtn2' className='button-swch'>{darkMode ? (<p>a</p>): (<p>a</p>)}</div>
                 </button>

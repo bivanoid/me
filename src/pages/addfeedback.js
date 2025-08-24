@@ -23,18 +23,18 @@ export default function AddFeedback() {
 
     setTimeout(() => {
       setIsVisible(false);
-    }, 4000); // 2.5 detik sebelum animasi keluar
+    }, 400000); // 2.5 detik sebelum animasi keluar
 
     setTimeout(() => {
       setAlertPopUp('');
-    }, 4000); // 3 detik total, lalu hapus pesan
+    }, 400000); // 3 detik total, lalu hapus pesan
   };
 
   // Add user
   const addUser = async (e) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !rating) {
-      showAlert('Name, description, and rating are required');
+      showAlert('Please complete all required fields');
       return;
     }
 

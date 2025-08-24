@@ -35,10 +35,6 @@
     margin: 0;
 }
 
-.arrow {
-    font-size: 10px;
-}
-
 .navigasi-menu li {
     font-size: 10px;
     margin-block: 3px;
@@ -49,6 +45,17 @@
     width: 100%;
     border-bottom: 1px solid var(--border);
     transition: 0.2s;
+}
+
+.navigasi-menu li a .arrow {
+    width: 12px;
+    margin-bottom: 5px;
+    display: grid;
+    place-items: center;
+}
+
+.navigasi-menu li a .arrow svg {
+    width: 100%;
 }
 
 .navigasi-menu:hover li {
@@ -71,6 +78,7 @@
     min-width: 104px;
     width: 100%;
 }
+
 
 
 .theme {
@@ -229,6 +237,14 @@
         color: var(--button);
     }
 
+    .close .menu-button {
+        justify-content: center;
+    }
+
+    .menu-button svg {
+        width: 35%;
+    }
+
     .menu-button i {
         font-size: 1em;
         transform: translateY(3px);
@@ -291,6 +307,11 @@
         height: 86px;
         transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         border-bottom: 1px solid var(--border);
+    }
+
+
+    .close svg {
+        width: 35%;
     }
 
     .close.open {

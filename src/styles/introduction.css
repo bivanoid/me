@@ -291,8 +291,21 @@
     color: white;
 }
 
+.arrow-to-sc2 svg {
+    width: 35%;
+    transition: 0.2s;
+}
+
+.arrow-to-sc2 svg path {
+    fill: white;
+}
+
 .arrow-to-sc2:hover {
     transform: translateY(5%);
+}
+
+.arrow-to-sc2:hover svg {
+    width: 50%;
 }
 
 .arrow-intro {

@@ -9,6 +9,8 @@ import Lenis from '@studio-freight/lenis';
 import lenis from './lenisSc';
 import bgImage from '../assets/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg';
 import Logo from './logo';
+import DownSvg from '../iconSvg/scrollToBottomic';
+
 function Introduction() {
     const conImageRef = useRef(null);
 
@@ -26,24 +28,19 @@ function Introduction() {
 
     const scrollY = window.scrollY || window.pageYOffset;
     const maxScroll = 4000;
-
-    let scale = 1 + scrollY / maxScroll;
-    scale = Math.max(1, Math.min(1.5, scale));
-
     let opacity = 1 - scrollY / (maxScroll / 8);
     opacity = Math.max(0, Math.min(1, opacity));
 
-    const translateVal = (1 - scale) * -100;
 
     const isMobile = window.innerWidth <= 767;
 
     if (conImageRef.current) {
         if (isMobile) {
             // Mobile: hanya scale
-            conImageRef.current.style.transform = `scale(${scale})`;
+            
         } else {
             // Desktop: scale + translateX
-            conImageRef.current.style.transform = `scale(${scale}) translateX(${translateVal}%)`;
+            
         }
 
         conImageRef.current.style.opacity = `${opacity}`;
@@ -127,7 +124,7 @@ function Introduction() {
             </div>
             
             <button onClick={scrollToSection} className="arrow-to-sc2">
-                <i className="fi fi-rs-chevron-double-down"></i>
+                <DownSvg/>
             </button>
         </div>
     )

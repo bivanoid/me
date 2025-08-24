@@ -271,4 +271,13 @@
     .rating-box {
         font-size: 6vw;
     }
+
+    .AlertPopUp {
+        width: 80%;
+        padding: 8px;
+    }
+
+    .AlertPopUp p {
+        font-size: 3.3vw;
+    }
 }
