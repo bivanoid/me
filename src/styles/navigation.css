@@ -304,6 +304,7 @@
         width: 100%;
         position: fixed;
         z-index: 101;
+        background-color: var(--primary);
         height: 86px;
         transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         border-bottom: 1px solid var(--border);

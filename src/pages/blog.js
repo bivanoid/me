@@ -7,6 +7,9 @@ import Footer from "../components/footer"
 import Alert from "../assets/Alert.png"
 import Logo from "../components/logo"
 import { useNavigate } from "react-router-dom"
+import Backic from "../iconSvg/backic"
+import Menus from '../iconSvg/menus';
+import Close from '../iconSvg/close';
 
 // Scroll Progress Component (kept for potential future use)
 function ScrollProgress() {
@@ -165,14 +168,14 @@ export default function Blog() {
         <main>
           <div className="navigation-blog">
             <div className="clstgr back-to-home-from-blog" id="backMenuIcon" onClick={handleGoBack}>
-              <i className="fi fi-rs-arrow-left"></i>
+              <Backic/>
             </div>
             <div className="logoBlog" id="logoBlogIcon">
               <Logo />
             </div>
 
             <div className="menu-button-blog" id="menuBlogIcon" onClick={openBlog}>
-              <i className="fi fi-rs-expand-arrows"></i>
+              <Menus/>
             </div>
           </div>
 
@@ -266,7 +269,9 @@ export default function Blog() {
         </main>
 
         <div className="close-blog" id="closeBlog" onClick={openBlog}>
-          <i className="fi fi-rs-down-left-and-up-right-to-center"></i>
+        <div className="menu-button-close-blog">
+          <Close/>
+          </div>
         </div>
 
         <div className="con-blog-sticky" id="menuShow">

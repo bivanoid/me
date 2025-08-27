@@ -5,8 +5,7 @@ import { useParams, useLocation, useNavigate } from "react-router-dom"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
-
-
+import Backic from "../iconSvg/backic"
 
 function ScrollProgress() {
   const [progress, setProgress] = useState(0)
@@ -163,20 +162,22 @@ export default function ArticlePage() {
             <aside className="asside-article">
               <div className="asside-main">
                 <button className="close-article-btn" onClick={handleGoBack}>
-                  <i className="fi fi-rs-arrow-left"></i>
+                  <Backic/>
                 </button>
                 <h1 className="article-modal-title">{article.title_blog || "Judul tidak tersedia"}</h1>
-                <div className="author-photo"></div>
-                <div className="article-modal-author">
+                <div className="con-user-uploader">
+                  <div className="author-photo"></div>
+                  <div className="article-modal-author">
                   <div className="author-info">
                     <p className="author-name">{article.author || "Firdhan Abivandya"}</p>
-                    <span> • </span>
                     <p className="publish-date">
                       {article.created_at ? formatDate(article.created_at) : "Tanggal tidak tersedia"}
                     </p>
+                      <button className="sharePage" onClick={handleShare} ><i class="fi fi-rs-share"></i><p> Share</p></button>
+                  </div>
                   </div>
                 </div>
-                <button className="sharePage" onClick={handleShare} ><i class="fi fi-rs-share"></i><p> Share</p></button>
+              
               </div>
             </aside>
 

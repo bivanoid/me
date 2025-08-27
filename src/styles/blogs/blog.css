@@ -39,22 +39,14 @@
 }
 
 .back-to-home-from-blog {
-    display: grid;
-    place-items: center;
     width: fit-content;
+    width: 50px;
     aspect-ratio: 1 / 1;
     color: var(--button);
 }
 
-.back-to-home-from-blog p {
-    margin: 0;
-    padding: 0;
-    font-family: var(--secondfont);
-    font-size: 17px;
-    font-weight: 400;
-    padding: 2px 5px 2px 5px;
-    background-color: var(--button);
-    color: var(--primary);
+.back-to-home-from-blog svg {
+    width: 40%;
 }
 
 main {
@@ -285,7 +277,8 @@ main {
 
 .name-and-date p:nth-child(1) {
     font-family: var(--secondfont);
-    font-size: 1vw;
+    font-size: 1.5vw;
+    font-weight: 800;
 }
 
 .content-article :is(a,p,.MsoNormal, .editor-bold, .editor-italic, .editor-underline, .editor-strikethrough,
@@ -488,8 +481,8 @@ main {
 }
 
 .close-article-btn {
-    width: 47px;
-    height: 47px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 30px;
     border: none;
     background-color: var(--border);
@@ -499,10 +492,8 @@ main {
     z-index: 10;
 }
 
-.close-article-btn i {
-    font-size: 12px;
-    color: var(--button);
-    transform: translateY(2px);
+.close-article-btn svg {
+    width: 35%;
 }
 
 .close-article-btn:hover {
@@ -569,10 +560,17 @@ main {
     background-size: cover;
 }
 
+.con-user-uploader {
+    display: flex;
+    flex-direction: column;
+}
+
 .author-info {
     display: flex;
+    flex-direction: column;
     font-size: 0.8vw;
     margin-top: 30px;
+    width: 100%;
 }
 
 .author-info span {
@@ -698,6 +696,34 @@ main {
     .editor-list li::before {
         font-size: 3vw;
     }
+
+    .con-user-uploader {
+        flex-direction: row;
+    }
+
+    .article-modal-author {
+        padding-left: 30px;
+    }
+
+    .author-info {
+        margin: 0;
+    }
+
+    .sharePage {
+            width: 80%;
+                height: 45px;
+                border: 1px solid var(--border);
+                background-color: var(--blue);
+                margin-top: 10px;
+                color: var(--button);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                font-family: var(--primaryfont);
+    }
+
+
 }
 
 hr {
@@ -745,6 +771,10 @@ hr {
         transform: translateY(1px);
     }
 
+    .menu-button-blog svg {
+        width: 35%;
+    }
+
     .con-article {
         width: 100%;
         transition: 0.3s;
@@ -755,14 +785,27 @@ hr {
         place-items: center;
         color: var(--button);
         top: -100%;
-        background: var(--primary);
         left: 0;
         width: 100%;
         position: fixed;
+        background-color: var(--primary);
         z-index: 101;
         height: 86px;
         transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         border-bottom: 1px solid var(--border);
+    }
+
+        .menu-button-close-blog {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            aspect-ratio: 1 / 1;
+            color: var(--button);
+        }
+
+    .close-blog svg {
+        width: 25%;
     }
 
     .close-blog.open-menu-blog {
@@ -854,8 +897,12 @@ hr {
         font-family: var(--primaryfont);
     }
 
+    .name-and-date p:nth-child(1) {
+        font-size: 4.1vw;
+    }
+
     .name-and-date p:nth-child(2) {
-        font-size: 2.5vw;
+        font-size: 3.5vw;
         opacity: 0.5;
     }
 
@@ -946,11 +993,11 @@ hr {
     }
 
     .author-name {
-        font-size: 12px;
+        font-size: 4vw;
     }
 
     .publish-date {
-        font-size: 12px;
+        font-size: 3vw;
     }
 
     .article-modal-title {
@@ -968,10 +1015,10 @@ hr {
     }
 
     .close-article-btn {
-        height: 30px;
+        height: 50px;
         aspect-ratio: 0;
         top: 30px;
-        width: 30px;
+        width: 50px;
     }
 
     .con-progress {
@@ -981,5 +1028,13 @@ hr {
     .scroll-progress-container-vertical {
         right: 0;
         width: 3px;
+    }
+
+    .editor-bold {
+        font-size: 3.5vw !important;
+    }
+
+    .date-post {
+        font-size: 3vw;
     }
 }
