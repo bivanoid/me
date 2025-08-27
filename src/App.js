@@ -16,7 +16,6 @@ import Loading from './components/loading';
 
 function AppRoutes() {
   const location = useLocation();
-
   return (
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={

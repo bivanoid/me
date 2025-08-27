@@ -133,10 +133,16 @@
     color: white;
 }
 
+.conTextArea {
+    position: relative;
+}
+
 .textarea-addfeedback {
+    box-sizing: border-box;
+    width: 100%;
     border: none;
     outline: none;
-    height: 100px;
+    height: 150px;
     padding: 20px 10px 10px 10px;
     font-family: var(--primaryfont);
     background-color: transparent;
@@ -147,17 +153,16 @@
 
 .character-count {
     position: absolute;
-    bottom: 8px;
-    right: 12px;
+    bottom: 15px;
     font-size: 12px;
-    color: #666;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2px 6px;
-    border-radius: 4px;
+    color: var(--button);
+    background: var(--border);
+    font-family: var(--secondfont);
+    right: 15px;
+    padding: 12px 12px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 1px;
     transition: color 0.3s ease;
 }
 
@@ -190,62 +195,9 @@
     color: var(--button);
 }
 
-.AlertPopUp {
-    position: fixed;
-    top: -100px;
-    /* awal di luar layar */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    background-color: var(--primary);
-    font-family: var(--secondfont);
-    transition: all 2s ease-in-out;
-    z-index: 1000;
-    display: inline-block;
-}
-
-.AlertPopUp p {
-    padding: 0;
-    margin: 0;
-    font-size: 1.6vw;
-}
-
-.red-alert{
-    background: rgb(243, 71, 41);
-    margin-left: 5px;
-    width: 1.3vw;
-    aspect-ratio: 1 / 1;
-    border-radius: 100px;
-    display: inline-block;
-    margin-right: 16px;
-    animation: kedip 1s linear infinite;
-}
-
-@keyframes kedip {
-    0% {
-        opacity: 0;
-    } 50% {
-        opacity: 1;
-    } 100% {
-        opacity: 0;
-    }
-}
-
-.AlertPopUp.show {
-    top: 30px;
-    opacity: 1;
-}
-
-.AlertPopUp.hide {
-    top: -100px;
-    /* naik keluar */
-    opacity: 1;
-}
-
 @media (max-width:767px) {
     .body-addfeedback h2 {
-        font-size: 17vw;
+        font-size: 14vw;
     }
 
     .con-addfeedback form .con-input {
@@ -271,13 +223,167 @@
     .rating-box {
         font-size: 6vw;
     }
+}
 
+.AlertPopUp {
+    position: fixed;
+    top: -100px;
+    /* Start above screen */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    background-color: var(--button);
+    font-family: var(--secondfont);
+    z-index: 1000;
+    display: inline-block;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Smooth bounce effect */
+}
+
+.AlertPopUp p {
+    padding: 0;
+    margin: 0;
+    font-size: 1.6vw;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.red-alert {
+    background: rgb(243, 71, 41);
+    margin-left: 5px;
+    width: 1.3vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 100px;
+    display: inline-block;
+    margin-right: 16px;
+    animation: kedip 1s linear infinite;
+}
+
+@keyframes kedip {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Show animation - slides down from top */
+.AlertPopUp.show {
+    top: 10%;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Hide animation - slides up to top */
+.AlertPopUp.hide {
+    top: -100px;
+    opacity: 0;
+    background-color: purple;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+/* Alternative keyframe animations for smoother control */
+@keyframes slideDown {
+    0% {
+        top: -100px;
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    100% {
+        top: 10%;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        top: 10%;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        top: -100px;
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+
+/* If you want to use keyframe animations instead of transitions */
+.AlertPopUp.show-keyframe {
+    animation: slideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.AlertPopUp.hide-keyframe {
+    animation: slideUp 0.4s ease-in-out forwards;
+}
+
+@media (max-width:767px) {
     .AlertPopUp {
         width: 80%;
         padding: 8px;
+        top: -80px;
+        /* Adjust for mobile */
     }
 
     .AlertPopUp p {
         font-size: 3.3vw;
+    }
+
+    .AlertPopUp.show {
+        top: 5%;
+        /* Closer to top on mobile */
+    }
+
+    .AlertPopUp.hide {
+        top: -80px;
+    }
+
+    .red-alert {
+        width: 3vw;
+        /* Larger on mobile for visibility */
+    }
+}
+
+.character-count.good {
+    color: #00ff00;
+    position: absolute;
+}
+.character-count.ok {
+    color: #7bff00;
+    position: absolute;
+}
+.character-count.warning {
+    color: #ffe600;
+    position: absolute;
+}
+
+.character-count.stop {
+    color: #ff8330;
+}
+
+.character-count.limit {
+    color: #ff3030;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width:767px) {
+    .character-count {
+        bottom: -10%;
+        z-index: 5;
     }
 }

@@ -23,11 +23,11 @@ export default function AddFeedback() {
 
     setTimeout(() => {
       setIsVisible(false);
-    }, 400000); // 2.5 detik sebelum animasi keluar
+    }, 3000); // 2.5 detik sebelum animasi keluar
 
     setTimeout(() => {
       setAlertPopUp('');
-    }, 400000); // 3 detik total, lalu hapus pesan
+    }, 3000); // 3 detik total, lalu hapus pesan
   };
 
   // Add user
@@ -56,6 +56,9 @@ export default function AddFeedback() {
       showAlert(`Unexpected error: ${err.message}`);
     }
   };
+
+  const maxCharacters = 350;
+  const remainingCharacters = maxCharacters - email.length;
 
   return (
     <div className="body-addfeedback">
@@ -100,18 +103,29 @@ export default function AddFeedback() {
               type="text"
               placeholder="Your Name"
               value={name}
+              maxLength={50}
               onChange={(e) => setName(e.target.value)}
-              required
+              
             />
+            <div className='conTextArea'>
+              <textarea
+                className="textarea-addfeedback"
+                placeholder="Type Out Something (Max 350 Characters)"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                maxLength={maxCharacters}
+              />
+              <div className={`character-count 
+                ${remainingCharacters <= 350 ? 'good' : ''} 
+                ${remainingCharacters <= 250 ? 'ok' : ''} 
+                ${remainingCharacters <= 150 ? 'warning' : ''} 
+                ${remainingCharacters <= 50 ? 'stop' : ''}
+                ${remainingCharacters <= 0 ? 'limit' : ''}`}>
+                {remainingCharacters} || {maxCharacters}
+              </div>
+            </div>
+            
 
-            <textarea
-              className="textarea-addfeedback"
-              placeholder="Type Out Something (Max 350 Character)"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              maxLength={350}
-              required
-            />
           </div>
 
           <button className="button-addfeedback" type="submit">Submit</button>
