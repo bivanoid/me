@@ -76,9 +76,10 @@ export default function Footer() {
                         <div className='get-in-touch'>
                             <h1>Get In Touch</h1>
                             <ul>
-                                <li><a>abivandyafirdhan@gmail.com</a></li>
-                                <li><a>+62 877-3977-0494</a></li>
-                                <li><a>Indonesia</a></li>
+                                <li><a href='mailto:abivandyafirdhan@gmail.com'>abivandyafirdhan@gmail.com</a></li>
+                                <li><a href='https://wa.me/087739770494'>+62 877-3977-0494</a></li>
+                                <li><a href='https://id.wikipedia.org/wiki/Indonesia'>Indonesia</a></li>
+                                
                             </ul>
                         </div>
                         <div className='navigation-link-footer'>

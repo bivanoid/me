@@ -58,7 +58,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 0); // 3 detik
+    }, 3000); // 3 detik
 
     return () => clearTimeout(timer); // Bersihkan timer jika komponen unmount
   }, []);
