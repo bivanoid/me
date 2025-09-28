@@ -19,12 +19,12 @@ function Navigation() {
 
            if (darkMode) {
             // Light mode
-            root.style.setProperty('--primary', '#fafaff');
+            root.style.setProperty('--primary', '#dbdbce');
             root.style.setProperty('--primary2', '#dadaddff');
             root.style.setProperty('--primary3', '#fafaff');
             root.style.setProperty('--blue', '#173ff0');
             root.style.setProperty('--button', '#1c1c1c');
-            root.style.setProperty('--border', '#00000014');
+            root.style.setProperty('--border', '#0000001e');
         } else {
             // Dark mode
             root.style.setProperty('--primary', '#0a0a0a');
@@ -52,13 +52,13 @@ function Navigation() {
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><ShareSvg/></div></a></li>
                 <li><Link to='/blog'>MY BLOG <div className='arrow'><ShareSvg/></div></Link></li>
                 <button className='theme theme2' onClick={toggleTheme}>
-                    <div id='swchbtn2' className='button-swch'>{darkMode ? (<p>a</p>): (<p>a</p>)}</div>
+                    <div id='swchbtn2' className='button-swch'>{darkMode ? (<p></p>): (<p></p>)}</div>
                 </button>
             </ul>
        
             
             <button className='theme theme1' onClick={toggleTheme}>
-                <div id='swchbtn1' className='button-swch'>{darkMode ? (<p>a</p>): (<p>a</p>)}</div>
+                <div id='swchbtn1' className='button-swch'>{darkMode ? (<p></p>): (<p></p>)}</div>
             </button>
 
         </div>

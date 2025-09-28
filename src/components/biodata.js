@@ -56,13 +56,13 @@ function Biodata() {
                                 animateOpacity
                                 threshold={0}
                             >
-                                <h1 id='namamu'>— Firdhan <span>Abivandya.</span></h1>
+                                <h1 id='namamu'>Firdhan <span>Abivandya.</span></h1>
                             </AnimatedContent>
                             
                         </div>
                         <FadeContent blur={false} breakpoints={{747: {blur: false}}} delay={1000} duration={500} easing="ease-out" initialOpacity={0}>
                             <div className='bio' id='bio'>
-                            <h1><span>✦</span>Information</h1>
+                            <h1>Information</h1>
                             <ul className='list-bio'>
                                 <li>
                                     <div className='text-bio'><i class="fi fi-rs-cake-birthday"></i><p>21 June 2007</p></div>
@@ -78,7 +78,7 @@ function Biodata() {
                                 </li>
 
                             </ul>
-                            <h1><span>✦</span>Skills</h1>
+                            <h1>Skills</h1>
                             <div className='skills'>
                                 
                                 <div className='box-skill'>HTML</div>

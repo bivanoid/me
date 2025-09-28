@@ -35,9 +35,7 @@
 
 
 .title-swiper span {
-    -webkit-text-stroke-color: var(--button);
-    -webkit-text-stroke-width: 1px;
-    color: transparent;
+    opacity: 0.3;
 }
 .title-swiper p {
     font-size: 13px;
@@ -217,7 +215,9 @@
     font-family: var(--secondfont);
     width: 60px;
     height: 60px;
-    background-color: var(--border);
+    background: var(--radial-grad);
+    box-sizing: border-box;
+    border: 1px solid var(--border);
 }
 
 .mySwiper .gambar:hover a svg {

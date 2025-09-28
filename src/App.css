@@ -14,7 +14,8 @@
   --blue: #173ff0;
   --grey: rgb(59, 59, 59);
   --button: #f8f8f8;
-  --border: #ffffff0e;
+  --border: #2f2e3136;
+  --radial-grad:radial-gradient(circle, rgba(255, 255, 255, 0) 0%, var(--border) 100%);
   --secondfont: "Kode Mono",
     monospace;
   --primaryfont: "Syne Mono",

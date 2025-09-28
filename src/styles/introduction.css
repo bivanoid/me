@@ -106,15 +106,173 @@
 }
 
 .text {
-    margin-bottom: auto;
     position: relative;
-    padding-top: 57px;
+    height: calc(100%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     z-index: 4;
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 30px 30px 60px 30px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    /* background: url(../assets/ordosocialist_eurasia_flag_by_neobolshevik_dhfr6jm.png);
+    background-size: cover;
+    background-position: center; */
+}
+
+.hero svg {
+    height: 80%;
+    aspect-ratio: 1/1;
+    position: relative;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    z-index: -1;
+    box-sizing: border-box;
+    
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero svg path {
+    fill: transparent;
+    stroke: var(--button);
+    opacity: 0.12;
+    stroke-width: 1px;
+    animation: brokenLamp 3s linear infinite;
+}
+
+@keyframes brokenLamp {
+    0% {
+        opacity: 0.12;
+        transform: scale(1);
+    }  36% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.12;
+    }
+}
+
+.hero .hero-1, .hero-2 {
+    font-family: var(--secondfont);
+    color: var(--button);
+    text-transform: uppercase;
+}
+
+.hero .hero-1 {
+    align-self: flex-start;
+}
+
+.hero .hero-1 span {
+    display: inline-block;
+    margin-inline: 1px;
+}
+
+.hero .hero-1 svg {
+    position: relative;
+    width: 1.48vw;
+}
+
+.hero .hero-1 svg path {
+    fill: var(--button) !important;
+    opacity: 1 !important;
+}
+
+.hero .hero-2 {
+    align-self: flex-end;
+}
+
+.hero .hero-1{
+    text-align: right;
+}
+
+.hero .hero-2 h1 {
+    opacity: 0.3;
+}
+
+.hero p {
+    font-size: 2vw;
+    font-weight: 800;
+    opacity: 0.3;
+}
+
+.hero h1 {
+    font-size: 5vw;
+    margin: 0;
+} 
+
+@media (max-width:1024px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero .hero-1 {
+        align-self: flex-end;
+        width: 80%;
+    }
+
+    .hero p {
+        font-size: 4vw;
+        font-weight: 800;
+        opacity: 0.3;
+    }
+
+    .hero .hero-1 svg {
+        width: 3vw;
+    }
+
+    .hero .hero-2 {
+        align-self: flex-start;
+    }
+
+    .hero h1 {
+        font-size: 9vw;
+    }
+}
+
+@media (max-width:767px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero .hero-1 {
+        align-self: flex-end;
+        width: 100%;
+    }
+
+    .hero p {
+        font-size: 4vw;
+        font-weight: 800;
+        opacity: 0.3;
+    }
+
+    .hero .hero-1 svg {
+        width: 3vw;
+    }
+
+    .hero .hero-2 {
+        align-self: flex-start;
+    }
+
+    .hero h1 {
+        font-size: 11vw;
+    }
 }
 
 .text p {
     margin: 0;
-    text-align: start;
     font-family: var(--secondfont);
 }
 
@@ -127,13 +285,20 @@
     align-items: center;
 }
 
-.text .revealed {
+.header-int {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 30px;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+.text .revealed, .currndate {
     font-size: clamp(0.4rem, 5vw, 0.9rem);
     letter-spacing: 1;
-    transform: translateY(-20px);
     color: var(--button);
     font-family: var(--primaryfont);
-    padding-left: 30px;
     display: flex;
     align-items: center;
 }
@@ -148,6 +313,8 @@
     .revealed span {
         width: .8rem;
     }
+
+    
 }
 
 .con-text-it {
@@ -158,18 +325,20 @@
 }
 
 .text .AnimatedContent {
-    font-size: 8vw;
+    font-size: 12vh;
     font-weight: 1000;
     text-transform: uppercase;
     padding-inline: 30px;
     color: var(--button);
-    width: fit-content;
+    width: 100%;
     border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
     /* line-height: 0.8; */
 }
 
+
 .text .explore {
-        width: 5.7vw;
+        height: 9vh;
         overflow: hidden;
         display: inline-block;
         aspect-ratio: 1 / 1;
@@ -186,12 +355,6 @@
     stroke-width: 5px; */
 }
 
-.text .AnimatedContentItalic {
-    font-style: italic;
-    padding-left: 90px;
-    width: fit-content;
-}
-
 .text .andText {
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: var(--button);
@@ -199,8 +362,7 @@
 }
 
 .text .AnimatedContent2 {
-    padding-left: 150px;
-    width: fit-content;
+    width: 100%;
 }
 
 /* .text p:nth-child(2) {
@@ -276,10 +438,11 @@
     bottom: 0px;
     right: 30px;
     z-index: 3;
-    width: 100px;
-    height: 100px;
+    width: 10%;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
     display: grid;
-    background-color: var(--blue);
+    background: var(--radial-grad);
     position: absolute;
     font-size: 2vw;
     z-index: 4;
@@ -288,7 +451,6 @@
     /* clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%); */
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--border);
-    color: white;
 }
 
 .arrow-to-sc2 svg {
@@ -297,7 +459,7 @@
 }
 
 .arrow-to-sc2 svg path {
-    fill: white;
+    fill: var(--button);
 }
 
 .arrow-to-sc2:hover {
@@ -306,6 +468,12 @@
 
 .arrow-to-sc2:hover svg {
     width: 50%;
+}
+
+@media (max-width:767px) {
+    .arrow-to-sc2 {
+        width: 23vw;
+    }
 }
 
 .arrow-intro {
@@ -350,7 +518,6 @@
 
     .text {
         margin-top: 0;
-        margin-bottom: 50px;
     }
 
     .arrow-to-sc2 {
@@ -364,14 +531,14 @@
 
 
     .text .AnimatedContent {
-        font-size: 16.7vw;
+        font-size: 10vw;
         line-height: 8.8vh;
         padding-inline: 30px;
         border: none;
     }
 
     .text .explore {
-        width: 11.9vw;
+        height: 3.5vh;
     }
 
     .text .andText {

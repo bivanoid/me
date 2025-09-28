@@ -108,11 +108,11 @@ function Feedback() {
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
+            loop={true}
             navigation={{
               nextEl: ".next-fb",
               prevEl: ".prev-fb",
             }}
-            loop={true}
             autoplay={{
               delay: 4000,
               disableOnInteraction: false,

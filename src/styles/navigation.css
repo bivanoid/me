@@ -264,6 +264,7 @@
         padding-right: 30px;
         width: calc(100% - 60px);
         height: 100%;
+        background-color: var(--primary);
         padding-top: 87px;
         top: 0;
         left: -100%;

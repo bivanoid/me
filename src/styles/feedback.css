@@ -225,7 +225,7 @@
     place-items: center;
     padding-inline: 10px;
     width: max-content;
-    background-color: var(--border);
+    background: var(--radial-grad);
     color: var(--button);
 }
 
