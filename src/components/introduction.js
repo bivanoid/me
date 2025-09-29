@@ -98,12 +98,38 @@ function Introduction() {
 
                 <div className='hero'>
                     <div className='hero-1'>
-                        <p>E<span><Logo /></span>plore The</p>
-                        <h1>Ideas and works</h1>
+                    
+                            <AnimatedContent
+                                distance={10}
+                                direction="vertical"
+                                config={{ tension: 100, friction: 30 }}
+                                reverse={true}
+                                initialOpacity={0}
+                                animateOpacity
+                                delay={500}
+                                
+                            >
+                                <p>E<span><Logo /></span>plore The</p>
+                                <h1>Ideas and works</h1>
+                            </AnimatedContent>
+                        
+                        
                     </div>
                     <LogoMiring />
                     <div className='hero-2'>
-                        <h1>that define me.</h1>
+                        <AnimatedContent
+                            distance={10}
+                            direction="vertical"
+                            config={{ tension: 100, friction: 30 }}
+                            reverse={false}
+                            initialOpacity={0}
+                            animateOpacity
+                            delay={500}
+
+                        >
+                            <h1>that define me.</h1>
+                        </AnimatedContent>
+                        
                     </div>
                 </div>
 

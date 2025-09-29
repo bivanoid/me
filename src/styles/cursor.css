@@ -13,7 +13,7 @@
             width: 20px;
             height: 20px;
             background-color: rgba(var(--button), var(--button), bluevar(--button), 0);
-            backdrop-filter: invert(100%) blur(0px);
+            
             border-radius: 50%;
             pointer-events: none;
             clip-path: circle(50% at 50% 50%);
@@ -24,14 +24,15 @@
             /* color: var(--button); */
         }
         
-        .custom-cursor .iccsr {
+        .custom-cursor svg path {
             width: 100%;
             height: 100%;
             color: var(--primary);
+            fill: transparent;
             display: flex;
             justify-content: center;
             align-items: center;
-            
+            fill: var(--button);
         }
 /* 
         .custom-cursor::before {
@@ -55,13 +56,12 @@
         } */
     
         .custom-cursor.active {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             opacity: 1;
             cursor: pointer;
             background-color: transparent;
             border: 1px solid var(--border) ;
-            backdrop-filter: invert(100%) blur(0px);
             clip-path: circle(50% at 50% 50%);
             font-size: 30px;
             

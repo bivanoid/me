@@ -1,11 +1,13 @@
   import React, { useEffect, useState } from 'react';
   import '../styles/cursor.css';
+import MouseIc from '../iconSvg/mouseic';
 
   const CustomCursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [active, setActive] = useState(false);
     const [isLink, setIsLink] = useState(false); // 👈 Tambahan
     const [isClose, setIsClose] = useState(false); // 👈 Tambahan
+    
 
     useEffect(() => {
       const move = (e) => {
@@ -75,7 +77,10 @@
           top: position.y,
           left: position.x,
         }}
-      ><div className='iccsr'>✦</div></div>
+      >
+        {/* <div className='iccsr'>✦</div> */}
+        <MouseIc/>
+      </div>
     );
   };
 

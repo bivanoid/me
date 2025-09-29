@@ -273,7 +273,8 @@
     display: grid;
     place-items: center;
     border-top: 1px solid var(--border);
-    font-weight: 400;
+    font-weight: 600;
+    text-transform: uppercase;
     position: relative;
     overflow: hidden;
 }
@@ -515,9 +516,9 @@
 
 .text-abouts .title-about {
     font-size: 1.3vw;
+    font-weight: 600;
     opacity: 1;
     font-family: var(--secondfont);
-    font-weight: 400;
     color: var(--button);
 }
 

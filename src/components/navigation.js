@@ -47,7 +47,7 @@ function Navigation() {
                 <Logo />
             </div>
             <ul className='navigasi-menu' id='menu'>
-                <h1>Menus<span class="dot-introduction"></span></h1>
+                <h1>/Menus<span class="dot-introduction"></span></h1>
                 <li><Link to="/">PORTOFOLIO <div className='arrow'><ShareSvg/></div></Link></li>
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><ShareSvg/></div></a></li>
                 <li><Link to='/blog'>MY BLOG <div className='arrow'><ShareSvg/></div></Link></li>

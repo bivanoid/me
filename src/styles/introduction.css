@@ -173,6 +173,7 @@
 
 .hero .hero-1 {
     align-self: flex-start;
+    overflow: hidden;
 }
 
 .hero .hero-1 span {

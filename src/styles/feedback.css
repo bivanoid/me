@@ -61,6 +61,7 @@
     font-family: var(--secondfont);
     color: var(--button);
     font-size: 1vw;
+    font-weight: 600;
 }
 
 .prev-fb {
@@ -72,6 +73,7 @@
     font-family: var(--secondfont);
     color: var(--button);
     font-size: 1vw;
+    font-weight: 600;
 }
 
 .swiper-pagination-fraction,
@@ -254,8 +256,9 @@
     display: grid;
     place-items: center;
     border-top: 1px solid var(--border);
-    font-weight: 400;
+    font-weight: 600;
     position: relative;
+    text-transform: uppercase;
     overflow: hidden;
     gap: 10px;
 }

@@ -175,6 +175,7 @@
     font-family: var(--secondfont);
     color: var(--button);
     font-size: 1vw;
+    font-weight: 600;
 }
 
 .prev-hz {
@@ -186,6 +187,7 @@
     font-family: var(--secondfont);
     color: var(--button);
     font-size: 1vw;
+    font-weight: 600;
 }
 
 .mySwiper:hover .gambar {
