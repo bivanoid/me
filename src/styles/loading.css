@@ -10,36 +10,87 @@
     flex-direction: column;
 }
 
-.loading-screen svg {
-    width: 60px;
-    animation: fade 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    opacity: 0;
+.loading-screen h1 {
+    font-family: var(--secondfont);
+    color: var(--button);
+    text-transform: uppercase;
+    display: inline-block;
 }
 
-@keyframes fade {
+.loading-screen h1 span {
+    aspect-ratio: 1 / 1;
+    display: inline-block;
+    
+    
+}
+
+.loading-screen h1 span:nth-child(1) {
+    animation-delay: 0s;
+    animation: loadingnya 1s linear infinite;
+    
+}
+
+.loading-screen h1 span:nth-child(2) {
+    animation: aa 1s linear infinite;
+}
+/* 
+.loading-screen h1 span:nth-child(3) {
+
+    animation-delay: 1.4s;
+} */
+
+@keyframes loadingnya {
     0% {
-        opacity: 0;
-        scale: 0.9;
-    }
-    100% {
+        opacity: 0.3;
+    } 20% {
+        opacity: 0.3;
+    } 39.9% {
+        opacity: 0.3;
+    } 40% {
         opacity: 1;
-        scale: 1;
-    }
-}
-
-.loading-phase2 {
-    animation: scaleZoom 2s linear forwards;
-}
-
-@keyframes scaleZoom {
-    0% {
-        scale: 1;
+    } 60% {
         opacity: 1;
     } 80% {
-        scale: 1;
         opacity: 1;
+    } 80.1% {
+        opacity: 0.3;
     } 100% {
-        scale: 5;
-        opacity: 0;
+        opacity: 0.3;
     }
+}
+
+@keyframes aa {
+
+
+        0% {
+                opacity: 1;
+            }
+        
+            20% {
+                opacity: 1;
+            }
+        
+            39.9% {
+                opacity: 1;
+            }
+        
+            40% {
+                opacity: 0.3;
+            }
+        
+            60% {
+                opacity: 0.3;
+            }
+        
+            80% {
+                opacity: 0.3;
+            }
+        
+            80.1% {
+                opacity: 1;
+            }
+        
+            100% {
+                opacity: 1;
+            }
 }
