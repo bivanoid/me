@@ -11,7 +11,7 @@
   --primary25: #1414143a;
   --primary2: #131313;
   --primary3: #232222;
-  --blue: #173ff0;
+  --blue: #729cf7;
   --grey: rgb(59, 59, 59);
   --button: #f8f8f8;
   --border: #2f2e3136;
@@ -20,6 +20,13 @@
     monospace;
   --primaryfont: "Syne Mono",
     monospace;
+}
+
+* {
+  cursor: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .kode-mono {
@@ -54,9 +61,6 @@ svg path {
   padding: 0 !important;
 }
 
-* {
-  cursor: none;
-}
 
 #smooth-wrapper {
   overflow: hidden;

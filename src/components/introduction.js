@@ -1,7 +1,6 @@
 import '../styles/introduction.css'
 import React, { useState, useEffect, useRef } from 'react';
 import { ReactComponent as StarIcon } from '../assets/plus-paricle.svg';
-import CircularText from './CircularText';
 import AnimatedContent from './AnimatedContent';
 import FadeContent from './FadeContent';
 import Magnet from './Magnet';

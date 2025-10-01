@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useParams, useLocation, useNavigate } from "react-router-dom"
+import { useParams, useLocation, useNavigate, Link } from "react-router-dom"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
@@ -11,17 +11,14 @@ function ScrollProgress() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Import lenis dari komponen lain
+    // Reset scroll ke atas saat komponen mount
+    window.scrollTo(0, 0)
+
     import('../components/lenisSc').then((lenisModule) => {
       const lenis = lenisModule.default;
-      
-      lenis.on('scroll', ({ scroll, limit }) => {
-        const scrollProgress = (scroll / limit) * 100;
-        setProgress(Math.min(scrollProgress, 100));
-      });
+      lenis.scrollTo(0, { immediate: true });
     });
 
-    // Fallback untuk browser yang tidak support Lenis
     const updateProgress = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
@@ -49,21 +46,21 @@ function ScrollProgress() {
 }
 
 const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: document.title,
-          text: 'Cek halaman ini!',
-          url: window.location.href
-        });
-        console.log('Berhasil dibagikan');
-      } catch (error) {
-        console.error('Gagal membagikan', error);
-      }
-    } else {
-      alert('Fitur share tidak didukung di browser ini.');
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: document.title,
+        text: 'Cek halaman ini!',
+        url: window.location.href
+      });
+      console.log('Berhasil dibagikan');
+    } catch (error) {
+      console.error('Gagal membagikan', error);
     }
-  };
+  } else {
+    alert('Fitur share tidak didukung di browser ini.');
+  }
+};
 
 export default function ArticlePage() {
   const { id } = useParams()
@@ -72,6 +69,13 @@ export default function ArticlePage() {
   const [article, setArticle] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
+
+  // Reset scroll position saat halaman article dibuka
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }, [])
 
   useEffect(() => {
     // Try to get article from navigation state first
@@ -113,7 +117,14 @@ export default function ArticlePage() {
   }
 
   function handleGoBack() {
-    navigate(-1)
+    // Hapus scroll position yang tersimpan
+    sessionStorage.removeItem('blogScrollPosition');
+
+    // Navigasi kembali dengan state untuk trigger refresh
+    navigate('/blog', {
+      replace: true,
+      state: { refreshBlog: true, timestamp: Date.now() }
+    });
   }
 
   if (isLoading) {
@@ -153,31 +164,32 @@ export default function ArticlePage() {
   }
 
   return (
-    
     <div className="body-blog">
-    
-      <div className="article-modal-overlay" style={{background: "transparent" }}>
+      <div className="article-modal-overlay" style={{ background: "transparent" }}>
         <div className="article-modal" style={{ border: "none" }}>
           <div className="article-modal-content">
             <aside className="asside-article">
               <div className="asside-main">
-                <button className="close-article-btn" onClick={handleGoBack}>
-                  <Backic/>
+                <button
+                  onClick={handleGoBack}
+                  className="close-article-btn"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <Backic />
                 </button>
                 <h1 className="article-modal-title">{article.title_blog || "Judul tidak tersedia"}</h1>
                 <div className="con-user-uploader">
                   <div className="author-photo"></div>
                   <div className="article-modal-author">
-                  <div className="author-info">
-                    <p className="author-name">{article.author || "Firdhan Abivandya"}</p>
-                    <p className="publish-date">
-                      {article.created_at ? formatDate(article.created_at) : "Tanggal tidak tersedia"}
-                    </p>
-                      <button className="sharePage" onClick={handleShare} ><i class="fi fi-rs-share"></i><p> Share</p></button>
-                  </div>
+                    <div className="author-info">
+                      <p className="author-name">{article.author || "Firdhan Abivandya"}</p>
+                      <p className="publish-date">
+                        {article.created_at ? formatDate(article.created_at) : "Tanggal tidak tersedia"}
+                      </p>
+                      <button className="sharePage" onClick={handleShare} ><i className="fi fi-rs-share"></i><p> Share</p></button>
+                    </div>
                   </div>
                 </div>
-              
               </div>
             </aside>
 
@@ -215,7 +227,7 @@ export default function ArticlePage() {
           </div>
         </div>
       </div>
-      <ScrollProgress/>
+      <ScrollProgress />
       <Footer />
     </div>
   )

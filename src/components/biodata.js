@@ -2,7 +2,6 @@
 import '../styles/aboutme.css';
 import AnimatedContent from './AnimatedContent';
 import FadeContent from './FadeContent';
-import CircularText from './CircularText';
 import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";

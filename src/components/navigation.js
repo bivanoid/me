@@ -6,7 +6,7 @@ import ShareSvg from '../iconSvg/shareic';
 import Menus from '../iconSvg/menus';
 import Close from '../iconSvg/close';
 function open() {
-    ['menu', 'close', 'thecontent', 'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
+    ['menu', 'close', 'thecontent' ,'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
 }
   
 
@@ -30,7 +30,7 @@ function Navigation() {
             root.style.setProperty('--primary', '#0a0a0a');
             root.style.setProperty('--primary2', '#131313');
             root.style.setProperty('--primary3', '#232222');
-            root.style.setProperty('--blue', '#173ff0');
+               root.style.setProperty('--blue', '#729cf7');
             root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
         }

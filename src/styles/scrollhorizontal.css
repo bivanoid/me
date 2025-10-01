@@ -273,7 +273,8 @@
     .next-hz,
     .prev-hz {
         font-size: 3.5vw;
-        width: 35vw;
+        width: fit-content;
+        padding-inline: 30px;
     }
 }
 

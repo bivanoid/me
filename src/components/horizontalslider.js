@@ -35,7 +35,7 @@ export default function HorizontalSlider({ onImageClick }) {
       type: "individual",
       title: "Gallery Photo",
       tags: ["JAVA", "XML", "FIREBASE"],
-      link: "https://github.com/Vandyaaa/bicture-app"
+      link: "https://bivanoid.github.io/me/#/article/43"
     },
     {
       img: calc,

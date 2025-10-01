@@ -19,18 +19,9 @@ function AppRoutes() {
   return (
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={
-        <AnimatedContent
-          distance={50}
-          direction="vertical"
-          reverse={false}
-          config={{ tension: 100, friction: 30 }}
-          initialOpacity={0}
-          animateOpacity
-          threshold={0}
-          
-        >
-          <Home/>
-        </AnimatedContent>
+        <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
+          <Home />
+        </FadeContent>
       } />
       <Route path="/add-feedback" element={
         <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
@@ -43,18 +34,9 @@ function AppRoutes() {
         </FadeContent>
       } />
       <Route path="/article/:id" element={
-        <AnimatedContent 
-          distance={50}
-          direction="vertical"
-          reverse={false}
-          config={{ tension: 100, friction: 30 }}
-          initialOpacity={0}
-          animateOpacity
-          threshold={0}
-          delay={500}
-        >
+        <FadeContent blur={false} duration={500} easing="ease-out" initialOpacity={0}>
           <ArticlePage />
-        </AnimatedContent>
+        </FadeContent>
       } />
     </Routes>
   );

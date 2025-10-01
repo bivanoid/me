@@ -62,11 +62,10 @@
 .sticky {
     position: sticky;
     display: flex;
-    justify-content: space-between;
-    height: calc(100vh);
+    justify-content: flex-start;
+    height: 100svh;
     flex-direction: column;
     background-color: transparent;
-    overflow: hidden;
     top: 0;
 }
 
@@ -123,6 +122,7 @@
     background: url(../assets/legosleep.jpg);
     aspect-ratio: 1/1;
     display: grid;
+    
     background-position: center;
     background-size: cover;
     border-radius: 0;
@@ -153,17 +153,19 @@
     border-radius: 2px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    margin-block: 30px;
     color: white;
-    height: 100%;
+    height: fit-content;
     z-index: 2;
     padding-inline: 30px;
 }
 
 
-
 .skills {
     display: flex;
     flex-wrap: wrap;
+    gap: 1vw;
     align-items: stretch;
     justify-content: flex-start;
     max-height: 20vh;
@@ -246,28 +248,35 @@
 .con-hire-me {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    /* display: none; */
+    height: 62px;
+    position: absolute;
+    bottom: 0;
     gap: 10px;
 }
 
-.con-hire-me a span {
-    height: 40px;
-    aspect-ratio: 1/1;
-    border-radius: 20px;
-    background-color: #bc1888;
-    display: grid;
-    place-items: center;
+
+
+.con-hire-me a {
+    height: 100%;
 }
 
-.con-hire-me a span i {
-    transform: translateY(2px);
-    color: white;
+@media (max-width:767px) {
+    .con-hire-me {
+        height: 62px;
+        position: relative;
+        bottom: 0;
+        margin-top: 30px;
+    }
+
+    .con-hire-me a {
+        margin: 0;
+    }
 }
 
 .contactme {
     color: var(--button);
     font-family: var(--secondfont);
-    transition: 0.3s;
     width: 100%;
     height: 62px;
     display: grid;
@@ -277,6 +286,14 @@
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+}
+
+.con-hire-me:hover {
+    background-color: var(--blue);
+}
+
+.con-hire-me:hover .contactme {
+    color: var(--primary);
 }
 
 .mail-me {
@@ -301,10 +318,9 @@
 .bio h1 {
     font-size: 1vw;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-block: 5px 15px;
     display: flex;
     align-items: center;
-    margin-top: 0px;
     letter-spacing: 1px;
     color: var(--button);
     text-transform: uppercase;
@@ -363,6 +379,10 @@
 
         .sticky-header {
             margin-bottom: 0;
+        }
+
+        .bio {
+            margin: 0;
         }
 
         .bio .list-bio li {
@@ -511,12 +531,14 @@
 
 .text-abouts {
     width: calc(100% - 30px);
+    height: 100%;
     color: white;
 }
 
 .text-abouts .title-about {
     font-size: 1.3vw;
     font-weight: 600;
+    margin-top: 15px;
     opacity: 1;
     font-family: var(--secondfont);
     color: var(--button);
@@ -532,34 +554,17 @@
     color: var(--button);
 }
 
-.text-abouts .content-about::first-letter {
-    display: inline-block;
-    opacity: 1;
-    float: inline-start;
-    font-size: 4vw;
-    line-height: 50%;
-    transform: translateY(50px);
-    font-family: var(--secondfont);
-}
-
-@media (max-width:767px) {
-    .text-abouts .content-about::first-letter {
-        font-size: 15vw;
-    }
-}
-
 .text-abouts .content-carrier {
     font-size: 1vw;
     list-style: none;
-    height: 100%;
+    height: 75%;
     color: var(--button);
     line-height: 1.1;
     position: relative;
     margin: 0;
-    padding-right: 20px;
     display: flex;
     flex-direction: column;
-    padding: 0;
+    justify-content: space-between;
     position: relative;
     outline: 2px;
     outline-color: var(--button);
@@ -608,6 +613,10 @@
     .text-abouts .content-carrier li:hover p {
         transform: translateX(6px);
     }
+
+        .skills {
+            gap: 0.5vw;
+        }
         
 }
 .content-carrier li p {
@@ -625,7 +634,7 @@
 } */
 
 .content-carrier hr {
-    height: 20px;
+    height: 3vh;
     border-color: var(--button);
     opacity: 0.7;
     width: 0px;
@@ -633,7 +642,7 @@
     border-style: dashed;
     margin: 0;
     margin-right: auto;
-    margin-left: 1vw;
+    margin-left: calc(1vw - 1px);
 }
 
 .con-line-carrier {
@@ -797,6 +806,8 @@
 
     .text-abouts .content-carrier {
         font-size: 3.7vw;
+        gap: 10px;
+        height: 100%;
     }
 
     .content-carrier li span {
@@ -811,6 +822,20 @@
     }
 
     .content-carrier hr {
-        margin-left: 3vw;
+        margin-left: calc(3vw - 1px);
+    }
+
+    
+}
+
+@media (min-width:1480px) {
+    .sticky-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .con-image-bio {
+        width: 7vw;
     }
 }

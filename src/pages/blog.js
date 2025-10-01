@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom"
 import Backic from "../iconSvg/backic"
 import Menus from '../iconSvg/menus';
 import Close from '../iconSvg/close';
+import { Link } from 'react-router-dom';
 
 // Scroll Progress Component (kept for potential future use)
 function ScrollProgress() {
@@ -57,6 +58,7 @@ export default function Blog() {
   const [error, setError] = useState(null)
   const [connectionTest, setConnectionTest] = useState(null)
   const navigate = useNavigate()
+  const scrollPosition = useRef(0);
 
   const handleGoBack = () => {
     navigate(-1)
@@ -126,7 +128,7 @@ export default function Blog() {
   }
 
   function openBlog() {
-    ;["menuShow", "closeBlog", "conArticle", "backMenuIcon", "menuBlogIcon", "logoBlogIcon"].forEach((id) => {
+    ;["menuShow", "closeBlog", "conArticle", "footerBlog", "backMenuIcon", "menuBlogIcon", "logoBlogIcon"].forEach((id) => {
       const element = document.getElementById(id)
       if (element) {
         element.classList.toggle("open-menu-blog")
@@ -134,22 +136,21 @@ export default function Blog() {
     })
   }
 
-  // Modified function to open article in new page
+
+  useEffect(() => {
+    // Restore scroll position
+    const savedPosition = sessionStorage.getItem('blogScrollPosition');
+    if (savedPosition) {
+      window.scrollTo(0, parseInt(savedPosition));
+      sessionStorage.removeItem('blogScrollPosition');
+    }
+  }, []);
+  
+
   function openArticle(article) {
-    // Option 1: Navigate to a new route (recommended)
-    navigate(`/article/${article.id}`, { state: { article } })
-
-    // Option 2: Open in new tab/window
-    // const articleUrl = `/article/${article.id}`;
-    // window.open(articleUrl, '_blank');
-
-    // Option 3: Open in new tab with article data as URL parameters (if data is small)
-    // const articleParams = new URLSearchParams({
-    //     id: article.id,
-    //     title: article.title_blog,
-    //     // Add other necessary parameters
-    // });
-    // window.open(`/article?${articleParams.toString()}`, '_blank');
+    // Save current scroll position
+    sessionStorage.setItem('blogScrollPosition', window.pageYOffset.toString());
+    navigate(`/article/${article.id}`, { state: { article } });
   }
 
   function formatDate(dateString) {
@@ -163,19 +164,19 @@ export default function Blog() {
   }
 
   return (
-    <div className="body-blog">
+    <div className="body-blog" id="theblog"> 
       <div className="con-blog">
         <main>
           <div className="navigation-blog">
-            <div className="clstgr back-to-home-from-blog" id="backMenuIcon" onClick={handleGoBack}>
-              <Backic/>
-            </div>
+            <Link to='/' className="clstgr back-to-home-from-blog" id="backMenuIcon">
+              <Backic />
+            </Link>
             <div className="logoBlog" id="logoBlogIcon">
               <Logo />
             </div>
 
             <div className="menu-button-blog" id="menuBlogIcon" onClick={openBlog}>
-              <Menus/>
+              <Menus />
             </div>
           </div>
 
@@ -269,8 +270,8 @@ export default function Blog() {
         </main>
 
         <div className="close-blog" id="closeBlog" onClick={openBlog}>
-        <div className="menu-button-close-blog">
-          <Close/>
+          <div className="menu-button-close-blog">
+            <Close />
           </div>
         </div>
 
@@ -290,25 +291,13 @@ export default function Blog() {
                 </li>
               </ul>
             </div>
-            <svg
-              className="con-star con-star-blog"
-              width="100"
-              height="100"
-              viewBox="0 0 200 200"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                className="star"
-                d="M107.729 40.5811C112.721 66.7848 133.215 87.2792 159.419 92.2705L200 100L159.419 107.729C133.215 112.721 112.721 133.215 107.729 159.419L100 200L92.2705 159.419C87.2792 133.215 66.7848 112.721 40.5811 107.729L0 100L40.5811 92.2705C66.7848 87.2792 87.2792 66.7848 92.2705 40.5811L100 0L107.729 40.5811Z"
-                fill="#D9D9D9"
-              ></path>
-            </svg>
           </div>
         </div>
       </div>
-
-      <Footer />
+      <div id="footerBlog">
+        <Footer />
+      </div>
+      
     </div>
   )
 }

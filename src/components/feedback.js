@@ -95,10 +95,11 @@ function Feedback() {
 
       {loading && <p className="loading-feedback">Loading...</p>}
       {error && (
-        <p className="error-title">
+        <div className="error-title">
+        
           Error! <br />
           {error.message}
-        </p>
+        </div>
       )}
       {!loading && users.length === 0 && <p className="error-fetch">No feedback yet.</p>}
 

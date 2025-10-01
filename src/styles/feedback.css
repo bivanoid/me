@@ -62,6 +62,7 @@
     color: var(--button);
     font-size: 1vw;
     font-weight: 600;
+    padding-inline: 30px;
 }
 
 .prev-fb {
@@ -74,6 +75,7 @@
     color: var(--button);
     font-size: 1vw;
     font-weight: 600;
+    padding-inline: 30px;
 }
 
 .swiper-pagination-fraction,
@@ -118,7 +120,8 @@
 
     .next-fb, .prev-fb {
         font-size: 3.5vw;
-        width: 35vw;
+        width: fit-content;
+        
     }
 }
 
@@ -250,7 +253,6 @@
 .link-to-addfeedback {
     color: var(--button);
     font-family: var(--secondfont);
-    transition: 0.3s;
     width: 100%;
     height: 62px;
     display: grid;
@@ -271,12 +273,20 @@
 }
 
 .link-to-addfeedback-title1 {
+    color: var(--button);
     position: relative;
     display: flex;
     align-items: center;
     padding-inline: 20px;
     justify-content: center;
-    transition: 0.4s;
+}
+
+.link-to-addfeedback:hover {
+    background-color: var(--blue);
+}
+
+.link-to-addfeedback:hover .link-to-addfeedback-title1 {
+    color: var(--primary);
 }
 
 /* Loading and Error Styles */
