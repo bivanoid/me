@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/me/static/css/main.bc0993d1.css",
+    "main.css": "/me/static/css/main.aca6c8fb.css",
     "main.js": "/me/static/js/main.f9050782.js",
     "static/js/198.e4502a77.chunk.js": "/me/static/js/198.e4502a77.chunk.js",
     "static/media/WAKTU AHKIR.jpg": "/me/static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
@@ -16,12 +16,12 @@
     "static/media/sheep.jpeg": "/me/static/media/sheep.540c258dbc2cf8c2f105.jpeg",
     "index.html": "/me/index.html",
     "static/media/plus-paricle.svg": "/me/static/media/plus-paricle.a91328f68783c0a77b08cac4564e650d.svg",
-    "main.bc0993d1.css.map": "/me/static/css/main.bc0993d1.css.map",
+    "main.aca6c8fb.css.map": "/me/static/css/main.aca6c8fb.css.map",
     "main.f9050782.js.map": "/me/static/js/main.f9050782.js.map",
     "198.e4502a77.chunk.js.map": "/me/static/js/198.e4502a77.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc0993d1.css",
+    "static/css/main.aca6c8fb.css",
     "static/js/main.f9050782.js"
   ]
 }
