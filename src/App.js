@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Introduction from './components/introduction';
@@ -14,8 +14,38 @@ import ArticlePage from './pages/ArticlePages';
 import AnimatedContent from './components/AnimatedContent';
 import Loading from './components/loading';
 
+// Context untuk Lenis
+export const LenisContext = React.createContext(null);
+
 function AppRoutes() {
   const location = useLocation();
+  const lenisRef = React.useContext(LenisContext);
+
+  // Reset Lenis scroll ketika route berubah
+  useEffect(() => {
+    if (lenisRef?.current) {
+      // Stop smooth scroll animation
+      lenisRef.current.stop();
+
+      // Reset scroll position immediately
+      lenisRef.current.scrollTo(0, {
+        immediate: true,
+        force: true,
+        lock: true
+      });
+
+      // Start smooth scroll again after a brief delay
+      setTimeout(() => {
+        lenisRef.current.start();
+      }, 100);
+    } else {
+      // Fallback jika Lenis tidak tersedia
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [location.pathname]);
+
   return (
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={
@@ -44,27 +74,45 @@ function AppRoutes() {
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const lenisRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000); // 3 detik
+    }, 5000);
 
-    return () => clearTimeout(timer); // Bersihkan timer jika komponen unmount
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Initialize Lenis (jika Lenis diinisialisasi di sini)
+  useEffect(() => {
+    // Jika Anda menggunakan Lenis, simpan instance-nya di ref
+    // Contoh:
+    // import Lenis from '@studio-freight/lenis'
+    // const lenis = new Lenis()
+    // lenisRef.current = lenis
+    // 
+    // function raf(time) {
+    //   lenis.raf(time)
+    //   requestAnimationFrame(raf)
+    // }
+    // requestAnimationFrame(raf)
   }, []);
 
   return (
     <Router>
-      <div className='body'>
-      <CustomCursor />
-        {loading ? (
-          <Loading/>
-        ) : (
-          <div>
-            <AppRoutes />
-          </div>
-        )}
-      </div>
+      <LenisContext.Provider value={lenisRef}>
+        <div className='body'>
+          <CustomCursor />
+          {loading ? (
+            <Loading />
+          ) : (
+            <div>
+              <AppRoutes />
+            </div>
+          )}
+        </div>
+      </LenisContext.Provider>
     </Router>
   );
 }

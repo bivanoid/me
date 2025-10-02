@@ -115,6 +115,7 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
+    min-height: calc(100svh - 57px);
     gap: 10px;
 }
 
@@ -189,6 +190,11 @@ main {
     width: 50%;
     padding: 10px;
     border: 1px solid var(--border);
+}
+
+.rendered-html img {
+    width: 100%;
+    height: fit-content;
 }
 
 .filter-by li:hover {
@@ -291,16 +297,34 @@ main {
     .editor-heading, .editor-quote, .editor-code, .editor-text-color, .editor-bg-color, .editor-align-left,
     .editor-align-center, .editor-align-right, .editor-align-justify, .editor-list, .editor-table, .editor-link,
     .editor-hr, .editor-fontsize-1, .editor-fontsize-2, .editor-fontsize-3, .editor-fontsize-4, .editor-fontsize-5,
-    .editor-fontsize-6, .editor-fontsize-7, .editor-formatted) {
+    .editor-fontsize-6, .editor-fontsize-7, .MsoNormal, .editor-formatted) {
     color: var(--button);
     font-style: normal;
     font-weight: 100;
-    font-size: 1vw;
+    font-size: 1.2vw !important;
     text-align: left;
     align-items: left;
     margin: 0;
     cursor: pointer;
     pointer-events: none;
+}
+
+@media (max-width:747px) {
+    .content-article :is(a, p, .MsoNormal, .editor-bold, .editor-italic, .editor-underline, .editor-strikethrough,
+            .editor-heading, .editor-quote, .editor-code, .editor-text-color, .editor-bg-color, .editor-align-left,
+            .editor-align-center, .editor-align-right, .editor-align-justify, .editor-list, .editor-table, .editor-link,
+            .editor-hr, .editor-fontsize-1, .editor-fontsize-2, .editor-fontsize-3, .editor-fontsize-4, .editor-fontsize-5,
+            .editor-fontsize-6, .editor-fontsize-7, .MsoNormal, .editor-formatted) {
+            color: var(--button);
+            font-style: normal;
+            font-weight: 100;
+            font-size: 3.5vw !important;
+            text-align: left;
+            align-items: left;
+            margin: 0;
+            cursor: pointer;
+            pointer-events: none;
+        }
 }
 
 .editor-heading {
@@ -342,13 +366,14 @@ main {
     opacity: 0.5;
     overflow: hidden;
     display: -webkit-box;
+    margin-top: 15px;
     line-clamp: 5;
     -webkit-box-orient: vertical;
     font-family: var(--primaryfont);
 }
 
-.seemore {
-    color: aqua !important;
+.seeMore {
+    opacity: 1 !important;
 }
 
 .tags {
@@ -434,7 +459,6 @@ main {
     box-sizing: border-box;
     top: 0;
     left: 0;
-    overflow-y: auto;
     scroll-behavior: smooth;
     width: 100%;
     height: 100%;
@@ -454,7 +478,6 @@ main {
     max-width: 100vw;
     width: 100%;
     height: 100%;
-    overflow-y: auto;
     position: relative;
 }
 
@@ -673,29 +696,29 @@ main {
     overflow-x: auto;
 }
 
+
 .editor-list {
     display: flex;
     flex-direction: column;
+    padding-left: 30px;
 }
 
 .editor-list li {
-    display: inline;
     flex-direction: column;
     margin-bottom: 7px;
     position: relative;
 }
 
-.editor-list li::before {
-    content: '✦';
-    font-family: var(--primaryfont);
-    font-size: 1.2vw;
-    line-height: 0.4;
-    width: 10px;
-    height: 50%;
-    transform: translateX(-200%) translateY(9px);
-    position: absolute;
-    opacity: 0.5;
-    color: var(--button);
+.editor-list li::marker {
+        font-family: var(--primaryfont);
+        font-size: 1.2vw;
+        line-height: 0.4;
+        width: 100px;
+        height: 50%;
+        transform: translateX(-200%) translateY(9px);
+        position: absolute;
+        opacity: 0.5;
+        color: var(--button);
 }
 
 @media (max-width:767px) {
@@ -729,6 +752,9 @@ main {
         font-family: var(--primaryfont);
     }
 
+    .editor-list li::marker {
+        font-size: 3vw;
+    }
 
 }
 

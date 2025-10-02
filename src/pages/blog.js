@@ -1,55 +1,17 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useContext } from "react"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
 import Alert from "../assets/Alert.png"
 import Logo from "../components/logo"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import Backic from "../iconSvg/backic"
 import Menus from '../iconSvg/menus';
 import Close from '../iconSvg/close';
 import { Link } from 'react-router-dom';
-
-// Scroll Progress Component (kept for potential future use)
-function ScrollProgress() {
-  const [progress, setProgress] = useState(0)
-
-  useEffect(() => {
-    const updateProgress = () => {
-      const scrollContainer = document.querySelector(".article-modal")
-      const contentContainer = document.querySelector(".article-modal-content")
-      if (!scrollContainer || !contentContainer) return
-
-      const scrollTop = scrollContainer.scrollTop
-      const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight
-      const scrollProgress = (scrollTop / scrollHeight) * 100
-
-      setProgress(Math.min(scrollProgress, 100))
-    }
-
-    const scrollContainer = document.querySelector(".article-modal")
-    if (scrollContainer) {
-      scrollContainer.addEventListener("scroll", updateProgress)
-      updateProgress()
-
-      return () => {
-        scrollContainer.removeEventListener("scroll", updateProgress)
-      }
-    }
-  }, [])
-
-  return (
-    <div className="con-progress">
-      <p>top</p>
-      <div className="scroll-progress-container-vertical">
-        <div className="scroll-progress-bar-vertical" style={{ height: `${progress}%` }} />
-      </div>
-      <p>Bottom</p>
-    </div>
-  )
-}
+import { LenisContext } from "../App"
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([])
@@ -58,11 +20,45 @@ export default function Blog() {
   const [error, setError] = useState(null)
   const [connectionTest, setConnectionTest] = useState(null)
   const navigate = useNavigate()
-  const scrollPosition = useRef(0);
+  const location = useLocation()
+  const scrollPosition = useRef(0)
+  const lenisRef = useContext(LenisContext)
 
   const handleGoBack = () => {
     navigate(-1)
   }
+
+  // Reset scroll position ketika pertama kali masuk atau kembali dari article
+  useEffect(() => {
+    // Jika kembali dari article page, restore scroll position
+    if (location.state?.restoreScroll) {
+      const savedPosition = sessionStorage.getItem('blogScrollPosition');
+      if (savedPosition && lenisRef?.current) {
+        setTimeout(() => {
+          lenisRef.current.scrollTo(parseInt(savedPosition), {
+            immediate: true,
+            force: true
+          });
+          sessionStorage.removeItem('blogScrollPosition');
+        }, 150);
+      } else if (savedPosition) {
+        // Fallback tanpa Lenis
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(savedPosition));
+          sessionStorage.removeItem('blogScrollPosition');
+        }, 150);
+      }
+    } else {
+      // Jika baru masuk, reset ke atas dengan Lenis
+      if (lenisRef?.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }
+    }
+  }, [location.state, lenisRef]);
 
   useEffect(() => {
     async function testConnection() {
@@ -136,20 +132,16 @@ export default function Blog() {
     })
   }
 
-
-  useEffect(() => {
-    // Restore scroll position
-    const savedPosition = sessionStorage.getItem('blogScrollPosition');
-    if (savedPosition) {
-      window.scrollTo(0, parseInt(savedPosition));
-      sessionStorage.removeItem('blogScrollPosition');
-    }
-  }, []);
-  
-
   function openArticle(article) {
-    // Save current scroll position
-    sessionStorage.setItem('blogScrollPosition', window.pageYOffset.toString());
+    // Save current scroll position dari Lenis
+    if (lenisRef?.current) {
+      const currentScroll = lenisRef.current.scroll;
+      sessionStorage.setItem('blogScrollPosition', currentScroll.toString());
+    } else {
+      // Fallback
+      sessionStorage.setItem('blogScrollPosition', window.pageYOffset.toString());
+    }
+
     navigate(`/article/${article.id}`, { state: { article } });
   }
 
@@ -160,11 +152,11 @@ export default function Blog() {
 
   function truncateText(text, maxLength = 250) {
     if (text.length <= maxLength) return text
-    return text.substring(0, maxLength) + "<span style='color: white; opacity: 1;'> see more</span>"
+    return text.substring(0, maxLength) + "<span className='seeMore' style='opacity: 1 !important;'> see more...</span>"
   }
 
   return (
-    <div className="body-blog" id="theblog"> 
+    <div className="body-blog" id="theblog">
       <div className="con-blog">
         <main>
           <div className="navigation-blog">
@@ -297,7 +289,7 @@ export default function Blog() {
       <div id="footerBlog">
         <Footer />
       </div>
-      
+
     </div>
   )
 }

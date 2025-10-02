@@ -86,9 +86,9 @@ svg path {
 
 ::selection {
   background-color: var(--blue);
+  color: var(--primary);
   
 }
-
 
 .habibi-regular {
   font-family: "Habibi", serif;

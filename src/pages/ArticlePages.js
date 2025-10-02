@@ -1,49 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useParams, useLocation, useNavigate, Link } from "react-router-dom"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
 import Backic from "../iconSvg/backic"
-
-function ScrollProgress() {
-  const [progress, setProgress] = useState(0)
-
-  useEffect(() => {
-    // Reset scroll ke atas saat komponen mount
-    window.scrollTo(0, 0)
-
-    import('../components/lenisSc').then((lenisModule) => {
-      const lenis = lenisModule.default;
-      lenis.scrollTo(0, { immediate: true });
-    });
-
-    const updateProgress = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
-      const scrollProgress = (scrollTop / scrollHeight) * 100
-      setProgress(Math.min(scrollProgress, 100))
-    }
-
-    window.addEventListener("scroll", updateProgress)
-    updateProgress()
-
-    return () => {
-      window.removeEventListener("scroll", updateProgress)
-    }
-  }, [])
-
-  return (
-    <div className="con-progress" data-lenis-prevent>
-      <p>top</p>
-      <div className="scroll-progress-container-vertical">
-        <div className="scroll-progress-bar-vertical" style={{ height: `${progress}%` }} />
-      </div>
-      <p>Bottom</p>
-    </div>
-  )
-}
+import { LenisContext } from "../App"
 
 const handleShare = async () => {
   if (navigator.share) {
@@ -69,13 +32,18 @@ export default function ArticlePage() {
   const [article, setArticle] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
+  const lenisRef = useContext(LenisContext)
 
   // Reset scroll position saat halaman article dibuka
   useEffect(() => {
-    window.scrollTo(0, 0)
-    document.documentElement.scrollTop = 0
-    document.body.scrollTop = 0
-  }, [])
+    if (lenisRef?.current) {
+      lenisRef.current.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+    }
+  }, [lenisRef])
 
   useEffect(() => {
     // Try to get article from navigation state first
@@ -117,14 +85,41 @@ export default function ArticlePage() {
   }
 
   function handleGoBack() {
-    // Hapus scroll position yang tersimpan
-    sessionStorage.removeItem('blogScrollPosition');
+    // Reset Lenis scroll dengan force
+    if (lenisRef?.current) {
+      lenisRef.current.stop();
+      lenisRef.current.scrollTo(0, {
+        immediate: true,
+        force: true,
+        lock: true
+      });
 
-    // Navigasi kembali dengan state untuk trigger refresh
-    navigate('/blog', {
-      replace: true,
-      state: { refreshBlog: true, timestamp: Date.now() }
-    });
+      // Tunggu sebentar sebelum navigasi
+      setTimeout(() => {
+        navigate('/blog', {
+          replace: true,
+          state: {
+            refreshBlog: true,
+            timestamp: Date.now(),
+            restoreScroll: true
+          }
+        });
+      }, 50);
+    } else {
+      // Fallback tanpa Lenis
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+
+      navigate('/blog', {
+        replace: true,
+        state: {
+          refreshBlog: true,
+          timestamp: Date.now(),
+          restoreScroll: true
+        }
+      });
+    }
   }
 
   if (isLoading) {
@@ -227,7 +222,6 @@ export default function ArticlePage() {
           </div>
         </div>
       </div>
-      <ScrollProgress />
       <Footer />
     </div>
   )
