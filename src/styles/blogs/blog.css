@@ -27,6 +27,16 @@
     height: calc(100vh - 87px);
 }
 
+.error-state svg {
+    width: 13vw;
+    height: fit-content;
+    opacity: 0.3;
+}
+
+.error-state svg path {
+    fill: var(--button);
+}
+
 .try-again-blog {
     border: 1px solid var(--border);
     background-color: transparent;
@@ -35,12 +45,19 @@
     color: var(--button);
 }
 
+.try-again-blog2 {
+        padding-block: 20px;
+    width: 100%;
+}
+
 .error-state p {
     color: var(--button);
-    font-family: var(--secondfont);
-    font-size: 2vw;
-    max-width: 80%;
-    text-align: center;
+        font-family: var(--secondfont);
+        font-size: 1.6vw;
+        font-weight: 800;
+        max-width: 80%;
+        text-align: center;
+        margin-block: 15px;
 }
 
 .back-to-home-from-blog {
@@ -88,7 +105,7 @@ main {
 }
 
 .status-conection-blog p {
-    border: 1px solid rgb(123, 255, 145);
+    border: 1px solid rgb(63, 224, 90);
     font-family: var(--primaryfont);
     padding: 5px 10px 5px 10px;
     font-size: 1vw;
@@ -122,6 +139,7 @@ main {
 .con-blog-sticky {
     width: calc(25% - 50px);
     border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     height: auto;
     background-color: var(--primary);
     padding: 0px 30px 0px 20px;
@@ -230,7 +248,7 @@ main {
 .empty-state,
 .loading-state {
     width: 100%;
-    height: 100vh;
+    height: calc(100svh - 57px);
     font-family: var(--primaryfont);
     display: grid;
     place-items: center;
@@ -504,7 +522,7 @@ main {
     position: sticky;
     display: flex;
     justify-content: space-between;
-    padding: 30px 30px 0px 0px;
+    padding: 30px 30px 30px 0px;
     flex-direction: column;
     top: 0;
 }
@@ -532,7 +550,7 @@ main {
 .main-article {
     padding-left: 30px;
     padding-top: 30px;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -552,6 +570,7 @@ main {
     padding-right: 5%;
     height: fit-content;
     position: relative;
+    border-bottom: 1px solid var(--border);
 }
 
 .article-modal-image {
@@ -753,7 +772,7 @@ main {
     }
 
     .editor-list li::marker {
-        font-size: 3vw;
+        font-size: 3.5vw;
     }
 
 }
@@ -994,7 +1013,7 @@ hr {
     }
 
     .article-modal-content {
-        padding: 0 30px 15px 30px;
+        padding: 80px 30px 15px 30px;
         width: 100% - 60px;
         flex-direction: column;
     }
@@ -1068,6 +1087,8 @@ hr {
         aspect-ratio: 0;
         top: 30px;
         width: 50px;
+        position: fixed;
+        z-index: 80;
     }
 
     .con-progress {

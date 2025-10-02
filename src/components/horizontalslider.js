@@ -125,6 +125,7 @@ export default function HorizontalSlider({ onImageClick }) {
             640: { slidesPerView: 1, spaceBetween: 10 },
             768: { slidesPerView: 2, spaceBetween: 0 },
             1024: { slidesPerView: 2.5, spaceBetween: 0 },
+            1424: { slidesPerView: 3.5, spaceBetween: 0 },
           }}
           className="mySwiper"
         >

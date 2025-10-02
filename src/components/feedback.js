@@ -12,11 +12,13 @@ import { Link } from "react-router-dom"
 import "swiper/css"
 import "swiper/css/pagination"
 import "../styles/feedback.css"
+import Alert from "../iconSvg/alertIc"
 
 const supabaseUrl = "https://gyzebdhodmnzpdufivol.supabase.co"
 const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd5emViZGhvZG1uenBkdWZpdm9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5OTE4ODcsImV4cCI6MjA2MTU2Nzg4N30.1XYTKLxTMHocFRM5QfCTPiRQYyE8hhZMAtFrKib8dqc"
 const supabase = createClient(supabaseUrl, supabaseKey)
+const ohNo = 'Oh noo! '
 
 // Fungsi untuk mengonversi rating ke emoji
 function getEmojiFromRating(rating) {
@@ -96,12 +98,12 @@ function Feedback() {
       {loading && <p className="loading-feedback">Loading...</p>}
       {error && (
         <div className="error-title">
-        
-          Error! <br />
-          {error.message}
+          <Alert/>
+          <p>{ohNo + error.message}</p>
+          {!loading && users.length === 0 && <p className="error-fetch">No feedback yet.</p>}
         </div>
       )}
-      {!loading && users.length === 0 && <p className="error-fetch">No feedback yet.</p>}
+      
 
       <FadeContent blur={false} duration={1500} delay={1000} easing="ease-out" initialOpacity={0}>
         <div className="swiper-container">

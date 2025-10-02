@@ -1,17 +1,17 @@
 @import url(../App.css);
 
 .footer {
-    border-top: 1px solid var(--border);
     height: 100svh;
     width: 100%;
     font-family: var(--primaryfont);
     position: relative;
     box-sizing: border-box;
+    z-index: 81;
 }
 
 .footer-header {
     height: 62px;
-    width: calc(100% - 60px);
+    width: calc(100%);
     border-bottom: 1px solid var(--border);
     padding-inline: 30px;
     display: flex;

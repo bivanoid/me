@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useContext } from "react"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
-import Alert from "../assets/Alert.png"
+import Alert from "../iconSvg/alertIc"
 import Logo from "../components/logo"
 import { useNavigate, useLocation } from "react-router-dom"
 import Backic from "../iconSvg/backic"
@@ -18,7 +18,6 @@ export default function Blog() {
   const [isLoading, setIsLoading] = useState(true)
   const [filter, setFilter] = useState("latest")
   const [error, setError] = useState(null)
-  const [connectionTest, setConnectionTest] = useState(null)
   const navigate = useNavigate()
   const location = useLocation()
   const scrollPosition = useRef(0)
@@ -66,14 +65,13 @@ export default function Blog() {
         const { data, error } = await supabase.from("blog").select("count")
         if (error) {
           console.error("Connection test failed:", error)
-          setConnectionTest(`Koneksi gagal: ${error.message}`)
+          
         } else {
           console.log("Connection test successful:", data)
-          setConnectionTest("Connected")
+          
         }
       } catch (err) {
         console.error("Connection test error:", err)
-        setConnectionTest(`Error: ${err.message || String(err)}`)
       }
     }
 
@@ -179,7 +177,7 @@ export default function Blog() {
               </div>
             ) : error ? (
               <div className="error-state">
-                <img src={Alert || "/placeholder.svg"} alt="Error" />
+                <Alert/>
                 <p>{error}</p>
                 <button className="try-again-blog" onClick={() => fetchBlogs(filter)}>
                   Load Again
@@ -192,11 +190,7 @@ export default function Blog() {
             ) : (
               <>
                 <div className="info-blog" id="info-blog">
-                  <div className="status-conection-blog">
-                    <p>
-                      <strong></strong> {connectionTest || "Checking Connection..."}
-                    </p>
-                  </div>
+                
                   <div className="debug-info">
                     <p>All: {blogs.length}</p>
                     <p>Filter: {filter}</p>
@@ -282,6 +276,16 @@ export default function Blog() {
                   Oldest
                 </li>
               </ul>
+              <button
+                className="try-again-blog try-again-blog2"
+                onClick={() => {
+                  fetchBlogs(filter);
+                  openBlog();
+                }}
+              >
+                Refresh
+              </button>
+
             </div>
           </div>
         </div>

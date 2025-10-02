@@ -257,7 +257,7 @@
     height: 62px;
     display: grid;
     place-items: center;
-    border-top: 1px solid var(--border);
+    border-block: 1px solid var(--border);
     font-weight: 600;
     position: relative;
     text-transform: uppercase;
@@ -297,24 +297,41 @@
 .error-title {
     font-size: 16px;
     display: flex;
-    text-transform: uppercase;
-    color: var(--button);
-    font-family: var(--secondfont);
-    width: fit-content;
+    width: 100%;
     padding: 20px;
-    background-color: var(--border);
-    border: 1px solid var(--border);
-    color: rgb(255, 66, 66);
     display: grid;
     place-items: center;
 }
 
+.error-title p {
+    color: var(--button);
+        font-family: var(--secondfont);
+        font-size: 1.6vw;
+        font-weight: 800;
+        max-width: 80%;
+        margin-block: 15px;
+}
+
+.error-title svg {
+    width: 13vw;
+        height: fit-content;
+        opacity: 0.3;
+}
+
+.error-title svg path {
+    fill: var(--button);
+}
+
 .error-fetch {
-    background-color: var(--button);
-    color: var(--primary);
-    padding: 10px;
-    width: fit-content;
-    font-family: var(--secondfont);
+        border: 1px solid var(--border);
+            background-color: transparent;
+            font-family: var(--primaryfont);
+            padding: 10px 20px 10px 20px;
+            color: var(--button);
+}
+
+.error-title p:nth-child(3) {
+    font-size: 1.1vw;
 }
 
 /* Desktop Hover Effects */
