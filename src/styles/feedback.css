@@ -44,6 +44,7 @@
     height: 100%;
     min-height: 300px;
 }
+
 .con-swiper-button-fb {
     width: 100%;
     height: 70px;
@@ -84,6 +85,7 @@
 .swiper-pagination-bullets.swiper-pagination-horizontal {
     width: 30vw;
 }
+
 /* Pagination Styles */
 .swiper-pagination-custom {
     justify-content: center;
@@ -112,16 +114,17 @@
     .swiper-pagination-custom {
         width: 30vw;
     }
-    
-    .swiper-pagination-custom .swiper-pagination-bullet{
+
+    .swiper-pagination-custom .swiper-pagination-bullet {
         width: 4px;
         height: 4px;
     }
 
-    .next-fb, .prev-fb {
+    .next-fb,
+    .prev-fb {
         font-size: 3.5vw;
         width: fit-content;
-        
+
     }
 }
 
@@ -296,46 +299,65 @@
 
 .error-title {
     font-size: 16px;
-    display: flex;
     width: 100%;
-    padding: 20px;
+    padding-block: 30px;
     display: grid;
     place-items: center;
+    border-block: 1px solid var(--border);
 }
 
-.error-title p {
+.error-title .error-sub {
     color: var(--button);
-        font-family: var(--secondfont);
-        font-size: 1.6vw;
-        font-weight: 800;
-        max-width: 80%;
-        margin-block: 15px;
+    font-family: var(--secondfont);
+    font-size: 1.6vw;
+    font-weight: 800;
+    max-width: 80%;
+    margin-block: 15px;
 }
 
 .error-title svg {
     width: 13vw;
-        height: fit-content;
-        opacity: 0.3;
+    height: fit-content;
 }
 
 .error-title svg path {
+    opacity: 0.1;
+    animation: alertyo 2s linear infinite;
     fill: var(--button);
 }
 
 .error-fetch {
-        border: 1px solid var(--border);
-            background-color: transparent;
-            font-family: var(--primaryfont);
-            padding: 10px 20px 10px 20px;
-            color: var(--button);
+    border: 1px solid var(--border);
+    background-color: transparent;
+    font-family: var(--primaryfont);
+    padding: 10px 20px 10px 20px;
+    color: var(--button);
+    font-size: 1.1vw;
 }
 
-.error-title p:nth-child(3) {
-    font-size: 1.1vw;
+@media (max-width:767px) {
+    .error-title svg {
+        width: 33vw;
+    }
+
+        .error-title .error-sub {
+        color: var(--button);
+        font-family: var(--secondfont);
+        font-size: 3.5vw;
+        max-width: 80%;
+        text-align: center;
+        margin-block: 15px;
+    }
+
+    .error-fetch {
+        font-size: 2.7vw;
+    }
 }
 
 /* Desktop Hover Effects */
 @media (min-width: 768px) {
+
+
 
     .user-feedback:hover .feedback-quote {
         color: var(--button);

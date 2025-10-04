@@ -84,10 +84,31 @@ svg path {
   --primaryfont: "Space Grotesk", sans-serif;
 } */
 
+
 ::selection {
   background-color: var(--blue);
   color: var(--primary);
   
+}
+
+@keyframes alertyo {
+  0% {
+    opacity: 0.1;
+    fill: var(--button);
+  }
+  50% {
+    opacity: 0.1;
+    fill: var(--button);
+  }
+  50.01% {
+    opacity: 0.6;
+    fill: red;
+  }
+  100% {
+    opacity: 0.6;
+    fill: red;
+    
+  }
 }
 
 .habibi-regular {

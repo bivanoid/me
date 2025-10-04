@@ -12,8 +12,8 @@
     align-items: center;
     font-family: var(--secondfont);
     width: 100%;
-    padding-block: 10px;
-    color: white;
+    padding-block: 30px;
+    color: var(--button);
     font-style: normal;
 }
 
@@ -44,7 +44,7 @@
 .con-addfeedback h2 {
     font-family: var(--secondfont);
     color: var(--button);
-    font-size: 8vw;
+    font-size: 5vw;
     margin: 0;
     font-weight: 800;
     text-transform: uppercase;
@@ -52,7 +52,7 @@
 
 .con-addfeedback h2 .logo-addfb {
     display: inline-block;
-    width: 5.9vw;
+    width: 3.7vw;
     margin-right: 10px;
     aspect-ratio: 1/1;
 }
@@ -124,8 +124,9 @@
 .input-textarea {
     border: none;
     outline: none;
-    height: 30px;
+    height: 8vh;
     margin-block: 10px;
+    font-size: 1.7vw;
     padding: 10px;
     font-family: var(--primaryfont);
     background-color: transparent;
@@ -142,6 +143,7 @@
     width: 100%;
     border: none;
     outline: none;
+    font-size: 1.7vw;
     height: 150px;
     padding: 20px 10px 10px 10px;
     font-family: var(--primaryfont);
@@ -156,10 +158,10 @@
     bottom: 15px;
     font-size: 12px;
     color: var(--button);
-    background: var(--border);
+    background: var(--primary);
     font-family: var(--secondfont);
     right: 15px;
-    padding: 12px 12px;
+    padding: 0px 12px;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -179,16 +181,16 @@
     outline: none;
     writing-mode: sideways-rl;
     text-orientation: upright;
+    border: 1px solid var(--border);
+    background: transparent;
     flex: 1;
     width: 20%;
-    background-color: transparent;
-    -webkit-text-stroke: 1px var(--button);
     font-size: 16vh;
     text-transform: uppercase;
     font-family: var(--secondfont);
     font-weight: 800;
     transition: 0.5s cubic-bezier(0.000, 1, 0.900, 1);
-    color: transparent;
+    color: var(--button);
 }
 
 .button-addfeedback:hover {
@@ -197,7 +199,7 @@
 
 @media (max-width:767px) {
     .body-addfeedback h2 {
-        font-size: 14vw;
+        font-size: 10vw;
     }
 
     .con-addfeedback form .con-input {
@@ -209,7 +211,7 @@
         writing-mode: horizontal-tb;
         text-orientation: sideways;
         width: 100%;
-        font-size: 22vw;
+        font-size: 10vw;
     }
 
     .con-addfeedback form {
@@ -217,7 +219,7 @@
     }
 
     .con-addfeedback h2 .logo-addfb {
-        width: 12vw;
+        width: 7.2vw;
     }
 
     .rating-box {
@@ -356,15 +358,15 @@
 }
 
 .character-count.good {
-    color: #00ff00;
+    color: #26e455;
     position: absolute;
 }
 .character-count.ok {
-    color: #7bff00;
+    color: #71e722;
     position: absolute;
 }
 .character-count.warning {
-    color: #ffe600;
+    color: #e0bc19;
     position: absolute;
 }
 
@@ -373,7 +375,7 @@
 }
 
 .character-count.limit {
-    color: #ff3030;
+    color: #ee2c2c;
 }
 
 button:disabled {
@@ -383,7 +385,7 @@ button:disabled {
 
 @media (max-width:767px) {
     .character-count {
-        bottom: -10%;
+        bottom: 0%;
         z-index: 5;
     }
 }

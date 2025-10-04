@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { createClient } from "@supabase/supabase-js"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper/modules"
@@ -42,19 +42,27 @@ function Feedback() {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  
 
   useEffect(() => {
+    
     async function loadLatestUsers() {
       // Load more items for carousel
+      // const kotaknectprev = useRef(null)
       const { data, error } = await supabase
         .from("users")
         .select("*") // Pastikan kolom 'rating' ada di tabel
         .order("created_at", { ascending: false })
         .limit(10) // Increased limit for better carousel experience
 
+      // if (error) {
+      //   kotaknectprev.
+      // }
+
       if (error) {
         console.error("Error loading users:", error)
         setError(error)
+        
       } else {
         setUsers(data)
       }
@@ -99,7 +107,7 @@ function Feedback() {
       {error && (
         <div className="error-title">
           <Alert/>
-          <p>{ohNo + error.message}</p>
+          <p className="error-sub">{ohNo + error.message}</p>
           {!loading && users.length === 0 && <p className="error-fetch">No feedback yet.</p>}
         </div>
       )}
@@ -170,7 +178,7 @@ function Feedback() {
           </Swiper>
 
           {/* Custom Navigation Buttons */}
-          <div className='con-swiper-button-fb'>
+          <div className='con-swiper-button-fb' >
             <div className='prev prev-fb'>Swipe Left</div>
             {/* Custom Pagination */}
             {/* <div className="swiper-pagination-custom"></div> */}

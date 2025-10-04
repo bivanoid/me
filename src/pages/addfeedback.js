@@ -121,7 +121,7 @@ export default function AddFeedback() {
                 ${remainingCharacters <= 150 ? 'warning' : ''} 
                 ${remainingCharacters <= 50 ? 'stop' : ''}
                 ${remainingCharacters <= 0 ? 'limit' : ''}`}>
-                {remainingCharacters} || {maxCharacters}
+                {remainingCharacters} / {maxCharacters}
               </div>
             </div>
             

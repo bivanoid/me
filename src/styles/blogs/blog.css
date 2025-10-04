@@ -30,10 +30,12 @@
 .error-state svg {
     width: 13vw;
     height: fit-content;
-    opacity: 0.3;
 }
 
 .error-state svg path {
+    fill: var(--button);
+    opacity: 0.1;
+    animation: alertyo 2s linear infinite;
     fill: var(--button);
 }
 
@@ -43,6 +45,7 @@
     font-family: var(--primaryfont);
     padding: 10px 20px 10px 20px;
     color: var(--button);
+    font-size: 1.1vw;
 }
 
 .try-again-blog2 {
@@ -1002,14 +1005,23 @@ hr {
     .debug-info p {
         font-size: 3vw;
     }
+    
+
+    .error-state svg {
+        width: 33vw;
+    }
 
     .error-state p {
         color: var(--button);
         font-family: var(--secondfont);
-        font-size: 4vw;
+        font-size: 3.5vw;
         max-width: 80%;
         text-align: center;
         margin-block: 15px;
+    }
+
+    .try-again-blog {
+        font-size: 2.7vw;
     }
 
     .article-modal-content {

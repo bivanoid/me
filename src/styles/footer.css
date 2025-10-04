@@ -221,6 +221,10 @@
     color: var(--button);
 }
 
+:is(.navigation-link-footer, .get-in-touch) h1 {
+    margin-bottom: 15px;
+}
+
 .copyright2 {
     display: none;
 }
@@ -288,7 +292,7 @@
         padding-left: 30px;
         left: 0;
         padding-left: 30px;
-        gap: 10px;
+        gap: 20px;
     }
 
     .footer3 h1 {

@@ -427,7 +427,6 @@
     display: grid;
     place-items: center;
     width: fit-content;
-    border-radius: 20%;
     padding: 0.7em;
     aspect-ratio: 1/1;
     font-size: 0.9vw;
@@ -592,7 +591,7 @@
 }
 
 .content-carrier li span .circle-crr {
-    width: 1vw;
+    width: 0.8vw;
     aspect-ratio: 1/1;
     background-color: var(--button);
     border-radius: 50%;
