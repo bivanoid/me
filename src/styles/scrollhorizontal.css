@@ -83,6 +83,7 @@
     width: calc(100%);
     aspect-ratio: 1/1;
     object-fit: cover;
+    border: 1px solid var(--border);
     scale: 1;
     transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -292,17 +293,6 @@
     font-size: 16px;
     scale: 1;
     ;
-}
-
-.circle-arrow-all-project i {
-    animation: i 14s linear infinite;
-    transform: translateY(2px);
-}
-
-.circle-arrow-all-project:hover {
-    border-color: var(--button);
-    scale: 0.9;
-    opacity: 0.9;
 }
 
 .fullscreen-overlay {

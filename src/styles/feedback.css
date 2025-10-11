@@ -322,7 +322,7 @@
 
 .error-title svg path {
     opacity: 0.1;
-    animation: alertyo 2s linear infinite;
+    animation: alertyo 1.8s linear infinite;
     fill: var(--button);
 }
 

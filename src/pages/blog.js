@@ -264,7 +264,7 @@ export default function Blog() {
         <div className="con-blog-sticky" id="menuShow">
           <div className="main-sticky-blog">
             <h1>
-              My Blog<span className="dot-introduction"></span>
+              /Options<span className="dot-introduction"></span>
             </h1>
             <div className="filter-by">
               <h2>Filter By</h2>

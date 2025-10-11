@@ -114,7 +114,7 @@
 }
 
 .sticky #namamu span {
-    /* font-style: italic; */
+    opacity: 0.3;
 }
 
 .con-image-bio {
@@ -152,6 +152,7 @@
     box-sizing: border-box;
     border-radius: 2px;
     display: flex;
+    gap: 1vh;
     flex-direction: column;
     justify-content: space-around;
     margin-block: 30px;
@@ -327,6 +328,10 @@
     font-family: var(--secondfont);
 }
 
+.skills-ttl {
+    margin-block: 5px 45px;
+}
+
 .bio h1 span {
     width: 1vw;
     margin-right: 1vw;
@@ -335,6 +340,7 @@
     color: rgb(241, 208, 119);
     display: inline-block;
 }
+
 
 
 .list-bio {
