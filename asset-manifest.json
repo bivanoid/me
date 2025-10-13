@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/me/static/css/main.0403d88a.css",
-    "main.js": "/me/static/js/main.3e399695.js",
+    "main.js": "/me/static/js/main.d2092b90.js",
     "static/js/198.e4502a77.chunk.js": "/me/static/js/198.e4502a77.chunk.js",
     "static/media/WAKTU AHKIR.jpg": "/me/static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
     "static/media/galpod-app.png": "/me/static/media/galpod-app.64e7b931b97ef620af03.png",
+    "static/media/starnight.jpg": "/me/static/media/starnight.c8e731f5c7f3005d50ea.jpg",
     "static/media/riyadhmckp.png": "/me/static/media/riyadhmckp.c4e186f986912c99b816.png",
     "static/media/Casier.png": "/me/static/media/Casier.ab3270f4095b6fe2ce78.png",
     "static/media/calc.png": "/me/static/media/calc.1a26671ef3739b01684c.png",
@@ -17,11 +18,11 @@
     "index.html": "/me/index.html",
     "static/media/plus-paricle.svg": "/me/static/media/plus-paricle.a91328f68783c0a77b08cac4564e650d.svg",
     "main.0403d88a.css.map": "/me/static/css/main.0403d88a.css.map",
-    "main.3e399695.js.map": "/me/static/js/main.3e399695.js.map",
+    "main.d2092b90.js.map": "/me/static/js/main.d2092b90.js.map",
     "198.e4502a77.chunk.js.map": "/me/static/js/198.e4502a77.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0403d88a.css",
-    "static/js/main.3e399695.js"
+    "static/js/main.d2092b90.js"
   ]
 }
