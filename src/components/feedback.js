@@ -42,27 +42,22 @@ function Feedback() {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  
+
 
   useEffect(() => {
-    
+
     async function loadLatestUsers() {
-      // Load more items for carousel
-      // const kotaknectprev = useRef(null)
+
       const { data, error } = await supabase
         .from("users")
         .select("*") // Pastikan kolom 'rating' ada di tabel
         .order("created_at", { ascending: false })
         .limit(10) // Increased limit for better carousel experience
 
-      // if (error) {
-      //   kotaknectprev.
-      // }
-
       if (error) {
         console.error("Error loading users:", error)
         setError(error)
-        
+
       } else {
         setUsers(data)
       }
@@ -106,12 +101,12 @@ function Feedback() {
       {loading && <p className="loading-feedback">Loading...</p>}
       {error && (
         <div className="error-title">
-          <Alert/>
+          <Alert />
           <p className="error-sub">{ohNo + error.message}</p>
           {!loading && users.length === 0 && <p className="error-fetch">No feedback yet.</p>}
         </div>
       )}
-      
+
 
       <FadeContent blur={false} duration={1500} delay={1000} easing="ease-out" initialOpacity={0}>
         <div className="swiper-container">

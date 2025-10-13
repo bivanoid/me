@@ -65,10 +65,10 @@ export default function Blog() {
         const { data, error } = await supabase.from("blog").select("count")
         if (error) {
           console.error("Connection test failed:", error)
-          
+
         } else {
           console.log("Connection test successful:", data)
-          
+
         }
       } catch (err) {
         console.error("Connection test error:", err)
@@ -177,7 +177,7 @@ export default function Blog() {
               </div>
             ) : error ? (
               <div className="error-state">
-                <Alert/>
+                <Alert />
                 <p>{error}</p>
                 <button className="try-again-blog" onClick={() => fetchBlogs(filter)}>
                   Load Again
@@ -190,7 +190,7 @@ export default function Blog() {
             ) : (
               <>
                 <div className="info-blog" id="info-blog">
-                
+
                   <div className="debug-info">
                     <p>All: {blogs.length}</p>
                     <p>Filter: {filter}</p>

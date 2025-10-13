@@ -11,7 +11,6 @@ function AboutMe({ onImageClick }) {
 
     return (
         <div className='section2' >
-
             <p className='number number2' id='sc2'></p>
             <Biodata />
             <div className='contents'>
@@ -19,12 +18,11 @@ function AboutMe({ onImageClick }) {
                     <FadeContent blur={false} delay={500} duration={300} easing="ease-out" initialOpacity={0}>
                         <div className='text-abouts'><p className='title-about'>About</p><br></br>
                             <p className='content-about'>
-                                Hello! My name is Firdhan Abivandya, born on June 21, 2007, in Surakarta, Central Java. I am currently a student at SMKN 5 Surakarta, majoring in Software Engineering (RPL). Since an early age, I’ve been passionate about technology—especially in software and mobile application development. I enjoy exploring new ideas, solving problems creatively, and building applications that bring real value to users.
+                                Hello! My name is Firdhan Abivandya, born on June 21, 2007, in Surakarta, Central Java, Indonesia. Since an early age, I’ve been passionate about technology—especially in software and mobile application development. I enjoy exploring new ideas, solving problems creatively, and building applications that bring real value to users.
                                 <br></br>
                                 <br></br>
                                 Throughout my studies, I’ve worked on various projects, including Android applications using Firebase and several data management systems. These experiences have strengthened my belief that technology can be a powerful tool for positive impact. I am committed to growing as a developer and contributing to meaningful innovations. Through this portfolio, I aim to showcase my projects, skills, and progress in the field of information technology.
                             </p>
-
                         </div>
                     </FadeContent>
                     <AnimatedContent
@@ -61,14 +59,12 @@ function AboutMe({ onImageClick }) {
                         </div>
                     </AnimatedContent>
 
-
                 </div>
                 <HorizontalSlider onImageClick={onImageClick} />
                 <Feedback />
             </div>
 
         </div>
-
     )
 }
 

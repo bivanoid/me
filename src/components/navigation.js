@@ -6,9 +6,9 @@ import ShareSvg from '../iconSvg/shareic';
 import Menus from '../iconSvg/menus';
 import Close from '../iconSvg/close';
 function open() {
-    ['menu', 'close', 'thecontent' ,'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
+    ['menu', 'close', 'thecontent', 'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
 }
-  
+
 
 function Navigation() {
     const [darkMode, setDarkMode] = useState(true);
@@ -17,7 +17,7 @@ function Navigation() {
         const root = document.documentElement;
         ['swchbtn1', 'swchbtn2'].forEach(id => document.getElementById(id)?.classList.toggle('switchTheme'))
 
-           if (darkMode) {
+        if (darkMode) {
             // Light mode
             root.style.setProperty('--primary', '#dbdbce');
             root.style.setProperty('--primary2', '#dadaddff');
@@ -30,7 +30,7 @@ function Navigation() {
             root.style.setProperty('--primary', '#0a0a0a');
             root.style.setProperty('--primary2', '#131313');
             root.style.setProperty('--primary3', '#232222');
-               root.style.setProperty('--blue', '#729cf7');
+            root.style.setProperty('--blue', '#729cf7');
             root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
         }
@@ -41,24 +41,24 @@ function Navigation() {
 
     return (
         <div className='navigation'>
-            <div className='menu-button' id='expandMenuIcon' onClick={open}><Menus/></div>
-            <div className='close' id='close' onClick={open}><div className='menu-button'><Close/></div></div>
+            <div className='menu-button' id='expandMenuIcon' onClick={open}><Menus /></div>
+            <div className='close' id='close' onClick={open}><div className='menu-button'><Close /></div></div>
             <div id='logoMenuIcon'>
                 <Logo />
             </div>
             <ul className='navigasi-menu' id='menu'>
                 <h1>/Menus<span class="dot-introduction"></span></h1>
-                <li><Link to="/">PORTOFOLIO <div className='arrow'><ShareSvg/></div></Link></li>
-                <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><ShareSvg/></div></a></li>
-                <li><Link to='/blog'>MY BLOG <div className='arrow'><ShareSvg/></div></Link></li>
+                <li><Link to="/">PORTOFOLIO <div className='arrow'><ShareSvg /></div></Link></li>
+                <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><ShareSvg /></div></a></li>
+                <li><Link to='/blog'>MY BLOG <div className='arrow'><ShareSvg /></div></Link></li>
                 <button className='theme theme2' onClick={toggleTheme}>
-                    <div id='swchbtn2' className='button-swch'>{darkMode ? (<p></p>): (<p></p>)}</div>
+                    <div id='swchbtn2' className='button-swch'>{darkMode ? (<p></p>) : (<p></p>)}</div>
                 </button>
             </ul>
-       
-            
+
+
             <button className='theme theme1' onClick={toggleTheme}>
-                <div id='swchbtn1' className='button-swch'>{darkMode ? (<p></p>): (<p></p>)}</div>
+                <div id='swchbtn1' className='button-swch'>{darkMode ? (<p></p>) : (<p></p>)}</div>
             </button>
 
         </div>

@@ -12,6 +12,7 @@ import kasir from '../assets/Casier.png';
 import calc from '../assets/calc.png';
 import gallery from '../assets/galpod-app.png';
 import EaktuAhkir from '../assets/WAKTU AHKIR.jpg';
+import StarNight from '../assets/starnight.jpg'
 
 import FadeContent from './FadeContent';
 import AnimatedContent from './AnimatedContent';
@@ -46,10 +47,10 @@ export default function HorizontalSlider({ onImageClick }) {
       link: "https://vandyaaa.github.io/calculablew/"
     },
     {
-      img: gallery,
-      alt: "gallery",
+      img: StarNight,
+      alt: "Starnight",
       type: "individual",
-      title: "Mockup CRUD Apps",
+      title: "Sarnight",
       tags: ["FIGMA"]
     },
     {

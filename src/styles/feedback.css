@@ -340,7 +340,7 @@
         width: 33vw;
     }
 
-        .error-title .error-sub {
+    .error-title .error-sub {
         color: var(--button);
         font-family: var(--secondfont);
         font-size: 3.5vw;
