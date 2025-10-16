@@ -267,6 +267,7 @@ main {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    margin-block: 30px;
 }
 
 .con-profile-blog {
@@ -375,7 +376,7 @@ main {
     color: var(--button);
     font-family: var(--secondfont);
     font-weight: 800;
-    font-size: 2vw;
+    font-size: 1.6vw;
     width: 100%;
     margin: 0;
 }
@@ -383,7 +384,7 @@ main {
 .content-article {
     color: var(--button);
     margin: 0;
-    font-size: clamp(0.8vw, 1.4vw, 1vw);
+    font-size: 1vw;
     opacity: 0.5;
     overflow: hidden;
     display: -webkit-box;
@@ -905,7 +906,7 @@ hr {
     }
 
     .filter-by h2 {
-        font-size: 3vw;
+        font-size: 3.7vw;
     }
 
     .filter-by li {
@@ -991,7 +992,7 @@ hr {
     }
 
     .content-article {
-        font-size: 3.5vw;
+        font-size: 3.7vw;
     }
 
     .info-blog {
@@ -1021,7 +1022,7 @@ hr {
     }
 
     .try-again-blog {
-        font-size: 2.7vw;
+        font-size: 3.7vw;
     }
 
     .article-modal-content {

@@ -317,7 +317,7 @@
 }
 
 .bio h1 {
-    font-size: 1vw;
+    font-size: 1.3vw;
     font-weight: 800;
     margin-block: 5px 15px;
     display: flex;
@@ -329,7 +329,7 @@
 }
 
 .skills-ttl {
-    margin-block: 5px 45px;
+    margin-block: 0px 45px;
 }
 
 .bio h1 span {
@@ -395,7 +395,7 @@
             flex-direction: row;
         }
         .bio h1 {
-            font-size: 3.7vw;
+            font-size: 4.5vw;
             margin-top: 30px;
         }
 
@@ -545,6 +545,7 @@
     font-weight: 600;
     margin-top: 15px;
     opacity: 1;
+    text-transform: uppercase;
     font-family: var(--secondfont);
     color: var(--button);
 }

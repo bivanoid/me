@@ -12,7 +12,8 @@ import kasir from '../assets/Casier.png';
 import calc from '../assets/calc.png';
 import gallery from '../assets/galpod-app.png';
 import EaktuAhkir from '../assets/WAKTU AHKIR.jpg';
-import StarNight from '../assets/starnight.jpg'
+import StarNight from '../assets/starnight.jpg';
+import Bebrave from '../assets/bebrave.jpg';
 
 import FadeContent from './FadeContent';
 import AnimatedContent from './AnimatedContent';
@@ -39,6 +40,13 @@ export default function HorizontalSlider({ onImageClick }) {
       link: "https://bivanoid.github.io/me/#/article/43"
     },
     {
+      img: Bebrave,
+      alt: "Be Brave",
+      type: "individual",
+      title: "Be Brave",
+      tags: ["Figma", "Design", "Snapsheet"],
+    },
+    {
       img: calc,
       alt: "Calculator",
       type: "individual",
@@ -50,7 +58,7 @@ export default function HorizontalSlider({ onImageClick }) {
       img: StarNight,
       alt: "Starnight",
       type: "individual",
-      title: "Sarnight",
+      title: "Star Night",
       tags: ["FIGMA"]
     },
     {
