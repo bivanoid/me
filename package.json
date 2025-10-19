@@ -24,7 +24,7 @@
     "react-horizontal-scrolling-menu": "^8.2.0",
     "react-responsive": "^10.0.1",
     "react-router-dom": "^7.6.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-use-measure": "^2.1.7",
     "swiper": "^11.2.6",
     "web-vitals": "^2.1.4"
