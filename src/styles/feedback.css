@@ -5,15 +5,15 @@
 
 .title-feedback {
     color: var(--button);
-    font-weight: 400;
-    font-size: clamp(1em, 4em, 5em);
+    font-weight: 800;
+    font-size: 3.3em;
     font-family: var(--secondfont);
     padding: 0;
     margin: 0;
 }
 
 .subtitle-feedback {
-    font-size: 13px;
+    font-size: 0.8em;
     font-weight: 200;
     opacity: 0.7;
     line-height: 1;
@@ -53,30 +53,22 @@
     justify-content: space-between;
 }
 
-.next-fb {
-    width: 13vw;
+.next-fb, .prev-fb {
+    width: fit-content;
+    min-width: 100px;
     border-left: 1px solid var(--border);
     right: 0;
     display: grid;
     place-items: center;
     font-family: var(--secondfont);
     color: var(--button);
-    font-size: 1vw;
+    font-size: 0.8em;
     font-weight: 600;
     padding-inline: 30px;
 }
 
 .prev-fb {
-    width: 13vw;
     border-right: 1px solid var(--border);
-    right: 0;
-    display: grid;
-    place-items: center;
-    font-family: var(--secondfont);
-    color: var(--button);
-    font-size: 1vw;
-    font-weight: 600;
-    padding-inline: 30px;
 }
 
 .swiper-pagination-fraction,
@@ -122,7 +114,7 @@
 
     .next-fb,
     .prev-fb {
-        font-size: 3.5vw;
+        font-size: 0.8em;
         width: fit-content;
 
     }
@@ -174,7 +166,7 @@
 }
 
 .user-feedback .fromuser {
-    font-size: 10px;
+    font-size: 0.8em;
     color: var(--button);
     margin-right: 5px;
     text-transform: lowercase;
@@ -182,7 +174,7 @@
 }
 
 .user-feedback .username {
-    font-size: clamp(19px, 23px, 30px);
+    font-size: 1.3em;
     display: flex;
     text-transform: capitalize;
     color: var(--button);
@@ -204,7 +196,7 @@
 }
 
 .user-feedback .usertext {
-    font-size: 1rem;
+    font-size: 0.8em;
     opacity: 0.7;
     width: 100%;
     color: var(--button);
@@ -222,13 +214,16 @@
 
 .user-feedback .userrating {
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .user-feedback .userdate {
-    font-size: 1rem;
+    font-size: 0.8em;
     position: relative;
     display: inline-block;
+    font-family: var(--secondfont);
+    opacity: 1;
+    font-weight: 600;
     display: grid;
     place-items: center;
     padding-inline: 10px;
@@ -282,6 +277,7 @@
     align-items: center;
     padding-inline: 20px;
     justify-content: center;
+    font-size: 1em;
 }
 
 .link-to-addfeedback:hover {
@@ -298,7 +294,7 @@
 }
 
 .error-title {
-    font-size: 16px;
+    font-size: 1em;
     width: 100%;
     padding-block: 30px;
     display: grid;
@@ -309,7 +305,7 @@
 .error-title .error-sub {
     color: var(--button);
     font-family: var(--secondfont);
-    font-size: 1.6vw;
+    font-size: 1em;
     font-weight: 800;
     max-width: 80%;
     margin-block: 15px;
@@ -332,7 +328,7 @@
     font-family: var(--primaryfont);
     padding: 10px 20px 10px 20px;
     color: var(--button);
-    font-size: 1.1vw;
+    font-size: 0.8em;
 }
 
 @media (max-width:767px) {
@@ -343,14 +339,14 @@
     .error-title .error-sub {
         color: var(--button);
         font-family: var(--secondfont);
-        font-size: 3.5vw;
+        font-size: 1em;
         max-width: 80%;
         text-align: center;
         margin-block: 15px;
     }
 
     .error-fetch {
-        font-size: 2.7vw;
+        font-size: 0.8em;
     }
 }
 
@@ -386,7 +382,6 @@
 /* Mobile Responsive */
 @media (max-width: 767px) {
     .title-feedback {
-        font-size: clamp(1em, 2em, 5em);
         padding: 0;
     }
 
@@ -397,7 +392,7 @@
     .con-userfeedback {
         padding: 30px;
         border: none;
-        min-height: 190px;
+        min-height: 250px;
     }
 
     .con-btm-fd {
@@ -405,13 +400,11 @@
     }
 
     .con-userfeedback .username {
-        font-size: clamp(0.3em, 5vh, 1.4em);
         transition: 0.3s;
         width: 100%;
     }
 
     .con-userfeedback .fromuser {
-        font-size: 7px;
         color: var(--button);
         width: 18px;
         margin-right: 10px;
@@ -421,7 +414,7 @@
 
     .con-userfeedback .usertext {
         width: calc(100%);
-        font-size: 4vw;
+        font-size: 0.8em;
         padding-left: 5px;
         text-align: left;
     }
@@ -436,11 +429,11 @@
     }
 
     .user-feedback .userdate {
-        font-size: clamp(9px, 13px, 20px);
+        font-size: 0.8em;
     }
 
     .user-feedback .userrating {
-        font-size: clamp(9px, 13px, 20px);
+        font-size: 1em;
     }
 
     .swiper-button-prev-custom,

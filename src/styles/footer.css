@@ -97,7 +97,7 @@
     aspect-ratio: 1/1;
     border-radius: 0px;
     transition: 0.3s;
-    font-size: 1.1vw;
+    font-size: 0.8em;
     border: 1px solid var(--border);
     place-items: center;
     outline: none;
@@ -148,7 +148,7 @@
 .copyright {
     padding-bottom: 30px;
     width: 100%;
-    font-size: 0.8vw;
+    font-size: 0.8em;
     color: var(--button)
 }
 
@@ -165,7 +165,7 @@
     font-family: var(--primaryfont);
     font-weight: 400;
     padding-top: 30px;
-    font-size: 1vw;
+    font-size: 0.8em;
     margin: 0;
 }
 
@@ -185,8 +185,9 @@
 .footer3 h1 {
     font-family: var(--secondfont);
     color: var(--button);
-    font-weight: 400;
-    font-size: 1.3vw;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1em;
     margin: 0;
 }
 
@@ -196,7 +197,7 @@
 
 .footer3 li {
     color: var(--button);
-    font-size: 1vw;
+    font-size: 0.8em;
     font-family: var(--primaryfont);
     opacity: 0.5;
     list-style: none;
@@ -236,7 +237,7 @@
 
     .copyright2 {
         width: calc(100%);
-        font-size: 2.7vw;
+        font-size: 0.6em;
         height: 50px;
         display: flex;
         align-items: center;
@@ -258,10 +259,6 @@
         display: block;
     }
 
-    .footer2 .top-footer2 p {
-        font-size: 3.7vw;
-    }
-
     .copyright {
         position: absolute;
         bottom: 0;
@@ -274,7 +271,6 @@
         place-items: center;
         padding-block: 10px;
         border: none;
-        font-size: 3vw;
     }
 
     .copyright {
@@ -283,7 +279,6 @@
 
     .social-media-footer :is(.ig, .lnkdn, .twt, .wa, .tele, .gth) {
         width: 10vw;
-        font-size: 3.7vw;
     }
 
     .footer3 {
@@ -296,11 +291,11 @@
     }
 
     .footer3 h1 {
-        font-size: 4.5vw;
+        font-size: 1em;
     }
 
     .footer3 li {
-        font-size: 3.7vw;
+        font-size: 0.8em;
     }
 
     .footer1 {

@@ -36,7 +36,7 @@
 }
 
 .navigasi-menu li {
-    font-size: 10px;
+    font-size: 0.6em;
     margin-block: 3px;
     display: flex;
     justify-content: space-between;
@@ -85,7 +85,7 @@
     background-color: transparent;
     color: var(--primary);
     font-weight: 800;
-    font-size: 13px;
+    font-size: 0.8em;
     width: 40px;
     height: 20px;
     display: grid;
@@ -195,7 +195,7 @@
         background-color: transparent;
         color: var(--primary);
         font-weight: 800;
-        font-size: 13px;
+        font-size: o.8em;
         width: 40px;
         height: 20px;
         display: grid;
@@ -307,7 +307,7 @@
         }
 
     .navigasi-menu li {
-        font-size: 17px;
+        font-size: 1em;
         margin-bottom: 30px;
         display: flex;
         justify-content: space-between;
@@ -320,7 +320,7 @@
         font-family: var(--secondfont);
         color: var(--button);
         font-weight: 800;
-        font-size: 10vw;
+        font-size: 2.5em;
         display: block;
         margin: 0;
         padding-block: 20px;

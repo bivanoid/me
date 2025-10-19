@@ -45,7 +45,7 @@
     font-family: var(--primaryfont);
     padding: 10px 20px 10px 20px;
     color: var(--button);
-    font-size: 1.1vw;
+    font-size: 0.8em;
 }
 
 .try-again-blog2 {
@@ -56,7 +56,7 @@
 .error-state p {
     color: var(--button);
         font-family: var(--secondfont);
-        font-size: 1.6vw;
+        font-size: 1em;
         font-weight: 800;
         max-width: 80%;
         text-align: center;
@@ -111,7 +111,7 @@ main {
     border: 1px solid rgb(63, 224, 90);
     font-family: var(--primaryfont);
     padding: 5px 10px 5px 10px;
-    font-size: 1vw;
+    font-size: 0.8em;
 }
 
 .debug-info {
@@ -123,7 +123,7 @@ main {
     border-left: 1px solid var(--border);
     font-family: var(--primaryfont);
     padding: 5px 10px 5px 10px;
-    font-size: 1vw;
+    font-size: 0.8em;
 }
 
 
@@ -161,7 +161,7 @@ main {
     font-family: var(--secondfont);
     color: var(--button);
     font-weight: 800;
-    font-size: 2vw;
+    font-size: 2em;
     margin: 0;
     padding-bottom: 20px;
     /* border-bottom: 1px solid var(--border); */
@@ -190,7 +190,7 @@ main {
     color: var(--button);
     font-family: var(--secondfont);
     font-weight: 400;
-    font-size: 1vw;
+    font-size: 0.8em;
     opacity: 0.5;
 }
 
@@ -203,7 +203,7 @@ main {
 .filter-by li {
     color: var(--button);
     font-family: var(--primaryfont);
-    font-size: 1.2vw;
+    font-size: 1em;
     margin-bottom: 10px;
     cursor: pointer;
     transition: opacity 0.3s ease;
@@ -298,20 +298,15 @@ main {
     justify-content: center;
 }
 
-.name-and-date p:nth-child(1) {
-    font-size: 3vw;
-}
-
 .name-and-date p {
     margin: 0;
     color: var(--button);
-    font-size: 1vw;
     font-family: var(--primaryfont);
 }
 
 .name-and-date p:nth-child(1) {
     font-family: var(--secondfont);
-    font-size: 1.5vw;
+    font-size: 1em;
     font-weight: 800;
 }
 
@@ -323,7 +318,7 @@ main {
     color: var(--button);
     font-style: normal;
     font-weight: 100;
-    font-size: 1.2vw !important;
+    font-size: 1em !important;
     text-align: left;
     align-items: left;
     margin: 0;
@@ -340,7 +335,7 @@ main {
             color: var(--button);
             font-style: normal;
             font-weight: 100;
-            font-size: 3.5vw !important;
+            font-size: 1em !important;
             text-align: left;
             align-items: left;
             margin: 0;
@@ -356,7 +351,7 @@ main {
 
 
 .name-and-date p:nth-child(2) {
-    font-size: 0.8vw;
+    font-size: 0.8em;
 }
 
 .column-article {
@@ -376,7 +371,8 @@ main {
     color: var(--button);
     font-family: var(--secondfont);
     font-weight: 800;
-    font-size: 1.6vw;
+    font-size: 1.5em;
+    text-transform: uppercase;
     width: 100%;
     margin: 0;
 }
@@ -384,7 +380,7 @@ main {
 .content-article {
     color: var(--button);
     margin: 0;
-    font-size: 1vw;
+    font-size: 0.8em;
     opacity: 0.5;
     overflow: hidden;
     display: -webkit-box;
@@ -537,7 +533,6 @@ main {
     margin-bottom: 30px;
     border: none;
     background-color: var(--border);
-    font-size: 50px;
     display: grid;
     place-items: center;
     z-index: 10;
@@ -620,9 +615,18 @@ main {
 .author-info {
     display: flex;
     flex-direction: column;
-    font-size: 0.8vw;
+    font-size: 1em;
     margin-top: 30px;
     width: 100%;
+}
+
+.author-info p:nth-child(1) {
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.author-info p:nth-child(2) {
+    font-size: 0.8em;
 }
 
 .author-info span {
@@ -657,7 +661,7 @@ main {
 .publish-date {
     color: var(--button);
     font-family: var(--secondfont);
-    opacity: 0.7;
+    opacity: 0.2;
     margin: 0;
 }
 
@@ -667,13 +671,13 @@ main {
     padding: 5px 15px;
     border-radius: 20px;
     font-family: var(--primaryfont);
-    font-size: 12px;
+    font-size: 0.8em;
 }
 
 .article-modal-title {
     color: var(--button);
     font-family: var(--secondfont);
-    font-size: 2vw;
+    font-size: 1.5em;
     font-weight: 800;
     text-transform: uppercase;
     width: 100%;
@@ -689,7 +693,7 @@ main {
 .article-modal-body {
     color: var(--button);
     font-family: var(--primaryfont);
-    font-size: clamp(0.8vw, 1.4vw, 1.15vw);
+    font-size:0.8em;
 }
 
 .article-modal-body p {
@@ -734,8 +738,9 @@ main {
 
 .editor-list li::marker {
         font-family: var(--primaryfont);
-        font-size: 1.2vw;
+        font-size: 1em;
         line-height: 0.4;
+        font-weight: 800;
         width: 100px;
         height: 50%;
         transform: translateX(-200%) translateY(9px);
@@ -746,7 +751,7 @@ main {
 
 @media (max-width:767px) {
     .editor-list li::before {
-        font-size: 3vw;
+        font-size: 1em;
     }
 
     .con-user-uploader {
@@ -767,7 +772,7 @@ main {
         border: 1px solid var(--border);
         background-color: var(--blue);
         margin-top: 10px;
-        color: var(--button);
+        color: var(--primary);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -776,7 +781,7 @@ main {
     }
 
     .editor-list li::marker {
-        font-size: 3.5vw;
+        font-size: 1em;
     }
 
 }
@@ -902,15 +907,7 @@ hr {
     }
 
     .main-sticky-blog h1 {
-        font-size: 10vw;
-    }
-
-    .filter-by h2 {
-        font-size: 3.7vw;
-    }
-
-    .filter-by li {
-        font-size: 5vw;
+        font-size: 2.5em;
     }
 
     .con-blog-sticky {
@@ -949,11 +946,13 @@ hr {
         width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
+        margin: 0;
     }
 
     .con-profile-blog {
         padding: 0;
         padding-top: 15px;
+        display: none;
         gap: 10px;
     }
 
@@ -964,17 +963,11 @@ hr {
     .name-and-date p {
         margin: 0;
         color: var(--button);
-        font-size: 6vw;
         font-family: var(--primaryfont);
     }
-
-    .name-and-date p:nth-child(1) {
-        font-size: 4.1vw;
-    }
-
     .name-and-date p:nth-child(2) {
-        font-size: 3.5vw;
-        opacity: 0.5;
+        
+        opacity: 0.3;
     }
 
     .column-article {
@@ -987,12 +980,12 @@ hr {
     }
 
     .title-article {
-        font-size: 5vw;
+        font-size: 1em;
 
     }
 
     .content-article {
-        font-size: 3.7vw;
+        font-size: 0.8em;
     }
 
     .info-blog {
@@ -1000,11 +993,11 @@ hr {
     }
 
     .status-conection-blog p {
-        font-size: 3vw;
+        font-size: 0.8em;
     }
 
     .debug-info p {
-        font-size: 3vw;
+        font-size: 0.8em;
     }
     
 
@@ -1015,14 +1008,10 @@ hr {
     .error-state p {
         color: var(--button);
         font-family: var(--secondfont);
-        font-size: 3.5vw;
+        font-size: 1em;
         max-width: 80%;
         text-align: center;
         margin-block: 15px;
-    }
-
-    .try-again-blog {
-        font-size: 3.7vw;
     }
 
     .article-modal-content {
@@ -1073,25 +1062,12 @@ hr {
         aspect-ratio: 1/1;
     }
 
-    .author-name {
-        font-size: 4vw;
-    }
-
-    .publish-date {
-        font-size: 3vw;
-    }
-
     .article-modal-title {
-        font-size: 24px;
         margin-bottom: 20px;
     }
 
-    .article-modal-body {
-        font-size: 14px;
-    }
 
     .article-modal-category {
-        font-size: 10px;
         padding: 3px 10px;
     }
 
@@ -1114,10 +1090,6 @@ hr {
     }
 
     .editor-bold {
-        font-size: 3.5vw !important;
-    }
-
-    .date-post {
-        font-size: 3vw;
+        font-size: 0.8em !important;
     }
 }
