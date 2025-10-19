@@ -1,12 +1,13 @@
 "use client"
 
 import { useEffect, useState, useContext } from "react"
-import { useParams, useLocation, useNavigate, Link } from "react-router-dom"
+import { useParams, useLocation, useNavigate } from "react-router-dom"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
 import Backic from "../iconSvg/backic"
 import { LenisContext } from "../App"
+import mammoth from "mammoth"
 
 const handleShare = async () => {
   if (navigator.share) {
@@ -30,6 +31,7 @@ export default function ArticlePage() {
   const location = useLocation()
   const navigate = useNavigate()
   const [article, setArticle] = useState(null)
+  const [htmlContent, setHtmlContent] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   const lenisRef = useContext(LenisContext)
@@ -45,11 +47,39 @@ export default function ArticlePage() {
     }
   }, [lenisRef])
 
+  // Fungsi untuk mengkonversi DOCX ke HTML
+  async function convertDocxToHtml(docxUrl) {
+    try {
+      const response = await fetch(docxUrl)
+      const arrayBuffer = await response.arrayBuffer()
+
+      const result = await mammoth.convertToHtml({ arrayBuffer })
+      return result.value // HTML string
+    } catch (error) {
+      console.error("Error converting DOCX to HTML:", error)
+      return null
+    }
+  }
+
   useEffect(() => {
     // Try to get article from navigation state first
     if (location.state?.article) {
-      setArticle(location.state.article)
-      setIsLoading(false)
+      const articleData = location.state.article
+      setArticle(articleData)
+
+      // Jika sudah ada htmlContent dari blog page, langsung gunakan
+      if (articleData.htmlContent) {
+        setHtmlContent(articleData.htmlContent)
+        setIsLoading(false)
+      } else if (articleData.docx_url) {
+        // Jika belum ada, konversi dari docx_url
+        convertDocxToHtml(articleData.docx_url).then((html) => {
+          setHtmlContent(html)
+          setIsLoading(false)
+        })
+      } else {
+        setIsLoading(false)
+      }
     } else if (id) {
       // If no state, fetch from database
       fetchArticle(id)
@@ -61,20 +91,33 @@ export default function ArticlePage() {
 
   async function fetchArticle(articleId) {
     try {
-      const { data, error } = await supabase.from("blog").select("*").eq("id", articleId).single()
+      const { data, error } = await supabase
+        .from("blog")
+        .select("*")
+        .eq("id", articleId)
+        .single()
 
       if (error) {
         console.error("Failed to fetch article:", error)
         setError("Failed to load article: " + error.message)
+        setIsLoading(false)
       } else if (data) {
         setArticle(data)
+
+        // Konversi DOCX ke HTML jika ada
+        if (data.docx_url) {
+          const html = await convertDocxToHtml(data.docx_url)
+          setHtmlContent(html)
+        }
+
+        setIsLoading(false)
       } else {
         setError("Article not found")
+        setIsLoading(false)
       }
     } catch (err) {
       console.error("Error fetching article:", err)
       setError("Error loading article: " + (err.message || String(err)))
-    } finally {
       setIsLoading(false)
     }
   }
@@ -181,7 +224,10 @@ export default function ArticlePage() {
                       <p className="publish-date">
                         {article.created_at ? formatDate(article.created_at) : "Tanggal tidak tersedia"}
                       </p>
-                      <button className="sharePage" onClick={handleShare} ><i className="fi fi-rs-share"></i><p> Share</p></button>
+                      <button className="sharePage" onClick={handleShare}>
+                        <i className="fi fi-rs-share"></i>
+                        <p> Share</p>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -212,10 +258,19 @@ export default function ArticlePage() {
                 </div>
 
                 <div className="article-modal-body">
-                  <p
-                    className="rendered-html"
-                    dangerouslySetInnerHTML={{ __html: article.text_blog || "Konten tidak tersedia" }}
-                  ></p>
+                  {htmlContent ? (
+                    <div
+                      className="rendered-html"
+                      dangerouslySetInnerHTML={{ __html: htmlContent }}
+                    />
+                  ) : (
+                    <p
+                      className="rendered-html"
+                      dangerouslySetInnerHTML={{
+                        __html: article.text_blog || "Konten tidak tersedia"
+                      }}
+                    />
+                  )}
                 </div>
               </div>
             </main>

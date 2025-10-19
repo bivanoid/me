@@ -12,12 +12,14 @@ import Menus from '../iconSvg/menus';
 import Close from '../iconSvg/close';
 import { Link } from 'react-router-dom';
 import { LenisContext } from "../App"
+import mammoth from "mammoth"
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [filter, setFilter] = useState("latest")
   const [error, setError] = useState(null)
+  const [docxContents, setDocxContents] = useState({})
   const navigate = useNavigate()
   const location = useLocation()
   const scrollPosition = useRef(0)
@@ -29,7 +31,6 @@ export default function Blog() {
 
   // Reset scroll position ketika pertama kali masuk atau kembali dari article
   useEffect(() => {
-    // Jika kembali dari article page, restore scroll position
     if (location.state?.restoreScroll) {
       const savedPosition = sessionStorage.getItem('blogScrollPosition');
       if (savedPosition && lenisRef?.current) {
@@ -41,14 +42,12 @@ export default function Blog() {
           sessionStorage.removeItem('blogScrollPosition');
         }, 150);
       } else if (savedPosition) {
-        // Fallback tanpa Lenis
         setTimeout(() => {
           window.scrollTo(0, parseInt(savedPosition));
           sessionStorage.removeItem('blogScrollPosition');
         }, 150);
       }
     } else {
-      // Jika baru masuk, reset ke atas dengan Lenis
       if (lenisRef?.current) {
         lenisRef.current.scrollTo(0, { immediate: true });
       } else {
@@ -65,10 +64,8 @@ export default function Blog() {
         const { data, error } = await supabase.from("blog").select("count")
         if (error) {
           console.error("Connection test failed:", error)
-
         } else {
           console.log("Connection test successful:", data)
-
         }
       } catch (err) {
         console.error("Connection test error:", err)
@@ -78,6 +75,54 @@ export default function Blog() {
     testConnection()
     fetchBlogs(filter)
   }, [filter])
+
+  // Fungsi untuk mengkonversi DOCX ke HTML dengan styling yang lebih baik
+  async function convertDocxToHtml(docxUrl) {
+    try {
+      const response = await fetch(docxUrl)
+      const arrayBuffer = await response.arrayBuffer()
+
+      const options = {
+        styleMap: [
+          "p[style-name='Heading 1'] => h1:fresh",
+          "p[style-name='Heading 2'] => h2:fresh",
+          "p[style-name='Heading 3'] => h3:fresh",
+          "p[style-name='Heading 4'] => h4:fresh",
+          "p[style-name='Title'] => h1.title:fresh",
+          "p[style-name='Subtitle'] => p.subtitle:fresh",
+          "p[style-name='List Paragraph'] => p.list-item:fresh",
+          "r[style-name='Strong'] => strong",
+          "r[style-name='Emphasis'] => em",
+        ],
+        convertImage: mammoth.images.imgElement(function (image) {
+          return image.read("base64").then(function (imageBuffer) {
+            return {
+              src: "data:" + image.contentType + ";base64," + imageBuffer
+            };
+          });
+        })
+      };
+
+      const result = await mammoth.convertToHtml({ arrayBuffer }, options)
+
+      // Post-process HTML untuk memperbaiki formatting
+      let html = result.value
+
+      // Tambahkan class untuk list items
+      html = html.replace(/<li>/g, '<li class="doc-list-item">')
+
+      // Bersihkan multiple line breaks
+      html = html.replace(/(<br\s*\/?>){3,}/g, '<br><br>')
+
+      // Wrap numbered items
+      html = html.replace(/(\d+\.\s+)([^<\n]+)/g, '<p class="numbered-item"><span class="number">$1</span>$2</p>')
+
+      return html
+    } catch (error) {
+      console.error("Error converting DOCX to HTML:", error)
+      return null
+    }
+  }
 
   async function fetchBlogs(filterType) {
     setIsLoading(true)
@@ -106,8 +151,19 @@ export default function Blog() {
         setBlogs([])
       } else {
         console.log("Blog data fetched successfully:", data)
-        console.log("First item:", data[0])
         setBlogs(data)
+
+        // Konversi semua DOCX ke HTML
+        const contents = {}
+        for (const blog of data) {
+          if (blog.docx_url) {
+            const htmlContent = await convertDocxToHtml(blog.docx_url)
+            if (htmlContent) {
+              contents[blog.id] = htmlContent
+            }
+          }
+        }
+        setDocxContents(contents)
       }
     } catch (err) {
       console.error("Error fetching blogs:", err)
@@ -122,7 +178,7 @@ export default function Blog() {
   }
 
   function openBlog() {
-    ;["menuShow", "closeBlog", "conArticle", "footerBlog", "backMenuIcon", "menuBlogIcon", "logoBlogIcon"].forEach((id) => {
+    ["menuShow", "closeBlog", "conArticle", "footerBlog", "backMenuIcon", "menuBlogIcon", "logoBlogIcon"].forEach((id) => {
       const element = document.getElementById(id)
       if (element) {
         element.classList.toggle("open-menu-blog")
@@ -131,16 +187,20 @@ export default function Blog() {
   }
 
   function openArticle(article) {
-    // Save current scroll position dari Lenis
     if (lenisRef?.current) {
       const currentScroll = lenisRef.current.scroll;
       sessionStorage.setItem('blogScrollPosition', currentScroll.toString());
     } else {
-      // Fallback
       sessionStorage.setItem('blogScrollPosition', window.pageYOffset.toString());
     }
 
-    navigate(`/article/${article.id}`, { state: { article } });
+    // Kirim artikel beserta HTML content yang sudah dikonversi
+    const articleWithContent = {
+      ...article,
+      htmlContent: docxContents[article.id]
+    }
+
+    navigate(`/article/${article.id}`, { state: { article: articleWithContent } });
   }
 
   function formatDate(dateString) {
@@ -148,9 +208,19 @@ export default function Blog() {
     return new Date(dateString).toLocaleDateString("id-ID", options)
   }
 
-  function truncateText(text, maxLength = 250) {
-    if (text.length <= maxLength) return text
-    return text.substring(0, maxLength) + "<span className='seeMore' style='opacity: 1 !important;'> see more...</span>"
+  function truncateHtml(html, maxLength = 250) {
+    if (!html) return "Konten tidak tersedia"
+
+    // Hapus tag HTML untuk menghitung karakter
+    const tempDiv = document.createElement('div')
+    tempDiv.innerHTML = html
+    const textContent = tempDiv.textContent || tempDiv.innerText || ""
+
+    if (textContent.length <= maxLength) return html
+
+    // Truncate text content
+    const truncated = textContent.substring(0, maxLength)
+    return truncated + "... <span class='seeMore' style='opacity: 1 !important;'>see more</span>"
   }
 
   return (
@@ -190,7 +260,6 @@ export default function Blog() {
             ) : (
               <>
                 <div className="info-blog" id="info-blog">
-
                   <div className="debug-info">
                     <p>All: {blogs.length}</p>
                     <p>Filter: {filter}</p>
@@ -198,7 +267,8 @@ export default function Blog() {
                 </div>
 
                 {blogs.map((blog, index) => {
-                  console.log(`Rendering blog ${index}:`, blog)
+                  const htmlContent = docxContents[blog.id]
+
                   return (
                     <div
                       className="article"
@@ -237,7 +307,9 @@ export default function Blog() {
                           <p
                             className="content-article rendered-html"
                             dangerouslySetInnerHTML={{
-                              __html: blog.text_blog ? truncateText(blog.text_blog, 250) : "Konten tidak tersedia",
+                              __html: htmlContent
+                                ? truncateHtml(htmlContent, 250)
+                                : (blog.text_blog ? truncateHtml(blog.text_blog, 250) : "Konten tidak tersedia")
                             }}
                           ></p>
                         </div>
@@ -285,7 +357,6 @@ export default function Blog() {
               >
                 Refresh
               </button>
-
             </div>
           </div>
         </div>
@@ -293,7 +364,6 @@ export default function Blog() {
       <div id="footerBlog">
         <Footer />
       </div>
-
     </div>
   )
 }
