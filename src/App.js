@@ -14,6 +14,9 @@ import ArticlePage from './pages/ArticlePages';
 import AnimatedContent from './components/AnimatedContent';
 import Loading from './components/loading';
 
+import ReactGA from "react-ga4";
+import usePageTracking from "./hooks/usePageTracking";
+
 // Context untuk Lenis
 export const LenisContext = React.createContext(null);
 
@@ -21,13 +24,17 @@ function AppRoutes() {
   const location = useLocation();
   const lenisRef = React.useContext(LenisContext);
 
-  // Reset Lenis scroll ketika route berubah
+  useEffect(() => {
+    ReactGA.initialize("G-J4M22QCN11"); // <--- Ganti ini pakai Measurement ID kamu
+  }, []);
+
+  usePageTracking();
+  
   useEffect(() => {
     if (lenisRef?.current) {
-      // Stop smooth scroll animation
+      
       lenisRef.current.stop();
 
-      // Reset scroll position immediately
       lenisRef.current.scrollTo(0, {
         immediate: true,
         force: true,
