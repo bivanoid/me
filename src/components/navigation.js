@@ -20,7 +20,6 @@ function Navigation() {
         return currentPrimary === '#0a0a0a' || currentPrimary === 'rgb(10, 10, 10)';
     });
 
-    // Sinkronkan button UI dengan state saat komponen mount
     useEffect(() => {
         const isDark = darkMode;
         ['swchbtn1', 'swchbtn2'].forEach(id => {
@@ -33,7 +32,13 @@ function Navigation() {
                 }
             }
         });
-    }, []); // Hanya jalankan sekali saat mount
+
+        // Update theme-color meta tag saat mount
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute('content', isDark ? '#0a0a0a' : '#dbdbce');
+        }
+    }, []);
 
     function toggleTheme() {
         const root = document.documentElement;

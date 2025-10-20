@@ -92,6 +92,7 @@ main {
     height: 57px;
     padding-inline: 30px;
     border: 1px solid var(--border);
+    border-right: none;
 }
 
 .info-blog {

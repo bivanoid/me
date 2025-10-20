@@ -44,7 +44,7 @@ export default function HorizontalSlider({ onImageClick }) {
       alt: "Be Brave",
       type: "individual",
       title: "Be Brave",
-      tags: ["Figma", "Design", "Snapsheet"],
+      tags: ["Figma", "Design", "Snapsheed"],
     },
     {
       img: calc,

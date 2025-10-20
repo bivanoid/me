@@ -27,14 +27,7 @@
   <script>
     // Setelah DOM loaded
       document.addEventListener('DOMContentLoaded', () => {
-        const themeColor = getComputedStyle(document.documentElement)
-          .getPropertyValue('--primary')
-          .trim();
-        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-        if (themeColor && metaThemeColor) {
-          metaThemeColor.setAttribute('content', themeColor);
-        }
-      });
+    });
 
   </script>
 </html>

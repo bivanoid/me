@@ -132,7 +132,7 @@
     padding-inline: 30px;
     width: calc(100% - 20px);
     overflow: hidden;
-    gap: 1vw;
+    gap: 0.5vw;
 }
 
 .tag-language .taglang:nth-last-child(1) {
@@ -150,7 +150,7 @@
     font-weight: 500;
     filter: grayscale(60%);
     font-weight: 100;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .mySwiper {
