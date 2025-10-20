@@ -1,17 +1,39 @@
 import { Link } from 'react-router-dom';
 import '../styles/navigation.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from './logo';
 import ShareSvg from '../iconSvg/shareic';
 import Menus from '../iconSvg/menus';
 import Close from '../iconSvg/close';
+
 function open() {
     ['menu', 'close', 'thecontent', 'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
 }
 
 
 function Navigation() {
-    const [darkMode, setDarkMode] = useState(true);
+    // Inisialisasi state berdasarkan CSS variable yang sedang aktif
+    const [darkMode, setDarkMode] = useState(() => {
+        const root = document.documentElement;
+        const currentPrimary = getComputedStyle(root).getPropertyValue('--primary').trim();
+        // Jika primary adalah warna gelap (#0a0a0a), maka dark mode = true
+        return currentPrimary === '#0a0a0a' || currentPrimary === 'rgb(10, 10, 10)';
+    });
+
+    // Sinkronkan button UI dengan state saat komponen mount
+    useEffect(() => {
+        const isDark = darkMode;
+        ['swchbtn1', 'swchbtn2'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                if (isDark) {
+                    element.classList.remove('switchTheme');
+                } else {
+                    element.classList.add('switchTheme');
+                }
+            }
+        });
+    }, []); // Hanya jalankan sekali saat mount
 
     function toggleTheme() {
         const root = document.documentElement;
@@ -35,7 +57,6 @@ function Navigation() {
             root.style.setProperty('--border', '#ffffff0e');
         }
 
-
         setDarkMode(!darkMode);
     }
 
@@ -47,7 +68,7 @@ function Navigation() {
                 <Logo />
             </div>
             <ul className='navigasi-menu' id='menu'>
-                <h1>/Menus<span class="dot-introduction"></span></h1>
+                <h1>/Menus<span className="dot-introduction"></span></h1>
                 <li><Link to="/">PORTOFOLIO <div className='arrow'><ShareSvg /></div></Link></li>
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><ShareSvg /></div></a></li>
                 <li><Link to='/blog'>MY BLOG <div className='arrow'><ShareSvg /></div></Link></li>
