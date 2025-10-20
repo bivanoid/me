@@ -56,8 +56,8 @@
         } */
     
         .custom-cursor.active {
-            width: 40px;
-            height: 40px;
+            width: 25px;
+            height: 25px;
             opacity: 1;
             cursor: pointer;
             background-color: transparent;
@@ -77,10 +77,6 @@
             background-color: var(--primary);
             
         } */
-
-        .custom-cursor.cursor-close {
-            background-color: rgb(221, 75, 49);
-        }
         /* .custom-cursor.cursor-close::before {
             rotate: 45deg;
         }

@@ -308,8 +308,8 @@ export default function Blog() {
                             className="content-article rendered-html"
                             dangerouslySetInnerHTML={{
                               __html: htmlContent
-                                ? truncateHtml(htmlContent, 250)
-                                : (blog.text_blog ? truncateHtml(blog.text_blog, 250) : "Konten tidak tersedia")
+                                ? truncateHtml(htmlContent, 100)
+                                : (blog.text_blog ? truncateHtml(blog.text_blog, 100) : "Konten tidak tersedia")
                             }}
                           ></p>
                         </div>
