@@ -10,6 +10,19 @@ function open() {
     ['menu', 'close', 'thecontent', 'logoMenuIcon', 'expandMenuIcon'].forEach(id => document.getElementById(id)?.classList.toggle('open'))
 }
 
+// Fungsi untuk update theme color di browser navigation bar
+function updateBrowserThemeColor(color) {
+    let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+    // Jika meta tag belum ada, buat yang baru
+    if (!metaThemeColor) {
+        metaThemeColor = document.createElement('meta');
+        metaThemeColor.name = 'theme-color';
+        document.head.appendChild(metaThemeColor);
+    }
+
+    metaThemeColor.setAttribute('content', color);
+}
 
 function Navigation() {
     // Inisialisasi state berdasarkan CSS variable yang sedang aktif
@@ -20,6 +33,7 @@ function Navigation() {
         return currentPrimary === '#0a0a0a' || currentPrimary === 'rgb(10, 10, 10)';
     });
 
+    // Sinkronkan button UI dengan state saat komponen mount
     useEffect(() => {
         const isDark = darkMode;
         ['swchbtn1', 'swchbtn2'].forEach(id => {
@@ -34,11 +48,8 @@ function Navigation() {
         });
 
         // Update theme-color meta tag saat mount
-        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-        if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', isDark ? '#0a0a0a' : '#dbdbce');
-        }
-    }, []);
+        updateBrowserThemeColor(isDark ? '#0a0a0a' : '#dbdbce');
+    }, [darkMode]); // Jalankan setiap darkMode berubah
 
     function toggleTheme() {
         const root = document.documentElement;
@@ -52,6 +63,9 @@ function Navigation() {
             root.style.setProperty('--blue', '#173ff0');
             root.style.setProperty('--button', '#1c1c1c');
             root.style.setProperty('--border', '#0000001e');
+
+            // Update browser navigation bar color
+            updateBrowserThemeColor('#dbdbce');
         } else {
             // Dark mode
             root.style.setProperty('--primary', '#0a0a0a');
@@ -60,6 +74,9 @@ function Navigation() {
             root.style.setProperty('--blue', '#729cf7');
             root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
+
+            // Update browser navigation bar color
+            updateBrowserThemeColor('#0a0a0a');
         }
 
         setDarkMode(!darkMode);
