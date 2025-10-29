@@ -24,17 +24,17 @@ const ohNo = 'Oh noo! '
 function getEmojiFromRating(rating) {
   switch (rating) {
     case 1:
-      return "😡" // Marah
+      return "rating-1"
     case 2:
-      return "😔" // Sedih
+      return "rating-2"
     case 3:
-      return "😐" // Netral
+      return "rating-3"
     case 4:
-      return "😊" // Senang
+      return "rating-4"
     case 5:
-      return "🤩" // Sangat senang
+      return "rating-5"
     default:
-      return "❓" // Tidak diketahui
+      return "rating-unknown"
   }
 }
 
@@ -162,7 +162,9 @@ function Feedback() {
                         <p className="username">{user.name}</p>
                       </p>
                       <div className="con-feedback-btm">
-                        <p className="userrating">{emoji}</p>
+                        <p className="userrating">
+                          <div className={emoji}></div>
+                        </p>
                         <p className="userdate">{date}</p>
                       </div>
                     </div>

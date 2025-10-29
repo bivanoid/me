@@ -22,15 +22,10 @@
     monospace;
 
 }
-
 /* 
-font
-4em
-2em
-1em
-0.8em
-
-*/
+        p {
+          text-shadow: 0 0 5px var(--primary), 0 0 10px #c4c4c4;
+        } */
 
 * {
   cursor: none;
