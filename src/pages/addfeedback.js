@@ -79,11 +79,11 @@ export default function AddFeedback() {
             <div className="rating-container">
               {[1, 2, 3, 4, 5].map((num) => {
                 const emoji = {
-                  1: '😠',
-                  2: '😞',
-                  3: '😐',
-                  4: '😊',
-                  5: '😍',
+                  1: 'rating-1',
+                  2: 'rating-2',
+                  3: 'rating-3',
+                  4: 'rating-4',
+                  5: 'rating-5',
                 }[num];
 
                 return (
@@ -92,7 +92,8 @@ export default function AddFeedback() {
                     className={`rating-box ${rating === num ? 'selected' : ''}`}
                     onClick={() => setRating(num)}
                   >
-                    <span className="emoji">{emoji}</span>
+                    <div className={`${emoji} rating-def`}></div>
+
                   </div>
                 );
               })}

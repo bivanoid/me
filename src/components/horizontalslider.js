@@ -1,5 +1,5 @@
 // src/components/horizontalslider.js
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -14,7 +14,7 @@ import gallery from '../assets/galpod-app.png';
 import EaktuAhkir from '../assets/WAKTU AHKIR.jpg';
 import StarNight from '../assets/starnight.jpg';
 import Bebrave from '../assets/bebrave.jpg';
-
+import Logo from './logo';
 import FadeContent from './FadeContent';
 import AnimatedContent from './AnimatedContent';
 import ShareSvg from '../iconSvg/shareic';
@@ -77,6 +77,34 @@ export default function HorizontalSlider({ onImageClick }) {
     },
   ];
 
+  useEffect(() => {
+    const slides = document.querySelectorAll('.swiper-slide');
+    if (!slides.length) return;
+
+    const setEqualHeights = () => {
+      let maxHeight = 0;
+      slides.forEach(slide => {
+        slide.style.height = 'auto'; // reset dulu
+        maxHeight = Math.max(maxHeight, slide.offsetHeight);
+      });
+      slides.forEach(slide => {
+        slide.style.height = `${maxHeight}px`;
+      });
+    };
+
+    // Jalankan pertama kali
+    setEqualHeights();
+
+    // Update kalau window diresize
+    window.addEventListener('resize', setEqualHeights);
+
+    // Cleanup saat unmount
+    return () => {
+      window.removeEventListener('resize', setEqualHeights);
+    };
+  }, []);
+
+
   const handleImageClick = (e) => {
     if (e.currentTarget.tagName === 'IMG') {
       onImageClick(e.currentTarget.src);
@@ -117,7 +145,7 @@ export default function HorizontalSlider({ onImageClick }) {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={0}
           slidesPerView={1}
-          loop={true}
+          loop={false}
           navigation={{
             nextEl: ".next-hz",
             prevEl: ".prev-hz",
@@ -126,10 +154,7 @@ export default function HorizontalSlider({ onImageClick }) {
             clickable: true,
             el: ".swiper-pagination-custom",
           }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          
           breakpoints={{
             640: { slidesPerView: 1, spaceBetween: 10 },
             768: { slidesPerView: 2, spaceBetween: 0 },
@@ -157,6 +182,10 @@ export default function HorizontalSlider({ onImageClick }) {
               </div>
             </SwiperSlide>
           ))}
+          <SwiperSlide className='see-more-project'>
+            <div className='more-btn'><Logo /></div>
+            <p>See Other Projects</p>
+          </SwiperSlide>
         </Swiper>
       </FadeContent>
 

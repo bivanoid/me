@@ -96,22 +96,16 @@
     cursor: pointer;
     transition: 0.5s;
     position: relative;
-    
+
 }
 
-.theme::after {
-    content: "DarkOrLight";
-    font-family: var(--primaryfont);
-    color: var(--button);
-    position: absolute;
-    box-sizing: border-box;
-    border: 1px solid var(--border);
-    width: fit-content;
-    padding: 1px 5px;
-    display: inline;
-    right: 150%;
+.theme:active {
+    scale: 0.6;
 }
 
+.theme:active::after {
+    scale: 1.6;
+}
 
 .theme2 {
     display: none;
@@ -137,6 +131,26 @@
 #swchbtn1.switchTheme,
 #swchbtn2.switchTheme {
     left: calc(50%);
+}
+
+.theme::after {
+    content: "Light Mode?";
+    font-family: var(--primaryfont);
+    color: var(--button);
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    width: max-content;
+    padding: 1px 5px;
+    display: inline;
+    right: 150%;
+    transition: 0s;
+    transition-delay: 0.2s;
+}
+
+.theme.switchTheme::after {
+    content: "Dark Mode?";
+
 }
 
 .contact:hover {
@@ -206,20 +220,33 @@
         cursor: pointer;
         transition: 0.5s;
         position: relative;
-        
+
     }
 
     .theme::after {
-        content: "DarkOrLight";
+        content: "switch to light mode?";
         font-family: var(--primaryfont);
-        color: var(--   );
+        color: var(--button);
         position: absolute;
         box-sizing: border-box;
         border: 1px solid var(--border);
-        width: fit-content;
-        padding: 2px 5px;
+        width: max-content;
+        padding: 1px 5px;
         display: inline;
         left: 150%;
+        transition: 0s;
+    }
+
+    .theme.switchTheme::after {
+        content: "switch to dark mode?";
+    }
+
+    .theme:active {
+        scale: 1;
+    }
+
+    .theme:active::after {
+        scale: 1;
     }
 
     .theme1 {
@@ -281,30 +308,30 @@
         display: none;
     }
 
-        .navigasi-menu {
-            list-style: none;
-            padding: 0px;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            padding-left: 30px;
-            padding-right: 30px;
-            width: calc(100%);
-            height: fit-content;
-            background-color: var(--primary);
-            padding-top: 87px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border);
-            top: -100%;
-            left: 0;
-            z-index: 100;
-            transition: top 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
+    .navigasi-menu {
+        list-style: none;
+        padding: 0px;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: calc(100%);
+        height: fit-content;
+        background-color: var(--primary);
+        padding-top: 87px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid var(--border);
+        top: -100%;
+        left: 0;
+        z-index: 100;
+        transition: top 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
 
-    
-        .navigasi-menu.open {
-            top: 0%;
-        }
+
+    .navigasi-menu.open {
+        top: 0%;
+    }
 
     .navigasi-menu li {
         font-size: 1em;
@@ -328,18 +355,18 @@
 
     .close {
         display: grid;
-            place-items: center;
-            color: var(--button);
-            top: -100%;
-            left: 0;
-            width: 100%;
-            position: fixed;
-            z-index: 101;
-            background-color: var(--primary);
-            height: 86px;
-            transition: 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-            transition-delay: 0.4s;
-            border-bottom: 1px solid var(--border);
+        place-items: center;
+        color: var(--button);
+        top: -100%;
+        left: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 101;
+        background-color: var(--primary);
+        height: 86px;
+        transition: 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition-delay: 0.4s;
+        border-bottom: 1px solid var(--border);
     }
 
 
@@ -354,13 +381,15 @@
         transition-delay: 0.2s;
     }
 
-    #thecontent, #theblog {
+    #thecontent,
+    #theblog {
         transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         opacity: 1;
-        
+
     }
 
-    #thecontent.open, #theblog.open {
+    #thecontent.open,
+    #theblog.open {
         opacity: 0.2;
         filter: grayscale(100%) brightness(50%);
         transition: 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);

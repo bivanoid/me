@@ -36,7 +36,7 @@ function Navigation() {
     // Sinkronkan button UI dengan state saat komponen mount
     useEffect(() => {
         const isDark = darkMode;
-        ['swchbtn1', 'swchbtn2'].forEach(id => {
+        ['swchbtn1', 'swchbtn2', 'theme', 'theme2'].forEach(id => {
             const element = document.getElementById(id);
             if (element) {
                 if (isDark) {
@@ -64,6 +64,12 @@ function Navigation() {
             root.style.setProperty('--button', '#1c1c1c');
             root.style.setProperty('--border', '#0000001e');
 
+            root.style.setProperty('--red-cl', 'rgba(184, 50, 50, 1)');
+            root.style.setProperty('--orange-cl', 'rgba(182, 99, 51, 1)');
+            root.style.setProperty('--yellow-cl', 'rgba(223, 182, 49, 1)');
+            root.style.setProperty('--lime-cl', 'rgba(125, 187, 43, 1)');
+            root.style.setProperty('--green-cl', 'rgba(36, 170, 81, 1)');
+
             // Update browser navigation bar color
             updateBrowserThemeColor('#dbdbce');
         } else {
@@ -74,6 +80,12 @@ function Navigation() {
             root.style.setProperty('--blue', '#729cf7');
             root.style.setProperty('--button', '#e9ecef');
             root.style.setProperty('--border', '#ffffff0e');
+
+            root.style.setProperty('--red-cl', 'rgb(252, 88, 88)');
+            root.style.setProperty('--orange-cl', 'rgb(250, 134, 66)');
+            root.style.setProperty('--yellow-cl', 'rgb(252, 214, 88)');
+            root.style.setProperty('--lime-cl', 'rgb(181, 252, 88)');
+            root.style.setProperty('--green-cl', 'rgb(88, 252, 143)');
 
             // Update browser navigation bar color
             updateBrowserThemeColor('#0a0a0a');
@@ -94,13 +106,13 @@ function Navigation() {
                 <li><Link to="/">PORTOFOLIO <div className='arrow'><ShareSvg /></div></Link></li>
                 <li><a href='https://github.com/Vandyaaa'>REPOSITORY <div className='arrow'><ShareSvg /></div></a></li>
                 <li><Link to='/blog'>MY BLOG <div className='arrow'><ShareSvg /></div></Link></li>
-                <button className='theme theme2' onClick={toggleTheme}>
+                <button id='theme2' className='theme theme2' onClick={toggleTheme}>
                     <div id='swchbtn2' className='button-swch'>{darkMode ? (<p></p>) : (<p></p>)}</div>
                 </button>
             </ul>
 
 
-            <button className='theme theme1' onClick={toggleTheme}>
+            <button id='theme' className='theme theme1' onClick={toggleTheme}>
                 <div id='swchbtn1' className='button-swch'>{darkMode ? (<p></p>) : (<p></p>)}</div>
             </button>
 

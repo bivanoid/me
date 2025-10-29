@@ -222,31 +222,31 @@
 .user-feedback .userrating .rating-1 {
     width: 0.5em;
     aspect-ratio: 1 / 1;
-    background-color: rgb(255, 60, 60);
+    background-color: var(--red-cl);
 }
 
 .user-feedback .userrating .rating-2 {
     width: 0.5em;
     aspect-ratio: 1 / 1;
-    background-color: rgb(255, 138, 60);
+    background-color: var(--orange-cl);
 }
 
 .user-feedback .userrating .rating-3 {
     width: 0.5em;
     aspect-ratio: 1 / 1;
-    background-color: rgb(255, 252, 60);
+    background-color: var(--yellow-cl);
 }
 
 .user-feedback .userrating .rating-4 {
     width: 0.5em;
     aspect-ratio: 1 / 1;
-    background-color: rgb(138, 255, 60);
+    background-color: var(--lime-cl);
 }
 
 .user-feedback .userrating .rating-5 {
     width: 0.5em;
     aspect-ratio: 1 / 1;
-    background-color: rgb(60, 255, 125);
+    background-color: var(--green-cl);
 }
 
 

@@ -215,6 +215,7 @@
     display: grid;
     place-items: center;
     border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     font-weight: 600;
     text-transform: uppercase;
     position: relative;

@@ -81,7 +81,6 @@
 
 .rating-box {
     width: fit-content;
-    border-radius: 50%;
     padding: 1em;
     aspect-ratio: 1/1;
     border: 1px solid var(--border);
@@ -90,11 +89,12 @@
     transition: 0.3s;
     font-size: 2em;
     outline: none;
+    width: 100%;
 }
 
 .rating-box:hover {
     scale: 0.9;
-    outline: 1px solid var(--button);
+    outline: 1px solid var(--border);
     background-color: var(--button);
     outline-offset: 0.5em;
 }
@@ -104,21 +104,31 @@
     color: black;
 }
 
-.rating-box:nth-child(1).selected {
-    background-color: rgb(255, 23, 23);
+.rating-box .rating-def {
+    width: 1em;
+    aspect-ratio: 1 / 1;
 }
-.rating-box:nth-child(2).selected {
-    background-color: rgb(251, 255, 34);
+
+.rating-box .rating-1 {
+    background-color: var(--red-cl);
 }
-.rating-box:nth-child(3).selected {
-    background-color: rgb(52, 157, 255);
+.rating-box .rating-2 {
+    background-color: var(--orange-cl);
 }
-.rating-box:nth-child(4).selected {
-    background-color: rgb(131, 255, 131);
+.rating-box .rating-3 {
+    background-color: var(--yellow-cl);
 }
-.rating-box:nth-child(5).selected {
-    background-color: rgb(14, 255, 114);
+.rating-box .rating-4 {
+    background-color: var(--lime-cl);
 }
+.rating-box .rating-5 {
+    background-color: var(--green-cl);
+}
+
+.rating-box.selected {
+    background-color: var(--border);
+}
+
 
 .input-textarea {
     border: none;
@@ -155,7 +165,7 @@
 .character-count {
     position: absolute;
     bottom: 15px;
-    font-size: 1em;
+    font-size: 0.5em;
     color: var(--button);
     background: var(--primary);
     font-family: var(--secondfont);
@@ -165,14 +175,6 @@
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
-}
-
-.character-count.warning {
-    color: #ff9500;
-}
-
-.character-count.limit-reached {
-    color: #ff3b30;
 }
 
 .button-addfeedback {
@@ -227,8 +229,12 @@
     }
 
     .rating-box {
-        font-size: 1em;
-        padding: 0.5em;
+        width: calc(100% / 5);
+        padding: 0;
+    }
+
+    .rating-box .rating-def {
+        width: 0.5em;
     }
 
     .input-textarea {
@@ -372,24 +378,24 @@
 }
 
 .character-count.good {
-    color: #26e455;
+    color: var(--green-cl);
     position: absolute;
 }
 .character-count.ok {
-    color: #71e722;
+    color: var(--lime-cl);
     position: absolute;
 }
 .character-count.warning {
-    color: #e0bc19;
+    color: var(--yellow-cl);
     position: absolute;
 }
 
 .character-count.stop {
-    color: #ff8330;
+    color: var(--orange-cl);
 }
 
 .character-count.limit {
-    color: #ee2c2c;
+    color: var(--red-cl);
 }
 
 button:disabled {

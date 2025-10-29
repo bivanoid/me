@@ -21,6 +21,12 @@
   --primaryfont: "Syne Mono",
     monospace;
 
+  --red-cl: rgb(252, 88, 88);
+  --orange-cl: rgb(250, 134, 66);
+  --yellow-cl: rgb(252, 214, 88);
+  --lime-cl: rgb(181, 252, 88);
+  --green-cl: rgb(88, 252, 143);
+
 }
 /* 
         p {
@@ -106,11 +112,11 @@ svg path {
   }
   50.01% {
     opacity: 0.6;
-    fill: red;
+    fill: var(--red-cl);
   }
   100% {
     opacity: 0.6;
-    fill: red;
+    fill: var(--red-cl);
     
   }
 }

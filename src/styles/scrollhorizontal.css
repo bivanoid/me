@@ -6,8 +6,6 @@
     background-color: var();
 }
 
-
-
 .swiper {
     width: 100%;
 }
@@ -33,10 +31,15 @@
     margin: 0;
 }
 
+.swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+}
 
 .title-swiper span {
     opacity: 0.3;
 }
+
 .title-swiper p {
     font-size: 0.8em;
     font-weight: 200;
@@ -60,6 +63,87 @@
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     border-left: 0px solid var(--border);
+    height: auto !important
+}
+
+.see-more-project {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: var(--button);
+    
+}
+
+
+
+.see-more-project::before {
+    content: 'under construction :)';
+    padding: 20px;
+    position: absolute;
+    display: grid;
+    background-color: var(--yellow-cl);
+    color: #0a0a0a;
+    font-family: var(--secondfont);
+        text-transform: uppercase;
+        font-weight: 800;
+        margin: 1em;
+        font-size: 1em;
+        place-items: center;
+        opacity: 0;
+        scale: 0.7;
+        transition: 0.2s;
+        transition-delay: scale 0.3s;
+        filter: brightness(100%) !important;
+        z-index: 2;
+}
+
+
+.see-more-project:hover::before {
+    opacity: 1;
+    scale: 1;
+    
+}
+
+.more-btn {
+    width: 5em;
+        aspect-ratio: 1 / 1;
+        background-color: transparent;
+        border: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+}
+
+.more-btn svg {
+    width: 50%;
+}
+
+
+.more-btn svg path {
+        fill: transparent;
+            stroke: var(--button);
+            stroke-width: 2px;
+            opacity: 0.6;
+            transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.see-more-project p {
+    font-family: var(--secondfont);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 1em;
+    font-size: 1em;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.see-more-project:hover .more-btn {
+    filter: brightness(40%) grayscale(100%);
+}
+.see-more-project:hover p {
+    filter: brightness(40%) grayscale(100%);
 }
 
 .gambar {
@@ -123,6 +207,8 @@
     position: relative;
     text-transform: uppercase;
     top: 0;
+    height: 1.5em;
+    overflow: hidden;
 }
 
 .tag-language {
@@ -132,7 +218,7 @@
     padding-inline: 30px;
     width: calc(100% - 20px);
     overflow: hidden;
-    gap: 0.5vw;
+    gap: 1vw;
 }
 
 .tag-language .taglang:nth-last-child(1) {
