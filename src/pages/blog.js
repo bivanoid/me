@@ -91,9 +91,7 @@ export default function Blog() {
           "p[style-name='Title'] => h1.title:fresh",
           "p[style-name='Subtitle'] => p.subtitle:fresh",
           // 🔽 ubah bagian List Paragraph ke ordered list
-          "p[style-name='Number List'] => ol > li:fresh",
-          "p[style-name='Bullet List'] => ul > li:fresh",
-          "p[style-name='List Paragraph'] => ol > li:fresh", // fallback
+          "p[style-name='List Paragraph'] => ol > li:fresh",
           "r[style-name='Strong'] => strong",
           "r[style-name='Emphasis'] => em",
         ],
@@ -106,26 +104,19 @@ export default function Blog() {
         })
       };
 
-      const { value } = await mammoth.convertToHtml({ arrayBuffer }, options);
-      let html = value;
+      const result = await mammoth.convertToHtml({ arrayBuffer }, options)
 
-      // ubah <p class="list-item"> ke <li>, dengan mendeteksi bullet/number
-      // Tangani list otomatis dari Mammoth (bullet dan number)
-      html = html
-        .replace(/<p class="list-item" list-type="bullet">/g, "<li>")
-        .replace(/<p class="list-item" list-type="number">/g, "<li>")
-        .replace(/<\/p>/g, "</li>");
+      // Post-process HTML untuk memperbaiki formatting
+      let html = result.value
 
-      // Gabungkan semua list item ke dalam <ul> atau <ol>
-      html = html
-        .replace(/(<li>[\s\S]*?<\/li>)(?=(<li>|$))/g, "<ul>$1</ul>")
-        .replace(/(<ul>[\s\S]*?<\/ul>){2,}/g, match => match.replace(/<\/ul><ul>/g, ""));
+      // Tambahkan class untuk list items
+      html = html.replace(/<li>/g, '<li class="doc-list-item">')
 
-      // Number list
-      html = html
-        .replace(/(<li>[\s\S]*?<\/li>)(?=(<li>|$))/g, "<ol>$1</ol>")
-        .replace(/(<ol>[\s\S]*?<\/ol>){2,}/g, match => match.replace(/<\/ol><ol>/g, ""));
-      console.log(html);
+      // Bersihkan multiple line breaks
+      html = html.replace(/(<br\s*\/?>){3,}/g, '<br><br>')
+
+      // Wrap numbered items
+      html = html.replace(/(\d+\.\s+)([^<\n]+)/g, '<p class="numbered-item"><span class="number">$1</span>$2</p>')
 
       return html
     } catch (error) {
