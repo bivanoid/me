@@ -90,7 +90,7 @@ function Introduction() {
             <div className='text' ref={conImageRef} style={{ opacity: 1 }}>
                 <FadeContent blur={false} duration={1500} easing="ease-out" initialOpacity={0}>
                     <div className='header-int'>
-                        <p className='revealed'>BY bIVANOId</p>
+                        <p className='revealed'><strong>BY bIVANOId</strong></p>
                         <p className='currndate'>{formatTime(currentTime)}</p>
                     </div>
                 </FadeContent>

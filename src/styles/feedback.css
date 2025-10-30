@@ -1,6 +1,5 @@
 .feedback {
     height: fit-content;
-    margin-top: 30px;
 }
 
 .title-feedback {
@@ -57,7 +56,6 @@
 .prev-fb {
     width: fit-content;
     min-width: 100px;
-    border-left: 1px solid var(--border);
     right: 0;
     display: grid;
     place-items: center;
@@ -70,6 +68,10 @@
 
 .prev-fb {
     border-right: 1px solid var(--border);
+}
+
+.next-fb {
+    border-left: 1px solid var(--border);
 }
 
 .swiper-pagination-fraction,
@@ -324,14 +326,21 @@
 /* Loading and Error Styles */
 .loading-feedback {
     color: var(--button);
+    width: 100%;
+        height: 50svh;
+        display: grid;
+        place-items: center;
 }
 
 .error-title {
     font-size: 1em;
     width: 100%;
+    height: 50svh;
     padding-block: 30px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     border-block: 1px solid var(--border);
 }
 

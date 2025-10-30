@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useContext } from "react"
-import { useParams, useLocation, useNavigate } from "react-router-dom"
+import { useParams, useLocation, useNavigate, Link } from "react-router-dom"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
@@ -220,7 +220,7 @@ export default function ArticlePage() {
                   <div className="author-photo"></div>
                   <div className="article-modal-author">
                     <div className="author-info">
-                      <p className="author-name">{article.author || "Firdhan Abivandya"}</p>
+                      <Link to="/" className="author-name">{article.author || "/Firdhan Abivandya"}</Link>
                       <p className="publish-date">
                         {article.created_at ? formatDate(article.created_at) : "Tanggal tidak tersedia"}
                       </p>

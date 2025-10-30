@@ -90,7 +90,10 @@ export default function Blog() {
           "p[style-name='Heading 4'] => h4:fresh",
           "p[style-name='Title'] => h1.title:fresh",
           "p[style-name='Subtitle'] => p.subtitle:fresh",
-          "p[style-name='List Paragraph'] => p.list-item:fresh",
+          // 🔽 ubah bagian List Paragraph ke ordered list
+          "p[style-name='Number List'] => ol > li:fresh",
+          "p[style-name='Bullet List'] => ul > li:fresh",
+          "p[style-name='List Paragraph'] => ol > li:fresh", // fallback
           "r[style-name='Strong'] => strong",
           "r[style-name='Emphasis'] => em",
         ],
@@ -103,19 +106,26 @@ export default function Blog() {
         })
       };
 
-      const result = await mammoth.convertToHtml({ arrayBuffer }, options)
+      const { value } = await mammoth.convertToHtml({ arrayBuffer }, options);
+      let html = value;
 
-      // Post-process HTML untuk memperbaiki formatting
-      let html = result.value
+      // ubah <p class="list-item"> ke <li>, dengan mendeteksi bullet/number
+      // Tangani list otomatis dari Mammoth (bullet dan number)
+      html = html
+        .replace(/<p class="list-item" list-type="bullet">/g, "<li>")
+        .replace(/<p class="list-item" list-type="number">/g, "<li>")
+        .replace(/<\/p>/g, "</li>");
 
-      // Tambahkan class untuk list items
-      html = html.replace(/<li>/g, '<li class="doc-list-item">')
+      // Gabungkan semua list item ke dalam <ul> atau <ol>
+      html = html
+        .replace(/(<li>[\s\S]*?<\/li>)(?=(<li>|$))/g, "<ul>$1</ul>")
+        .replace(/(<ul>[\s\S]*?<\/ul>){2,}/g, match => match.replace(/<\/ul><ul>/g, ""));
 
-      // Bersihkan multiple line breaks
-      html = html.replace(/(<br\s*\/?>){3,}/g, '<br><br>')
-
-      // Wrap numbered items
-      html = html.replace(/(\d+\.\s+)([^<\n]+)/g, '<p class="numbered-item"><span class="number">$1</span>$2</p>')
+      // Number list
+      html = html
+        .replace(/(<li>[\s\S]*?<\/li>)(?=(<li>|$))/g, "<ol>$1</ol>")
+        .replace(/(<ol>[\s\S]*?<\/ol>){2,}/g, match => match.replace(/<\/ol><ol>/g, ""));
+      console.log(html);
 
       return html
     } catch (error) {
@@ -293,25 +303,17 @@ export default function Blog() {
                       </div>
 
                       <div className="column-article">
-                        <div className="con-profile-blog">
-                          <div className="photoprofile-blog"></div>
-                          <div className="name-and-date">
-                            <p>{blog.author || "Firdhan Abivandya"}</p>
-                            <p id="date-post">
-                              {blog.created_at ? formatDate(blog.created_at) : "Tanggal tidak tersedia"}
-                            </p>
-                          </div>
-                        </div>
                         <div className="text-article">
                           <h1 className="title-article">{blog.title_blog || "Judul tidak tersedia"}</h1>
-                          <p
-                            className="content-article rendered-html"
-                            dangerouslySetInnerHTML={{
-                              __html: htmlContent
-                                ? truncateHtml(htmlContent, 100)
-                                : (blog.text_blog ? truncateHtml(blog.text_blog, 100) : "Konten tidak tersedia")
-                            }}
-                          ></p>
+
+                          {/* Tampilkan sub_title jika ada */}
+                          {blog.sub_title && (
+                            <p className="subtitle-article">{blog.sub_title}</p>
+                          )}
+
+                          <p id="date-post">
+                            {blog.created_at ? formatDate(blog.created_at) : "Tanggal tidak tersedia"}
+                          </p>
                         </div>
                         {blog.category && (
                           <div className="blog-category">

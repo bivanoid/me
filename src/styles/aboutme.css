@@ -105,7 +105,7 @@
     width: 3.7vw;
     background: url(../assets/legosleep.jpg);
     aspect-ratio: 1/1;
-    display: grid;
+    display: none;
     
     background-position: center;
     background-size: cover;
@@ -212,6 +212,7 @@
     width: 100%;
     height: 62px;
     font-size: 1em;
+    background-color: var(--primary);
     display: grid;
     place-items: center;
     border-top: 1px solid var(--border);
@@ -247,12 +248,10 @@
 }
 
 .bio h1 span {
-    width: 1vw;
-    margin-right: 1vw;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    color: rgb(241, 208, 119);
+    font-size: 1em;
+    color: var(--red-cl);
     display: inline-block;
+    margin-left: 0.2em;
 }
 
 
@@ -280,6 +279,7 @@
     border-inline: 1px solid var(--border);
     border-top: 1px solid var(--border);
     color: var(--button);
+    overflow: hidden;
 }
 
 .bio .list-bio li:nth-last-child(1) {
@@ -637,7 +637,7 @@
     }
 
     .sticky #namamu {
-        font-size: 1.8em;
+        font-size: 2em;
         font-family: var(--secondfont);
         color: var(--button);
         display: inline-block;

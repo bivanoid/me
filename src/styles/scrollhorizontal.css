@@ -256,7 +256,6 @@
 .prev-hz {
     width: fit-content;
     min-width: 100px;
-    border-left: 1px solid var(--border);
     right: 0;
     display: grid;
     place-items: center;
@@ -269,6 +268,10 @@
 
 .prev-hz {
     border-right: 1px solid var(--border);
+}
+
+.next-hz {
+    border-left: 1px solid var(--border);
 }
 
 .mySwiper:hover .gambar {

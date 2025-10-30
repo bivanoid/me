@@ -68,7 +68,7 @@ function Navigation() {
             root.style.setProperty('--orange-cl', 'rgba(182, 99, 51, 1)');
             root.style.setProperty('--yellow-cl', 'rgba(223, 182, 49, 1)');
             root.style.setProperty('--lime-cl', 'rgba(125, 187, 43, 1)');
-            root.style.setProperty('--green-cl', 'rgba(36, 170, 81, 1)');
+            root.style.setProperty('--glreen-cl', 'rgba(36, 170, 81, 1)');
 
             // Update browser navigation bar color
             updateBrowserThemeColor('#dbdbce');
