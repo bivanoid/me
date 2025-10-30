@@ -4,7 +4,7 @@ Personal website repository built with JavaScript, CSS, TypeScript, and HTML.
 
 ## 🔗 Homepage
 Aplikasi ini di-deploy di Vercel:
-[https://me-liart-five.vercel.app](https://me-liart-five.vercel.app)
+(https://bivanoid.vercel.app/)
 
 ## 🚀 Fitur Utama
 - Tampilan personal web/landing page.
