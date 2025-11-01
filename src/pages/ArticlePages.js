@@ -9,6 +9,32 @@ import Backic from "../iconSvg/backic"
 import { LenisContext } from "../App"
 import mammoth from "mammoth"
 
+import Prism from "prismjs";
+import "../styles/prism-custom.css"; // bisa diganti misal prism-okaidia.css
+/* dependensi utama */
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-markup"; // HTML dasar
+
+/* bahasa umum */
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-css";
+import "prismjs/components/prism-python";
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-csharp";
+import "prismjs/components/prism-java";
+
+/* untuk PHP */
+import "prismjs/components/prism-markup-templating";
+import "prismjs/components/prism-php";
+import "prismjs/components/prism-php-extras";
+
+/* SQL dan JSON */
+import "prismjs/components/prism-sql";
+import "prismjs/components/prism-json";
+
+
+
 const handleShare = async () => {
   if (navigator.share) {
     try {
@@ -71,7 +97,9 @@ export default function ArticlePage() {
       if (articleData.htmlContent) {
         setHtmlContent(articleData.htmlContent)
         setIsLoading(false)
-      } else if (articleData.docx_url) {
+        setTimeout(() => Prism.highlightAll(), 100)
+      }
+ else if (articleData.docx_url) {
         // Jika belum ada, konversi dari docx_url
         convertDocxToHtml(articleData.docx_url).then((html) => {
           setHtmlContent(html)

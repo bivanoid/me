@@ -19,6 +19,7 @@
     "motion-primitives": "^0.1.0",
     "ogl": "^1.0.11",
     "openai": "^4.103.0",
+    "prismjs": "^1.30.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-ga4": "^2.1.0",

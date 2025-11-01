@@ -1,0 +1,179 @@
+:root {
+  --code-bg: var(--border);
+  --code-inline-bg: #0a0a0a;
+  --code-text: #f8f8f2;
+  --token-comment: #8292a2;
+  --token-punctuation: #f8f8f2;
+  --token-tag: #f92672;
+  --token-property: #f92672;
+  --token-constant: #f92672;
+  --token-boolean: #ae81ff;
+  --token-number: #ae81ff;
+  --token-string: #a6e22e;
+  --token-atrule: #e6db74;
+  --token-function: #e6db74;
+  --token-keyword: #66d9ef;
+  --token-regex: #fd971f;
+  --token-important: #fd971f;
+  --token-operator: #f8f8f2;
+  --token-variable: #f8f8f2;
+  --toolbar-bg: rgba(224, 224, 224, 0.2);
+  --toolbar-text: #bbb;
+}
+
+code[class*=language-],
+pre[class*=language-] {
+  color: var(--code-text) !important;
+  background: var(--border) !important;
+  text-shadow: 0 1px rgba(0, 0, 0, .3) !important;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*=language-] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: .3em;
+  background: var(--code-bg) !important;
+}
+
+:not(pre)>code[class*=language-],
+pre[class*=language-] {
+  background: var(--code-inline-bg) !important;
+}
+
+:not(pre)>code[class*=language-] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+/* === TOKEN COLORS === */
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+  color: var(--token-comment) !important;
+}
+
+.token.punctuation {
+  color: var(--token-punctuation) !important;
+}
+
+.token.namespace {
+  opacity: .7 !important;
+}
+
+.token.constant,
+.token.deleted,
+.token.property,
+.token.symbol,
+.token.tag {
+  color: var(--token-tag) !important;
+}
+
+.token.boolean,
+.token.number {
+  color: var(--token-number) !important;
+}
+
+.number {
+  position: relative !important;
+  top: 0px;
+  left: 0px;
+  margin: 0;
+  font-size: 1.1em !important;
+}
+
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
+  color: var(--token-string) !important;
+}
+
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url,
+.token.variable {
+  color: var(--token-operator) !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.class-name,
+.token.function {
+  color: var(--token-function) !important;
+}
+
+.token.keyword {
+  color: var(--token-keyword) !important;
+}
+
+.token.important,
+.token.regex {
+  color: var(--token-regex) !important;
+}
+
+.token.bold,
+.token.important {
+  font-weight: 700 !important;
+}
+
+.token.italic {
+  font-style: italic !important;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* === SCROLLBAR === */
+@media (min-width: 1000px) {
+  ::-webkit-scrollbar-button {
+    display: block;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  ::-webkit-scrollbar {
+    display: block;
+  }
+}
+
+/* === Optional scrollbar theme for pre === */
+pre[class*=language-]::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+pre[class*=language-]::-webkit-scrollbar-track {
+  background: var(--border) !important;
+}
+
+pre[class*=language-]::-webkit-scrollbar-thumb {
+  background: var(--border) !important;
+}
+
+pre[class*=language-]::-webkit-scrollbar-thumb:hover {
+  background: var(--button) !important;
+}

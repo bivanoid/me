@@ -1,3 +1,5 @@
+@import "prismjs/themes/prism-tomorrow.css";
+
 .body-blog {
     box-sizing: border-box;
     user-select: none;
@@ -1631,4 +1633,12 @@ p.list-item[list-type="number"] {
     .rendered-html p {
         font-size: 1em;
     }
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] code {
+    font-family: var(--secondfont);
+    font-weight: 600;
+    border-radius: 0px;
+    border: 1px solid var(--border);
 }

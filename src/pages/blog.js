@@ -134,7 +134,15 @@ export default function Blog() {
 
   // Konversi DOCX secara lazy (hanya untuk artikel yang ditampilkan)
   async function loadDocxContent(blog) {
-    if (blog.docx_url && !docxContents[blog.id]) {
+    // Prioritaskan content_html dari TinyMCE (spb1)
+    if (blog.content_html) {
+      setDocxContents(prev => ({
+        ...prev,
+        [blog.id]: blog.content_html
+      }))
+    } 
+    // Fallback ke docx_url jika tidak ada content_html
+    else if (blog.docx_url && !docxContents[blog.id]) {
       const htmlContent = await convertDocxToHtml(blog.docx_url)
       if (htmlContent) {
         setDocxContents(prev => ({
@@ -177,12 +185,12 @@ export default function Blog() {
         console.log("Blog data fetched successfully:", data)
         setBlogs(data)
 
-        // Tampilkan hanya 4 artikel pertama
+        // Tampilkan hanya artikel pertama sesuai ITEMS_PER_PAGE
         const initialBlogs = data.slice(0, ITEMS_PER_PAGE)
         setDisplayedBlogs(initialBlogs)
         setHasMore(data.length > ITEMS_PER_PAGE)
 
-        // Load DOCX content untuk 4 artikel pertama saja
+        // Load content untuk artikel pertama
         for (const blog of initialBlogs) {
           await loadDocxContent(blog)
         }
@@ -201,7 +209,7 @@ export default function Blog() {
 
     setIsLoadingMore(true);
 
-    const gimmickDelay = new Promise(resolve => setTimeout(resolve, 1500)); // minimal 1.5s tampil
+    const gimmickDelay = new Promise(resolve => setTimeout(resolve, 1500));
     const nextPage = currentPage + 1;
     const startIndex = currentPage * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
@@ -214,7 +222,6 @@ export default function Blog() {
     }
 
     try {
-      // mulai dua hal paralel: delay dan load docx
       await Promise.all([
         gimmickDelay,
         ...newBlogs.map(blog => loadDocxContent(blog))
@@ -230,10 +237,8 @@ export default function Blog() {
     }
   }, [currentPage, blogs, hasMore, isLoadingMore, docxContents]);
 
-
   // Intersection Observer untuk infinite scroll
   useEffect(() => {
-    // Pastikan displayedBlogs sudah ada sebelum setup observer
     if (displayedBlogs.length === 0 || !observerTarget.current) {
       return
     }
@@ -247,7 +252,7 @@ export default function Blog() {
       },
       {
         threshold: 0.1,
-        rootMargin: '100px' // Trigger lebih awal, 100px sebelum terlihat
+        rootMargin: '100px'
       }
     )
 
@@ -263,7 +268,7 @@ export default function Blog() {
 
   function handleFilterChange(newFilter) {
     setFilter(newFilter)
-    setDocxContents({}) // Reset docx contents saat ganti filter
+    setDocxContents({})
   }
 
   function openBlog() {
@@ -300,14 +305,12 @@ export default function Blog() {
   function truncateHtml(html, maxLength = 250) {
     if (!html) return "Konten tidak tersedia"
 
-    // Hapus tag HTML untuk menghitung karakter
     const tempDiv = document.createElement('div')
     tempDiv.innerHTML = html
     const textContent = tempDiv.textContent || tempDiv.innerText || ""
 
     if (textContent.length <= maxLength) return html
 
-    // Truncate text content
     const truncated = textContent.substring(0, maxLength)
     return truncated + "... <span class='seeMore' style='opacity: 1 !important;'>see more</span>"
   }
@@ -421,16 +424,6 @@ export default function Blog() {
                     )}
                   </div>
                 )}
-{/* 
-                {!hasMore && displayedBlogs.length > 0 && (
-                  <div style={{
-                    textAlign: 'center',
-                    padding: '20px',
-                    opacity: 0.6
-                  }}>
-                    <p>All articles loaded</p>
-                  </div>
-                )} */}
               </>
             )}
           </div>
