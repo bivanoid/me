@@ -402,7 +402,6 @@
     }
 
     .user-feedback:hover .username {
-        letter-spacing: 1.2px;
         opacity: 0.7;
     }
 

@@ -128,41 +128,11 @@ export default function ArticlePage() {
   }
 
   function handleGoBack() {
-    // Reset Lenis scroll dengan force
-    if (lenisRef?.current) {
-      lenisRef.current.stop();
-      lenisRef.current.scrollTo(0, {
-        immediate: true,
-        force: true,
-        lock: true
-      });
-
-      // Tunggu sebentar sebelum navigasi
-      setTimeout(() => {
-        navigate('/blog', {
-          replace: true,
-          state: {
-            refreshBlog: true,
-            timestamp: Date.now(),
-            restoreScroll: true
-          }
-        });
-      }, 50);
-    } else {
-      // Fallback tanpa Lenis
-      window.scrollTo(0, 0)
-      document.documentElement.scrollTop = 0
-      document.body.scrollTop = 0
-
-      navigate('/blog', {
-        replace: true,
-        state: {
-          refreshBlog: true,
-          timestamp: Date.now(),
-          restoreScroll: true
-        }
-      });
-    }
+    // Gunakan navigate(-1) untuk kembali ke history sebelumnya
+    // Dengan state untuk restore scroll position
+    navigate(-1, {
+      state: { restoreScroll: true }
+    })
   }
 
   if (isLoading) {

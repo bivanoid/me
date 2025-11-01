@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, useContext } from "react"
+import { useEffect, useRef, useState, useContext, useCallback } from "react"
 import { supabase } from "./supabaseClient"
 import "../styles/blogs/blog.css"
 import Footer from "../components/footer"
@@ -8,22 +8,30 @@ import Alert from "../iconSvg/alertIc"
 import Logo from "../components/logo"
 import { useNavigate, useLocation } from "react-router-dom"
 import Backic from "../iconSvg/backic"
-import Menus from '../iconSvg/menus';
-import Close from '../iconSvg/close';
-import { Link } from 'react-router-dom';
+import Menus from '../iconSvg/menus'
+import Close from '../iconSvg/close'
+import { Link } from 'react-router-dom'
 import { LenisContext } from "../App"
 import mammoth from "mammoth"
 
+const ITEMS_PER_PAGE = 3 // Jumlah artikel per load
+
 export default function Blog() {
   const [blogs, setBlogs] = useState([])
+  const [displayedBlogs, setDisplayedBlogs] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [filter, setFilter] = useState("latest")
   const [error, setError] = useState(null)
   const [docxContents, setDocxContents] = useState({})
+  const [currentPage, setCurrentPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
+
   const navigate = useNavigate()
   const location = useLocation()
   const scrollPosition = useRef(0)
   const lenisRef = useContext(LenisContext)
+  const observerTarget = useRef(null)
 
   const handleGoBack = () => {
     navigate(-1)
@@ -32,31 +40,31 @@ export default function Blog() {
   // Reset scroll position ketika pertama kali masuk atau kembali dari article
   useEffect(() => {
     if (location.state?.restoreScroll) {
-      const savedPosition = sessionStorage.getItem('blogScrollPosition');
+      const savedPosition = sessionStorage.getItem('blogScrollPosition')
       if (savedPosition && lenisRef?.current) {
         setTimeout(() => {
           lenisRef.current.scrollTo(parseInt(savedPosition), {
             immediate: true,
             force: true
-          });
-          sessionStorage.removeItem('blogScrollPosition');
-        }, 150);
+          })
+          sessionStorage.removeItem('blogScrollPosition')
+        }, 150)
       } else if (savedPosition) {
         setTimeout(() => {
-          window.scrollTo(0, parseInt(savedPosition));
-          sessionStorage.removeItem('blogScrollPosition');
-        }, 150);
+          window.scrollTo(0, parseInt(savedPosition))
+          sessionStorage.removeItem('blogScrollPosition')
+        }, 150)
       }
     } else {
       if (lenisRef?.current) {
-        lenisRef.current.scrollTo(0, { immediate: true });
+        lenisRef.current.scrollTo(0, { immediate: true })
       } else {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
+        window.scrollTo(0, 0)
+        document.documentElement.scrollTop = 0
+        document.body.scrollTop = 0
       }
     }
-  }, [location.state, lenisRef]);
+  }, [location.state, lenisRef])
 
   useEffect(() => {
     async function testConnection() {
@@ -90,7 +98,6 @@ export default function Blog() {
           "p[style-name='Heading 4'] => h4:fresh",
           "p[style-name='Title'] => h1.title:fresh",
           "p[style-name='Subtitle'] => p.subtitle:fresh",
-          // 🔽 ubah bagian List Paragraph ke ordered list
           "p[style-name='List Paragraph'] => ol > li:fresh",
           "r[style-name='Strong'] => strong",
           "r[style-name='Emphasis'] => em",
@@ -99,10 +106,10 @@ export default function Blog() {
           return image.read("base64").then(function (imageBuffer) {
             return {
               src: "data:" + image.contentType + ";base64," + imageBuffer
-            };
-          });
+            }
+          })
         })
-      };
+      }
 
       const result = await mammoth.convertToHtml({ arrayBuffer }, options)
 
@@ -125,9 +132,23 @@ export default function Blog() {
     }
   }
 
+  // Konversi DOCX secara lazy (hanya untuk artikel yang ditampilkan)
+  async function loadDocxContent(blog) {
+    if (blog.docx_url && !docxContents[blog.id]) {
+      const htmlContent = await convertDocxToHtml(blog.docx_url)
+      if (htmlContent) {
+        setDocxContents(prev => ({
+          ...prev,
+          [blog.id]: htmlContent
+        }))
+      }
+    }
+  }
+
   async function fetchBlogs(filterType) {
     setIsLoading(true)
     setError(null)
+    setCurrentPage(1)
 
     try {
       console.log("Fetching blogs with filter:", filterType)
@@ -150,21 +171,21 @@ export default function Blog() {
       } else if (!data || data.length === 0) {
         console.log("No blog data found")
         setBlogs([])
+        setDisplayedBlogs([])
+        setHasMore(false)
       } else {
         console.log("Blog data fetched successfully:", data)
         setBlogs(data)
 
-        // Konversi semua DOCX ke HTML
-        const contents = {}
-        for (const blog of data) {
-          if (blog.docx_url) {
-            const htmlContent = await convertDocxToHtml(blog.docx_url)
-            if (htmlContent) {
-              contents[blog.id] = htmlContent
-            }
-          }
+        // Tampilkan hanya 4 artikel pertama
+        const initialBlogs = data.slice(0, ITEMS_PER_PAGE)
+        setDisplayedBlogs(initialBlogs)
+        setHasMore(data.length > ITEMS_PER_PAGE)
+
+        // Load DOCX content untuk 4 artikel pertama saja
+        for (const blog of initialBlogs) {
+          await loadDocxContent(blog)
         }
-        setDocxContents(contents)
       }
     } catch (err) {
       console.error("Error fetching blogs:", err)
@@ -174,8 +195,75 @@ export default function Blog() {
     }
   }
 
+  // Load more articles saat scroll
+  const loadMoreBlogs = useCallback(async () => {
+    if (isLoadingMore || !hasMore) return;
+
+    setIsLoadingMore(true);
+
+    const gimmickDelay = new Promise(resolve => setTimeout(resolve, 1500)); // minimal 1.5s tampil
+    const nextPage = currentPage + 1;
+    const startIndex = currentPage * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const newBlogs = blogs.slice(startIndex, endIndex);
+
+    if (newBlogs.length === 0) {
+      setHasMore(false);
+      setIsLoadingMore(false);
+      return;
+    }
+
+    try {
+      // mulai dua hal paralel: delay dan load docx
+      await Promise.all([
+        gimmickDelay,
+        ...newBlogs.map(blog => loadDocxContent(blog))
+      ]);
+
+      setDisplayedBlogs(prev => [...prev, ...newBlogs]);
+      setCurrentPage(nextPage);
+      setHasMore(endIndex < blogs.length);
+    } catch (err) {
+      console.error("Error loading more blogs:", err);
+    } finally {
+      setIsLoadingMore(false);
+    }
+  }, [currentPage, blogs, hasMore, isLoadingMore, docxContents]);
+
+
+  // Intersection Observer untuk infinite scroll
+  useEffect(() => {
+    // Pastikan displayedBlogs sudah ada sebelum setup observer
+    if (displayedBlogs.length === 0 || !observerTarget.current) {
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting && hasMore && !isLoadingMore) {
+          console.log('Intersection triggered - loading more blogs')
+          loadMoreBlogs()
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '100px' // Trigger lebih awal, 100px sebelum terlihat
+      }
+    )
+
+    const currentTarget = observerTarget.current
+    observer.observe(currentTarget)
+
+    return () => {
+      if (currentTarget) {
+        observer.unobserve(currentTarget)
+      }
+    }
+  }, [displayedBlogs.length, hasMore, isLoadingMore, loadMoreBlogs])
+
   function handleFilterChange(newFilter) {
     setFilter(newFilter)
+    setDocxContents({}) // Reset docx contents saat ganti filter
   }
 
   function openBlog() {
@@ -189,10 +277,10 @@ export default function Blog() {
 
   function openArticle(article) {
     if (lenisRef?.current) {
-      const currentScroll = lenisRef.current.scroll;
-      sessionStorage.setItem('blogScrollPosition', currentScroll.toString());
+      const currentScroll = lenisRef.current.scroll
+      sessionStorage.setItem('blogScrollPosition', currentScroll.toString())
     } else {
-      sessionStorage.setItem('blogScrollPosition', window.pageYOffset.toString());
+      sessionStorage.setItem('blogScrollPosition', window.pageYOffset.toString())
     }
 
     // Kirim artikel beserta HTML content yang sudah dikonversi
@@ -201,7 +289,7 @@ export default function Blog() {
       htmlContent: docxContents[article.id]
     }
 
-    navigate(`/article/${article.id}`, { state: { article: articleWithContent } });
+    navigate(`/article/${article.id}`, { state: { article: articleWithContent } })
   }
 
   function formatDate(dateString) {
@@ -254,7 +342,7 @@ export default function Blog() {
                   Load Again
                 </button>
               </div>
-            ) : blogs.length === 0 ? (
+            ) : displayedBlogs.length === 0 ? (
               <div className="empty-state">
                 <p>No Article Here :(</p>
               </div>
@@ -262,12 +350,12 @@ export default function Blog() {
               <>
                 <div className="info-blog" id="info-blog">
                   <div className="debug-info">
-                    <p>All: {blogs.length}</p>
+                    <p>Showing: {displayedBlogs.length} of {blogs.length}</p>
                     <p>Filter: {filter}</p>
                   </div>
                 </div>
 
-                {blogs.map((blog, index) => {
+                {displayedBlogs.map((blog, index) => {
                   const htmlContent = docxContents[blog.id]
 
                   return (
@@ -283,6 +371,7 @@ export default function Blog() {
                             src={blog.image_url || "/placeholder.svg"}
                             className="image-article"
                             alt={`Gambar untuk ${blog.title_blog || "Artikel"}`}
+                            loading="lazy"
                             onError={(e) => {
                               e.target.onerror = null
                               e.target.src = "https://via.placeholder.com/300x200?text=No+Image"
@@ -297,7 +386,6 @@ export default function Blog() {
                         <div className="text-article">
                           <h1 className="title-article">{blog.title_blog || "Judul tidak tersedia"}</h1>
 
-                          {/* Tampilkan sub_title jika ada */}
                           {blog.sub_title && (
                             <p className="subtitle-article">{blog.sub_title}</p>
                           )}
@@ -315,6 +403,34 @@ export default function Blog() {
                     </div>
                   )
                 })}
+
+                {/* Infinite Scroll Trigger */}
+                {hasMore && (
+                  <div
+                    ref={observerTarget}
+                    className="con-loading-more"
+                  >
+                    {isLoadingMore ? (
+                      <div className="loading-more">
+                        <p>Loading...</p>
+                      </div>
+                    ) : (
+                      <div style={{ opacity: 0.4, fontSize: '14px' }}>
+                        <p>Scroll to load more</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+{/* 
+                {!hasMore && displayedBlogs.length > 0 && (
+                  <div style={{
+                    textAlign: 'center',
+                    padding: '20px',
+                    opacity: 0.6
+                  }}>
+                    <p>All articles loaded</p>
+                  </div>
+                )} */}
               </>
             )}
           </div>
@@ -344,8 +460,8 @@ export default function Blog() {
               <button
                 className="try-again-blog try-again-blog2"
                 onClick={() => {
-                  fetchBlogs(filter);
-                  openBlog();
+                  fetchBlogs(filter)
+                  openBlog()
                 }}
               >
                 Refresh
