@@ -99,12 +99,8 @@ export default function ArticlePage() {
         setIsLoading(false)
         setTimeout(() => Prism.highlightAll(), 100)
       }
- else if (articleData.docx_url) {
-        // Jika belum ada, konversi dari docx_url
-        convertDocxToHtml(articleData.docx_url).then((html) => {
-          setHtmlContent(html)
-          setIsLoading(false)
-        })
+      else if (id) {
+        fetchArticle(id) // Pastikan ini dipanggil
       } else {
         setIsLoading(false)
       }
