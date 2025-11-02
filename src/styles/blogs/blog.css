@@ -255,7 +255,7 @@ main {
 .empty-state,
 .loading-state {
     width: 100%;
-    height: calc(100svh - 57px);
+    height: calc(100svh - 180px);
     font-family: var(--primaryfont);
     display: grid;
     place-items: center;
@@ -1641,4 +1641,105 @@ pre[class*="language-"] code {
     font-weight: 600;
     border-radius: 0px;
     border: 1px solid var(--border);
+}
+.search-bar-container {
+    padding: 30px 30px 0 30px;
+    width: calc(100% - 60px);
+}
+
+.search-bar {
+    position: relative;
+    width: 100%;
+    border: 1px solid var(--border);
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 140px 15px 20px;
+    font-family: var(--primaryfont);
+    font-size: 1em;
+    color: var(--button);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--button);
+    opacity: 0.4;
+}
+
+.search-button {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    height: 100%;
+    transform: translateY(-50%);
+    padding: 8px 20px;
+    background-color: transparent;
+
+    border: none;
+    border-left: 1px solid var(--border);
+    color: var(--primary);
+    font-family: var(--secondfont);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    color: var(--blue);
+    transition: opacity 0.3s ease;
+}
+
+.search-button:hover {
+    opacity: 0.8;
+}
+
+.clear-search {
+    position: absolute;
+    right: 12px;
+    top: 150%;
+    transform: translateY(-50%);
+    width: fit-content;
+    height: 35px;
+    background-color: var(--border);
+    border: none;
+    color: var(--button);
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    gap: 10px;
+    padding-inline: 0.5em;
+    z-index: 10;
+}
+
+.clear-search span {
+    font-family: var(--secondfont);
+    font-size: 0.5em;
+}
+
+.clear-search:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 767px) {
+    .search-bar-container {
+        padding: 20px 30px 0 30px;
+        width: calc(100% - 0px);
+    }
+
+    .search-input {
+        padding: 12px 40% 12px 15px;
+        font-size: aem;
+    }
+
+    .clear-search {
+        height: 30px;
+        font-size: 1.3em;
+    }
 }

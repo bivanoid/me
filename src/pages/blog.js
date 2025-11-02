@@ -26,6 +26,9 @@ export default function Blog() {
   const [docxContents, setDocxContents] = useState({})
   const [currentPage, setCurrentPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
+  const [searchQuery, setSearchQuery] = useState("")
+  const [searchInput, setSearchInput] = useState("")
+  const [filteredBlogs, setFilteredBlogs] = useState([])
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -36,6 +39,57 @@ export default function Blog() {
   const handleGoBack = () => {
     navigate(-1)
   }
+
+  // Fungsi pencarian
+  // Fungsi pencarian - dijalankan hanya saat tombol ditekan
+  const handleSearch = useCallback(() => {
+    const query = searchInput.trim()
+    setSearchQuery(query)
+
+    if (!query) {
+      setFilteredBlogs(blogs)
+      const initialBlogs = blogs.slice(0, ITEMS_PER_PAGE)
+      setDisplayedBlogs(initialBlogs)
+      setCurrentPage(1)
+      setHasMore(blogs.length > ITEMS_PER_PAGE)
+      return
+    }
+
+    const searchLower = query.toLowerCase()
+    const filtered = blogs.filter(blog => {
+      const titleMatch = blog.title_blog?.toLowerCase().includes(searchLower)
+      const subtitleMatch = blog.sub_title?.toLowerCase().includes(searchLower)
+      const categoryMatch = blog.category?.toLowerCase().includes(searchLower)
+
+      // Search dalam content HTML
+      let contentMatch = false
+      if (blog.content_html) {
+        const tempDiv = document.createElement('div')
+        tempDiv.innerHTML = blog.content_html
+        const textContent = tempDiv.textContent || tempDiv.innerText || ""
+        contentMatch = textContent.toLowerCase().includes(searchLower)
+      }
+
+      return titleMatch || subtitleMatch || categoryMatch || contentMatch
+    })
+
+    setFilteredBlogs(filtered)
+    const initialFiltered = filtered.slice(0, ITEMS_PER_PAGE)
+    setDisplayedBlogs(initialFiltered)
+    setCurrentPage(1)
+    setHasMore(filtered.length > ITEMS_PER_PAGE)
+
+    // Load content untuk hasil pencarian
+    initialFiltered.forEach(blog => loadDocxContent(blog))
+  }, [blogs, searchInput])
+
+
+  // Update effect untuk filter
+  useEffect(() => {
+    if (searchQuery) {
+      handleSearch(searchQuery)
+    }
+  }, [blogs, searchQuery, handleSearch])
 
   // Reset scroll position ketika pertama kali masuk atau kembali dari article
   useEffect(() => {
@@ -140,7 +194,7 @@ export default function Blog() {
         ...prev,
         [blog.id]: blog.content_html
       }))
-    } 
+    }
     // Fallback ke docx_url jika tidak ada content_html
     else if (blog.docx_url && !docxContents[blog.id]) {
       const htmlContent = await convertDocxToHtml(blog.docx_url)
@@ -180,10 +234,12 @@ export default function Blog() {
         console.log("No blog data found")
         setBlogs([])
         setDisplayedBlogs([])
+        setFilteredBlogs([])
         setHasMore(false)
       } else {
         console.log("Blog data fetched successfully:", data)
         setBlogs(data)
+        setFilteredBlogs(data)
 
         // Tampilkan hanya artikel pertama sesuai ITEMS_PER_PAGE
         const initialBlogs = data.slice(0, ITEMS_PER_PAGE)
@@ -213,7 +269,10 @@ export default function Blog() {
     const nextPage = currentPage + 1;
     const startIndex = currentPage * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    const newBlogs = blogs.slice(startIndex, endIndex);
+
+    // Gunakan filteredBlogs jika ada pencarian, jika tidak gunakan blogs
+    const sourceBlogs = searchQuery ? filteredBlogs : blogs
+    const newBlogs = sourceBlogs.slice(startIndex, endIndex);
 
     if (newBlogs.length === 0) {
       setHasMore(false);
@@ -229,13 +288,13 @@ export default function Blog() {
 
       setDisplayedBlogs(prev => [...prev, ...newBlogs]);
       setCurrentPage(nextPage);
-      setHasMore(endIndex < blogs.length);
+      setHasMore(endIndex < sourceBlogs.length);
     } catch (err) {
       console.error("Error loading more blogs:", err);
     } finally {
       setIsLoadingMore(false);
     }
-  }, [currentPage, blogs, hasMore, isLoadingMore, docxContents]);
+  }, [currentPage, blogs, filteredBlogs, searchQuery, hasMore, isLoadingMore]);
 
   // Intersection Observer untuk infinite scroll
   useEffect(() => {
@@ -269,6 +328,7 @@ export default function Blog() {
   function handleFilterChange(newFilter) {
     setFilter(newFilter)
     setDocxContents({})
+    setSearchQuery("") // Reset pencarian saat ganti filter
   }
 
   function openBlog() {
@@ -333,6 +393,39 @@ export default function Blog() {
           </div>
 
           <div className="con-article" id="conArticle">
+            {/* Search Bar */}
+            <div className="search-bar-container">
+              <div className="search-bar">
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  className="search-input"
+                />
+                <button
+                  className="search-button"
+                  onClick={handleSearch}
+                >
+                  Search
+                </button>
+                {searchQuery && (
+                  <button
+                    className="clear-search"
+                    onClick={() => {
+                      setSearchInput("")
+                      setSearchQuery("")
+                      handleSearch("") // reset hasil
+                    }}
+                    aria-label="Clear search"
+                  >
+                    × <span>Clear</span> 
+                  </button>
+                )}
+
+              </div>
+            </div>
+
             {isLoading ? (
               <div className="loading-state">
                 <p>Loading</p>
@@ -347,14 +440,15 @@ export default function Blog() {
               </div>
             ) : displayedBlogs.length === 0 ? (
               <div className="empty-state">
-                <p>No Article Here :(</p>
+                <p>{searchQuery ? `No articles found for "${searchQuery}"` : "No Article Here :("}</p>
               </div>
             ) : (
               <>
                 <div className="info-blog" id="info-blog">
                   <div className="debug-info">
-                    <p>Showing: {displayedBlogs.length} of {blogs.length}</p>
+                    <p>Showing: {displayedBlogs.length} of {searchQuery ? filteredBlogs.length : blogs.length}</p>
                     <p>Filter: {filter}</p>
+                    
                   </div>
                 </div>
 
