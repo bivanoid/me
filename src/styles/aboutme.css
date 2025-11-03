@@ -139,13 +139,12 @@
     gap: 1vh;
     flex-direction: column;
     justify-content: space-around;
-    margin-block: 30px;
+    margin-block: 30px 0px;
     color: white;
     height: fit-content;
     z-index: 2;
     padding-inline: 30px;
 }
-
 
 .skills {
     display: flex;
@@ -223,12 +222,9 @@
     overflow: hidden;
 }
 
-.con-hire-me:hover {
-    background-color: var(--blue);
-}
-
 .con-hire-me:hover .contactme {
     color: var(--primary);
+    background-color: var(--blue);
 }
 
 .bio h1 {

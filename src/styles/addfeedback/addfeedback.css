@@ -6,15 +6,17 @@
 
 .back-to-home-from-addfeedback {
     top: 30px;
-    left: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--secondfont);
-    width: 100%;
-    padding-block: 30px;
-    color: var(--button);
-    font-style: normal;
+        left: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--secondfont);
+        font-weight: 600;
+        text-transform: uppercase;
+        width: 100%;
+        padding-block: 30px;
+        color: var(--button);
+        font-style: normal;
 }
 
 .back-to-home-from-addfeedback i {
@@ -144,10 +146,10 @@
 
 .conTextArea {
     position: relative;
+    height: 150px;
 }
 
 .textarea-addfeedback {
-    box-sizing: border-box;
     width: 100%;
     border: none;
     outline: none;
@@ -185,6 +187,8 @@
     background: transparent;
     flex: 1;
     width: 20%;
+    
+    margin-top: 35px;
     font-size: 4em;
     text-transform: uppercase;
     font-family: var(--secondfont);
@@ -204,7 +208,6 @@
 
     .con-addfeedback form .con-input {
         width: 100%;
-        margin-top: 30px;
     }
 
     .button-addfeedback {
@@ -212,6 +215,8 @@
         text-orientation: sideways;
         width: 100%;
         font-size: 2em;
+        margin-top: 0;
+        padding-block: 0.3em;
     }
 
     .con-addfeedback form {
@@ -406,5 +411,22 @@ button:disabled {
     .character-count {
         bottom: 0%;
         z-index: 5;
+    }
+}
+
+.note-addfb {
+    font-family: var(--secondfont);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    padding-bottom: 1em;
+    color: var(--button);
+    height: 35px;
+    opacity: 0.4;
+}
+
+@media (max-width:767px) {
+    .note-addfb {
+        font-size: 0.6em;
+        margin-bottom: 10svh;
     }
 }

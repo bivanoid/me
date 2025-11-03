@@ -70,12 +70,12 @@ export default function AddFeedback() {
         )}
 
         <h2>
-          <span className="logo-addfb"><Logo /></span>
           How’s the <span className="andText">Mood Today?</span>
         </h2>
 
         <form onSubmit={addUser}>
           <div className="con-input">
+            <p className="note-addfb">Note : red(bad) to green(good) is like a grade from 1 - 5</p>
             <div className="rating-container">
               {[1, 2, 3, 4, 5].map((num) => {
                 const emoji = {
@@ -132,7 +132,7 @@ export default function AddFeedback() {
           <button className="button-addfeedback" type="submit">Submit</button>
         </form>
 
-        <Link to="/" className="back-to-home-from-addfeedback">Back</Link>
+        <Link to="/" className="back-to-home-from-addfeedback"> &lt;- Back</Link>
       </div>
     </div>
   );

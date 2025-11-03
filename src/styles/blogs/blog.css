@@ -1680,7 +1680,6 @@ pre[class*="language-"] code {
     transform: translateY(-50%);
     padding: 8px 20px;
     background-color: transparent;
-
     border: none;
     border-left: 1px solid var(--border);
     color: var(--primary);
@@ -1743,3 +1742,4 @@ pre[class*="language-"] code {
         font-size: 1.3em;
     }
 }
+
