@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "./static/css/main.4d7f52ed.css",
-    "main.js": "./static/js/main.8acbd58d.js",
-    "static/js/198.e4502a77.chunk.js": "./static/js/198.e4502a77.chunk.js",
-    "static/media/WAKTU AHKIR.jpg": "./static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
-    "static/media/galpod-app.png": "./static/media/galpod-app.64e7b931b97ef620af03.png",
-    "static/media/starnight.jpg": "./static/media/starnight.c8e731f5c7f3005d50ea.jpg",
-    "static/media/riyadhmckp.png": "./static/media/riyadhmckp.c4e186f986912c99b816.png",
-    "static/media/Casier.png": "./static/media/Casier.ab3270f4095b6fe2ce78.png",
-    "static/media/calc.png": "./static/media/calc.1a26671ef3739b01684c.png",
-    "static/media/woman.jpg": "./static/media/woman.6bf7c6270399f060a0bf.jpg",
-    "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "./static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
-    "static/media/bebrave.jpg": "./static/media/bebrave.eacb2fb5dff8b0ebd32c.jpg",
-    "static/media/bicturemckp.png": "./static/media/bicturemckp.f0db5e2400b5e2e2e3b8.png",
-    "static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.jpeg": "./static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.25d2ec1202490885de0c.jpeg",
-    "static/media/legosleep.jpg": "./static/media/legosleep.5f14d4fd5502ed81fab4.jpg",
-    "static/media/sheep.jpeg": "./static/media/sheep.540c258dbc2cf8c2f105.jpeg",
-    "index.html": "./index.html",
-    "static/media/plus-paricle.svg": "./static/media/plus-paricle.a91328f68783c0a77b08cac4564e650d.svg",
-    "main.4d7f52ed.css.map": "./static/css/main.4d7f52ed.css.map",
-    "main.8acbd58d.js.map": "./static/js/main.8acbd58d.js.map",
-    "198.e4502a77.chunk.js.map": "./static/js/198.e4502a77.chunk.js.map"
+    "main.css": "/me/static/css/main.1e43ef1f.css",
+    "main.js": "/me/static/js/main.30d33ffa.js",
+    "static/js/198.0431096e.chunk.js": "/me/static/js/198.0431096e.chunk.js",
+    "static/media/WAKTU AHKIR.jpg": "/me/static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
+    "static/media/galpod-app.png": "/me/static/media/galpod-app.64e7b931b97ef620af03.png",
+    "static/media/starnight.jpg": "/me/static/media/starnight.c8e731f5c7f3005d50ea.jpg",
+    "static/media/riyadhmckp.png": "/me/static/media/riyadhmckp.c4e186f986912c99b816.png",
+    "static/media/Casier.png": "/me/static/media/Casier.ab3270f4095b6fe2ce78.png",
+    "static/media/calc.png": "/me/static/media/calc.1a26671ef3739b01684c.png",
+    "static/media/woman.jpg": "/me/static/media/woman.6bf7c6270399f060a0bf.jpg",
+    "static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).jpg": "/me/static/media/e3b4ba54-3742-495d-aa8e-1e0c75f69437 (1).a8488c270f30c70bdff7.jpg",
+    "static/media/bebrave.jpg": "/me/static/media/bebrave.eacb2fb5dff8b0ebd32c.jpg",
+    "static/media/bicturemckp.png": "/me/static/media/bicturemckp.f0db5e2400b5e2e2e3b8.png",
+    "static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.jpeg": "/me/static/media/84cdd9d2-8c16-4371-82f6-d1cd9d8c8ef9.25d2ec1202490885de0c.jpeg",
+    "static/media/legosleep.jpg": "/me/static/media/legosleep.5f14d4fd5502ed81fab4.jpg",
+    "static/media/sheep.jpeg": "/me/static/media/sheep.540c258dbc2cf8c2f105.jpeg",
+    "index.html": "/me/index.html",
+    "static/media/plus-paricle.svg": "/me/static/media/plus-paricle.a91328f68783c0a77b08cac4564e650d.svg",
+    "main.1e43ef1f.css.map": "/me/static/css/main.1e43ef1f.css.map",
+    "main.30d33ffa.js.map": "/me/static/js/main.30d33ffa.js.map",
+    "198.0431096e.chunk.js.map": "/me/static/js/198.0431096e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d7f52ed.css",
-    "static/js/main.8acbd58d.js"
+    "static/css/main.1e43ef1f.css",
+    "static/js/main.30d33ffa.js"
   ]
 }
