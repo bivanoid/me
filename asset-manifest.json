@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/me/static/css/main.1e43ef1f.css",
-    "main.js": "/me/static/js/main.176e2776.js",
+    "main.css": "/me/static/css/main.1fba04bd.css",
+    "main.js": "/me/static/js/main.b4663be6.js",
     "static/js/198.0431096e.chunk.js": "/me/static/js/198.0431096e.chunk.js",
     "static/media/WAKTU AHKIR.jpg": "/me/static/media/WAKTU AHKIR.3d5012ce93fcad922880.jpg",
     "static/media/galpod-app.png": "/me/static/media/galpod-app.64e7b931b97ef620af03.png",
@@ -18,12 +18,12 @@
     "static/media/sheep.jpeg": "/me/static/media/sheep.540c258dbc2cf8c2f105.jpeg",
     "index.html": "/me/index.html",
     "static/media/plus-paricle.svg": "/me/static/media/plus-paricle.a91328f68783c0a77b08cac4564e650d.svg",
-    "main.1e43ef1f.css.map": "/me/static/css/main.1e43ef1f.css.map",
-    "main.176e2776.js.map": "/me/static/js/main.176e2776.js.map",
+    "main.1fba04bd.css.map": "/me/static/css/main.1fba04bd.css.map",
+    "main.b4663be6.js.map": "/me/static/js/main.b4663be6.js.map",
     "198.0431096e.chunk.js.map": "/me/static/js/198.0431096e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e43ef1f.css",
-    "static/js/main.176e2776.js"
+    "static/css/main.1fba04bd.css",
+    "static/js/main.b4663be6.js"
   ]
 }
