@@ -10,12 +10,9 @@ import { LenisContext } from "../App"
 import mammoth from "mammoth"
 
 import Prism from "prismjs";
-import "../styles/prism-custom.css"; // bisa diganti misal prism-okaidia.css
-/* dependensi utama */
+import "../styles/prism-custom.css";
 import "prismjs/components/prism-clike";
-import "prismjs/components/prism-markup"; // HTML dasar
-
-/* bahasa umum */
+import "prismjs/components/prism-markup";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
 import "prismjs/components/prism-python";
@@ -23,34 +20,15 @@ import "prismjs/components/prism-c";
 import "prismjs/components/prism-cpp";
 import "prismjs/components/prism-csharp";
 import "prismjs/components/prism-java";
-
-/* untuk PHP */
 import "prismjs/components/prism-markup-templating";
 import "prismjs/components/prism-php";
 import "prismjs/components/prism-php-extras";
-
-/* SQL dan JSON */
 import "prismjs/components/prism-sql";
 import "prismjs/components/prism-json";
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
+import "prismjs/plugins/toolbar/prism-toolbar.css";
 
 
-
-const handleShare = async () => {
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: document.title,
-        text: 'Cek halaman ini!',
-        url: window.location.href
-      });
-      console.log('Berhasil dibagikan');
-    } catch (error) {
-      console.error('Gagal membagikan', error);
-    }
-  } else {
-    alert('Fitur share tidak didukung di browser ini.');
-  }
-};
 
 export default function ArticlePage() {
   const { id } = useParams()
@@ -60,9 +38,11 @@ export default function ArticlePage() {
   const [htmlContent, setHtmlContent] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [showShareMenu, setShowShareMenu] = useState(false)
+  const [copySuccess, setCopySuccess] = useState(false)
   const lenisRef = useContext(LenisContext)
 
-  // Reset scroll position saat halaman article dibuka
+  // Reset scroll position
   useEffect(() => {
     if (lenisRef?.current) {
       lenisRef.current.scrollTo(0, { immediate: true })
@@ -73,14 +53,13 @@ export default function ArticlePage() {
     }
   }, [lenisRef])
 
-  // Fungsi untuk mengkonversi DOCX ke HTML
+  // Konversi DOCX ke HTML
   async function convertDocxToHtml(docxUrl) {
     try {
       const response = await fetch(docxUrl)
       const arrayBuffer = await response.arrayBuffer()
-
       const result = await mammoth.convertToHtml({ arrayBuffer })
-      return result.value // HTML string
+      return result.value
     } catch (error) {
       console.error("Error converting DOCX to HTML:", error)
       return null
@@ -88,44 +67,72 @@ export default function ArticlePage() {
   }
 
   useEffect(() => {
-    // Try to get article from navigation state first
-    if (location.state?.article) {
-      const articleData = location.state.article
-      setArticle(articleData)
-
-      // Jika sudah ada htmlContent dari blog page, langsung gunakan
-      if (articleData.htmlContent) {
-        setHtmlContent(articleData.htmlContent)
-        setIsLoading(false)
-        setTimeout(() => Prism.highlightAll(), 100)
+    // Tunggu Prism siap
+    if (typeof window !== "undefined") {
+      const prism = window.Prism || Prism;
+      if (prism) {
+        // beri jeda sedikit biar DOM updated dulu
+        const timeout = setTimeout(() => prism.highlightAll(), 50);
+        return () => clearTimeout(timeout);
       }
-      else if (id) {
-        fetchArticle(id) // Pastikan ini dipanggil
-      } else {
-        setIsLoading(false)
-      }
-    } else if (id) {
-      // If no state, fetch from database
-      fetchArticle(id)
-    } else {
-      setError("No article ID provided")
-      setIsLoading(false)
     }
-  }, [id, location.state])
+  }, [htmlContent]);
 
-  async function fetchArticle(articleId) {
-    try {
-      const { data, error } = await supabase
-        .from("blog")
-        .select("*")
-        .eq("id", articleId)
-        .single()
 
-      if (error) {
-        console.error("Failed to fetch article:", error)
-        setError("Failed to load article: " + error.message)
-        setIsLoading(false)
-      } else if (data) {
+  // FIXED: Single unified fetch
+  useEffect(() => {
+    const loadArticle = async () => {
+      try {
+        setIsLoading(true)
+
+        // Cek apakah ada data dari navigation state
+        if (location.state?.article) {
+          const articleData = location.state.article
+          setArticle(articleData)
+
+          // Jika sudah ada htmlContent, langsung gunakan
+          if (articleData.htmlContent) {
+            setHtmlContent(articleData.htmlContent)
+          } else if (articleData.docx_url) {
+            const html = await convertDocxToHtml(articleData.docx_url)
+            setHtmlContent(html)
+          }
+
+          setIsLoading(false)
+          return
+        }
+
+        // Jika tidak ada state, fetch dari database
+        if (!id) {
+          setError("No article ID provided")
+          setIsLoading(false)
+          return
+        }
+
+        console.log('Fetching article with ID:', id)
+
+        // FIXED: Gunakan tabel 'blog' (sesuai dengan fetchArticle asli)
+        const { data, error: fetchError } = await supabase
+          .from('blog')
+          .select('*')
+          .eq('id', id)
+          .single()
+
+        console.log('Supabase response:', { data, error: fetchError })
+
+        if (fetchError) {
+          console.error('Error fetching:', fetchError)
+          setError("Failed to load article: " + fetchError.message)
+          setIsLoading(false)
+          return
+        }
+
+        if (!data) {
+          setError("Article not found")
+          setIsLoading(false)
+          return
+        }
+
         setArticle(data)
 
         // Konversi DOCX ke HTML jika ada
@@ -135,14 +142,67 @@ export default function ArticlePage() {
         }
 
         setIsLoading(false)
-      } else {
-        setError("Article not found")
+
+      } catch (err) {
+        console.error("Error loading article:", err)
+        setError("Error loading article: " + (err.message || String(err)))
         setIsLoading(false)
       }
-    } catch (err) {
-      console.error("Error fetching article:", err)
-      setError("Error loading article: " + (err.message || String(err)))
-      setIsLoading(false)
+    }
+
+    loadArticle()
+  }, [id, location.state])
+
+  useEffect(() => {
+    // Tunggu PrismJS global dari window
+    if (window.Prism) {
+      window.Prism.highlightAll();
+    }
+  }, [htmlContent]);
+
+  // Advanced Share Handler
+  const handleShare = async () => {
+    const shareData = {
+      title: article?.title_blog || document.title,
+      text: `Baca artikel: ${article?.title_blog || 'Artikel Menarik'}`,
+      url: window.location.href
+    }
+
+    // Cek apakah browser support native share (mobile/modern browser)
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+      try {
+        await navigator.share(shareData)
+        console.log('Berhasil dibagikan via native share')
+      } catch (error) {
+        // User cancelled atau error
+        if (error.name !== 'AbortError') {
+          console.error('Error sharing:', error)
+          // Fallback ke custom menu
+          setShowShareMenu(true)
+        }
+      }
+    } else {
+      // Desktop atau browser tanpa native share - tampilkan menu custom
+      setShowShareMenu(true)
+    }
+  }
+
+  // Share ke platform sosial media
+  const shareToSocial = (platform) => {
+    const url = encodeURIComponent(window.location.href)
+    const title = encodeURIComponent(article?.title_blog || 'Artikel Menarik')
+
+    const shareUrls = {
+      twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+      whatsapp: `https://wa.me/?text=${title}%20${url}`,
+      telegram: `https://t.me/share/url?url=${url}&text=${title}`
+    }
+
+    if (shareUrls[platform]) {
+      window.open(shareUrls[platform], '_blank', 'width=600,height=400')
+      setShowShareMenu(false)
     }
   }
 
@@ -151,13 +211,17 @@ export default function ArticlePage() {
     return new Date(dateString).toLocaleDateString("id-ID", options)
   }
 
-  function handleGoBack() {
-    // Gunakan navigate(-1) untuk kembali ke history sebelumnya
-    // Dengan state untuk restore scroll position
-    navigate(-1, {
-      state: { restoreScroll: true }
-    })
-  }
+  // Close share menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (showShareMenu && !e.target.closest('.share-menu-container')) {
+        setShowShareMenu(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showShareMenu])
 
   if (isLoading) {
     return (
@@ -174,9 +238,9 @@ export default function ArticlePage() {
       <div className="body-blog">
         <div className="error-state">
           <p>{error}</p>
-          <button className="try-again-blog" onClick={handleGoBack}>
+          <Link className="try-again-blog" to='/'>
             Go Back
-          </button>
+          </Link>
         </div>
       </div>
     )
@@ -187,13 +251,15 @@ export default function ArticlePage() {
       <div className="body-blog">
         <div className="error-state">
           <p>Article not found</p>
-          <button className="try-again-blog" onClick={handleGoBack}>
+          <Link className="try-again-blog" to='/'>
             Go Back
-          </button>
+          </Link>
         </div>
       </div>
     )
   }
+
+
 
   return (
     <div className="body-blog">
@@ -202,13 +268,13 @@ export default function ArticlePage() {
           <div className="article-modal-content">
             <aside className="asside-article">
               <div className="asside-main">
-                <button
-                  onClick={handleGoBack}
+                <Link to="/blog"
+                  
                   className="close-article-btn"
                   style={{ cursor: 'pointer' }}
                 >
                   <Backic />
-                </button>
+                </Link>
                 <h1 className="article-modal-title">{article.title_blog || "Judul tidak tersedia"}</h1>
                 <div className="con-user-uploader">
                   <div className="author-photo"></div>
@@ -218,10 +284,48 @@ export default function ArticlePage() {
                       <p className="publish-date">
                         {article.created_at ? formatDate(article.created_at) : "Tanggal tidak tersedia"}
                       </p>
-                      <button className="sharePage" onClick={handleShare}>
-                        <i className="fi fi-rs-share"></i>
-                        <p> Share</p>
-                      </button>
+
+                      {/* IMPROVED SHARE BUTTON */}
+                      <div className="share-menu-container" style={{ position: 'relative' }}>
+                        <button className="sharePage" onClick={handleShare}>
+                          <i className="fi fi-rs-share"></i>
+                          <p> Share</p>
+                        </button>
+
+                        {/* Custom Share Menu */}
+                        {showShareMenu && (
+                          <div className="share-dropdown">
+                        
+
+                            <div className="share-divider"></div>
+
+                            <button onClick={() => shareToSocial('whatsapp')} className="share-option">
+                              <i className="fi fi-brands-whatsapp"></i>
+                              <span>WhatsApp</span>
+                            </button>
+
+                            <button onClick={() => shareToSocial('twitter')} className="share-option">
+                              <i className="fi fi-brands-twitter"></i>
+                              <span>Twitter</span>
+                            </button>
+
+                            <button onClick={() => shareToSocial('facebook')} className="share-option">
+                              <i className="fi fi-brands-facebook"></i>
+                              <span>Facebook</span>
+                            </button>
+
+                            <button onClick={() => shareToSocial('linkedin')} className="share-option">
+                              <i className="fi fi-brands-linkedin"></i>
+                              <span>LinkedIn</span>
+                            </button>
+
+                            <button onClick={() => shareToSocial('telegram')} className="share-option">
+                              <i className="fi fi-brands-telegram"></i>
+                              <span>Telegram</span>
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -272,6 +376,8 @@ export default function ArticlePage() {
         </div>
       </div>
       <Footer />
+
+      
     </div>
   )
 }
