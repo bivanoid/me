@@ -550,10 +550,9 @@ main {
 }
 
 .main-article {
-    padding-left: 30px;
+    padding-inline: 20vw;
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -576,7 +575,7 @@ main {
 }
 
 .article-modal-image {
-    width: 60%;
+    width: 100%;
 
     object-position: center;
 }
@@ -733,6 +732,7 @@ main {
     color: var(--button);
     font-family: var(--primaryfont);
     font-size: 0.8em;
+    width: 100%;
 }
 
 .article-modal-body p {
@@ -1075,7 +1075,7 @@ hr {
 
     .main-article {
         padding-top: 20px;
-        padding-left: 0px;
+        padding-inline: 0px;
         width: 100%;
         display: flex;
         align-items: center;
@@ -1396,8 +1396,13 @@ hr {
 }
 
 /* ========== TABLES ========== */
-.rendered-html table {
+.con-table {
     width: 100%;
+    overflow-x: auto !important;
+}
+
+.rendered-html table {
+    
     border-collapse: collapse;
     margin: 2em 0;
     font-family: var(--primaryfont);
@@ -1411,6 +1416,7 @@ hr {
     padding: 12px 15px;
     text-align: left;
     color: var(--button);
+    min-width: fit-content;
 }
 
 .rendered-html table th {
@@ -1430,7 +1436,11 @@ hr {
 }
 
 .rendered-html table td {
-    min-width: 2em;
+    min-width: 12em;
+}
+
+.rendered-html table td:nth-child(1) {
+    min-width: 5em;
 }
 
 /* ========== BLOCKQUOTE ========== */

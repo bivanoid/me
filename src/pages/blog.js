@@ -12,9 +12,8 @@ import Menus from '../iconSvg/menus'
 import Close from '../iconSvg/close'
 import { Link } from 'react-router-dom'
 import { LenisContext } from "../App"
-import mammoth from "mammoth"
 
-const ITEMS_PER_PAGE = 3 // Jumlah artikel per load
+const ITEMS_PER_PAGE = 6 // Increased for better UX
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([])
@@ -23,84 +22,229 @@ export default function Blog() {
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [filter, setFilter] = useState("latest")
   const [error, setError] = useState(null)
-  const [docxContents, setDocxContents] = useState({})
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(0)
   const [hasMore, setHasMore] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
   const [searchInput, setSearchInput] = useState("")
-  const [filteredBlogs, setFilteredBlogs] = useState([])
+  const [totalCount, setTotalCount] = useState(0)
 
   const navigate = useNavigate()
   const location = useLocation()
-  const scrollPosition = useRef(0)
   const lenisRef = useContext(LenisContext)
   const observerTarget = useRef(null)
+  const imageCache = useRef(new Set())
 
-  const handleGoBack = () => {
-    navigate(-1)
+  // ============================================
+  // OPTIMIZED IMAGE COMPRESSION & CACHING
+  // ============================================
+  const getOptimizedImageUrl = useCallback((url) => {
+    if (!url) return null
+
+    // Jika menggunakan Supabase Storage, tambahkan parameter transformasi
+    if (url.includes('supabase')) {
+      // Supabase Image Transformation
+      return `${url}?width=400&quality=75&format=webp`
+    }
+
+    // Untuk URL eksternal, gunakan image proxy (opsional)
+    return url
+  }, [])
+
+  // ============================================
+  // LAZY LOAD IMAGES
+  // ============================================
+  const LazyImage = ({ src, alt, className }) => {
+    const [imageSrc, setImageSrc] = useState(null)
+    const [imageLoaded, setImageLoaded] = useState(false)
+    const imgRef = useRef()
+
+    useEffect(() => {
+      // Check if image is already cached
+      if (imageCache.current.has(src)) {
+        setImageSrc(src)
+        setImageLoaded(true)
+        return
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const optimizedSrc = getOptimizedImageUrl(src)
+              setImageSrc(optimizedSrc)
+              observer.disconnect()
+            }
+          })
+        },
+        { rootMargin: '50px' }
+      )
+
+      if (imgRef.current) {
+        observer.observe(imgRef.current)
+      }
+
+      return () => observer.disconnect()
+    }, [src])
+
+    const handleLoad = () => {
+      setImageLoaded(true)
+      imageCache.current.add(src)
+    }
+
+    return (
+      <div ref={imgRef} className={className} style={{ position: 'relative', overflow: 'hidden' }}>
+        {!imageLoaded && (
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)',
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 1.5s infinite'
+          }} />
+        )}
+        {imageSrc && (
+          <img
+            src={imageSrc}
+            alt={alt}
+            loading="lazy"
+            onLoad={handleLoad}
+            onError={(e) => {
+              e.target.onerror = null
+              e.target.src = "https://via.placeholder.com/400x250?text=No+Image"
+            }}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              opacity: imageLoaded ? 1 : 0,
+              transition: 'opacity 0.3s ease-in-out'
+            }}
+          />
+        )}
+      </div>
+    )
   }
 
-  // Fungsi pencarian
-  // Fungsi pencarian - dijalankan hanya saat tombol ditekan
+  // ============================================
+  // OPTIMIZED FETCH - DATABASE LEVEL PAGINATION
+  // ============================================
+  const fetchBlogs = useCallback(async (filterType, page = 0, isSearch = false) => {
+    const isInitialLoad = page === 0
+
+    if (isInitialLoad) {
+      setIsLoading(true)
+      setCurrentPage(0)
+      setDisplayedBlogs([])
+    } else {
+      setIsLoadingMore(true)
+    }
+
+    setError(null)
+
+    try {
+      // OPTIMIZED: Fetch hanya data yang dibutuhkan
+      const startIndex = page * ITEMS_PER_PAGE
+      const endIndex = startIndex + ITEMS_PER_PAGE - 1
+
+      let query = supabase
+        .from("blog")
+        .select('id, title_blog, sub_title, created_at, image_url', { count: 'exact' })
+        .range(startIndex, endIndex)
+
+      // Apply search filter
+      if (isSearch && searchQuery) {
+        query = query.or(`title_blog.ilike.%${searchQuery}%,sub_title.ilike.%${searchQuery}%,`)
+      }
+
+      // Apply sorting
+      if (filterType === "latest") {
+        query = query.order("created_at", { ascending: false })
+      } else if (filterType === "oldest") {
+        query = query.order("created_at", { ascending: true })
+      }
+
+      const { data, error, count } = await query
+
+      if (error) throw error
+
+      if (isInitialLoad) {
+        setTotalCount(count || 0)
+        setDisplayedBlogs(data || [])
+        setHasMore((data?.length || 0) === ITEMS_PER_PAGE)
+      } else {
+        setDisplayedBlogs(prev => [...prev, ...(data || [])])
+        setHasMore((data?.length || 0) === ITEMS_PER_PAGE)
+      }
+
+      setCurrentPage(page)
+
+    } catch (err) {
+      console.error("Error fetching blogs:", err)
+      setError("Failed to load articles: " + (err.message || String(err)))
+    } finally {
+      setIsLoading(false)
+      setIsLoadingMore(false)
+    }
+  }, [searchQuery])
+
+  // ============================================
+  // SEARCH HANDLER
+  // ============================================
   const handleSearch = useCallback(() => {
     const query = searchInput.trim()
     setSearchQuery(query)
+    setCurrentPage(0)
+    setDisplayedBlogs([])
+    fetchBlogs(filter, 0, !!query)
+  }, [searchInput, filter, fetchBlogs])
 
-    if (!query) {
-      setFilteredBlogs(blogs)
-      const initialBlogs = blogs.slice(0, ITEMS_PER_PAGE)
-      setDisplayedBlogs(initialBlogs)
-      setCurrentPage(1)
-      setHasMore(blogs.length > ITEMS_PER_PAGE)
-      return
-    }
+  // ============================================
+  // LOAD MORE HANDLER
+  // ============================================
+  const loadMoreBlogs = useCallback(() => {
+    if (isLoadingMore || !hasMore) return
+    fetchBlogs(filter, currentPage + 1, !!searchQuery)
+  }, [currentPage, filter, hasMore, isLoadingMore, searchQuery, fetchBlogs])
 
-    const searchLower = query.toLowerCase()
-    const filtered = blogs.filter(blog => {
-      const titleMatch = blog.title_blog?.toLowerCase().includes(searchLower)
-      const subtitleMatch = blog.sub_title?.toLowerCase().includes(searchLower)
-      const categoryMatch = blog.category?.toLowerCase().includes(searchLower)
-
-      // Search dalam content HTML
-      let contentMatch = false
-      if (blog.content_html) {
-        const tempDiv = document.createElement('div')
-        tempDiv.innerHTML = blog.content_html
-        const textContent = tempDiv.textContent || tempDiv.innerText || ""
-        contentMatch = textContent.toLowerCase().includes(searchLower)
-      }
-
-      return titleMatch || subtitleMatch || categoryMatch || contentMatch
-    })
-
-    setFilteredBlogs(filtered)
-    const initialFiltered = filtered.slice(0, ITEMS_PER_PAGE)
-    setDisplayedBlogs(initialFiltered)
-    setCurrentPage(1)
-    setHasMore(filtered.length > ITEMS_PER_PAGE)
-
-    // Load content untuk hasil pencarian
-    initialFiltered.forEach(blog => loadDocxContent(blog))
-  }, [blogs, searchInput])
-
-
-  // Update effect untuk filter
+  // ============================================
+  // INTERSECTION OBSERVER
+  // ============================================
   useEffect(() => {
-    if (searchQuery) {
-      handleSearch(searchQuery)
-    }
-  }, [blogs, searchQuery, handleSearch])
+    if (!observerTarget.current || !hasMore) return
 
-  // Reset scroll position ketika pertama kali masuk atau kembali dari article
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting && hasMore && !isLoadingMore) {
+          loadMoreBlogs()
+        }
+      },
+      { threshold: 0.1, rootMargin: '200px' }
+    )
+
+    const currentTarget = observerTarget.current
+    observer.observe(currentTarget)
+
+    return () => {
+      if (currentTarget) observer.unobserve(currentTarget)
+    }
+  }, [hasMore, isLoadingMore, loadMoreBlogs])
+
+  // ============================================
+  // INITIAL LOAD
+  // ============================================
+  useEffect(() => {
+    fetchBlogs(filter, 0, false)
+  }, [filter, fetchBlogs])
+
+  // ============================================
+  // SCROLL RESTORATION
+  // ============================================
   useEffect(() => {
     if (location.state?.restoreScroll) {
       const savedPosition = sessionStorage.getItem('blogScrollPosition')
       if (savedPosition && lenisRef?.current) {
         setTimeout(() => {
-          lenisRef.current.scrollTo(parseInt(savedPosition), {
-            immediate: true,
-            force: true
-          })
+          lenisRef.current.scrollTo(parseInt(savedPosition), { immediate: true })
           sessionStorage.removeItem('blogScrollPosition')
         }, 150)
       } else if (savedPosition) {
@@ -114,267 +258,51 @@ export default function Blog() {
         lenisRef.current.scrollTo(0, { immediate: true })
       } else {
         window.scrollTo(0, 0)
-        document.documentElement.scrollTop = 0
-        document.body.scrollTop = 0
       }
     }
   }, [location.state, lenisRef])
 
-  useEffect(() => {
-    async function testConnection() {
-      try {
-        const { data, error } = await supabase.from("blog").select("count")
-        if (error) {
-          console.error("Connection test failed:", error)
-        } else {
-          console.log("Connection test successful:", data)
-        }
-      } catch (err) {
-        console.error("Connection test error:", err)
-      }
-    }
-
-    testConnection()
-    fetchBlogs(filter)
-  }, [filter])
-
-  // Fungsi untuk mengkonversi DOCX ke HTML dengan styling yang lebih baik
-  async function convertDocxToHtml(docxUrl) {
-    try {
-      const response = await fetch(docxUrl)
-      const arrayBuffer = await response.arrayBuffer()
-
-      const options = {
-        styleMap: [
-          "p[style-name='Heading 1'] => h1:fresh",
-          "p[style-name='Heading 2'] => h2:fresh",
-          "p[style-name='Heading 3'] => h3:fresh",
-          "p[style-name='Heading 4'] => h4:fresh",
-          "p[style-name='Title'] => h1.title:fresh",
-          "p[style-name='Subtitle'] => p.subtitle:fresh",
-          "p[style-name='List Paragraph'] => ol > li:fresh",
-          "r[style-name='Strong'] => strong",
-          "r[style-name='Emphasis'] => em",
-        ],
-        convertImage: mammoth.images.imgElement(function (image) {
-          return image.read("base64").then(function (imageBuffer) {
-            return {
-              src: "data:" + image.contentType + ";base64," + imageBuffer
-            }
-          })
-        })
-      }
-
-      const result = await mammoth.convertToHtml({ arrayBuffer }, options)
-
-      // Post-process HTML untuk memperbaiki formatting
-      let html = result.value
-
-      // Tambahkan class untuk list items
-      html = html.replace(/<li>/g, '<li class="doc-list-item">')
-
-      // Bersihkan multiple line breaks
-      html = html.replace(/(<br\s*\/?>){3,}/g, '<br><br>')
-
-      // Wrap numbered items
-      html = html.replace(/(\d+\.\s+)([^<\n]+)/g, '<p class="numbered-item"><span class="number">$1</span>$2</p>')
-
-      return html
-    } catch (error) {
-      console.error("Error converting DOCX to HTML:", error)
-      return null
-    }
-  }
-
-  // Konversi DOCX secara lazy (hanya untuk artikel yang ditampilkan)
-  async function loadDocxContent(blog) {
-    // Prioritaskan content_html dari TinyMCE (spb1)
-    if (blog.content_html) {
-      setDocxContents(prev => ({
-        ...prev,
-        [blog.id]: blog.content_html
-      }))
-    }
-    // Fallback ke docx_url jika tidak ada content_html
-    else if (blog.docx_url && !docxContents[blog.id]) {
-      const htmlContent = await convertDocxToHtml(blog.docx_url)
-      if (htmlContent) {
-        setDocxContents(prev => ({
-          ...prev,
-          [blog.id]: htmlContent
-        }))
-      }
-    }
-  }
-
-  async function fetchBlogs(filterType) {
-    setIsLoading(true)
-    setError(null)
-    setCurrentPage(1)
-
-    try {
-      console.log("Fetching blogs with filter:", filterType)
-
-      let query = supabase.from("blog").select("*")
-
-      if (filterType === "latest") {
-        query = query.order("created_at", { ascending: false })
-      } else if (filterType === "oldest") {
-        query = query.order("created_at", { ascending: true })
-      }
-
-      const { data, error } = await query
-
-      console.log("Supabase response:", { data, error })
-
-      if (error) {
-        console.error("Failed to fetch data:", error)
-        setError("Oh noo! " + error.message)
-      } else if (!data || data.length === 0) {
-        console.log("No blog data found")
-        setBlogs([])
-        setDisplayedBlogs([])
-        setFilteredBlogs([])
-        setHasMore(false)
-      } else {
-        console.log("Blog data fetched successfully:", data)
-        setBlogs(data)
-        setFilteredBlogs(data)
-
-        // Tampilkan hanya artikel pertama sesuai ITEMS_PER_PAGE
-        const initialBlogs = data.slice(0, ITEMS_PER_PAGE)
-        setDisplayedBlogs(initialBlogs)
-        setHasMore(data.length > ITEMS_PER_PAGE)
-
-        // Load content untuk artikel pertama
-        for (const blog of initialBlogs) {
-          await loadDocxContent(blog)
-        }
-      }
-    } catch (err) {
-      console.error("Error fetching blogs:", err)
-      setError("Terjadi kesalahan saat mengambil data: " + (err.message || String(err)))
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  // Load more articles saat scroll
-  const loadMoreBlogs = useCallback(async () => {
-    if (isLoadingMore || !hasMore) return;
-
-    setIsLoadingMore(true);
-
-    const gimmickDelay = new Promise(resolve => setTimeout(resolve, 1500));
-    const nextPage = currentPage + 1;
-    const startIndex = currentPage * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-
-    // Gunakan filteredBlogs jika ada pencarian, jika tidak gunakan blogs
-    const sourceBlogs = searchQuery ? filteredBlogs : blogs
-    const newBlogs = sourceBlogs.slice(startIndex, endIndex);
-
-    if (newBlogs.length === 0) {
-      setHasMore(false);
-      setIsLoadingMore(false);
-      return;
-    }
-
-    try {
-      await Promise.all([
-        gimmickDelay,
-        ...newBlogs.map(blog => loadDocxContent(blog))
-      ]);
-
-      setDisplayedBlogs(prev => [...prev, ...newBlogs]);
-      setCurrentPage(nextPage);
-      setHasMore(endIndex < sourceBlogs.length);
-    } catch (err) {
-      console.error("Error loading more blogs:", err);
-    } finally {
-      setIsLoadingMore(false);
-    }
-  }, [currentPage, blogs, filteredBlogs, searchQuery, hasMore, isLoadingMore]);
-
-  // Intersection Observer untuk infinite scroll
-  useEffect(() => {
-    if (displayedBlogs.length === 0 || !observerTarget.current) {
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      entries => {
-        if (entries[0].isIntersecting && hasMore && !isLoadingMore) {
-          console.log('Intersection triggered - loading more blogs')
-          loadMoreBlogs()
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '100px'
-      }
-    )
-
-    const currentTarget = observerTarget.current
-    observer.observe(currentTarget)
-
-    return () => {
-      if (currentTarget) {
-        observer.unobserve(currentTarget)
-      }
-    }
-  }, [displayedBlogs.length, hasMore, isLoadingMore, loadMoreBlogs])
-
+  // ============================================
+  // HANDLERS
+  // ============================================
   function handleFilterChange(newFilter) {
     setFilter(newFilter)
-    setDocxContents({})
-    setSearchQuery("") // Reset pencarian saat ganti filter
+    setSearchQuery("")
+    setSearchInput("")
+    setCurrentPage(0)
+    setDisplayedBlogs([])
   }
 
   function openBlog() {
     ["menuShow", "closeBlog", "conArticle", "footerBlog", "backMenuIcon", "menuBlogIcon", "logoBlogIcon"].forEach((id) => {
-      const element = document.getElementById(id)
-      if (element) {
-        element.classList.toggle("open-menu-blog")
-      }
+      document.getElementById(id)?.classList.toggle("open-menu-blog")
     })
   }
 
   function openArticle(article) {
-    if (lenisRef?.current) {
-      const currentScroll = lenisRef.current.scroll
-      sessionStorage.setItem('blogScrollPosition', currentScroll.toString())
-    } else {
-      sessionStorage.setItem('blogScrollPosition', window.pageYOffset.toString())
-    }
+    const scrollPos = lenisRef?.current?.scroll || window.pageYOffset
+    sessionStorage.setItem('blogScrollPosition', scrollPos.toString())
 
-    // Kirim artikel beserta HTML content yang sudah dikonversi
-    const articleWithContent = {
-      ...article,
-      htmlContent: docxContents[article.id]
-    }
-
-    navigate(`/article/${article.id}`, { state: { article: articleWithContent } })
+    navigate(`/article/${article.id}`, {
+      state: {
+        article: {
+          ...article,
+          content_html: article.content_html, // pastikan kolom ini di-fetch
+          docx_url: article.docx_url
+        }
+      }
+    })
   }
+
 
   function formatDate(dateString) {
     const options = { year: "numeric", month: "long", day: "numeric" }
     return new Date(dateString).toLocaleDateString("id-ID", options)
   }
 
-  function truncateHtml(html, maxLength = 250) {
-    if (!html) return "Konten tidak tersedia"
-
-    const tempDiv = document.createElement('div')
-    tempDiv.innerHTML = html
-    const textContent = tempDiv.textContent || tempDiv.innerText || ""
-
-    if (textContent.length <= maxLength) return html
-
-    const truncated = textContent.substring(0, maxLength)
-    return truncated + "... <span class='seeMore' style='opacity: 1 !important;'>see more</span>"
-  }
-
+  // ============================================
+  // RENDER
+  // ============================================
   return (
     <div className="body-blog" id="theblog">
       <div className="con-blog">
@@ -386,7 +314,6 @@ export default function Blog() {
             <div className="logoBlog" id="logoBlogIcon">
               <Logo />
             </div>
-
             <div className="menu-button-blog" id="menuBlogIcon" onClick={openBlog}>
               <Menus />
             </div>
@@ -401,12 +328,10 @@ export default function Blog() {
                   placeholder="Search articles..."
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                   className="search-input"
                 />
-                <button
-                  className="search-button"
-                  onClick={handleSearch}
-                >
+                <button className="search-button" onClick={handleSearch}>
                   Search
                 </button>
                 {searchQuery && (
@@ -415,105 +340,83 @@ export default function Blog() {
                     onClick={() => {
                       setSearchInput("")
                       setSearchQuery("")
-                      handleSearch("") // reset hasil
+                      setCurrentPage(0)
+                      fetchBlogs(filter, 0, false)
                     }}
-                    aria-label="Clear search"
                   >
-                    × <span>Clear</span> 
+                    × <span>Clear</span>
                   </button>
                 )}
-
               </div>
             </div>
 
             {isLoading ? (
               <div className="loading-state">
-                <p>Loading</p>
+                <p>Loading articles...</p>
               </div>
             ) : error ? (
               <div className="error-state">
                 <Alert />
                 <p>{error}</p>
-                <button className="try-again-blog" onClick={() => fetchBlogs(filter)}>
-                  Load Again
+                <button className="try-again-blog" onClick={() => fetchBlogs(filter, 0, false)}>
+                  Try Again
                 </button>
               </div>
             ) : displayedBlogs.length === 0 ? (
               <div className="empty-state">
-                <p>{searchQuery ? `No articles found for "${searchQuery}"` : "No Article Here :("}</p>
+                <p>{searchQuery ? `No articles found for "${searchQuery}"` : "No articles available"}</p>
               </div>
             ) : (
               <>
-                <div className="info-blog" id="info-blog">
+                <div className="info-blog">
                   <div className="debug-info">
-                    <p>Showing: {displayedBlogs.length} of {searchQuery ? filteredBlogs.length : blogs.length}</p>
-                    <p>Filter: {filter}</p>
-                    
+                    <p>Showing {displayedBlogs.length} of {totalCount} articles</p>
                   </div>
                 </div>
 
-                {displayedBlogs.map((blog, index) => {
-                  const htmlContent = docxContents[blog.id]
+                {displayedBlogs.map((blog) => (
+                  <div
+                    className="article"
+                    onClick={() => openArticle(blog)}
+                    style={{ cursor: "pointer" }}
+                    key={blog.id}
+                  >
+                    <div className="con-image-article">
+                      {blog.image_url ? (
+                        <LazyImage
+                          src={blog.image_url}
+                          alt={blog.title_blog || "Article"}
+                          className="image-article"
+                        />
+                      ) : (
+                        <div className="placeholder-image">No Image</div>
+                      )}
+                    </div>
 
-                  return (
-                    <div
-                      className="article"
-                      onClick={() => openArticle(blog)}
-                      style={{ cursor: "pointer" }}
-                      key={blog.id || index}
-                    >
-                      <div className="con-image-article">
-                        {blog.image_url ? (
-                          <img
-                            src={blog.image_url || "/placeholder.svg"}
-                            className="image-article"
-                            alt={`Gambar untuk ${blog.title_blog || "Artikel"}`}
-                            loading="lazy"
-                            onError={(e) => {
-                              e.target.onerror = null
-                              e.target.src = "https://via.placeholder.com/300x200?text=No+Image"
-                            }}
-                          />
-                        ) : (
-                          <div className="placeholder-image">No Image Available</div>
+                    <div className="column-article">
+                      <div className="text-article">
+                        <h1 className="title-article">{blog.title_blog || "Untitled"}</h1>
+                        {blog.sub_title && (
+                          <p className="subtitle-article">{blog.sub_title}</p>
                         )}
-                      </div>
-
-                      <div className="column-article">
-                        <div className="text-article">
-                          <h1 className="title-article">{blog.title_blog || "Judul tidak tersedia"}</h1>
-
-                          {blog.sub_title && (
-                            <p className="subtitle-article">{blog.sub_title}</p>
-                          )}
-
-                          <p id="date-post">
-                            {blog.created_at ? formatDate(blog.created_at) : "Tanggal tidak tersedia"}
-                          </p>
-                        </div>
-                        {blog.category && (
-                          <div className="blog-category">
-                            <span>{blog.category}</span>
-                          </div>
-                        )}
+                        <p id="date-post">
+                          {blog.created_at ? formatDate(blog.created_at) : "No date"}
+                        </p>
                       </div>
                     </div>
-                  )
-                })}
+                  </div>
+                ))}
 
-                {/* Infinite Scroll Trigger */}
+                {/* Load More Trigger */}
                 {hasMore && (
-                  <div
-                    ref={observerTarget}
-                    className="con-loading-more"
-                  >
+                  <div ref={observerTarget} className="con-loading-more">
                     {isLoadingMore ? (
                       <div className="loading-more">
-                        <p>Loading...</p>
+                        <p>Loading more articles...</p>
                       </div>
                     ) : (
-                      <div style={{ opacity: 0.4, fontSize: '14px' }}>
-                        <p>Scroll to load more</p>
+                      <div style={{ opacity: 0.4, fontSize: '14px', padding: '20px' }}>
+                        <p>Scroll for more</p>
                       </div>
                     )}
                   </div>
@@ -537,17 +440,23 @@ export default function Blog() {
             <div className="filter-by">
               <h2>Filter By</h2>
               <ul>
-                <li className={filter === "latest" ? "active" : ""} onClick={() => handleFilterChange("latest")}>
+                <li
+                  className={filter === "latest" ? "active" : ""}
+                  onClick={() => handleFilterChange("latest")}
+                >
                   Latest
                 </li>
-                <li className={filter === "oldest" ? "active" : ""} onClick={() => handleFilterChange("oldest")}>
+                <li
+                  className={filter === "oldest" ? "active" : ""}
+                  onClick={() => handleFilterChange("oldest")}
+                >
                   Oldest
                 </li>
               </ul>
               <button
                 className="try-again-blog try-again-blog2"
                 onClick={() => {
-                  fetchBlogs(filter)
+                  fetchBlogs(filter, 0, false)
                   openBlog()
                 }}
               >
@@ -560,6 +469,14 @@ export default function Blog() {
       <div id="footerBlog">
         <Footer />
       </div>
+
+      {/* Add shimmer animation CSS */}
+      <style>{`
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+      `}</style>
     </div>
   )
 }
