@@ -11,7 +11,6 @@ import AddFeedback from './pages/addfeedback';
 import Blog from './pages/blog';
 import CustomCursor from './components/CustomCursor';
 import ArticlePage from './pages/ArticlePages';
-import AnimatedContent from './components/AnimatedContent';
 import Loading from './components/loading';
 
 import ReactGA from "react-ga4";
